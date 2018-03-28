@@ -54,17 +54,6 @@
 		    <scope>provided</scope>
 		</dependency>
 		
-		<!-- Spring data JPA, default tomcat pool, exclude it -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.apache.tomcat</groupId>
-                    <artifactId>tomcat-jdbc</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
         <!-- 마이바티스 -->
         <dependency>
 	        <groupId>org.mybatis.spring.boot</groupId>
