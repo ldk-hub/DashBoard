@@ -11,22 +11,19 @@ import org.springframework.web.servlet.view.JstlView;
 @Configuration
 @EnableWebMvc
 public class WebMvcConfiguration extends WebMvcConfigurerAdapter {
-	
-	@Bean
-	public InternalResourceViewResolver getInternalResourceViewResolver() {
-		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-		resolver.setViewClass(JstlView.class);
-		resolver.setPrefix("/WEB-INF/jsp/");
-		resolver.setSuffix(".jsp");
-		
-		return resolver;
-	}
+    @Bean
+    public InternalResourceViewResolver getInternalResourceViewResolver() {
+        InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+        resolver.setViewClass(JstlView.class);
+        resolver.setPrefix("/WEB-INF/jsp/");
+        resolver.setSuffix(".jsp");
 
-	
-	@Override
-	public void addResourceHandlers( ResourceHandlerRegistry registry) {
-		
-		registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
-	}
-	
+        return resolver;
+    }
+
+    @Override
+    public void addResourceHandlers( ResourceHandlerRegistry registry )
+    {
+        registry.addResourceHandler( "/static/**" ).addResourceLocations( "classpath:/static/" );
+    }
 }
