@@ -3,7 +3,7 @@
 <!-- footer content -->
 <footer>
     <div class="pull-right">
-        Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+        Bootstrap Admin Template by <a href="https://github.com/leedongok">개발자 깃허브로로 가기</a>
     </div>
     <div class="clearfix"></div>
 </footer>
