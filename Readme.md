@@ -18,7 +18,7 @@ JAVA1.8, Spring Boot, lombok, Mybatis, Oracle DB, gentelella, Tiles
 페이지 탭방식 비동기 처리, 오라클 테이블 설계, 로그인 페이지 스프링 시큐리티 추가
 
 ![mainpage](https://user-images.githubusercontent.com/12209348/38228816-7aec3b06-3740-11e8-996e-e27163ca63b1.PNG)
-
+![default](https://user-images.githubusercontent.com/12209348/38308215-52008082-3851-11e8-9b08-c8068048ac9b.PNG)
 
 ##진행 예정
 1. 회원가입, 로그인, 회원정보 페이지, 회원수정 페이지

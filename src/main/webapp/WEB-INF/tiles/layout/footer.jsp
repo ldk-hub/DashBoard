@@ -3,7 +3,7 @@
 <!-- footer content -->
 <footer>
     <div class="pull-right">
-        Bootstrap Admin Template by <a href="https://github.com/leedongok">개발자 깃허브로로 가기</a>
+         개발자 정보 <a href="https://github.com/leedongok">https://github.com/leedongok</a>
     </div>
     <div class="clearfix"></div>
 </footer>
