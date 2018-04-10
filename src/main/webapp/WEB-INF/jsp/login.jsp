@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+    
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
@@ -11,16 +11,15 @@
     <title>통계정보사이트 </title>
 
     <!-- Bootstrap -->
-    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/static/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
-    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+    <link href="/static/vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- Animate.css -->
-    <link href="../vendors/animate.css/animate.min.css" rel="stylesheet">
-
+    <link href="/static/vendors/animate.css/animate.min.css" rel="stylesheet">
     <!-- Custom Theme Style -->
-    <link href="../build/css/custom.min.css" rel="stylesheet">
+    <link href="/static/css/custom.min.css" rel="stylesheet">
   </head>
 
   <body class="login">
@@ -32,7 +31,7 @@
         <div class="animate form login_form">
           <section class="login_content">
             <form>
-              <h1>환영합니다. 로그인 해주세요.</h1>
+              <h1>환영합니다.</h1>
               <div>
                 <input type="text" class="form-control" placeholder="ID" required="" />
               </div>
@@ -40,14 +39,14 @@
                 <input type="password" class="form-control" placeholder="Password" required="" />
               </div>
               <div>
-                <a class="btn btn-default submit" href="dashboard">Log in</a>
+                <a class="btn btn-default submit" href="dashboard">로그인</a>
                 <a class="reset_pass" href="#">비밀번호 분실</a>
               </div>
 
               <div class="clearfix"></div>
 
               <div class="separator">
-                <p class="change_link">New to site?
+                <p class="change_link">처음 방문이신가요?
                   <a href="#signup" class="to_register"> 회원가입 </a>
                 </p>
 
@@ -55,8 +54,8 @@
                 <br />
 
                 <div>
-                  <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
-                  <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
+                  <h1><i class="fa fa-paw"></i>LeeDongOk`s Site</h1>
+                  <p>©2018 All Rights Reserved. LeeDongOk Develop Site</p>
                 </div>
               </div>
             </form>
@@ -66,33 +65,33 @@
         <div id="register" class="animate form registration_form">
           <section class="login_content">
             <form>
-              <h1>Create Account</h1>
+              <h1>계정을 생성하세요.</h1>
               <div>
-                <input type="text" class="form-control" placeholder="Username" required="" />
-              </div>
-              <div>
-                <input type="email" class="form-control" placeholder="Email" required="" />
+                <input type="text" class="form-control" placeholder="ID" required="" />
               </div>
               <div>
                 <input type="password" class="form-control" placeholder="Password" required="" />
               </div>
+               <div>
+                <input type="email" class="form-control" placeholder="Email" required="" />
+              </div>
               <div>
-                <a class="btn btn-default submit" href="index.html">Submit</a>
+                <a class="btn btn-default submit" href="#">확인</a>
               </div>
 
               <div class="clearfix"></div>
 
               <div class="separator">
-                <p class="change_link">Already a member ?
-                  <a href="#signin" class="to_register"> Log in </a>
+                <p class="change_link">회원가입이 완료 되었다면?
+                  <a href="#signin" class="to_register"> 로그인 </a>
                 </p>
 
                 <div class="clearfix"></div>
                 <br />
 
                 <div>
-                  <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
-                  <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
+                  <h1><i class="fa fa-paw"></i>LeeDongOk`s Site</h1>
+                  <p>©2018 All Rights Reserved. LeeDongOk Develop Site</p>
                 </div>
               </div>
             </form>
