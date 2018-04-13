@@ -15,6 +15,7 @@ public class DashBoard {
 	
     private static final String VIEW_PATH = "dashboard/";
     private static final String VIEW_PATH2 = "itemsample/";
+    private static final String VIEW_PATH3 = "form/";
 	
     
     @RequestMapping( value = "/login", method = RequestMethod.GET )
@@ -34,6 +35,11 @@ public class DashBoard {
     public String contacts(Model model)
     {
         return VIEW_PATH + "contacts";
+    }
+    @RequestMapping( value = "/calendar", method = RequestMethod.GET )
+    public String calendar(Model model)
+    {
+        return VIEW_PATH + "calendar";
     }
     
     //VIEW_PATH2 영역
@@ -57,6 +63,21 @@ public class DashBoard {
     {
         return  VIEW_PATH2+ "icons";
     }
+    
+    
+    //VIEW_PATH3 영역
+    @RequestMapping( value = "/form", method = RequestMethod.GET )
+    public String form(Model model)
+    {
+        return  VIEW_PATH3+ "form";
+    }
+    
+    @RequestMapping( value = "/table", method = RequestMethod.GET )
+    public String table(Model model)
+    {
+        return  VIEW_PATH3+ "table";
+    }
+    
 }
 
 

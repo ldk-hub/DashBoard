@@ -21,6 +21,9 @@ JAVA1.8, Spring Boot, lombok, Mybatis, Oracle DB, gentelella, Tiles
 ![default](https://user-images.githubusercontent.com/12209348/38308215-52008082-3851-11e8-9b08-c8068048ac9b.PNG)
 
 ##진행 예정
+1.개발 샘플페이지 
+
+
 1. 회원가입, 로그인, 회원정보 페이지, 회원수정 페이지
 2. 데이터 차트 연동
 3. 날씨 정보 호출 
