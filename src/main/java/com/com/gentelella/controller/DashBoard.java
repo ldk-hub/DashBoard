@@ -15,69 +15,63 @@ public class DashBoard {
 	
     private static final String VIEW_PATH = "dashboard/";
     private static final String VIEW_PATH2 = "itemsample/";
-    private static final String VIEW_PATH3 = "form/";
 	
     
     @RequestMapping( value = "/login", method = RequestMethod.GET )
     public String login(Model model)
-    {
-        return  "login";
-    }
+	    {
+	        return  "login";
+	    }
+    
+    
     
     //VIEW_PATH 영역
     @RequestMapping( value = "/dashboard", method = RequestMethod.GET )
     public String dashboard(Model model)
-    {
-        return VIEW_PATH + "dashboard";
-    }
+	    {
+	        return VIEW_PATH + "dashboard";
+	    }
     
-    @RequestMapping( value = "/contacts", method = RequestMethod.GET )
-    public String contacts(Model model)
-    {
-        return VIEW_PATH + "contacts";
-    }
     @RequestMapping( value = "/calendar", method = RequestMethod.GET )
     public String calendar(Model model)
-    {
-        return VIEW_PATH + "calendar";
-    }
+	    {
+	        return VIEW_PATH + "calendar";
+	    }
+    @RequestMapping( value = "/hyopage", method = RequestMethod.GET )
+    public String hyopage(Model model)
+	    {
+	        return VIEW_PATH + "hyopage";
+	    }
+    
+    
     
     //VIEW_PATH2 영역
     @RequestMapping( value = "/chartjs", method = RequestMethod.GET )
     public String chartjs(Model model)
-    {
-        return VIEW_PATH2+ "chartjs";
-    }
+	    {
+	        return VIEW_PATH2+ "chartjs";
+	    }
     @RequestMapping( value = "/chartjs2", method = RequestMethod.GET )
     public String chartjs2(Model model)
-    {
-        return VIEW_PATH2+ "chartjs2";
-    }
+	    {
+	        return VIEW_PATH2+ "chartjs2";
+	    }
     @RequestMapping( value = "/echarts", method = RequestMethod.GET )
     public String echarts(Model model)
-    {
-        return  VIEW_PATH2+ "echarts";
-    }
+	    {
+	        return  VIEW_PATH2+ "echarts";
+	    }
     @RequestMapping( value = "/icons", method = RequestMethod.GET )
     public String icons(Model model)
-    {
-        return  VIEW_PATH2+ "icons";
-    }
-    
-    
-    //VIEW_PATH3 영역
+	    {
+	        return  VIEW_PATH2+ "icons";
+	    }
     @RequestMapping( value = "/form", method = RequestMethod.GET )
     public String form(Model model)
-    {
-        return  VIEW_PATH3+ "form";
-    }
-    
-    @RequestMapping( value = "/table", method = RequestMethod.GET )
-    public String table(Model model)
-    {
-        return  VIEW_PATH3+ "table";
-    }
-    
+	    {
+	        return  VIEW_PATH2+ "form";
+	    }
+   
 }
 
 
