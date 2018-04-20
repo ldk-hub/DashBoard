@@ -40,7 +40,6 @@
               </div>
               <div>
                 <a class="btn btn-default submit" href="dashboard">로그인</a>
-                <a class="reset_pass" href="#">비밀번호 분실</a>
               </div>
 
               <div class="clearfix"></div>
@@ -48,8 +47,9 @@
               <div class="separator">
                 <p class="change_link">처음 방문이신가요?
                   <a href="#signup" class="to_register"> 회원가입 </a>
+                  <a class="reset_pass" href="#"> 비밀번호 찾기</a>
                 </p>
-
+                
                 <div class="clearfix"></div>
                 <br />
 
@@ -72,18 +72,22 @@
               <div>
                 <input type="password" class="form-control" placeholder="Password" required="" />
               </div>
-               <div>
+              <div>
                 <input type="email" class="form-control" placeholder="Email" required="" />
               </div>
               <div>
-                <a class="btn btn-default submit" href="#">확인</a>
+                <input type="text" class="form-control" placeholder="Name" required="" />
               </div>
+              <div>
+                <a class="btn btn-default submit" href="#">확인</a>
+                 <a class="btn btn-default submit" href="#">취소</a>
+              </div>
+              
 
               <div class="clearfix"></div>
 
               <div class="separator">
-                <p class="change_link">회원가입이 완료 되었다면?
-                  <a href="#signin" class="to_register"> 로그인 </a>
+                <p class="change_link">환영합니다.
                 </p>
 
                 <div class="clearfix"></div>

@@ -18,7 +18,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception
 	{
+		// 여기에선 리소스외에 페이지의 인증/비인증/인증권한등을 설정하는게 좋은것 같습니다.
 		http.authorizeRequests()
+			// 어드민 권한으로만 접근할 수 있는 경로
 			.antMatchers("/admin/**").hasRole("ADMIN")
 			//모든 접근 경로 해제(임시)
 			.antMatchers("/**").permitAll();
