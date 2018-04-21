@@ -73,7 +73,7 @@
                 <input type="password" class="form-control" placeholder="Password" required="" />
               </div>
               <div>
-                <input type="email" class="form-control" placeholder="Email" required="" />
+                <input type="text" class="form-control" placeholder="Email" required="" />
               </div>
               <div>
                 <input type="text" class="form-control" placeholder="Name" required="" />
