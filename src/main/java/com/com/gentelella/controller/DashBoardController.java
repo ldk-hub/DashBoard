@@ -1,14 +1,17 @@
 package com.com.gentelella.controller;
 
+import java.util.Arrays;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+
 @Controller
-public class DashBoard {
+public class DashBoardController {
 
 	//스프링부트 시작시 logback 사용가능함 base.xml에서 로그레벨 설정할 것
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -17,6 +20,7 @@ public class DashBoard {
     private static final String VIEW_PATH2 = "itemsample/";
 	
     
+    //로그인 페이지
     @RequestMapping( value = "/login", method = RequestMethod.GET )
     public String login(Model model)
 	    {
@@ -25,7 +29,7 @@ public class DashBoard {
     
     
     
-    //VIEW_PATH 영역
+    //VIEW_PATH 구현한 페이지 
     @RequestMapping( value = "/dashboard", method = RequestMethod.GET )
     public String dashboard(Model model)
 	    {
@@ -45,7 +49,7 @@ public class DashBoard {
     
     
     
-    //VIEW_PATH2 영역
+    //VIEW_PATH2 개발용 기타 API 샘플 페이지
     @RequestMapping( value = "/chartjs", method = RequestMethod.GET )
     public String chartjs(Model model)
 	    {

@@ -16,11 +16,11 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-@Getter//lombok
-@Setter//lombok
-@Entity//jpa
-@EqualsAndHashCode(="uid")//lombok
-@ToString//lombok
+@Getter
+@Setter
+@Entity
+@EqualsAndHashCode(of = "uid")
+@ToString
 public class Member {
 	/*
 	 * 롬복 기능 자동 Getter Setter을 통해  시간 단축 up 
