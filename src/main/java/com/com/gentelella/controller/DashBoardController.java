@@ -1,7 +1,5 @@
 package com.com.gentelella.controller;
 
-import java.util.Arrays;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -15,10 +13,9 @@ public class DashBoardController {
 
 	//스프링부트 시작시 logback 사용가능함 base.xml에서 로그레벨 설정할 것
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
-	
+	//뷰패스를 지정해서 영역분리 및 편의기능
     private static final String VIEW_PATH = "dashboard/";
     private static final String VIEW_PATH2 = "itemsample/";
-	
     
     //로그인 페이지
     @RequestMapping( value = "/login", method = RequestMethod.GET )
@@ -29,27 +26,35 @@ public class DashBoardController {
     
     
     
-    //VIEW_PATH 구현한 페이지 
+    //VIEW_PATH 서비스제공 페이지
+    //메인페이지
     @RequestMapping( value = "/dashboard", method = RequestMethod.GET )
     public String dashboard(Model model)
 	    {
 	        return VIEW_PATH + "dashboard";
 	    }
-    
+    //일정관리페이지
     @RequestMapping( value = "/calendar", method = RequestMethod.GET )
     public String calendar(Model model)
 	    {
 	        return VIEW_PATH + "calendar";
 	    }
+    //누나의뢰용 페이지
     @RequestMapping( value = "/hyopage", method = RequestMethod.GET )
     public String hyopage(Model model)
 	    {
 	        return VIEW_PATH + "hyopage";
 	    }
+    //회원정보 확인페이지
+    @RequestMapping( value = "/mypage", method = RequestMethod.GET )
+    public String mypage(Model model)
+	    {
+	        return VIEW_PATH + "mypage";
+	    }
     
     
     
-    //VIEW_PATH2 개발용 기타 API 샘플 페이지
+    //VIEW_PATH2 개발용 기타 API 샘플 페이지(차트,폼 레이아웃, 아이콘)
     @RequestMapping( value = "/chartjs", method = RequestMethod.GET )
     public String chartjs(Model model)
 	    {
