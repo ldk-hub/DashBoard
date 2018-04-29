@@ -7,5 +7,8 @@ import com.com.vo.Member;
 
 public interface MemberRepository extends CrudRepository<Member, Long> {
 
+	Object findByUemail(String email);
+
+
 	
 }

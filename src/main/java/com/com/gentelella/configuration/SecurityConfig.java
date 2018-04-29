@@ -1,9 +1,14 @@
 package com.com.gentelella.configuration;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 //********어드민페이지로 어드민만 접근가능하도록 설계 일반권한접근가능유무도 테스트할것
 //스프링 시큐리티 접근 제어 
@@ -11,8 +16,33 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
+	@Bean
+	public PasswordEncoder passwordEncoder() {
+	  return new BCryptPasswordEncoder();
+	}
+	
+	/*@Autowired
+	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+	  auth.userDetailsService(customUserDetailsService).passwordEncoder(passwordEncoder());
+	}*/
+	
 	
 	@Override
+	protected void configure(HttpSecurity http) throws Exception
+	{
+		http.authorizeRequests()
+			.antMatchers("/admin/**").hasRole("ADMIN")
+			.antMatchers("/**").permitAll()
+			.and().formLogin()
+			.loginPage("/login")
+			.loginProcessingUrl("/login")
+			.defaultSuccessUrl("/")
+	    	.failureUrl("/login")
+	    	.and()
+	    	.logout();
+	}
+	
+	/*@Override
 	public void configure(WebSecurity web) throws Exception
 	{
 		web.ignoring().antMatchers("/css/**", "/script/**", "image/**", "/fonts/**", "lib/**");
@@ -26,5 +56,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers("/admin/**").hasRole("ADMIN")
 			//모든 접근 경로 해제(임시)
 			.antMatchers("/**").permitAll();
-	}
+	}*/
+	
+	
+	
 }
+
