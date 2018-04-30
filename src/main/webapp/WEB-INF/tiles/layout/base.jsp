@@ -165,7 +165,7 @@
 	        $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
 	    });
 	</script>
-	<!-- Custom Theme Scripts -->
+	
 	<script src="/static/js/custom.min.js"></script>
 </body>
 </html>

@@ -20,6 +20,8 @@
     <link href="/static/vendors/animate.css/animate.min.css" rel="stylesheet">
     <!-- Custom Theme Style -->
     <link href="/static/css/custom.min.css" rel="stylesheet">
+     
+    
   </head>
 
   <body class="login">
@@ -64,26 +66,41 @@
 
         <div id="register" class="animate form registration_form">
           <section class="login_content">
-            <form>
+             <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                     
               <h1>계정을 생성하세요.</h1>
-              <div>
-                <input type="text" class="form-control" placeholder="ID" required="" />
-              </div>
-              <div>
-                <input type="password" class="form-control" placeholder="Password" required="" />
-              </div>
-              <div>
-                <input type="text" class="form-control" placeholder="Email" required="" />
-              </div>
-              <div>
-                <input type="text" class="form-control" placeholder="Name" required="" />
-              </div>
-              <div>
-                <a class="btn btn-default submit" href="#">확인</a>
-                 <a class="btn btn-default submit" href="#">취소</a>
-              </div>
               
-
+               <div class="form-group">
+                   <input type="text" id="first-name" required="required" class="form-control">
+               </div>
+               
+               <div class="item form-group">
+                <input id="name" class="form-control" data-validate-length-range="6" data-validate-words="2" 
+                	name="name" placeholder="ID" required="required" type="text">
+               </div>
+               
+              <div>
+                <input type="text" class="form-control" placeholder="ID" required="true" />
+              </div>
+              <div>
+                <input type="password" class="form-control" placeholder="Password" required="true" />
+              </div>
+              <div>
+                <input type="password" class="form-control" placeholder="PasswordConfirm" required="true" />
+              </div>
+              <div>
+                <input type="text" class="form-control" placeholder="Email" required="true" />
+              </div>
+              <div>
+                <input type="text" class="form-control" placeholder="Name" required="true" />
+              </div>
+             
+			  <div class="form-group">
+                 <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                   <button type="submit" class="btn btn-primary">가입하기</button>
+                   <button class="btn btn-primary" type="button">취소</button>
+                 </div>
+              </div>
               <div class="clearfix"></div>
 
               <div class="separator">
@@ -103,5 +120,24 @@
         </div>
       </div>
     </div>
+    
+    <!-- Parsley -->
+    <script src="../vendors/parsleyjs/dist/parsley.min.js"></script>
+    <!-- jQuery -->
+    <script src="../vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="../vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="../vendors/nprogress/nprogress.js"></script>
+    <!-- validator -->
+    <script src="../vendors/validator/validator.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="../build/js/custom.min.js"></script>
   </body>
 </html>
+
+
+
