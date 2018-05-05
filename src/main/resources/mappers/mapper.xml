@@ -1,11 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE configuration  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="dashBoardMapper">
-	<!-- 샘플 데이터 호출 -->
+	<!-- 통계자료 호출 -->
 	<select id="selectBoardList" parameterType="hashmap" resultType="hashmap">
 		<![CDATA[
-		SELECT * FROM MB_MEMB_EMP
+			SELECT PRODUCT_NUMBER,
+			       ITEM_NUMBER,
+			       ITEM_NAME,
+			       BRAND_NAME,
+			       SEASON_REASON,
+			       STATUS
+			  FROM HYO;
 		]]>
 	</select>
+	
+	<!-- 로그인 -->
+	<select id="loginUser" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT SEQ,
+                   STATUS,
+                   NAME,
+                   ID,
+                   PASSWORD,
+                   EMAIL,
+                   SEX,
+                   CREATE_DATE 
+       			FROM 
+					ADMIN WHERE ID = #{id}
+					and PASSWORD = #{pw}
+		]]>
+	</select>
+	
+	<!--회원가입 -->
+	<insert id="createMember" parameterType="hashmap">
+		<![CDATA[
+			INSERT INTO ADMIN (SEQ,
+			                   STATUS,
+			                   NAME,
+			                   ID,
+			                   PASSWORD,
+			                   EMAIL,
+			                   SEX,
+			                   CREATE_DATE
+                   		)VALUES(
+		                   	adminSeq.nextval,
+		                     1, --권한 레벨 추후 수정
+	                     	${ID},
+                            ${PASSWORD},
+                            ${NAME},
+                          	${Email},
+                            ${Sex},
+                            sysdate); 
+		]]>
+	</insert>
+	
 </mapper>
   

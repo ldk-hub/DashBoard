@@ -70,15 +70,10 @@
                      
               <h1>계정을 생성하세요.</h1>
               
-               <div class="form-group">
-                   <input type="text" id="first-name" required="required" class="form-control">
-               </div>
-               
                <div class="item form-group">
                 <input id="name" class="form-control" data-validate-length-range="6" data-validate-words="2" 
                 	name="name" placeholder="ID" required="required" type="text">
                </div>
-               
               <div>
                 <input type="text" class="form-control" placeholder="ID" required="true" />
               </div>
@@ -97,8 +92,8 @@
              
 			  <div class="form-group">
                  <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                   <button type="submit" class="btn btn-primary">가입하기</button>
-                   <button class="btn btn-primary" type="button">취소</button>
+                   <a href="#" class="btn btn-info" role="submit">가입</a>
+                   <a href="#signin" class="btn btn-info" role="button">취소</a>
                  </div>
               </div>
               <div class="clearfix"></div>
