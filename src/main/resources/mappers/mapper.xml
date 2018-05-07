@@ -4,12 +4,12 @@
 	<!-- 통계자료 호출 -->
 	<select id="selectBoardList" parameterType="hashmap" resultType="hashmap">
 		<![CDATA[
-			SELECT PRODUCT_NUMBER,
-			       ITEM_NUMBER,
-			       ITEM_NAME,
-			       BRAND_NAME,
-			       SEASON_REASON,
-			       STATUS
+			SELECT PRODUCT_NUMBER certNo,
+                   ITEM_NUMBER itemNo,
+                   ITEM_NAME itemName,
+                   BRAND_NAME brdName,
+                   SEASON_REASON reason,
+                   STATUS status
 			  FROM HYO;
 		]]>
 	</select>

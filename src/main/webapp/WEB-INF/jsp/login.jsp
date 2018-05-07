@@ -1,15 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>통계정보사이트 </title>
-
     <!-- Bootstrap -->
     <link href="/static/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -21,9 +19,36 @@
     <!-- Custom Theme Style -->
     <link href="/static/css/custom.min.css" rel="stylesheet">
      
-    
+    <!-- 비밀번호 이메일 찾기 -->
+		<script type="text/javascript">	
+				function passEmail(){
+					var	passId = $('#passId').val(),
+					passMail = $('#passMail').val();
+					
+					if(passId ==""){
+						alert("아이디를 입력하시오.");
+						passId.focus();
+						return false;
+					}else if(passMail ==""){
+						alert("이메일 주소를 입력하시오.");
+						passMail.focus();
+						return false;
+					}
+					$.ajax({
+						url : '${pageContext.request.contextPath}/login/sendPw.do',
+						data : {"userId":passId,
+								"email" :passMail,
+								},
+						type : 'POST',
+							success : function(data) {
+								alert("이메일 전송 완료");
+								$('#PassModal').modal('hide')
+							}
+					});
+					
+				}
+		</script>
   </head>
-
   <body class="login">
     <div>
       <a class="hiddenanchor" id="signup"></a>
@@ -49,17 +74,48 @@
               <div class="separator">
                 <p class="change_link">처음 방문이신가요?
                   <a href="#signup" class="to_register"> 회원가입 </a>
-                  <a class="reset_pass" href="#"> 비밀번호 찾기</a>
                 </p>
-                
+				
                 <div class="clearfix"></div>
                 <br />
-
+				<button type="button" class="btn btn-sm btn-success"
+							data-toggle="modal" data-target="#PassModal">비밀번호 찾기</button>		 
                 <div>
                   <h1><i class="fa fa-paw"></i>LeeDongOk`s Site</h1>
                   <p>©2018 All Rights Reserved. LeeDongOk Develop Site</p>
                 </div>
               </div>
+              
+              <!-- 비밀번호 분실정보 모달 -->
+				<div class="modal fade" id="PassModal" tabindex="-1" role="dialog"
+					aria-labelledby="ModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-lg">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">
+									<span aria-hidden="true">×</span><span class="sr-only">Close</span>
+								</button>
+								<h4 class="modal-title" id="ModalLabel">비밀번호 이메일 찾기</h4>
+							</div>
+							<div class="box">
+								<div class="form-group">
+									<label for="userid_acc">아이디 </label>
+									<input name="userid_acc" value=''
+										id="passId" placeholder="ID" type="text" class="form-control" />
+								</div>
+								<div class="form-group">
+									<label for="email_acc">이메일</label> <input name="email_acc"
+										id="passMail" value='' placeholder="E-Mail" type="text"
+										class="form-control" />
+								</div>
+								</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-warning" OnClick="passEmail()">메일 보내기</button>
+								<button type="button" class="btn btn-warning" data-dismiss="modal">닫기</button>
+							</div>
+						</div>
+					</div>
+				</div>
             </form>
           </section>
         </div>
@@ -117,20 +173,19 @@
     </div>
     
     <!-- Parsley -->
-    <script src="../vendors/parsleyjs/dist/parsley.min.js"></script>
+    <script src="/static/vendors/parsleyjs/dist/parsley.min.js"></script>
     <!-- jQuery -->
-    <script src="../vendors/jquery/dist/jquery.min.js"></script>
+    <script src="/static/vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
-    <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/static/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- FastClick -->
-    <script src="../vendors/fastclick/lib/fastclick.js"></script>
+    <script src="/static/vendors/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
-    <script src="../vendors/nprogress/nprogress.js"></script>
+    <script src="/static/vendors/nprogress/nprogress.js"></script>
     <!-- validator -->
-    <script src="../vendors/validator/validator.js"></script>
-
+    <script src="/static/vendors/validator/validator.js"></script>
     <!-- Custom Theme Scripts -->
-    <script src="../build/js/custom.min.js"></script>
+    <script src="/static/build/js/custom.min.js"></script>
   </body>
 </html>
 
