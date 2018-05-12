@@ -58,7 +58,7 @@
         <div class="animate form login_form">
           <section class="login_content">
             <form>
-              <h1>환영합니다.</h1>
+              <h2>환영합니다.</h2>
               <div>
                 <input type="text" class="form-control" placeholder="ID" required="" />
               </div>
@@ -124,15 +124,12 @@
           <section class="login_content">
              <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
                      
-              <h1>계정을 생성하세요.</h1>
+              <h2>계정을 생성하세요.</h2>
               
                <div class="item form-group">
                 <input id="name" class="form-control" data-validate-length-range="6" data-validate-words="2" 
                 	name="name" placeholder="ID" required="required" type="text">
                </div>
-              <div>
-                <input type="text" class="form-control" placeholder="ID" required="true" />
-              </div>
               <div>
                 <input type="password" class="form-control" placeholder="Password" required="true" />
               </div>
@@ -148,8 +145,8 @@
              
 			  <div class="form-group">
                  <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                   <a href="#" class="btn btn-info" role="submit">가입</a>
-                   <a href="#signin" class="btn btn-info" role="button">취소</a>
+                 	<button type="submit" class="btn btn-info" >가입</button>
+                 	<button type="button" class="btn btn-info"  onclick = "location.href = '#signin' " >취소</button>
                  </div>
               </div>
               <div class="clearfix"></div>

@@ -12,7 +12,25 @@ JAVA1.8, Spring Boot, Spring Security, lombok, Mybatis, Oracle DB, gentelella, T
 ![login](https://user-images.githubusercontent.com/12209348/38797399-454aa326-4199-11e8-8766-6bcfcbc994fe.png)
 
 ### 진행 예정
-1. 회원가입, 로그인, 회원정보 페이지, 회원수정 페이지, SMTP비밀번호찾기
-2. DB테이블연동
-3. api수정 
-4. 파일업로드
+1.시큐리티 회원가입
+2.시큐리티 로그인
+3.회원정보 페이지
+4.api수정
+5.파일업로드
+6.DB테이블연동
+
+###사용된 API 목록
+Datatables
+JQVMap
+Dropzone
+fullcalendar
+bootstrap-daterangepicker
+Ion.RangeSlider
+Bootstrap Colorpicker
+echart
+DateJS
+Flot
+iCheck
+gauge
+NProgress
+Skycons 등

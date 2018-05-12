@@ -10,7 +10,7 @@
                    BRAND_NAME brdName,
                    SEASON_REASON reason,
                    STATUS status
-			  FROM HYO;
+			  FROM HYO
 		]]>
 	</select>
 	
@@ -36,8 +36,8 @@
 		<![CDATA[
 			INSERT INTO ADMIN (SEQ,
 			                   STATUS,
-			                   NAME,
 			                   ID,
+			                   NAME,
 			                   PASSWORD,
 			                   EMAIL,
 			                   SEX,
@@ -45,14 +45,36 @@
                    		)VALUES(
 		                   	adminSeq.nextval,
 		                     1, --권한 레벨 추후 수정
-	                     	${ID},
-                            ${PASSWORD},
-                            ${NAME},
-                          	${Email},
-                            ${Sex},
-                            sysdate); 
+	                     	#{ID},
+                            #{NAME},
+                            #{PASSWORD},
+                          	#{Email},
+                            #{Sex},
+                            sysdate) 
 		]]>
 	</insert>
+	
+	<!-- 비밀번호 찾기 쿼리 -->
+	<select id="getPw" parameterType="hashmap" resultType="String">
+		SELECT password
+		  FROM ADMIN
+		 WHERE id = #{id}
+		  AND email = #{email}
+	</select>
+	
+	<!-- 유저 로그인 -->
+	<select id="loadUserByUsername" parameterType="String" resultType="hashmap">
+		SELECT SEQ,
+		       STATUS,
+		       ID,
+		       NAME,
+		       PASSWORD,
+		       EMAIL,
+		       SEX,
+		       CREATE_DATE
+		  FROM ADMIN
+		WHERE id = #{id}
+	</select>
 	
 </mapper>
   

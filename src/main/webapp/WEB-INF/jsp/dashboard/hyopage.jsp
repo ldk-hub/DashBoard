@@ -47,16 +47,14 @@
                         <tr>
                           <th>자재번호</th>
                           <th>제품명</th>
-                          <th>브랜드</th>
-                          <th>시즌사유</th>
-                          <th>날짜</th>
-                          <th>비고</th>
+                          <th>브랜드명</th>
+                          <th>상세내용</th>
+                          <th>기타</th>
                         </tr>
                       </thead>
 	                     <tbody>
 							<c:forEach items="${list}" var="resultList">
 								<tr>
-									<th scope="row">${resultList.certNo }</th>
 									<th scope="row">${resultList.itemNo }</th>
 									<th scope="row">${resultList.itemName }</th>
 									<th scope="row">${resultList.brdName }</th>

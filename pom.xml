@@ -123,6 +123,11 @@
 		   <artifactId>hibernate-entitymanager</artifactId>
 		   <version>4.3.8.Final</version>
 		</dependency>
+		<!-- smtp 메일정보서비스  -->
+		<dependency>
+			<groupId>com.sun.mail</groupId>
+			<artifactId>javax.mail</artifactId>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
