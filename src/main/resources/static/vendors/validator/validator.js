@@ -15,21 +15,21 @@ var validator = (function($){
     /* general text messages
     */
     message = {
-        invalid         : 'invalid input',
-        checked         : 'must be checked',
-        empty           : 'please put something here',
-        min             : 'input is too short',
-        max             : 'input is too long',
-        number_min      : 'too low',
-        number_max      : 'too high',
-        url             : 'invalid URL',
-        number          : 'not a number',
-        email           : 'email address is invalid',
-        email_repeat    : 'emails do not match',
-        password_repeat : 'passwords do not match',
-        repeat          : 'no match',
-        complete        : 'input is not complete',
-        select          : 'Please select an option'
+        invalid         : '잘못된 입력입니다.',
+        checked         : '확인해야합니다.',
+        empty           : '여기에 넣어주세요.',
+        min             : '입력이 너무 짧습니다.',
+        max             : '입력이 너무 깁니다.',
+        number_min      : '너무 낮습니다.',
+        number_max      : '너무 높습니다.',
+        url             : '잘못된 URL입니다.',
+        number          : '숫자를 입력하세요.',
+        email           : '이메일 주소가 잘못되었습니다.',
+        email_repeat    : '이메일이 일치하지 않습니다.',
+        password_repeat : '비밀번호가 일치하지 않습니다.',
+        repeat          : '일치하지 않음.',
+        complete        : '입력이 완료되지 않았습니다.',
+        select          : '옵션을 선택하십시오.'
     };
 
     if(!window.console){

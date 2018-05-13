@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.com.gentelella.service.DashBoardService;
+import com.com.vo.DashBoardVO;
 
 
 @Controller
@@ -50,10 +51,9 @@ public class DashBoardController {
 	    }
     //누나의뢰용 페이지
     @RequestMapping( value = "/hyopage", method = RequestMethod.GET )
-    public String hyopage(Model model)
-	    {
-    	List<Map<String,Object>> resultList = dashBoardService.selectBoardList();
-    	model.addAttribute("list",resultList);
+    public String hyopage(DashBoardVO dashBoardVO)throws Exception{
+    	List<DashBoardVO> resultList = dashBoardService.selectBoardList(dashBoardVO);
+    	dashBoardVO.addAttribute("list",resultList);
 	        return VIEW_PATH + "hyopage";
 	    }
     //회원정보 확인페이지

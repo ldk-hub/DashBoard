@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+	
 <mapper namespace="dashBoardMapper">
 	<!-- 통계자료 호출 -->
-	<select id="selectBoardList" parameterType="hashmap" resultType="hashmap">
+	<select id="selectBoardList" parameterType="DashBoardVO" resultType="DashBoardVO">
 		<![CDATA[
 			SELECT PRODUCT_NUMBER certNo,
                    ITEM_NUMBER itemNo,
@@ -15,7 +17,7 @@
 	</select>
 	
 	<!-- 로그인 -->
-	<select id="loginUser" parameterType="hashmap" resultType="hashmap">
+	<select id="loginUser" parameterType="DashBoardVO" resultType="DashBoardVO">
 		<![CDATA[
 			SELECT SEQ,
                    STATUS,
@@ -32,7 +34,7 @@
 	</select>
 	
 	<!--회원가입 -->
-	<insert id="createMember" parameterType="hashmap">
+	<insert id="createMember" parameterType="DashBoardVO">
 		<![CDATA[
 			INSERT INTO ADMIN (SEQ,
 			                   STATUS,
@@ -55,7 +57,7 @@
 	</insert>
 	
 	<!-- 비밀번호 찾기 쿼리 -->
-	<select id="getPw" parameterType="hashmap" resultType="String">
+	<select id="getPw" parameterType="DashBoardVO" resultType="String">
 		SELECT password
 		  FROM ADMIN
 		 WHERE id = #{id}
@@ -63,7 +65,7 @@
 	</select>
 	
 	<!-- 유저 로그인 -->
-	<select id="loadUserByUsername" parameterType="String" resultType="hashmap">
+	<select id="loadUserByUsername" parameterType="String" resultType="DashBoardVO">
 		SELECT SEQ,
 		       STATUS,
 		       ID,

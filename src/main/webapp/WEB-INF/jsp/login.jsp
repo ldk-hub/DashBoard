@@ -58,7 +58,7 @@
         <div class="animate form login_form">
           <section class="login_content">
             <form>
-              <h2>환영합니다.</h2>
+              <h1>환영합니다.</h1>
               <div>
                 <input type="text" class="form-control" placeholder="ID" required="" />
               </div>
@@ -127,22 +127,41 @@
               <h2>계정을 생성하세요.</h2>
               
                <div class="item form-group">
-                <input id="name" class="form-control" data-validate-length-range="6" data-validate-words="2" 
-                	name="name" placeholder="ID" required="required" type="text">
+                	<input id="name" class="form-control" data-validate-length-range="14" data-validate-words="10" 
+                	name="name" placeholder="아이디" required="required" type="text">
                </div>
-              <div>
-                <input type="password" class="form-control" placeholder="Password" required="true" />
-              </div>
-              <div>
-                <input type="password" class="form-control" placeholder="PasswordConfirm" required="true" />
-              </div>
-              <div>
-                <input type="text" class="form-control" placeholder="Email" required="true" />
-              </div>
-              <div>
-                <input type="text" class="form-control" placeholder="Name" required="true" />
-              </div>
-             
+                
+                <div class="item form-group">
+                 	<input id="password" type="password" name="password" placeholder="비밀번호" 
+                 	 data-validate-length="6,14" class="form-control" required="required">
+           	 	</div>
+               <div class="item form-group">
+	                <input id="password2" type="password" name="password2" placeholder="비밀번호 확인"
+	                data-validate-linked="password" class="form-control" required="required">
+               </div>
+               
+               <div class="item form-group">
+                <input id="first-name" class="form-control" data-validate-length-range="14" data-validate-words="10" 
+                	name="name" placeholder="가입자 성명" required="required" type="text">
+               </div>
+               
+               <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12">성별</label>
+                  <div class="col-md-9 col-sm-9 col-xs-12">
+                    <div id="gender" class="btn-group" data-toggle="buttons">
+                      <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                        <input type="radio" name="gender" value="male"> &nbsp; 남자 &nbsp;
+                      </label>
+                      <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                        <input type="radio" name="gender" value="female"> &nbsp; 여자 &nbsp;
+                      </label>
+                    </div>
+                  </div>
+                </div>
+               <div class="item form-group">
+                      <input type="email" id="email" name="email" placeholder="이메일 주소" required="required" class="form-control">
+               </div>
+                
 			  <div class="form-group">
                  <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                  	<button type="submit" class="btn btn-info" >가입</button>
@@ -169,8 +188,7 @@
       </div>
     </div>
     
-    <!-- Parsley -->
-    <script src="/static/vendors/parsleyjs/dist/parsley.min.js"></script>
+   
     <!-- jQuery -->
     <script src="/static/vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
@@ -182,7 +200,7 @@
     <!-- validator -->
     <script src="/static/vendors/validator/validator.js"></script>
     <!-- Custom Theme Scripts -->
-    <script src="/static/build/js/custom.min.js"></script>
+    <script src="/static/js/custom.min.js"></script>
   </body>
 </html>
 

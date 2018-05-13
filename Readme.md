@@ -19,18 +19,18 @@ JAVA1.8, Spring Boot, Spring Security, lombok, Mybatis, Oracle DB, gentelella, T
 5.파일업로드
 6.DB테이블연동
 
-###사용된 API 목록
-Datatables
-JQVMap
-Dropzone
-fullcalendar
-bootstrap-daterangepicker
-Ion.RangeSlider
-Bootstrap Colorpicker
-echart
-DateJS
-Flot
-iCheck
-gauge
-NProgress
+### 사용된 API 목록
+Datatables,
+JQVMap,
+Dropzone,
+fullcalendar,
+bootstrap-daterangepicker,
+Ion.RangeSlider,
+Bootstrap Colorpicker,
+echart,
+DateJS,
+Flot,
+iCheck,
+gauge,
+NProgress,
 Skycons 등

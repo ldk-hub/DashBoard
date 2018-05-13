@@ -63,7 +63,7 @@
         <dependency>
 	        <groupId>org.mybatis.spring.boot</groupId>
 	        <artifactId>mybatis-spring-boot-starter</artifactId>
-	        <version>1.1.1</version>
+	        <version>1.3.2</version>
     	</dependency>
 		
 		<!-- 오라클  -->
@@ -125,8 +125,9 @@
 		</dependency>
 		<!-- smtp 메일정보서비스  -->
 		<dependency>
-			<groupId>com.sun.mail</groupId>
-			<artifactId>javax.mail</artifactId>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-mail</artifactId>
+		    <version>1.4.3.RELEASE</version>
 		</dependency>
 	</dependencies>
 	<build>

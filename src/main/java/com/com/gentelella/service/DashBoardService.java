@@ -1,22 +1,20 @@
 package com.com.gentelella.service;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.com.gentelella.mapper.DashBoardMapper;
+import com.com.gentelella.dao.DashBoardDAO;
+import com.com.vo.DashBoardVO;
 
 @Service
 public class DashBoardService {
 
 	@Autowired
-	DashBoardMapper dashBoardMapper;
-
-	public List<Map<String, Object>> selectBoardList() {
-		List<Map<String, Object>> resultList = dashBoardMapper.selectBoardList();
-		return resultList;
-	}
+	DashBoardDAO dashBoardDAO;
 	
+	public List<DashBoardVO> selectBoardList(DashBoardVO dashBoardVO)throws Exception {
+		return dashBoardDAO.selectBoardList(dashBoardVO);
+	}
 }
