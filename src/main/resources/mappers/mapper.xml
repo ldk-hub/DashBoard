@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-	
 <mapper namespace="dashBoardMapper">
 	<!-- 통계자료 호출 -->
-	<select id="selectBoardList" parameterType="DashBoardVO" resultType="DashBoardVO">
+	<select id="selectBoardList"  resultType="DashBoardVO">
 		<![CDATA[
 			SELECT PRODUCT_NUMBER certNo,
                    ITEM_NUMBER itemNo,

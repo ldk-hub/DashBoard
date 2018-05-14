@@ -1,10 +1,9 @@
 package com.com.vo;
 
-import java.util.List;
-
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+
 @Data
 public class DashBoardVO {
 	@Getter
@@ -15,10 +14,4 @@ public class DashBoardVO {
 	private String brdName;
 	private String reason;
 	private String status;
-	
-	public void addAttribute(String string, List<DashBoardVO> resultList) {
-		
-		
-	}
-
 }

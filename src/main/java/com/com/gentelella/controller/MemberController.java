@@ -5,9 +5,11 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -20,6 +22,14 @@ public class MemberController {
 	@Autowired
 	MemberRepository memberRepository;
 	
+	
+	//로그인 페이지
+    @RequestMapping( value = "/login", method = RequestMethod.GET )
+    public String login(Model model)
+	    {
+	        return  "login";
+	    }
+    
 	@PostMapping("")
 	public String create(Member member) {
 		MemberRole role = new MemberRole();
