@@ -1,6 +1,7 @@
 package com.com.gentelella.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -22,6 +23,10 @@ public class DashBoardDAO extends SqlSessionDaoSupport {
 
     public List<DashBoardVO> selectBoardList(DashBoardVO dashBoardVO) throws Exception {
 		return getSqlSession().selectList("dashBoardMapper.selectBoardList", dashBoardVO);
+	}
+    //smtp이메일
+	public String getPw(Map<String, Object> paramMap) {
+		return getSqlSession().selectOne("dashBoardMapper.getPw", paramMap);
 	}
 }
 

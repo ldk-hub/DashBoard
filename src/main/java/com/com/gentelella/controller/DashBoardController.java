@@ -26,6 +26,12 @@ public class DashBoardController {
 	private static final String VIEW_PATH = "dashboard/";
 	private static final String VIEW_PATH2 = "itemsample/";
 
+	// 로그인 페이지
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String login(Model model) {
+		return "login";
+	}
+
 	// VIEW_PATH 서비스제공 페이지
 	// 메인페이지
 	@RequestMapping(value = "/dashboard", method = RequestMethod.GET)

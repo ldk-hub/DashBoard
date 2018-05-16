@@ -35,7 +35,7 @@
 						return false;
 					}
 					$.ajax({
-						url : '${pageContext.request.contextPath}/login/sendPw.do',
+						url : '${pageContext.request.contextPath}/member/sendPw.do',
 						data : {"userId":passId,
 								"email" :passMail,
 								},
