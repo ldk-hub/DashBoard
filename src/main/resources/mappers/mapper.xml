@@ -59,7 +59,7 @@
 	<select id="getPw" parameterType="DashBoardVO" resultType="String">
 		SELECT password
 		  FROM ADMIN
-		 WHERE id = #{id}
+		 WHERE id = #{userId}
 		  AND email = #{email}
 	</select>
 	

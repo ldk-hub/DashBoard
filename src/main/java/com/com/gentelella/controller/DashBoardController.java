@@ -1,6 +1,7 @@
 package com.com.gentelella.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,8 +11,12 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.com.gentelella.service.DashBoardServiceImpl;
+import com.com.gentelella.smtp.Email;
+import com.com.gentelella.smtp.EmailSender;
 import com.com.vo.DashBoardVO;
 
 @Controller
@@ -19,6 +24,12 @@ public class DashBoardController {
 
 	@Autowired
 	DashBoardServiceImpl dashBoardService;
+	
+	@Autowired
+	private EmailSender emailSender;
+	
+	@Autowired
+	private Email email;
 
 	// 스프링부트 시작시 logback 사용가능함 base.xml에서 로그레벨 설정할 것
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -84,5 +95,31 @@ public class DashBoardController {
 	public String form(Model model) {
 		return VIEW_PATH2 + "form";
 	}
+	
+	//smtp 비밀번호 찾기 메일전송 
+		@RequestMapping(value = "/sendPw.do")
+		public ModelAndView sendEmailAction (@RequestParam Map<String, Object> paramMap, ModelMap model) throws Exception {
+		   	ModelAndView mav;
+		    String id=(String) paramMap.get("userId");
+		    String e_mail=(String) paramMap.get("email");
+		    //위의 회원정보를 통해 패스워드 정보 가져옴
+		    String pw=dashBoardService.getPw(paramMap);
+		    System.out.println(pw);
+		    if(pw!=null) {
+		    	//이메일 전달 내용
+		        email.setContent("비밀번호는 "+pw+" 입니다.");
+		        //이메일 전달받을 계정
+		        email.setReceiver(e_mail);
+		        //이메일 전송 제목
+		        email.setSubject(id+"님 비밀번호 찾기 메일입니다.");
+		        //이메일 보낸 사람
+		        emailSender.SendEmail(email);
+		        mav= new ModelAndView("redirect:/login.do");
+		    return mav;
+		    }else {
+		    mav=new ModelAndView("redirect:/logout.do");
+		         return mav;
+		    }
+		}
 
 }
