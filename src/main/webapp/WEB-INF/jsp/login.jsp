@@ -1,6 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
+	<!-- 시큐리티 로그인 에러 리턴 메세지 조건1 -->
+	<sec:authentication var="user" property="principal" />
+		<c:if test="${param.error == '1'}">
+			<c:set var="msg" value="아이디 또는 비밀번호가 틀렸습니다."></c:set>
+		</c:if>
+		<c:if test="${param.error == '999'}">
+			<c:set var="msg" value="관리자에게 문의하시기 바랍니다."></c:set>
+		</c:if>
+	
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
@@ -19,6 +30,14 @@
     <!-- Custom Theme Style -->
     <link href="/static/css/custom.min.css" rel="stylesheet">
     
+    <!-- 시큐리티 로그인 에러 리턴 메세지 조건2 -->	
+	<script type="text/javascript">
+		var msg = "${msg}";
+	
+		if (msg != "" && msg != null) {
+			alert(msg);
+		}
+	</script>
     <!-- 비밀번호 이메일 찾기 -->
 	<script type="text/javascript">	
 		function passEmail(){
