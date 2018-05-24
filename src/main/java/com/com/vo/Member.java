@@ -1,5 +1,6 @@
 package com.com.vo;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -10,6 +11,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -40,11 +44,11 @@ public class Member {
 		@Column(nullable = false, unique = true, length=50)
 		private String uemail;
 		
-		/*@CreationTimestamp
+		@CreationTimestamp
 		private Date regdate;
 		
 		@UpdateTimestamp
-		private Date updatedate;*/
+		private Date updatedate;
 		
 		/* cascade의 경우에는 엔티티들의 영속관계를 한번에 처리하지 못하기 때문에 이에 대한 cascade\
 			설정을 추가하는것이고, member와 member_role을 둘다 동시에 조회하기 위해서 fetch
@@ -52,4 +56,5 @@ public class Member {
 		@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 		@JoinColumn(name="uid")
 		private List<MemberRole> roles;
+		
 }
