@@ -1,16 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
-<%@ taglib prefix="sec"
-	uri="http://www.springframework.org/security/tags"%>
-	<!-- 시큐리티 로그인 에러 리턴 메세지 조건1 -->
-	<sec:authentication var="user" property="principal" />
-		<c:if test="${param.error == '1'}">
-			<c:set var="msg" value="아이디 또는 비밀번호가 틀렸습니다."></c:set>
-		</c:if>
-		<c:if test="${param.error == '999'}">
-			<c:set var="msg" value="관리자에게 문의하시기 바랍니다."></c:set>
-		</c:if>
+<%@ taglib prefix="sec"	uri="http://www.springframework.org/security/tags"%>
+	
 	
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -20,15 +12,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>통계정보사이트 </title>
     <!-- Bootstrap -->
-    <link href="/static/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="/static/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
-    <link href="/static/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- Animate.css -->
-    <link href="/static/vendors/animate.css/animate.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/vendors/animate.css/animate.min.css" rel="stylesheet">
     <!-- Custom Theme Style -->
-    <link href="/static/css/custom.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/custom.min.css" rel="stylesheet">
     
     <!-- 시큐리티 로그인 에러 리턴 메세지 조건2 -->	
 	<script type="text/javascript">
@@ -77,17 +69,22 @@
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
-            <form>
+            <form accept-charset="UTF-8" role="form" method="post" action="${pageContext.request.contextPath}/login/loginProcess.do">
               <h1>환영합니다.</h1>
-              <div>
-                <input type="text" class="form-control" placeholder="ID" required="" />
-              </div>
-              <div>
-                <input type="password" class="form-control" placeholder="Password" required="" />
-              </div>
-              <div>
-                <a class="btn btn-default submit" href="dashboard">로그인</a>
-              </div>
+              		<div class="form-group">
+						<label for="username">아이디</label> <input name="username" value=''
+							id="username" placeholder="id" type="text" class="form-control" />
+					</div>
+					<div class="form-group">
+						<label for="password">패스워드</label> <input name="password"
+							id="password" value='' placeholder="Password" type="password"
+							class="form-control" />
+					</div>
+					<div class="form-group">
+						<input type="submit"
+							class="btn btn-warning btn-login-submit btn-block m-t-md"
+							value="로그인"/>
+					</div>
 
               <div class="clearfix"></div>
 
