@@ -127,7 +127,7 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
-		
+
 		<!-- smtp 메일정보서비스  -->
 		<dependency>
 		    <groupId>org.springframework.boot</groupId>

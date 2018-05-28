@@ -6,12 +6,12 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.com.gentelella.service.DashBoardServiceImpl;
@@ -19,7 +19,7 @@ import com.com.gentelella.smtp.Email;
 import com.com.gentelella.smtp.EmailSender;
 import com.com.vo.DashBoardVO;
 
-@Controller
+@RestController
 public class DashBoardController {
 
 	@Autowired
@@ -38,10 +38,10 @@ public class DashBoardController {
 	private static final String VIEW_PATH2 = "itemsample/";
 
 	// 로그인 페이지
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login(Model model) {
 		return "login";
-	}
+	}*/
 
 	// VIEW_PATH 서비스제공 페이지
 	// 메인페이지
