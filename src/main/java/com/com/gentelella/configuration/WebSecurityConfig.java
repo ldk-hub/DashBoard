@@ -27,10 +27,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
   
 	  @Override
 	  protected void configure(HttpSecurity http) throws Exception{
-	    // h2 console 사용을 위한 설정 
-	    http.csrf().ignoringAntMatchers("/dashboard/**");
-	    http.headers().frameOptions().sameOrigin();
-	    
 	    http
 	      .authorizeRequests()
 	        // 해당 url을 허용한다. 
