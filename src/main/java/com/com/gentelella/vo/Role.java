@@ -1,4 +1,4 @@
-package com.com.vo;
+package com.com.gentelella.vo;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

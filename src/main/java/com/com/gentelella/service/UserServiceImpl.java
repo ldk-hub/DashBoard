@@ -8,8 +8,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.com.gentelella.repository.UserRepository;
-import com.com.vo.Role;
-import com.com.vo.User;
+import com.com.gentelella.vo.Role;
+import com.com.gentelella.vo.User;
 
 import lombok.extern.slf4j.Slf4j;
 

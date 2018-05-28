@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.com.gentelella.service.SecurityService;
 import com.com.gentelella.service.UserService;
-import com.com.vo.User;
+import com.com.gentelella.vo.User;
 
 @RestController
 public class LoginController {

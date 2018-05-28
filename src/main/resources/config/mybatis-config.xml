@@ -5,7 +5,7 @@
 		<setting name="mapUnderscoreToCamelCase" value="true" />
 	</settings>
 	<typeAliases>
-		<typeAlias type="com.com.vo.DashBoardVO" alias="DashBoardVO"></typeAlias>
+		<typeAlias type="com.com.gentelella.vo.DashBoardVO" alias="DashBoardVO"></typeAlias>
 	</typeAliases>
 	<mappers>
 		<mapper resource="mappers/mapper.xml" />

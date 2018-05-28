@@ -17,7 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.com.gentelella.service.DashBoardServiceImpl;
 import com.com.gentelella.smtp.Email;
 import com.com.gentelella.smtp.EmailSender;
-import com.com.vo.DashBoardVO;
+import com.com.gentelella.vo.DashBoardVO;
 
 @RestController
 public class DashBoardController {

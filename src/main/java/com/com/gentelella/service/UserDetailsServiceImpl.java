@@ -12,8 +12,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
 import com.com.gentelella.repository.UserRepository;
-import com.com.vo.Role;
-import com.com.vo.User;
+import com.com.gentelella.vo.Role;
+import com.com.gentelella.vo.User;
 
 @Component
 public class UserDetailsServiceImpl implements UserDetailsService {

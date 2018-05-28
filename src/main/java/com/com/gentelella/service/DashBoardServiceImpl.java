@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.com.gentelella.dao.DashBoardDAO;
-import com.com.vo.DashBoardVO;
+import com.com.gentelella.vo.DashBoardVO;
 
 @Service
 public class DashBoardServiceImpl implements DashBoardService  {

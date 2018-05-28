@@ -11,7 +11,7 @@ import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.com.vo.DashBoardVO;
+import com.com.gentelella.vo.DashBoardVO;
 
 @Repository
 public class DashBoardDAO extends SqlSessionDaoSupport {

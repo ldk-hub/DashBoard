@@ -3,7 +3,7 @@ package com.com.gentelella.service;
 import java.util.List;
 import java.util.Map;
 
-import com.com.vo.DashBoardVO;
+import com.com.gentelella.vo.DashBoardVO;
 
 public interface DashBoardService {
 	
