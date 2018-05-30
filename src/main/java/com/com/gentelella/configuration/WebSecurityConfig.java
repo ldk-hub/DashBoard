@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -25,16 +26,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	      return new BCryptPasswordEncoder();
 	  }
   
+	/*  @Override
+	  public void configure(WebSecurity web) throws Exception {
+	    web.ignoring().antMatchers("/the_js_path/**");
+	  }*/
+	  
 	  @Override
 	  protected void configure(HttpSecurity http) throws Exception{
+        http.csrf().ignoringAntMatchers("/tiles/**");
+        http.headers().frameOptions().sameOrigin();
+
 	    http
 	      .authorizeRequests()
 	        // 해당 url을 허용한다. 
-	          .antMatchers("/resources/**","/loginError","/registration","/dashboard/**").permitAll()
-	        // admin 폴더에 경우 admin 권한이 있는 사용자에게만 허용 
-	          .antMatchers("/admin/**").hasAuthority("ADMIN")
-	          // user 폴더에 경우 user 권한이 있는 사용자에게만 허용
-	        .antMatchers("/user/**").hasAuthority("USER")
+	          .antMatchers("/**").permitAll()
 	        .anyRequest().authenticated()
 	        .and()
 	      .formLogin()

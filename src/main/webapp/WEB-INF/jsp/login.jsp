@@ -9,24 +9,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>통계정보사이트 </title>
     <!-- Bootstrap -->
-    <link href="${pageContext.request.contextPath}/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="${pageContext.request.contextPath}/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
-    <link href="${pageContext.request.contextPath}/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <link href="/vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- Animate.css -->
-    <link href="${pageContext.request.contextPath}/vendors/animate.css/animate.min.css" rel="stylesheet">
+    <link href="/vendors/animate.css/animate.min.css" rel="stylesheet">
     <!-- Custom Theme Style -->
-    <link href="${pageContext.request.contextPath}/css/custom.min.css" rel="stylesheet">
+    <link href="/css/custom.min.css" rel="stylesheet">
     
-    <!-- 시큐리티 로그인 에러 리턴 메세지 조건2 -->	
-	<script type="text/javascript">
-		var msg = "${msg}";
-	
-		if (msg != "" && msg != null) {
-			alert(msg);
-		}
-	</script>
     <!-- 비밀번호 이메일 찾기 -->
 	<script type="text/javascript">	
 		function passEmail(){
@@ -66,7 +58,7 @@
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
-            <form accept-charset="UTF-8" role="form" method="post" action="${pageContext.request.contextPath}/login/loginProcess.do">
+            <form accept-charset="UTF-8" role="form" method="post" action="/login/loginProcess.do">
               <h1>환영합니다.</h1>
               		<div class="form-group">
 						<label for="username">아이디</label> <input name="username" value=''
@@ -217,7 +209,7 @@
     <!-- Custom Theme Scripts -->
     <script src="/static/js/custom.min.js"></script>
   </body>
-</html>
+
 
 
 
