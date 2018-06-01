@@ -1,4 +1,4 @@
-package com.com.gentelella.configuration;
+package com.com.gentelella.config;
 
 import javax.sql.DataSource;
 

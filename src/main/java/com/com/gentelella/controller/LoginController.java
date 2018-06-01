@@ -23,16 +23,12 @@ public class LoginController {
 	  @Autowired
 	  private SecurityService securityService;
 	  
-	  @RequestMapping(value="/main")
-	  public String main(){
-	    return "main";
-	  }
 	  
 	  // 로그인 
 	  @RequestMapping("/login")
 	  public String login(Model model, String error, String logout, HttpServletRequest request ){
 	    if (logout != null){
-	      model.addAttribute("logout", "You have been logged out successfully.");
+	      model.addAttribute("logout", "성공적으로 로그 아웃되었습니다.");
 	    }
 	    return "login";
 	  }
@@ -40,7 +36,7 @@ public class LoginController {
 	  // 로그인 실패시
 	  @RequestMapping(value="/loginError")
 	  public String loginError(Model model, String username ){
-	    model.addAttribute("error", "Your username and password is invalid.");
+	    model.addAttribute("error", "사용자 이름과 비밀번호가 잘못되었습니다.");
 	    model.addAttribute("username",username);
 	    return "login";
 	  }
@@ -49,7 +45,7 @@ public class LoginController {
 	  @RequestMapping(value="/registration",method=RequestMethod.GET)
 	  public String registration(Model model){
 	    model.addAttribute("userForm", new User());
-	    return "registration";
+	    return "redirect:#signup";
 	  }
 	  
 	  // 회원가입 처리 후 로그인 
@@ -59,24 +55,24 @@ public class LoginController {
 	    String password = userForm.getPassword();
 	    userService.saveUser(userForm,roles);
 	    securityService.autologin(userForm.getUsername(),password);
-	    return "redirect:/main";
+	    return "redirect:#signin";
 	  }
 	  
 	  // admin 사용자 테스트 
 	  @RequestMapping("/admin")
 	  public String admin(){
-	    return "/admin/admin";
+	    return "admin/admin";
 	  }
 	  
 	  // user 사용자 테스트 
 	  @RequestMapping("/user")
 	  public String user(){
-	    return "/user/user";
+	    return "user/user";
 	  }
 	  
 	  // 권한없는 페이지를 들어갔을때 
 	  @RequestMapping("/403")
 	  public String access(){
-	    return "/access";
+	    return "403error";
 	  }
 	}

@@ -1,4 +1,4 @@
-package com.com.gentelella.configuration;
+package com.com.gentelella.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

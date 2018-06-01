@@ -1,4 +1,4 @@
-package com.com.gentelella.configuration;
+package com.com.gentelella.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -25,21 +25,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	  public BCryptPasswordEncoder bCryptPasswordEncoder() {
 	      return new BCryptPasswordEncoder();
 	  }
-  
-	/*  @Override
-	  public void configure(WebSecurity web) throws Exception {
-	    web.ignoring().antMatchers("/the_js_path/**");
-	  }*/
 	  
 	  @Override
 	  protected void configure(HttpSecurity http) throws Exception{
-        http.csrf().ignoringAntMatchers("/tiles/**");
-        http.headers().frameOptions().sameOrigin();
-
 	    http
 	      .authorizeRequests()
-	        // 해당 url을 허용한다. 
-	          .antMatchers("/**").permitAll()
+	        .antMatchers("/**").permitAll() // 해당 url을 허용한다. 
 	        .anyRequest().authenticated()
 	        .and()
 	      .formLogin()

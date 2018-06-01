@@ -9,15 +9,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>통계정보사이트 </title>
     <!-- Bootstrap -->
-    <link href="/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/static/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
-    <link href="/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <link href="/static/vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- Animate.css -->
-    <link href="/vendors/animate.css/animate.min.css" rel="stylesheet">
+    <link href="/static/vendors/animate.css/animate.min.css" rel="stylesheet">
     <!-- Custom Theme Style -->
-    <link href="/css/custom.min.css" rel="stylesheet">
+    <link href="/static/css/custom.min.css" rel="stylesheet">
     
     <!-- 비밀번호 이메일 찾기 -->
 	<script type="text/javascript">	
@@ -61,20 +61,15 @@
             <form accept-charset="UTF-8" role="form" method="post" action="/login/loginProcess.do">
               <h1>환영합니다.</h1>
               		<div class="form-group">
-						<label for="username">아이디</label> <input name="username" value=''
+						 <input name="username" value=''
 							id="username" placeholder="id" type="text" class="form-control" />
 					</div>
 					<div class="form-group">
-						<label for="password">패스워드</label> <input name="password"
+						 <input name="password"
 							id="password" value='' placeholder="Password" type="password"
 							class="form-control" />
 					</div>
-					<div class="form-group">
-						<input type="submit"
-							class="btn btn-warning btn-login-submit btn-block m-t-md"
-							value="로그인"/>
-					</div>
-
+					<button type="submit" class="btn btn-sm btn-success">로그인</button>		 
               <div class="clearfix"></div>
 
               <div class="separator">
