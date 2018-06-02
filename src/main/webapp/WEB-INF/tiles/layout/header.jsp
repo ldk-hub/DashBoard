@@ -16,7 +16,7 @@
                     </a>
                     <ul class="dropdown-menu dropdown-usermenu pull-right">
                         <li><a href="mypage"> 마이페이지</a></li>
-                        <li><a href="login"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                        <li><a href="logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                     </ul>
                 </li>
             </ul>

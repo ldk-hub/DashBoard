@@ -10,7 +10,7 @@
             <span class="count_bottom"><i class="green">4% </i> 전주 대비</span>
         </div>
         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-            <span class="count_top"><i class="fa fa-clock-o"></i> Average Time</span>
+            <span class="count_top"><i class="fa fa-clock-o"></i> 평균 사용시간</span>
             <div class="count">123.50</div>
             <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>3% </i> 전주 대비</span>
         </div>
@@ -58,7 +58,7 @@
                 </div>
                 <div class="col-md-3 col-sm-3 col-xs-12 bg-white">
                     <div class="x_title">
-                        <h2>Top Campaign Performance</h2>
+                        <h2>실적</h2>
                         <div class="clearfix"></div>
                     </div>
 

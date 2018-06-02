@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>403 에러 </title>
+    <title>404 에러 </title>
 
     <!-- Bootstrap -->
     <link href="/static/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -26,9 +26,9 @@
         <div class="col-md-12">
           <div class="col-middle">
             <div class="text-center text-center">
-              <h1 class="error-number">403</h1>
-              <h2>접근 불가</h2>
-              <p>이 페이지에 액세스하려면 인증이 필요합니다.
+              <h1 class="error-number">404</h1>
+              <h2>죄송합니다.이 페이지를 찾을 수 없습니다.</h2>
+              <p>찾고있는 이 페이지가 존재하지 않습니다.
               </p>
               <div class="mid_center">
                 <h3>검색</h3>

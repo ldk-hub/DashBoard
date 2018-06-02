@@ -96,7 +96,7 @@
              <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
                      
               <h2>계정을 생성하세요.</h2>
-              
+              <br/>
                <div class="item form-group">
                 	<input id="name" class="form-control" data-validate-length-range="14" data-validate-words="10" 
                 	name="name" placeholder="아이디" required="required" type="text">

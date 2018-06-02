@@ -6,6 +6,8 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -36,17 +38,15 @@ public class DashBoardController {
 	// 뷰패스를 지정해서 영역분리 및 편의기능
 	private static final String VIEW_PATH = "dashboard/";
 	private static final String VIEW_PATH2 = "itemsample/";
-
-	// 로그인 페이지
-	/*@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String login(Model model) {
-		return "login";
-	}*/
+	
 
 	// VIEW_PATH 서비스제공 페이지
 	// 메인페이지
 	@RequestMapping(value = "/dashboard", method = RequestMethod.GET)
 	public String dashboard(Model model) {
+		//현재 세션 로그인 정보 가져오기 로그인 구현 완료시 오픈
+	   // User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		//System.out.println("현재로그인" + user.getUsername());
 		return VIEW_PATH + "dashboard";
 	}
 

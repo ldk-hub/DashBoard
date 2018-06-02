@@ -3367,6 +3367,7 @@ if (typeof NProgress != 'undefined') {
 			  });
 
 			} 
+			
 			  
 			   //echart Scatter
 			  

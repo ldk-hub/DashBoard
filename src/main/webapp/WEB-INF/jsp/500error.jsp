@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>403 에러 </title>
+    <title>500 에러 </title>
 
     <!-- Bootstrap -->
     <link href="/static/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -26,9 +26,9 @@
         <div class="col-md-12">
           <div class="col-middle">
             <div class="text-center text-center">
-              <h1 class="error-number">403</h1>
-              <h2>접근 불가</h2>
-              <p>이 페이지에 액세스하려면 인증이 필요합니다.
+              <h1 class="error-number">500</h1>
+              <h2>인터넷 서버 오류</h2>
+              <p>이러한 오류는 자동으로 추적되지만 문제가 지속되면 Google에 문의 해 주시기 바랍니다. 그 동안 새로 고침 해보세요.
               </p>
               <div class="mid_center">
                 <h3>검색</h3>
