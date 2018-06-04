@@ -3284,8 +3284,8 @@ if (typeof NProgress != 'undefined') {
 
 			  echartLine.setOption({
 				title: {
-				  text: 'Line Graph',
-				  subtext: 'Subtitle'
+				  text: '제품 별 통계 현황',
+				  subtext: '베이비용품'
 				},
 				tooltip: {
 				  trigger: 'axis'
@@ -3293,7 +3293,7 @@ if (typeof NProgress != 'undefined') {
 				legend: {
 				  x: 220,
 				  y: 40,
-				  data: ['Intent', 'Pre-order', 'Deal']
+				  data: ['비앤비', '닥터아토', '유피스']
 				},
 				toolbox: {
 				  show: true,

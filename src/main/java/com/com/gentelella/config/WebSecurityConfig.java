@@ -34,7 +34,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	        .anyRequest().authenticated()
 	        .and()
 	      .formLogin()
-	        .loginPage("/login")
+	        .loginPage("/login") /* 내가 만든 로그인 페이지 */
 	        .successHandler(new CustomAuthenticationSuccess()) // 로그인 성공 핸들러 
 	        .failureHandler(new CustomAuthenticationFailure()) // 로그인 실패 핸들러 
 	        .permitAll()

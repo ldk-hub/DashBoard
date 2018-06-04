@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 import com.com.gentelella.repository.UserRepository;
 import com.com.gentelella.vo.Role;
 import com.com.gentelella.vo.User;
-
+ 
 @Component
 public class UserDetailsServiceImpl implements UserDetailsService {
     @Autowired

@@ -13,6 +13,7 @@ public class CustomAuthenticationFailure implements AuthenticationFailureHandler
     @Override
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
             AuthenticationException exception) throws IOException, ServletException {
+    	request.setAttribute("username", request.getParameter("username"));
         request.getRequestDispatcher("/loginError").forward(request, response);
     }
 }

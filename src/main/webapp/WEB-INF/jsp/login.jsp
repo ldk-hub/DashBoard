@@ -35,7 +35,7 @@
 				return false;
 			}
 			$.ajax({
-					url : '/sendPw.do',
+					url : '/sendPw',
 					data : {
 						"userId" : passId,
 						"email" : passMail
@@ -58,15 +58,14 @@
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
-            <form accept-charset="UTF-8" role="form" method="post" action="/login/loginProcess.do">
+            <form accept-charset="UTF-8" role="form" method="post" action="/login">
               <h1>환영합니다.</h1>
               		<div class="form-group">
 						 <input name="username" value=''
 							id="username" placeholder="id" type="text" class="form-control" />
 					</div>
 					<div class="form-group">
-						 <input name="password"
-							id="password" value='' placeholder="Password" type="password"
+						 <input name="password" id="password" value='' placeholder="Password" type="password"
 							class="form-control" />
 					</div>
 					<button type="submit" class="btn btn-sm btn-success">로그인</button>		 
@@ -93,22 +92,21 @@
 
         <div id="register" class="animate form registration_form">
           <section class="login_content">
-             <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
-                     
+             <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" novalidate>
               <h2>계정을 생성하세요.</h2>
               <br/>
                <div class="item form-group">
                 	<input id="name" class="form-control" data-validate-length-range="14" data-validate-words="10" 
                 	name="name" placeholder="아이디" required="required" type="text">
                </div>
-                
+              
                 <div class="item form-group">
-                 	<input id="password" type="password" name="password" placeholder="비밀번호" 
+                 	<input id="password1" type="password" name="password1" placeholder="비밀번호" 
                  	 data-validate-length="6,14" class="form-control" required="required">
            	 	</div>
                <div class="item form-group">
 	                <input id="password2" type="password" name="password2" placeholder="비밀번호 확인"
-	                data-validate-linked="password" class="form-control" required="required">
+	                data-validate-linked="password1" class="form-control" required="required">
                </div>
                
                <div class="item form-group">
