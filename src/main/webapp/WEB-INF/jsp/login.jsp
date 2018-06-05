@@ -58,7 +58,7 @@
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
-            <form accept-charset="UTF-8" role="form" method="post" action="/login">
+            <form accept-charset="UTF-8" role="form" method="post" action="${contextPath}/login">
               <h1>환영합니다.</h1>
               		<div class="form-group">
 						 <input name="username" value=''
@@ -68,6 +68,8 @@
 						 <input name="password" id="password" value='' placeholder="Password" type="password"
 							class="form-control" />
 					</div>
+					<!-- spring security는 form 전송시 csrf 공격 방어를 하기위해  토큰값을 보내야 하도록 규정되어있어 히든값으로 넣어준다-->
+					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 					<button type="submit" class="btn btn-sm btn-success">로그인</button>		 
               <div class="clearfix"></div>
 

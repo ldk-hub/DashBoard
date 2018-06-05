@@ -42,9 +42,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	      .logout()
 		      .logoutRequestMatcher(new AntPathRequestMatcher("/logout")) //logout 을 호출할 경우 로그아웃
 	          .invalidateHttpSession(true) //세션날리기
-	          .logoutSuccessUrl("/login") //로그아웃 성공시 이동할 경로
-	          .and()
-	       .exceptionHandling().accessDeniedPage("/403"); // 권한이 없을경우 해당 url로 이동
+	          .logoutSuccessUrl("/login"); //로그아웃 성공시 이동할 경로
+	         //   .and()
+	       //.exceptionHandling().accessDeniedPage("/403")권한이 없을경우 해당 url로 이동
 	  }
   
 	  @Autowired
