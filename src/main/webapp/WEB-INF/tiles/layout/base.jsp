@@ -101,7 +101,9 @@
 	<script src="/static/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
 	<!-- FullCalendar -->
 	<script src="/static/vendors/moment/min/moment.min.js"></script>
-	<script src="/static/vendors/fullcalendar/dist/fullcalendar.min.js"></script>	
+	<script src="/static/vendors/fullcalendar/dist/fullcalendar.min.js"></script>
+	<script src="/static/vendors/fullcalendar/dist/lang-all.js"></script>
+	<script src="/static/vendors/fullcalendar/dist/gcal.js"></script>
 	<!-- bootstrap-daterangepicker -->
 	<script src="/static/vendors/moment/min/moment.min.js"></script>
 	<script src="/static/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
@@ -165,7 +167,36 @@
 	        $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
 	    });
 	</script>
-	
+	<script type="text/javascript">
+    jQuery(document).ready(function() {
+        jQuery("#calendar").fullCalendar({
+            header : {
+                  left : "month,today,list"
+                , center : "title"
+                , right : "prev,next"
+            }
+            , lang : "ko"
+            , editable : true
+            , eventLimit : true
+            , googleCalendarApiKey : "AIzaSyDcnW6WejpTOCffshGDDb4neIrXVUA1EAE"      // Google API KEY
+
+            // 예제소스에 적힌 구글캘린더 API 키는 FullCalendar 예제에 있는 API키를 그대로 사용한 것이다.
+
+            , eventSources : [
+                // 대한민국의 공휴일
+                {
+                      googleCalendarId : "ko.south_korea#holiday@group.v.calendar.google.com"
+                    , className : "koHolidays"
+                    , color : "#FF0000"
+                    , textColor : "#FFFFFF"
+                }
+            ]
+            , loading:function(bool) {
+                jQuery("#loading").toggle(bool);
+            }
+        });
+    });
+</script>
 	<script src="/static/js/custom.min.js"></script>
 </body>
 </html>
