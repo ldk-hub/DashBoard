@@ -4400,7 +4400,7 @@ if (typeof NProgress != 'undefined') {
 				   
 				  echartMap.setOption({
 					title: {
-					  text: 'World Population (2010)',
+					  text: '세계 인구 수(2010)',
 					  subtext: 'from United Nations, Total population, both sexes combined, as of 1 July (thousands)',
 					  x: 'center',
 					  y: 'top'

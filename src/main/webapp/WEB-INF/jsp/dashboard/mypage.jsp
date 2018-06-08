@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+
 <!-- page content -->
         <div class="right_col" role="main">
             <div class="row">
@@ -79,17 +80,78 @@
                     <div class="col-md-9 col-sm-9 col-xs-12">
                       <div class="" role="tabpanel" data-example-id="togglable-tabs">
                         <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-                          <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">방명록</a>
+                          <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">프로젝트 정보</a>
                           </li>
-                          <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">사용정보</a>
+                          <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">방명록</a>
                           </li>
-                          <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">권한정보</a>
+                          <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">기타 정보</a>
                           </li>
                         </ul>
                         <div id="myTabContent" class="tab-content">
                           <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
-
-                            <!-- start recent activity -->
+							<!-- start user projects -->
+                            <table class="data table table-striped no-margin">
+                              <thead>
+                                <tr>
+                                  <th>순번</th>
+                                  <th>프로젝트명</th>
+                                  <th>계약 업체</th>
+                                  <th class="hidden-phone">개발 시간</th>
+                                  <th>개발 기여도</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>1</td>
+                                  <td>프로시저개발 및 웹 시스템 개발</td>
+                                  <td>LG Display</td>
+                                  <td class="hidden-phone">890</td>
+                                  <td class="vertical-align-mid">
+                                    <div class="progress">
+                                      <div class="progress-bar progress-bar-success" data-transitiongoal="35"></div>
+                                    </div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>2</td>
+                                  <td>시스템 유지보수</td>
+                                  <td>LG electronics</td>
+                                  <td class="hidden-phone">450</td>
+                                  <td class="vertical-align-mid">
+                                    <div class="progress">
+                                      <div class="progress-bar progress-bar-danger" data-transitiongoal="15"></div>
+                                    </div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>3</td>
+                                  <td>프로젝트 수행사 </td>
+                                  <td>비즈테크파트너스</td>
+                                  <td class="hidden-phone">2000</td>
+                                  <td class="vertical-align-mid">
+                                    <div class="progress">
+                                      <div class="progress-bar progress-bar-success" data-transitiongoal="75"></div>
+                                    </div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>4</td>
+                                  <td>시스템 개발 및 인프라 유지보수</td>
+                                  <td>한국상조공제조합</td>
+                                  <td class="hidden-phone">3000</td>
+                                  <td class="vertical-align-mid">
+                                    <div class="progress">
+                                      <div class="progress-bar progress-bar-success" data-transitiongoal="90"></div>
+                                    </div>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                            <!-- end user projects -->
+                          
+                          </div>
+                          <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+  							<!-- start recent activity -->
                             <ul class="messages">
                               <li>
                                 <img src="/static/images/img.jpg" class="avatar" alt="Avatar">
@@ -144,72 +206,8 @@
                             <!-- end recent activity -->
 
                           </div>
-                          <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
-
-                            <!-- start user projects -->
-                            <table class="data table table-striped no-margin">
-                              <thead>
-                                <tr>
-                                  <th>#</th>
-                                  <th>Project Name</th>
-                                  <th>Client Company</th>
-                                  <th class="hidden-phone">Hours Spent</th>
-                                  <th>Contribution</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <td>1</td>
-                                  <td>New Company Takeover Review</td>
-                                  <td>Deveint Inc</td>
-                                  <td class="hidden-phone">18</td>
-                                  <td class="vertical-align-mid">
-                                    <div class="progress">
-                                      <div class="progress-bar progress-bar-success" data-transitiongoal="35"></div>
-                                    </div>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>2</td>
-                                  <td>New Partner Contracts Consultanci</td>
-                                  <td>Deveint Inc</td>
-                                  <td class="hidden-phone">13</td>
-                                  <td class="vertical-align-mid">
-                                    <div class="progress">
-                                      <div class="progress-bar progress-bar-danger" data-transitiongoal="15"></div>
-                                    </div>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>3</td>
-                                  <td>Partners and Inverstors report</td>
-                                  <td>Deveint Inc</td>
-                                  <td class="hidden-phone">30</td>
-                                  <td class="vertical-align-mid">
-                                    <div class="progress">
-                                      <div class="progress-bar progress-bar-success" data-transitiongoal="45"></div>
-                                    </div>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>4</td>
-                                  <td>New Company Takeover Review</td>
-                                  <td>Deveint Inc</td>
-                                  <td class="hidden-phone">28</td>
-                                  <td class="vertical-align-mid">
-                                    <div class="progress">
-                                      <div class="progress-bar progress-bar-success" data-transitiongoal="75"></div>
-                                    </div>
-                                  </td>
-                                </tr>
-                              </tbody>
-                            </table>
-                            <!-- end user projects -->
-
-                          </div>
                           <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
-                            <p>xxFood truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui
-                              photo booth letterpress, commodo enim craft beer mlkshk </p>
+                            <p>프로젝트 정보 테이블 생성 후 로그인한 계정정보 기준 조인데이터 호출 변경예정 </p>
                           </div>
                         </div>
                       </div>
