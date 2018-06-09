@@ -1,6 +1,6 @@
 # Bootstrap Hybrid Web Admin Site
 ## 시스템 사용환경
-JAVA1.8, Spring Boot, Security, Oracle DB, lombok, Mybatis, jpa, hibernate, gentelella, Tiles3,
+JAVA1.8, Spring Boot, Security, OracleDB, lombok, Mybatis, jpa, hibernate, gentelella, Tiles3
 
 ## 메인페이지
 ![screencapture-localhost-9090-dashboard-2018-06-08-12_53_10](https://user-images.githubusercontent.com/12209348/41138723-375a5cd0-6b1e-11e8-80cb-64b33582ab2c.png)
@@ -25,18 +25,20 @@ JAVA1.8, Spring Boot, Security, Oracle DB, lombok, Mybatis, jpa, hibernate, gent
 
 ### 진행 예정
 1. 시큐리티 회원가입
-2. 회원정보 페이지 회원별 데이터 호출 
+2. 회원정보 페이지 회원별 데이터 호출 (회원정보 수정 모달 생성)
 3. 풀캘린더 스케쥴 등록 처리 (메인페이지 스케쥴 리스트 호출)
 4. local PC infomation 호출
 5. 차트 정보 데이터처리(샘플데이터 생성 후 진행)
 6. 엑셀 파일업로드 데이터 차트 연동
+7. 테이블 ERD 작성
 
 ### 완료내역
 1. 시큐리티 로그인, 로그아웃 세션처리(jpa) 완료
-2. 날씨 API darksky(1000번 호출 이후 유료), 구글 웨더(서비스 종료),skplant 웨더 API(서비스종료)로 인한 하드코딩 사용 
+2. 날씨 API darksky(api 1000번 호출 이후 유료), 구글 웨더(서비스 종료),skplant 웨더 API(서비스종료)로 인한 하드코딩 사용 
 3. 샘플데이터 게시판목록 호출 (mybatis)완료
 4. 일정계획표 페이지 - 풀캘린더 구글 공휴일 정보 api 연동 완료
-
+5. 일정관리테이블, 회원정보 상세 테이블, 회원 권한 조인용 테이블 생성 완료
+6. 테이블명 수정 기존 테이블, 관리자페이지 테이블 명 구분 완료
 
 ### 사용된 API 목록
 Datatables,

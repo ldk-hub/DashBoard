@@ -21,7 +21,7 @@ import lombok.Setter;
 @Setter
 //기본적으로 @Entity로 선언된 클래스의 이름은 실제 데이터베이스의 테이블 명과 일치하는 것을 매핑.
 //따라서 @Entity의 클래스명과 데이터베이스의 테이블명이 다르면 @Table(name="XXX") 같은 형식으로 작성하면 이름을 다르게 해서 매핑 가능합니다.
-@Table(name = "ADMIN")
+@Table(name = "AP_USER")
 public class User {
   @Id
   //일반적으로 키(primary key)를 가지는 변수에 선언합니다. @GeneratedValue 어노테이션은 해당 Id 값을 어떻게 자동으로 생성할지 전략을 선택할 수 있습니다.
@@ -37,7 +37,7 @@ public class User {
   private String password;
   
   @ManyToMany(cascade=CascadeType.ALL)
-  @JoinTable(name = "user_role",
+  @JoinTable(name = "ap_user_role",
              joinColumns = @JoinColumn(name = "user_id"),
              inverseJoinColumns = @JoinColumn(name = "role_id"))
   private Set<Role> roles;

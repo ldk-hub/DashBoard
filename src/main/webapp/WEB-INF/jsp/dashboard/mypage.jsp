@@ -42,8 +42,8 @@
                           <a href="https://github.com/leedongok" target="_blank">github.com/leedongok</a>
                         </li>
                       </ul>
-
-                      <a class="btn btn-success"><i class="fa fa-edit m-right-xs"></i>회원 정보수정</a>
+					<button type="button" class="btn btn-success"
+							data-toggle="modal" data-target="#updateUsermodal">회원 정보수정</button>
                       <br />
 
                       <!-- start skills -->
@@ -217,4 +217,49 @@
               </div>
             </div>
           </div>
+          <!-- 회원정보 수정 모달 -->
+				<div class="modal fade" id="updateUsermodal" tabindex="-1" role="dialog"
+					aria-labelledby="ModalLabel" >
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">
+									<span aria-hidden="true">×</span><span class="sr-only">Close</span>
+								</button>
+								<h4 class="modal-title" id="ModalLabel">내 정보 변경</h4>
+							</div>
+							<div class="modal-body">
+							<div class="modal-body">
+									<label for="email_acc">아이디</label> <input name="email_acc"
+										id="passMail" value='' placeholder="E-Mail" type="text"
+										class="form-control" />
+								</div>
+								<div class="modal-body">
+									<label for="userid_acc">이메일 </label>
+									<input name="userid_acc" value=''
+										id="passId" placeholder="ID" type="text" class="form-control" />
+								</div>
+								<div class="modal-body">
+									<label for="email_acc">기존 패스워드</label> <input name="email_acc"
+										id="passMail" value='' placeholder="E-Mail" type="text"
+										class="form-control" />
+								</div>
+								<div class="modal-body">
+									<label for="email_acc">신규 패스워드</label> <input name="email_acc"
+										id="passMail" value='' placeholder="E-Mail" type="text"
+										class="form-control" />
+								</div>
+								<div class="modal-body">
+									<label for="email_acc">패스워드 확인</label> <input name="email_acc"
+										id="passMail" value='' placeholder="E-Mail" type="text"
+										class="form-control" />
+								</div>
+								</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-warning" OnClick="">변경</button>
+								<button type="button" class="btn btn-warning" data-dismiss="modal">닫기</button>
+							</div>
+						</div>
+					</div>
+				</div>
         <!-- /page content -->

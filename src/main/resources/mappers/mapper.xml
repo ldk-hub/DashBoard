@@ -11,70 +11,16 @@
                    BRAND_NAME brdName,
                    SEASON_REASON reason,
                    STATUS status
-			  FROM HYO
+			  FROM AP_STATISTIC
 		]]>
 	</select>
 	
-	<!-- 로그인 -->
-	<select id="loginUser" parameterType="DashBoardVO" resultType="DashBoardVO">
-		<![CDATA[
-			SELECT SEQ,
-                   STATUS,
-                   NAME,
-                   ID,
-                   PASSWORD,
-                   EMAIL,
-                   SEX,
-                   CREATE_DATE 
-       			FROM 
-					ADMIN WHERE ID = #{id}
-					and PASSWORD = #{pw}
-		]]>
-	</select>
-	
-	<!--회원가입 -->
-	<insert id="createMember" parameterType="DashBoardVO">
-		<![CDATA[
-			INSERT INTO ADMIN (SEQ,
-			                   STATUS,
-			                   ID,
-			                   NAME,
-			                   PASSWORD,
-			                   EMAIL,
-			                   SEX,
-			                   CREATE_DATE
-                   		)VALUES(
-		                   	adminSeq.nextval,
-		                     1, --권한 레벨 추후 수정
-	                     	#{ID},
-                            #{NAME},
-                            #{PASSWORD},
-                          	#{Email},
-                            #{Sex},
-                            sysdate) 
-		]]>
-	</insert>
-	
-	<!-- 비밀번호 찾기 쿼리 -->
+	<!-- 비밀번호 분실 -->
 	<select id="getPw" parameterType="DashBoardVO" resultType="String">
 		SELECT password
-		  FROM ADMIN
+		  FROM AP_USER
 		 WHERE id = #{userId}
 		  AND email = #{email}
-	</select>
-	
-	<!-- 유저 로그인 -->
-	<select id="loadUserByUsername" parameterType="String" resultType="DashBoardVO">
-		SELECT SEQ,
-		       STATUS,
-		       ID,
-		       NAME,
-		       PASSWORD,
-		       EMAIL,
-		       SEX,
-		       CREATE_DATE
-		  FROM ADMIN
-		WHERE id = #{id}
 	</select>
 	
 </mapper>

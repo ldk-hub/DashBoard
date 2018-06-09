@@ -8,7 +8,7 @@ import javax.persistence.Table;
 import lombok.Data;
 
 @Entity
-@Table(name="role")
+@Table(name="ap_role")
 @Data
 public class Role {
   @Id
