@@ -94,11 +94,11 @@
 
         <div id="register" class="animate form registration_form">
           <section class="login_content">
-             <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" novalidate>
+          <form name="userForm" accept-charset="UTF-8" role="role" method="post" action="${contextPath}/registration">
               <h2>계정을 생성하세요.</h2>
               <br/>
                <div class="item form-group">
-                	<input id="name" class="form-control" data-validate-length-range="14" data-validate-words="10" 
+                	<input id="name" class="form-control"
                 	name="name" placeholder="아이디" required="required" type="text">
                </div>
               
@@ -112,8 +112,8 @@
                </div>
                
                <div class="item form-group">
-                <input id="first-name" class="form-control" data-validate-length-range="14" data-validate-words="10" 
-                	name="name" placeholder="가입자 성명" required="required" type="text">
+                <input id="nickname" class="form-control"
+                	name="nickname" placeholder="가입자  닉네임" required="required" type="text">
                </div>
                
                <div class="form-group">
@@ -121,10 +121,10 @@
                   <div class="col-md-9 col-sm-9 col-xs-12">
                     <div id="gender" class="btn-group" data-toggle="buttons">
                       <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                        <input type="radio" name="gender" value="male"> &nbsp; 남자 &nbsp;
+                        <input type="radio" name="gender" value="M"> &nbsp; 남자 &nbsp;
                       </label>
                       <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                        <input type="radio" name="gender" value="female"> &nbsp; 여자 &nbsp;
+                        <input type="radio" name="gender" value="F"> &nbsp; 여자 &nbsp;
                       </label>
                     </div>
                   </div>
@@ -135,6 +135,8 @@
                 
 			  <div class="form-group">
                  <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                 <!-- spring security는 form 전송시 csrf 공격 방어를 하기위해  토큰값을 보내야 하도록 규정되어있어 히든값으로 넣어준다-->
+					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                  	<button type="submit" class="btn btn-info" >가입</button>
                  	<button type="button" class="btn btn-info"  onclick = "location.href = '#signin' " >취소</button>
                  </div>

@@ -45,7 +45,7 @@ public class LoginController {
 	  @RequestMapping(value="/registration",method=RequestMethod.GET)
 	  public String registration(Model model){
 	    model.addAttribute("userForm", new User());
-	    return "redirect:#signup";
+	    return "redirect:login#signup";
 	  }
 	  
 	  // 회원가입 처리 후 로그인 
@@ -55,7 +55,7 @@ public class LoginController {
 	    String password = userForm.getPassword();
 	    userService.saveUser(userForm,roles);
 	    securityService.autologin(userForm.getUsername(),password);
-	    return "redirect:#signin";
+	    return "redirect:dashboard";
 	  }
 	  
 	  // admin 사용자 테스트 

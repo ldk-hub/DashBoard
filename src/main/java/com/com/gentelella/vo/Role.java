@@ -5,8 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import lombok.Data;
 
+import lombok.Data;
 @Entity
 @Table(name="ap_role")
 @Data
