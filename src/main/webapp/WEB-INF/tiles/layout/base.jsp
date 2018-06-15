@@ -102,10 +102,8 @@
 	<!-- FullCalendar -->
 	<script src="/static/vendors/moment/min/moment.min.js"></script>
 	<script src="/static/vendors/fullcalendar/dist/fullcalendar.min.js"></script>
-	<script src="/static/vendors/fullcalendar/dist/lang-all.js"></script>
 	<script src="/static/vendors/fullcalendar/dist/gcal.js"></script>
 	<!-- bootstrap-daterangepicker -->
-	<script src="/static/vendors/moment/min/moment.min.js"></script>
 	<script src="/static/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
 	 <!-- bootstrap-datetimepicker -->    
 	<script src="/static/vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
@@ -168,18 +166,29 @@
 	    });
 	</script>
 	<script type="text/javascript">
-    jQuery(document).ready(function() {
         jQuery("#calendar").fullCalendar({
             header : {
                   left : "month,today,list"
                 , center : "title"
                 , right : "prev,next"
             }
+	        , allDayDefault: true 
+	        , selectable: true
+	        , selectHelper: true
             , lang : "ko"
             , editable : true
             , eventLimit : true
-            , googleCalendarApiKey : "AIzaSyDcnW6WejpTOCffshGDDb4neIrXVUA1EAE"      // Google API KEY
-
+            , googleCalendarApiKey : "AIzaSyDcnW6WejpTOCffshGDDb4neIrXVUA1EAE"  // Google API KEY
+            	, columnFormat:'ddd'
+     	        , monthNames: ["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"]
+     	       , monthNamesShort: ["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"]
+     	       , dayNames: ["일요일","월요일","화요일","수요일","목요일","금요일","토요일"]
+     	       , dayNamesShort: ["일","월","화 ","수 ","목 ","금 ","토 "]      ///한글로변환
+     	      , buttonText: {
+     	    	    today : "오늘",
+     	    	    month : "월별",
+     	    	    list : "일정목록"
+     	    	   }
             // 예제소스에 적힌 구글캘린더 API 키는 FullCalendar 예제에 있는 API키를 그대로 사용한 것이다.
 
             , eventSources : [
@@ -194,8 +203,8 @@
             , loading:function(bool) {
                 jQuery("#loading").toggle(bool);
             }
+	       
         });
-    });
 </script>
 	<script src="/static/js/custom.min.js"></script>
 </body>
