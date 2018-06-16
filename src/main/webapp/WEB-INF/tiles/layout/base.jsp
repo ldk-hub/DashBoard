@@ -139,7 +139,7 @@
 	    $('#myDatepicker').datetimepicker();
 	    
 	    $('#myDatepicker2').datetimepicker({
-	        format: 'DD.MM.YYYY'
+	        format: 'YYYY.DD.MM'
 	    });
 	    
 	    $('#myDatepicker3').datetimepicker({
@@ -179,18 +179,23 @@
             , editable : true
             , eventLimit : true
             , googleCalendarApiKey : "AIzaSyDcnW6WejpTOCffshGDDb4neIrXVUA1EAE"  // Google API KEY
-            	, columnFormat:'ddd'
-     	        , monthNames: ["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"]
-     	       , monthNamesShort: ["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"]
-     	       , dayNames: ["일요일","월요일","화요일","수요일","목요일","금요일","토요일"]
-     	       , dayNamesShort: ["일","월","화 ","수 ","목 ","금 ","토 "]      ///한글로변환
-     	      , buttonText: {
-     	    	    today : "오늘",
-     	    	    month : "월별",
-     	    	    list : "일정목록"
-     	    	   }
+           	, columnFormat:'ddd'
+   	        , monthNames: ["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"]
+   	       	, monthNamesShort: ["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"]
+   	        , dayNames: ["일요일","월요일","화요일","수요일","목요일","금요일","토요일"]
+   	        , dayNamesShort: ["일","월","화 ","수 ","목 ","금 ","토 "]      ///한글로변환
+   	        , buttonText: {
+   	    	    today : "오늘",
+   	    	    month : "월별",
+   	    	    list : "일정목록"
+   	    	   }
             // 예제소스에 적힌 구글캘린더 API 키는 FullCalendar 예제에 있는 API키를 그대로 사용한 것이다.
-
+			, select: function(start, end) {
+			    $('#CalenderModalNew').modal('show');
+			    
+			    dt_start = moment(start).format('YYYY-MM-DD hh:mm');
+			    dt_end = moment(end).format('YYYY-MM-DD hh:mm');              //달력일자 선택시 작성화면 노출
+			   }
             , eventSources : [
                 // 대한민국의 공휴일
                 {
@@ -203,9 +208,8 @@
             , loading:function(bool) {
                 jQuery("#loading").toggle(bool);
             }
-	       
         });
-</script>
+	</script>
 	<script src="/static/js/custom.min.js"></script>
 </body>
 </html>

@@ -1584,7 +1584,7 @@ if (typeof NProgress != 'undefined') {
 			  startDate: moment().subtract(29, 'days'),
 			  endDate: moment(),
 			  minDate: '01/01/2012',
-			  maxDate: '12/31/2015',
+			  maxDate: '12/31/2020',
 			  dateLimit: {
 				days: 60
 			  },
@@ -1594,7 +1594,7 @@ if (typeof NProgress != 'undefined') {
 			  timePickerIncrement: 1,
 			  timePicker12Hour: true,
 			  ranges: {
-				'Today': [moment(), moment()],
+				'오늘': [moment(), moment()],
 				'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
 				'Last 7 Days': [moment().subtract(6, 'days'), moment()],
 				'Last 30 Days': [moment().subtract(29, 'days'), moment()],
@@ -1669,7 +1669,7 @@ if (typeof NProgress != 'undefined') {
 				  timePickerIncrement: 1,
 				  timePicker12Hour: true,
 				  ranges: {
-					'Today': [moment(), moment()],
+					'오늘': [moment(), moment()],
 					'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
 					'Last 7 Days': [moment().subtract(6, 'days'), moment()],
 					'Last 30 Days': [moment().subtract(29, 'days'), moment()],

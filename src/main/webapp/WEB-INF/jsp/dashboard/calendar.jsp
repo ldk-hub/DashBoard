@@ -38,7 +38,6 @@
     <div id="CalenderModalNew" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
-
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             <h4 class="modal-title" id="myModalLabel">일정 등록</h4>
@@ -46,6 +45,17 @@
           <div class="modal-body">
             <div id="testmodal" style="padding: 5px 20px;">
               <form id="antoform" class="form-horizontal calender" role="form">
+                 <div class="form-group">
+                  <label class="col-sm-3 control-label">날짜 선택</label>
+                     <fieldset>
+                        <div class="form-group">
+                            <div class="input-prepend input-group">
+                              <span class="add-on input-group-addon"><i class="glyphicon glyphicon-calendar fa fa-calendar"></i></span>
+                              <input type="text" style="width: 343px" name="reservation" id="reservation" class="form-control"  />
+                            </div>
+                        </div>
+                     </fieldset>
+					</div>
                 <div class="form-group">
                   <label class="col-sm-3 control-label">제목</label>
                   <div class="col-sm-9">
