@@ -41,13 +41,6 @@ public class LoginController {
 	    return "login";
 	  }
 	  
-	  // 회원가입폼 
-	  @RequestMapping(value="/registration",method=RequestMethod.GET)
-	  public String registration(Model model){
-	    model.addAttribute("userForm", new User());
-	    return "redirect:login#signup";
-	  }
-	  
 	  // 회원가입 처리 후 로그인 
 	  @RequestMapping(value="/registration",method=RequestMethod.POST)
 	  public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult, 

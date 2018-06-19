@@ -56,7 +56,7 @@ public class DashBoardController {
 		return VIEW_PATH + "calendar";
 	}
 
-	// 누나의뢰용 페이지
+	// 의뢰용 페이지
 	@RequestMapping(value = "/hyopage", method = RequestMethod.GET)
 	public String hyopage(ModelMap map, DashBoardVO dashBoardVO) throws Exception {
 		List<DashBoardVO> resultList = dashBoardService.selectBoardList(dashBoardVO);
