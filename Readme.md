@@ -24,13 +24,12 @@ JAVA1.8, Spring Boot, Security, OracleDB, lombok, Mybatis, jpa, hibernate, gente
 ![screencapture-localhost-9090-mypage-2018-06-08-13_08_42](https://user-images.githubusercontent.com/12209348/41138730-44814f86-6b1e-11e8-995b-a592d267f941.png)
 
 ### 진행 예정
-1. 시큐리티 회원가입
-2. 회원정보 페이지 회원별 데이터 호출 (회원정보 수정 모달 생성)
-3. 풀캘린더 스케쥴 등록 처리 (메인페이지 스케쥴 리스트 호출)
-4. local PC infomation 호출
-5. 차트 정보 데이터처리(샘플데이터 생성 후 진행)
-6. 엑셀 파일업로드 데이터 차트 연동
-7. 테이블 ERD 작성
+1. 회원정보 페이지 회원별 데이터 호출 (회원정보 수정 모달 생성)
+2. 풀캘린더 스케쥴 등록 처리 (메인페이지 스케쥴 리스트 호출)
+3. local PC infomation 호출
+4. 차트 정보 데이터처리(샘플데이터 생성 후 진행)
+5. 엑셀 파일업로드 데이터 차트 연동
+6. 테이블 ERD 작성
 
 ### 완료내역
 1. 시큐리티 로그인, 로그아웃 세션처리(jpa) 완료
@@ -39,6 +38,7 @@ JAVA1.8, Spring Boot, Security, OracleDB, lombok, Mybatis, jpa, hibernate, gente
 4. 일정계획표 페이지 - 풀캘린더 구글 공휴일 정보 api 연동 완료
 5. 일정관리테이블, 회원정보 상세 테이블, 회원 권한 조인용 테이블 생성 완료
 6. 테이블명 수정 기존 테이블, 관리자페이지 테이블 명 구분 완료
+7. 시큐리티 회원가입 로직 개발 완료
 
 ### 사용된 API 목록
 Datatables,

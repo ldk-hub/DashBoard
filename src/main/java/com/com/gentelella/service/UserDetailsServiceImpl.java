@@ -25,6 +25,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         User user = userRepository.findByUsername(username);
         Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
         
+        
+        //초기 구현당시 ADMIN 과 USER 권한을 프론트에서 회원가입 당시 처리하려 했으나 관리자가 페이지 내부에서 제어해야 하는 구조가 좋기에 변경
+        
         for (Role role : user.getRoles()) {
             grantedAuthorities.add(new SimpleGrantedAuthority(role.getName()));
         }

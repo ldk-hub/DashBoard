@@ -121,20 +121,21 @@
                       <input type="email" id="email" name="email" placeholder="이메일 주소" required="required" class="form-control">
                </div>
                
-               <div class="form-group">
+               <div class="item form-group">
                   <label class="control-label col-md-3 col-sm-3 col-xs-12">성별</label>
                   <div class="col-md-9 col-sm-9 col-xs-12">
-                    <div id="gender" class="btn-group" data-toggle="buttons">
+                    <div id="sex" class="btn-group" data-toggle="buttons">
                       <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                        <input type="radio" name="gender" value="M"> &nbsp; 남자 &nbsp;
+                        <input type="radio" name="sex" value="M"> &nbsp; 남자 &nbsp;
                       </label>
                       <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                        <input type="radio" name="gender" value="F"> &nbsp; 여자 &nbsp;
+                        <input type="radio" name="sex" value="F"> &nbsp; 여자 &nbsp;
                       </label>
                     </div>
                   </div>
                 </div>
-                
+                <div class="clearfix"></div>
+                <br />
 			  <div class="form-group">
                  <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                  <!-- spring security는 form 전송시 csrf 공격 방어를 하기위해  토큰값을 보내야 하도록 규정되어있어 히든값으로 넣어준다-->
@@ -162,7 +163,7 @@
         </div>
       </div>
     </div>
-     			<!-- 비밀번호 분실정보 모달 -->
+     			<!-- 비밀번호 분실정보 모달  SMTP 로직 구현했지만 정보유출관련  propertie 정보 변경-->
 				<div class="modal fade" id="PassModal" tabindex="-1" role="dialog"
 					aria-labelledby="ModalLabel" >
 					<div class="modal-dialog">
