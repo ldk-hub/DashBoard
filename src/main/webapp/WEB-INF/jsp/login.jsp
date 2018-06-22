@@ -61,8 +61,8 @@
             <form accept-charset="UTF-8" role="form" method="post" action="${contextPath}/login">
               <h1>환영합니다.</h1>
               		<div class="form-group">
-						 <input name="username1" value=''
-							id="username1" placeholder="id" type="text" class="form-control" />
+						 <input name="username1" id="username1" value=''
+							 placeholder="id" type="text" class="form-control" />
 					</div>
 					<div class="form-group">
 						 <input name="password1" id="password1" value='' placeholder="Password" type="password"

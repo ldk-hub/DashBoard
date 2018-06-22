@@ -27,6 +27,7 @@ public class LoginController {
 	  // 로그인 
 	  @RequestMapping("/login")
 	  public String login(Model model, String error, String logout, HttpServletRequest request ){
+		  
 	    if (logout != null){
 	      model.addAttribute("logout", "성공적으로 로그 아웃되었습니다.");
 	    }
