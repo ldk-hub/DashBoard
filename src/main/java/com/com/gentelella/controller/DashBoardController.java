@@ -96,7 +96,7 @@ public class DashBoardController {
 		return VIEW_PATH2 + "form";
 	}
 	
-	//smtp 비밀번호 찾기 메일전송 
+	//smtp 비밀번호 찾기 메일전송 현재 프로퍼티에 계정정보 누출가능성을 염두하여 테스트만진행 후 디폴트값으로 바꿈
 		@RequestMapping(value = "/sendPw.do")
 		public ModelAndView sendEmailAction (@RequestParam Map<String, Object> paramMap, ModelMap model) throws Exception {
 		   	ModelAndView mav;

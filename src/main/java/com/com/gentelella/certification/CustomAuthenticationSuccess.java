@@ -14,7 +14,7 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 public class CustomAuthenticationSuccess implements AuthenticationSuccessHandler{
 	  private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();;
 	  
-	  @Override
+	  @Override//인증이 성공했을경우 이쪽경로를타고 지정한 url로 이동할수있도록 설정함
 	  public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
 	      Authentication authentication) throws IOException, ServletException {
 	      redirectStrategy.sendRedirect(request, response, "/dashboard");

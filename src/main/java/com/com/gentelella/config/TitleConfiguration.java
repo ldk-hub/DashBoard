@@ -18,7 +18,7 @@ public class TitleConfiguration {
 		return configurer;
 	}
 
-	@Bean
+	@Bean//뷰리졸버
 	public TilesViewResolver tilesViewResolver() {
 		final TilesViewResolver resolver = new TilesViewResolver();
 		resolver.setViewClass(TilesView.class);

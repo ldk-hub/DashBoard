@@ -47,21 +47,9 @@ public class LoginController {
 	  public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult, 
 	          Model model ,String[] roles ){
 	    String password = userForm.getPassword();
-	    userService.saveUser(userForm,roles);
-	    securityService.autologin(userForm.getUsername(),password);
+	    userService.saveUser(userForm,roles);//회원가입 로직
+	    securityService.autologin(userForm.getUsername(),password);//회원가입 후 바로 로그인처리할수있도록
 	    return "redirect:dashboard";
-	  }
-	  
-	  // admin 사용자 테스트 
-	  @RequestMapping("/admin")
-	  public String admin(){
-	    return "admin/admin";
-	  }
-	  
-	  // user 사용자 테스트 
-	  @RequestMapping("/user")
-	  public String user(){
-	    return "user/user";
 	  }
 	  
 	  // 권한없는 페이지를 들어갔을때 

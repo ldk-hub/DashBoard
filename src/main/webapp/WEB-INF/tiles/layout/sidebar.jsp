@@ -1,12 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
+
 <div class="profile clearfix">
     <div class="profile_pic">
         <img src="/static/images/user.png" alt="..." class="img-circle profile_img">
     </div>
     <div class="profile_info">
         <span>환영합니다. </span>
-        <h2>Admin</h2>
+        <h2><sec:authentication property="principal.username" /></h2>
     </div>
 </div>
 <br />
