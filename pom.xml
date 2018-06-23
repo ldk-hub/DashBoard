@@ -63,7 +63,7 @@
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
        	
-       	<!-- 하이버네이트 -->
+       <!-- 	
        	<dependency>
 		    <groupId>org.hibernate</groupId>
 		    <artifactId>hibernate-core</artifactId>
@@ -74,7 +74,7 @@
 		    <groupId>org.hibernate</groupId>
 		    <artifactId>hibernate-entitymanager</artifactId>
 		    <version>5.1.0.Final</version>
-		</dependency>
+		</dependency> -->
 	
 		<!-- 롬복 설치 -->	
 		<dependency>

@@ -44,15 +44,17 @@ public class DashBoardController {
 	// 메인페이지
 	@RequestMapping(value = "/dashboard", method = RequestMethod.GET)
 	public String dashboard(Model model) {
-		//현재 세션 로그인 정보 가져오기 로그인 구현 완료시 오픈
-	   // User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		//System.out.println("현재로그인" + user.getUsername());
+	    User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		System.out.println("현재로그인" + user.getUsername());
 		return VIEW_PATH + "dashboard";
 	}
 
 	// 일정관리페이지
 	@RequestMapping(value = "/calendar", method = RequestMethod.GET)
 	public String calendar(Model model) {
+		
+		
+		System.out.println("@@@@@@@@@@@@2"+ model.toString());
 		return VIEW_PATH + "calendar";
 	}
 
