@@ -25,6 +25,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	  public BCryptPasswordEncoder bCryptPasswordEncoder() {
 	      return new BCryptPasswordEncoder(); 
 	  }
+  
+	  @Autowired
+	  public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+	      auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder());
+	  }  
 	  
 	  @Override
 	  protected void configure(HttpSecurity http) throws Exception{
@@ -46,9 +51,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	          .and()
 	       .exceptionHandling().accessDeniedPage("/403");//권한이 없을경우 해당 url로 이동
 	  }
-  
-	  @Autowired
-	  public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-	      auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder());
-	  }  
 }

@@ -61,11 +61,11 @@
             <form accept-charset="UTF-8" role="form" method="post" action="${contextPath}/login">
               <h1>환영합니다.</h1>
               		<div class="form-group">
-						 <input name="username1" id="username1" value=''
+						 <input name="username" id="username" value=''
 							 placeholder="id" type="text" class="form-control" />
 					</div>
 					<div class="form-group">
-						 <input name="password1" id="password1" value='' placeholder="Password" type="password"
+						 <input name="password" id="password" value='' placeholder="Password" type="password"
 							class="form-control" />
 					</div>
 					<!-- spring security는 form 전송시 csrf 공격 방어를 하기위해  토큰값을 보내야 하도록 규정되어있어 히든값으로 넣어준다-->
@@ -98,17 +98,17 @@
               <h2>계정을 생성하세요.</h2>
               <br/>
                <div class="item form-group">
-                	<input id="username" class="form-control"
-                	name="username" placeholder="아이디" required="required" type="text">
+                	<input id="username1" class="form-control"
+                	name="username1" placeholder="아이디" required="required" type="text">
                </div>
               
                 <div class="item form-group">
-                 	<input id="password" type="password" name="password" placeholder="비밀번호" 
+                 	<input id="password1" type="password" name="password1" placeholder="비밀번호" 
                  	 data-validate-length="6,14" class="form-control" required="required">
            	 	</div>
                <div class="item form-group">
 	                <input id="password2" type="password" name="password2" placeholder="비밀번호 확인"
-	                data-validate-linked="password" class="form-control" required="required">
+	                data-validate-linked="password1" class="form-control" required="required">
                </div>
                
                <div class="item form-group">

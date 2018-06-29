@@ -32,12 +32,12 @@ public class UserServiceImpl implements UserService {
     System.out.println("@@@이메일주소"+user.getEmail());//이메일
     
     Set<Role> rolesSet = new HashSet<Role>();
-    /*for(String role:roles){
+   /* for(String role:roles){
       rolesSet.add(new Role(role));
       System.out.println("111"+rolesSet);
     }*/
     user.setRoles(rolesSet);
-    System.out.println("222"+user.getRoles());
+    //System.out.println("222"+user.getRoles());
     userRepository.save(user);
   }
   @Override
