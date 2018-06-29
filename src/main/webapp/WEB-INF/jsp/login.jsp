@@ -99,18 +99,13 @@
               <br/>
                <div class="item form-group">
                 	<input id="username1" class="form-control"
-                	name="username1" placeholder="아이디" required="required" type="text">
+                	name="username" placeholder="아이디" required="required" type="text">
                </div>
               
                 <div class="item form-group">
-                 	<input id="password1" type="password" name="password1" placeholder="비밀번호" 
+                 	<input id="password1" type="password" name="password" placeholder="비밀번호" 
                  	 data-validate-length="6,14" class="form-control" required="required">
            	 	</div>
-               <div class="item form-group">
-	                <input id="password2" type="password" name="password2" placeholder="비밀번호 확인"
-	                data-validate-linked="password1" class="form-control" required="required">
-               </div>
-               
                <div class="item form-group">
                 <input id="nickname" class="form-control"
                 	name="nickname" placeholder="가입자  닉네임" required="required" type="text">
