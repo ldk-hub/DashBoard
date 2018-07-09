@@ -22,8 +22,39 @@
 		 WHERE id = #{userId}
 		  AND email = #{email}
 	</select>
+
+	<!-- 스케쥴 목록 호출 -->
+	<select id="scheduleList"  parameterType="DashBoardVO" resultType="String">
+		SELECT 
+			SEQ, 
+			TITLE,
+			CONTENT,
+			INT_DATE,
+			INT_NAME, 
+			START_DATE, 
+			END_DATE
+			FROM
+		AP_SCHEDULE
+	</select>
 	
-	
+	<!-- 스케쥴 등록 -->
+	<insert id="scheduleInsert">
+		INSERT INTO 
+		AP_SCHEDULE(SEQ, 
+				TITLE,
+				CONTENT,
+				INT_DATE,
+				INT_NAME, 
+				START_DATE, 
+				END_DATE) 
+		VALUES(AP_SCHEDULE.nextval, 
+				#{title},
+				#{content},
+				sysdate,
+				#{intName}, 
+				#{startDate}, 
+				#{endDate})
+	</insert>
 	
 </mapper>
   
