@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
-
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!-- page content -->
         <div class="right_col" role="main">
             <div class="row">
@@ -27,7 +27,7 @@
                           <img class="img-responsive avatar-view" src="/static/images/picture.png" alt="Avatar" title="Change the avatar">
                         </div>
                       </div>
-                      <h3>Admin</h3>
+                      <h3><sec:authentication property="principal.username" /></h3>
 
                       <ul class="list-unstyled user_data">
                         <li><i class="fa fa-map-marker user-profile-icon"></i> 경기도 파주시 와동동 
@@ -43,11 +43,11 @@
                         </li>
                       </ul>
 					<button type="button" class="btn btn-success"
-							data-toggle="modal" data-target="#updateUsermodal">회원 정보수정</button>
+							data-toggle="modal" data-target="#updateUsermodal">회원 정보등록</button>
                       <br />
 
                       <!-- start skills -->
-                      <h4></h4>
+                      <h4>업무 역량</h4>
                       <ul class="list-unstyled user_data">
                         <li>
                           <p>Web Applications</p>
@@ -96,8 +96,8 @@
                                   <th>순번</th>
                                   <th>프로젝트명</th>
                                   <th>계약 업체</th>
-                                  <th class="hidden-phone">개발 시간</th>
-                                  <th>개발 기여도</th>
+                                  <th>개발시간(Hour)</th>
+                                  <th>프로젝트기여도</th>
                                 </tr>
                               </thead>
                               <tbody>
@@ -154,7 +154,7 @@
   							<!-- start recent activity -->
                             <ul class="messages">
                               <li>
-                                <img src="/static/images/img.jpg" class="avatar" alt="Avatar">
+                                <img src="/static/images/user.png" class="avatar" alt="Avatar">
                                 <div class="message_date">
                                   <h3 class="date text-info">24</h3>
                                   <p class="month">May</p>
@@ -166,7 +166,7 @@
                                 </div>
                               </li>
                               <li>
-                                <img src="/static/images/img.jpg" class="avatar" alt="Avatar">
+                                <img src="/static/images/user.png" class="avatar" alt="Avatar">
                                 <div class="message_date">
                                   <h3 class="date text-error">21</h3>
                                   <p class="month">May</p>
@@ -178,7 +178,7 @@
                                 </div>
                               </li>
                               <li>
-                                <img src="/static/images/img.jpg" class="avatar" alt="Avatar">
+                                <img src="/static/images/user.png" class="avatar" alt="Avatar">
                                 <div class="message_date">
                                   <h3 class="date text-info">24</h3>
                                   <p class="month">May</p>
@@ -190,7 +190,7 @@
                                 </div>
                               </li>
                               <li>
-                                <img src="/static/images/img.jpg" class="avatar" alt="Avatar">
+                                <img src="/static/images/user.png" class="avatar" alt="Avatar">
                                 <div class="message_date">
                                   <h3 class="date text-error">21</h3>
                                   <p class="month">May</p>
@@ -226,37 +226,47 @@
 								<button type="button" class="close" data-dismiss="modal">
 									<span aria-hidden="true">×</span><span class="sr-only">Close</span>
 								</button>
-								<h4 class="modal-title" id="ModalLabel">내 정보 변경</h4>
+								<h4 class="modal-title" id="ModalLabel">상세 내역 등록</h4>
 							</div>
 							<div class="modal-body">
 							<div class="modal-body">
-									<label for="email_acc">아이디</label> <input name="email_acc"
-										id="passMail" value='' placeholder="E-Mail" type="text"
+									<label for="email_acc">거주지역</label> <input name="email_acc"
+										id="passMail" value='' placeholder="사는지역 읍/면/동 또는 도로명 주소 기입" type="text"
 										class="form-control" />
 								</div>
 								<div class="modal-body">
-									<label for="userid_acc">이메일 </label>
+									<label for="userid_acc">업무 포지션 </label>
 									<input name="userid_acc" value=''
-										id="passId" placeholder="ID" type="text" class="form-control" />
+										id="passId" placeholder="EX) 개발, 인사, 경영 등" type="text" class="form-control" />
 								</div>
 								<div class="modal-body">
-									<label for="email_acc">기존 패스워드</label> <input name="email_acc"
-										id="passMail" value='' placeholder="E-Mail" type="text"
+									<label for="email_acc">개인 블로그</label> <input name="email_acc"
+										id="passMail" value='' placeholder="URL 주소" type="text"
 										class="form-control" />
 								</div>
 								<div class="modal-body">
-									<label for="email_acc">신규 패스워드</label> <input name="email_acc"
-										id="passMail" value='' placeholder="E-Mail" type="text"
+									<label for="email_acc">프로젝트명</label> <input name="email_acc"
+										id="passMail" value='' placeholder="프로젝트명 기입" type="text"
 										class="form-control" />
 								</div>
 								<div class="modal-body">
-									<label for="email_acc">패스워드 확인</label> <input name="email_acc"
-										id="passMail" value='' placeholder="E-Mail" type="text"
+									<label for="email_acc">계약업체</label> <input name="email_acc"
+										id="passMail" value='' placeholder="회사명" type="text"
+										class="form-control" />
+								</div>
+								<div class="modal-body">
+									<label for="email_acc">개발시간</label> <input name="email_acc"
+										id="passMail" value='' placeholder="EX)800시간 -> 800" type="text"
+										class="form-control" />
+								</div>
+								<div class="modal-body">
+									<label for="email_acc">프로젝트 기여도</label> <input name="email_acc"
+										id="passMail" value='' placeholder="숫자만 기입" type="text"
 										class="form-control" />
 								</div>
 								</div>
 							<div class="modal-footer">
-								<button type="button" class="btn btn-warning" OnClick="">변경</button>
+								<button type="button" class="btn btn-warning" OnClick="">등록</button>
 								<button type="button" class="btn btn-warning" data-dismiss="modal">닫기</button>
 							</div>
 						</div>

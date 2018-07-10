@@ -27,12 +27,13 @@ JAVA1.8, Spring Boot, Security, OracleDB, lombok, Mybatis, jpa, hibernate, gente
 ![screencapture-localhost-9090-mypage-2018-06-08-13_08_42](https://user-images.githubusercontent.com/12209348/41138730-44814f86-6b1e-11e8-995b-a592d267f941.png)
 
 ### 진행 예정
-1. 풀캘린더 스케쥴 등록 처리 (메인페이지 스케쥴 리스트 호출)
-2. 마이페이지 회원별 데이터 처리
-3. local PC infomation 호출
-4. 차트 정보 데이터처리(샘플데이터 생성 후 진행)
-5. 엑셀 파일업로드 데이터 차트 연동
-6. ERD 작성
+1. 풀캘린더 스케쥴 등록 처리 (메인페이지 to-do List 연동)
+2. 마이페이지 업무 스킬 인벤토리 등록 
+3. 메인페이지 회원정보 통계 수치 등록
+4. local PC infomation 호출
+5. 차트 통계용 샘플데이터 크롤링 선행
+6. 차트 정보 데이터처리
+7. 엑셀 파일업로드 데이터 차트 연동
 
 ### 완료내역
 1. 시큐리티 로그인, 로그아웃 세션처리 완료(jpa)

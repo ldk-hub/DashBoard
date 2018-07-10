@@ -168,7 +168,7 @@
 	<script type="text/javascript">
         jQuery("#calendar").fullCalendar({
             header : {
-                  left : "month,today,list"
+                  left : "month,today,agendaWeek"
                 , center : "title"
                 , right : "prev,next"
             }
@@ -187,14 +187,13 @@
    	        , buttonText: {
    	    	    today : "오늘",
    	    	    month : "월별",
-   	    	    list : "일정목록"
+   	    	 agendaWeek : "일주일"
    	    	   }
             // 예제소스에 적힌 구글캘린더 API 키는 FullCalendar 예제에 있는 API키를 그대로 사용한 것이다.
 			, select: function(start, end) {
 			    $('#CalenderModalNew').modal('show');
-			    
-			    dt_start = moment(start).format('YYYY-MM-DD hh:mm');
-			    dt_end = moment(end).format('YYYY-MM-DD hh:mm');              //달력일자 선택시 작성화면 노출
+			    dt_start = moment(start).format('YYYY-MM-DD');
+			    dt_end = moment(end).format('YYYY-MM-DD');
 			   }
             , eventSources : [
                 // 대한민국의 공휴일

@@ -54,7 +54,6 @@ public class DashBoardController {
 	public String calendar(Model model) {
 		
 		
-		System.out.println("@@@@@@@@@@@@2"+ model.toString());
 		return VIEW_PATH + "calendar";
 	}
 
