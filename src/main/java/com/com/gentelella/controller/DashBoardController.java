@@ -11,6 +11,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -50,11 +51,11 @@ public class DashBoardController {
 	}
 
 	// 일정관리페이지
-	@RequestMapping(value = "/calendar", method = RequestMethod.GET)
-	public String calendar(Model model) {
+	@RequestMapping(value = "/calendar", method = RequestMethod.POST)
+	public ModelAndView calendar(@ModelAttribute Model model) {
+		ModelAndView modelAndView = new ModelAndView();
 		
-		
-		return VIEW_PATH + "calendar";
+		return modelAndView; //VIEW_PATH + "calendar";
 	}
 
 	// 의뢰용 페이지
