@@ -195,35 +195,33 @@
 			    dt_start = moment(start).format('YYYY-MM-DD');
 			    dt_end = moment(end).format('YYYY-MM-DD');
 			   }
-            , eventSources : [
-                // 대한민국의 공휴일
+            , eventSources : [// 대한민국의 공휴일
                 {
                       googleCalendarId : "ko.south_korea#holiday@group.v.calendar.google.com"
                     , className : "koHolidays"
                     , color : "#FF0000"
                     , textColor : "#FFFFFF"
                 }
-            ]
-            , 
+            ], 
             //DB에서 가져온 값으로 해당 날짜에 붙이는 기능
             events: function(start, end, timezone, callback) {
-            $.ajax({
-                url: '/calendar',
-                type : 'post',
-                data : {EVENT_CODE : '11', LANG : lang_cd, startDate : start.format(), endDate : end.format() },
-                dataType: 'json',
-                success: function(data) {
-                    var events = [];
-                    $(data).each(function() {
-                        events.push({
-                            title: $(this).attr('title'),
-                            start: $(this).attr('start'),
-                            end: $(this).attr('end')
-                        });
-                    });
-                    callback(events);
-                }
-            });
+	            $.ajax({
+	                url: '/calendar',
+	                type : 'post',
+	                //data : {EVENT_CODE : '11', LANG : lang_cd, startDate : start.format(), endDate : end.format() },
+	                dataType: 'json',
+	                success: function(data) {
+	                 /*    var events = [];
+	                  $(data).each(function() {
+	                         events.push({
+	                            title: $(this).attr('title'),
+	                            start: $(this).attr('start'),
+	                            end: $(this).attr('end') 
+	                        }); 
+	                    }); 
+	                    callback(events); */
+	                }
+	            });
             },
             loading:function(bool) {
                 jQuery("#loading").toggle(bool);

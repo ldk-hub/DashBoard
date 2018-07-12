@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.com.gentelella.service.DashBoardServiceImpl;
@@ -51,11 +52,12 @@ public class DashBoardController {
 	}
 
 	// 일정관리페이지
-	@RequestMapping(value = "/calendar", method = RequestMethod.POST)
-	public ModelAndView calendar(@ModelAttribute Model model) {
-		ModelAndView modelAndView = new ModelAndView();
+	@RequestMapping(value = "/calendar", method = RequestMethod.GET)
+	//@ResponseBody //json 파싱
+	public String calendar(Model model) {
+		System.out.println("@@@@@@@@@@@"+model.toString());
 		
-		return modelAndView; //VIEW_PATH + "calendar";
+		return VIEW_PATH + "calendar";
 	}
 
 	// 의뢰용 페이지

@@ -18,7 +18,7 @@
     <link href="/static/vendors/animate.css/animate.min.css" rel="stylesheet">
     <!-- Custom Theme Style -->
     <link href="/static/css/custom.min.css" rel="stylesheet">
-    
+   
     <!-- 비밀번호 이메일 찾기 -->
 	<script type="text/javascript">	
 		function passEmail(){
@@ -49,6 +49,13 @@
 				});
 		}
 	</script>
+
+	<script type="text/javascript">
+	$('#passModal').on('hidden', function () {
+		$(this).find('form')[0].reset();
+	});
+	</script>
+	  
   </head>
   <body class="login">
     <div>
@@ -60,7 +67,7 @@
           <section class="login_content">
             <form accept-charset="UTF-8" role="form" method="post" action="${contextPath}/login">
               <h1>환영합니다.</h1>
-              		<div class="form-group">
+              		<div class="form-group">기화
 						 <input name="username" id="username" value=''
 							 placeholder="id" type="text" class="form-control" />
 					</div>
@@ -136,7 +143,7 @@
                  <!-- spring security는 form 전송시 csrf 공격 방어를 하기위해  토큰값을 보내야 하도록 규정되어있어 히든값으로 넣어준다-->
 					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                  	<button type="submit" class="btn btn-info" >가입</button>
-                 	<button type="button" class="btn btn-info"  onclick = "location.href = '#signin' " >취소</button>
+                 	<button type="reset" class="btn btn-info" onclick = "location.href = '#signin' " >취소</button>
                  </div>
               </div>
               <div class="clearfix"></div>
@@ -161,6 +168,7 @@
      			<!-- 비밀번호 분실정보 모달  SMTP 로직 구현했지만 정보유출관련  propertie 정보 변경-->
 				<div class="modal fade" id="PassModal" tabindex="-1" role="dialog"
 					aria-labelledby="ModalLabel" >
+					<form name="passwordForm" accept-charset="UTF-8" role="role" method="post" action="">
 					<div class="modal-dialog">
 						<div class="modal-content">
 							<div class="modal-header">
@@ -187,6 +195,7 @@
 							</div>
 						</div>
 					</div>
+					</form>
 				</div>
 
 	<!-- ajax -->
