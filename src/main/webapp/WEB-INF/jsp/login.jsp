@@ -49,11 +49,12 @@
 				});
 		}
 	</script>
-
+	<!-- 모달 인풋 데이터 초기화 -->
 	<script type="text/javascript">
-	$('#passModal').on('hidden', function () {
-		$(this).find('form')[0].reset();
-	});
+		function modalClose(){
+			$('#passId').val('');
+			$('#passMail').val('');
+		}
 	</script>
 	  
   </head>
@@ -67,7 +68,7 @@
           <section class="login_content">
             <form accept-charset="UTF-8" role="form" method="post" action="${contextPath}/login">
               <h1>환영합니다.</h1>
-              		<div class="form-group">기화
+              		<div class="form-group">
 						 <input name="username" id="username" value=''
 							 placeholder="id" type="text" class="form-control" />
 					</div>
@@ -168,7 +169,6 @@
      			<!-- 비밀번호 분실정보 모달  SMTP 로직 구현했지만 정보유출관련  propertie 정보 변경-->
 				<div class="modal fade" id="PassModal" tabindex="-1" role="dialog"
 					aria-labelledby="ModalLabel" >
-					<form name="passwordForm" accept-charset="UTF-8" role="role" method="post" action="">
 					<div class="modal-dialog">
 						<div class="modal-content">
 							<div class="modal-header">
@@ -191,13 +191,14 @@
 								</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-warning" OnClick="passEmail()">메일 보내기</button>
-								<button type="button" class="btn btn-warning" data-dismiss="modal">닫기</button>
+								<button type="button" class="btn btn-warning" data-dismiss="modal" OnClick="modalClose()">닫기</button>
 							</div>
 						</div>
 					</div>
-					</form>
 				</div>
-
+				
+			
+	
 	<!-- ajax -->
 	<script src="/static/vendors/jquery/src/ajax.js"></script>
     <!-- jQuery -->

@@ -72,8 +72,8 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default antoclose" data-dismiss="modal">닫기</button>
             <button type="button" class="btn btn-primary antosubmit">저장</button>
+            <button type="button" class="btn btn-default antoclose" data-dismiss="modal" OnClick="modalClose()">닫기</button>
           </div>
         </div>
       </div>
@@ -99,7 +99,7 @@
                 <div class="form-group">
                   <label class="col-sm-3 control-label">상세내역</label>
                   <div class="col-sm-9">
-                    <textarea class="form-control" style="height:55px;" id="descr2" name="descr"></textarea>
+                    <textarea class="form-control" style="height:55px;" id="descr2" name="descr2"></textarea>
                   </div>
                 </div>
 
@@ -107,8 +107,8 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default antoclose2" data-dismiss="modal">닫기</button>
             <button type="button" class="btn btn-primary antosubmit2">저장</button>
+            <button type="button" class="btn btn-default antoclose2" data-dismiss="modal"  >닫기</button>
           </div>
         </div>
       </div>
@@ -117,3 +117,12 @@
     <div id="fc_create" data-toggle="modal" data-target="#CalenderModalNew"></div>
     <div id="fc_edit" data-toggle="modal" data-target="#CalenderModalEdit"></div>
     <!-- /calendar modal -->
+	
+	
+	<!-- 모달 인풋 데이터 초기화 -->
+	<script type="text/javascript">
+		function modalClose(){
+			$('#title').val('');
+			$('#descr').val('');
+		}
+	</script>
