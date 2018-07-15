@@ -46,45 +46,17 @@
 							data-toggle="modal" data-target="#updateUsermodal">회원 정보등록</button>
                       <br />
 
-                      <!-- start skills -->
-                      <h4>업무 역량</h4>
-                      <ul class="list-unstyled user_data">
-                        <li>
-                          <p>Web Applications</p>
-                          <div class="progress progress_sm">
-                            <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>
-                          </div>
-                        </li>
-                        <li>
-                          <p>Website Design</p>
-                          <div class="progress progress_sm">
-                            <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="70"></div>
-                          </div>
-                        </li>
-                        <li>
-                          <p>Automation & Testing</p>
-                          <div class="progress progress_sm">
-                            <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="30"></div>
-                          </div>
-                        </li>
-                        <li>
-                          <p>UI / UX</p>
-                          <div class="progress progress_sm">
-                            <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>
-                          </div>
-                        </li>
-                      </ul>
-                      <!-- end of skills -->
+                    
 
                     </div>
                     <div class="col-md-9 col-sm-9 col-xs-12">
                       <div class="" role="tabpanel" data-example-id="togglable-tabs">
                         <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-                          <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">프로젝트 정보</a>
+                          <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">참여 프로젝트</a>
                           </li>
                           <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">방명록</a>
                           </li>
-                          <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">기타 정보</a>
+                          <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">업무 역량</a>
                           </li>
                         </ul>
                         <div id="myTabContent" class="tab-content">
@@ -203,11 +175,124 @@
                               </li>
 
                             </ul>
-                            <!-- end recent activity -->
+                         <!-- end recent activity -->
 
-                          </div>
+						<div class="col-md-12 col-sm-12 col-xs-12">
+							<div class="clearfix"></div>
+							<div class="x_content">
+								<div id="alerts"></div>
+								<div class="btn-toolbar editor" data-role="editor-toolbar"
+									data-target="#editor-one">
+									<div class="btn-group">
+										<a class="btn dropdown-toggle" data-toggle="dropdown"
+											title="Font"><i class="fa fa-font"></i><b
+											class="caret"></b></a>
+										<ul class="dropdown-menu">
+										</ul>
+									</div>
+
+									<div class="btn-group">
+										<a class="btn dropdown-toggle" data-toggle="dropdown"
+											title="Font Size"><i class="fa fa-text-height"></i>&nbsp;<b
+											class="caret"></b></a>
+										<ul class="dropdown-menu">
+											<li><a data-edit="fontSize 5">
+													<p style="font-size: 17px">Huge</p>
+											</a></li>
+											<li><a data-edit="fontSize 3">
+													<p style="font-size: 14px">Normal</p>
+											</a></li>
+											<li><a data-edit="fontSize 1">
+													<p style="font-size: 11px">Small</p>
+											</a></li>
+										</ul>
+									</div>
+
+									<div class="btn-group">
+										<a class="btn" data-edit="bold" title="Bold (Ctrl/Cmd+B)"><i
+											class="fa fa-bold"></i></a> <a class="btn" data-edit="italic"
+											title="Italic (Ctrl/Cmd+I)"><i class="fa fa-italic"></i></a>
+										<a class="btn" data-edit="strikethrough"
+											title="Strikethrough"><i class="fa fa-strikethrough"></i></a>
+										<a class="btn" data-edit="underline"
+											title="Underline (Ctrl/Cmd+U)"><i
+											class="fa fa-underline"></i></a>
+									</div>
+
+									<div class="btn-group">
+										<a class="btn" data-edit="insertunorderedlist"
+											title="Bullet list"><i class="fa fa-list-ul"></i></a> <a
+											class="btn" data-edit="insertorderedlist"
+											title="Number list"><i class="fa fa-list-ol"></i></a> <a
+											class="btn" data-edit="outdent"
+											title="Reduce indent (Shift+Tab)"><i
+											class="fa fa-dedent"></i></a> <a class="btn"
+											data-edit="indent" title="Indent (Tab)"><i
+											class="fa fa-indent"></i></a>
+									</div>
+
+									<div class="btn-group">
+										<a class="btn" data-edit="justifyleft"
+											title="Align Left (Ctrl/Cmd+L)"><i
+											class="fa fa-align-left"></i></a> <a class="btn"
+											data-edit="justifycenter" title="Center (Ctrl/Cmd+E)"><i
+											class="fa fa-align-center"></i></a> <a class="btn"
+											data-edit="justifyright" title="Align Right (Ctrl/Cmd+R)"><i
+											class="fa fa-align-right"></i></a> <a class="btn"
+											data-edit="justifyfull" title="Justify (Ctrl/Cmd+J)"><i
+											class="fa fa-align-justify"></i></a>
+									</div>
+
+									<div class="btn-group">
+										<a class="btn dropdown-toggle" data-toggle="dropdown"
+											title="Hyperlink"><i class="fa fa-link"></i></a>
+										<div class="dropdown-menu input-append">
+											<input class="span2" placeholder="URL" type="text"
+												data-edit="createLink" />
+											<button class="btn" type="button">Add</button>
+										</div>
+										<a class="btn" data-edit="unlink" title="Remove Hyperlink"><i
+											class="fa fa-cut"></i></a>
+									</div>
+								</div>
+								<div id="editor-one" class="editor-wrapper"></div>
+								<textarea name="descr" id="descr" style="display: none;"></textarea>
+								<br />
+								<div class="ln_solid"></div>
+							</div>
+						</div>
+					</div>
+					
                           <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
-                            <p>프로젝트 정보 테이블 생성 후 로그인한 계정정보 기준 조인데이터 호출 변경예정 </p>
+                              <!-- start skills -->
+		                      <h4>업무 역량</h4>
+		                      <ul class="list-unstyled user_data">
+		                        <li>
+		                          <p>백엔드 개발 스킬</p>
+		                          <div class="progress progress_sm">
+		                            <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="70"></div>
+		                          </div>
+		                        </li>
+		                        <li>
+		                          <p>UI / UX 디자인 역량</p>
+		                          <div class="progress progress_sm">
+		                            <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="30"></div>
+		                          </div>
+		                        </li>
+		                        <li>
+		                          <p>프론트 개발 스킬</p>
+		                          <div class="progress progress_sm">
+		                            <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="60"></div>
+		                          </div>
+		                        </li>
+		                        <li>
+		                          <p>데이터 베이스 역량</p>
+		                          <div class="progress progress_sm">
+		                            <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="90"></div>
+		                          </div>
+		                        </li>
+		                      </ul>
+		                      <!-- end of skills -->
                           </div>
                         </div>
                       </div>
