@@ -258,6 +258,7 @@
 								<div id="editor-one" class="editor-wrapper"></div>
 								<textarea name="descr" id="descr" style="display: none;"></textarea>
 								<br />
+								<button type="submit" class="btn btn-sm btn-success">등록</button>	
 								<div class="ln_solid"></div>
 							</div>
 						</div>

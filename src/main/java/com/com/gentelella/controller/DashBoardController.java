@@ -1,6 +1,8 @@
 package com.com.gentelella.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import org.slf4j.Logger;
@@ -11,7 +13,6 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -53,11 +54,19 @@ public class DashBoardController {
 
 	// 일정관리페이지
 	@RequestMapping(value = "/calendar", method = RequestMethod.GET)
-	//@ResponseBody //json 파싱
-	public String calendar(Model model) {
-		System.out.println("@@@@@@@@@@@"+model.toString());
-		
-		return VIEW_PATH + "calendar";
+	@ResponseBody //json 파싱
+	public List<Map<String, String>> calendar(Locale locale, Model model, @RequestParam("syear") String syear, 
+			@RequestParam("smonth") String smonth, @RequestParam("eyear") String eyear,
+			@RequestParam("emonth") String emonth) throws Exception {
+				
+			logger.info("Welcome scheduleArticle! The client locale is {}.", locale);
+
+			Map<String, Object> paramMap = new HashMap<String, Object>();
+			paramMap.put("sDay", syear + "/" + smonth + "/01");
+			paramMap.put("eDay", eyear + "/" + emonth + "/01");
+			List<Map<String, String>> resultMap = dashBoardService.getScheduleArticles(paramMap);
+
+			return resultMap;
 	}
 
 	// 의뢰용 페이지

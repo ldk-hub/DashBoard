@@ -24,4 +24,11 @@ public class DashBoardServiceImpl implements DashBoardService  {
 	public String getPw(Map<String, Object> paramMap) throws Exception {
 		return dashBoardDAO.getPw(paramMap);
 	}
+	//스케쥴 리스트 
+	@Override
+	public List<Map<String, String>> getScheduleArticles(Map<String, Object> paramMap) throws Exception {
+		return dashBoardDAO.getScheduleArticles(paramMap);
+	
+	}
+
 }

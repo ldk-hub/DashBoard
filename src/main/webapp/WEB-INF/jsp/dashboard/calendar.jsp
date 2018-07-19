@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
+	
   <!-- page content -->
         <div class="right_col" role="main">
           <div class="">
@@ -117,7 +118,6 @@
     <div id="fc_create" data-toggle="modal" data-target="#CalenderModalNew"></div>
     <div id="fc_edit" data-toggle="modal" data-target="#CalenderModalEdit"></div>
     <!-- /calendar modal -->
-	
 	
 	<!-- 모달 인풋 데이터 초기화 -->
 	<script type="text/javascript">

@@ -10,4 +10,6 @@ public interface DashBoardService {
 	public List<DashBoardVO> selectBoardList(DashBoardVO dashBoardVO)throws Exception;
 	
 	public String getPw(Map<String, Object> paramMap) throws Exception;
+	
+	 public List<Map<String, String>> getScheduleArticles(Map<String, Object> paramMap) throws Exception;
 }

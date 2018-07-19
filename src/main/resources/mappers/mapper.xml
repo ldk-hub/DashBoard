@@ -24,7 +24,7 @@
 	</select>
 
 	<!-- 스케쥴 목록 호출 -->
-	<select id="scheduleList"  parameterType="DashBoardVO" resultType="String">
+	<select id="scheduleList" resultType="map">
 		SELECT 
 			SEQ, 
 			TITLE,
