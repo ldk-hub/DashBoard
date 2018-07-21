@@ -33,12 +33,12 @@ public class DashBoardDAO extends SqlSessionDaoSupport {
 	public List<Map<String, String>> getScheduleArticles(Map<String, Object> paramMap)throws Exception  {
 	List<Map<String, String>> scheduleArticle = getSqlSession().selectList("dashBoardMapper.scheduleList", paramMap);
 		
-		for(Map<String, String> map : scheduleArticle){
+		/*for(Map<String, String> map : scheduleArticle){
 			String title = map.get("title");
 			title = title.replaceAll("<script>","&lt;script&gt;");
 			title = title.replaceAll("</script>","&lt;/script&gt;");
 			map.put("title",title);
-		}
+		}*/
 		
 		return scheduleArticle.size()==0?new ArrayList<Map<String,String>>():scheduleArticle;
 	}

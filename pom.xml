@@ -143,6 +143,14 @@
 		    <artifactId>spring-boot-starter-mail</artifactId>
 		    <version>1.4.3.RELEASE</version>
 		</dependency>
+		
+		<!-- 메모리측정 -->
+		<dependency>
+		    <groupId>org.fusesource</groupId>
+		    <artifactId>sigar</artifactId>
+		    <version>1.6.4</version>
+		</dependency>
+		
 	</dependencies>
 	<build>
 		<plugins>
