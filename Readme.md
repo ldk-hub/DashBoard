@@ -26,7 +26,9 @@ JAVA1.8, Spring Boot, Security, OracleDB, lombok, Mybatis, jpa, hibernate, gente
 ## 회원정보 페이지(회원별 데이터화 예정)
 ![screencapture-localhost-9090-mypage-2018-06-08-13_08_42](https://user-images.githubusercontent.com/12209348/41138730-44814f86-6b1e-11e8-995b-a592d267f941.png)
 
-## local PC(server) infomation(CPU,memory, model 등) 점유율 측정
+## local PC(server) infomation(CPU,memory, model 등) 점유율 측정(sigar API)
+![3](https://user-images.githubusercontent.com/12209348/43034946-ee15ec90-8d20-11e8-8471-4a0eb5ae65f3.PNG)
+
 
 
 ### 진행 예정
@@ -47,7 +49,6 @@ JAVA1.8, Spring Boot, Security, OracleDB, lombok, Mybatis, jpa, hibernate, gente
 6. 시큐리티 회원가입 개발 완료
 7. 대시보드 내 시큐리티 principal 정보 호출
 8. 패스워드 분실 SMTP 비밀번호 찾기 로직 완료
-9.
 
 ### 사용된 API 목록
 Datatables,

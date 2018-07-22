@@ -53,45 +53,29 @@ public class DashBoardController {
 		System.out.println("현재로그인" + user.getUsername());
 		
 		//cpu점유율 측정(차트로 퍼센 테이지 호출 예정)
-		System.out.println("================== CPU DATA ====================");
-		Sigar sigar = new Sigar();// api 호출
-		CpuPerc cpu = null;
-		CpuPerc[] cpus = null;
+		System.out.println("================== PC정보 ====================");
+		Sigar sigar = new Sigar();// cpu
+		Sigar sigar1 = new Sigar();//메모리
+		CpuPerc cpu = null;//cpu
+		Mem mem = null;//memory
+		String pattern = "####.##";//memory
 		try {
-			cpu = sigar.getCpuPerc();//cpu정보 호출
-			cpus = sigar.getCpuPercList();//cpu정보 호출
-			System.out.println(String.format("총 시간 : %s / 총 시스템 시간 : %s / 총 아이들 시간  : %s ",
+			//cpu측정 영역
+			cpu = sigar.getCpuPerc();
+			System.out.println(String.format("Cpu수치 >> 시간 : %s / 시스템 : %s / 아이들  : %s ",
 					CpuPerc.format(cpu.getUser()), CpuPerc.format(cpu.getSys()), CpuPerc.format(cpu.getIdle())));
-
-			for (int i = 0; i < cpus.length; i++) {
-				System.out.println(String.format("[" + (i + 1) + "] 총 시간 : %s / 시스템 시간 : %s /  아이들 시간  : %s ",
-						CpuPerc.format(cpus[i].getUser()), CpuPerc.format(cpus[i].getSys()),
-						CpuPerc.format(cpus[i].getIdle())));
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		
-		//메모리 측정(차트로 퍼센 테이지 호출 예정)
-		System.out.println("================== Memory DATA ====================");
-		Sigar sigar1 = new Sigar();
-		Mem mem = null;
-		String pattern = "####.##";
-		try
-		{
+			//메모리측정 영역
 			mem = sigar1.getMem();
-			/* KB > GB 변환 */
+			 //KB -> GB 변환 
 			Double totalCPU = (double) mem.getTotal() / 1000000000;
 			Double usedCPU = (double) mem.getUsed() / 1000000000;
 			Double freeCPU = (double) mem.getFree() / 1000000000;
 			DecimalFormat df = new DecimalFormat(pattern);
-			System.out.println(String.format("총 : %s / 사용 : %s / Free : %s ",
+			System.out.println(String.format("Memory수치 >>  총 : %s / 사용 : %s / Free : %s ",
 					String.valueOf(df.format(totalCPU) + " GB"),
 					String.valueOf(df.format(usedCPU) + " GB"),
 					String.valueOf(df.format(freeCPU) + " GB")));
-		} catch (Exception e)
-		{
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return VIEW_PATH + "dashboard";
