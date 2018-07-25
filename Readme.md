@@ -3,7 +3,7 @@
 JAVA1.8, Spring Boot, Security, OracleDB, lombok, Mybatis, jpa, hibernate, gentelella, Tiles3
 
 ## 메인페이지
-![screencapture-localhost-9090-dashboard-2018-06-23-13_51_52](https://user-images.githubusercontent.com/12209348/41805994-d0ffe284-76ee-11e8-9812-7380abf60b87.png)
+![screencapture-localhost-9090-dashboard-2018-07-25-21_32_22](https://user-images.githubusercontent.com/12209348/43201076-729ecc0a-9052-11e8-8135-a10c6af656f9.png)
 
 ## 데이터차트페이지
 ![screencapture-localhost-9090-hyopage-2018-06-03-12_26_22](https://user-images.githubusercontent.com/12209348/40882894-5de6cc14-672a-11e8-8f36-c8f9dbb29459.png)
@@ -28,7 +28,6 @@ JAVA1.8, Spring Boot, Security, OracleDB, lombok, Mybatis, jpa, hibernate, gente
 
 ## local PC(server) infomation(CPU,memory, model 등) 점유율 측정(sigar API)
 ![3](https://user-images.githubusercontent.com/12209348/43034946-ee15ec90-8d20-11e8-8471-4a0eb5ae65f3.PNG)
-
 
 
 ### 진행 예정

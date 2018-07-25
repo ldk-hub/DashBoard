@@ -3216,13 +3216,13 @@ if (typeof NProgress != 'undefined') {
 					formatter: function(v) {
 					  switch (v + '') {
 						case '10':
-						  return 'a';
+						  return '10%';
 						case '30':
-						  return 'b';
+						  return '30%';
 						case '60':
-						  return 'c';
+						  return '60%';
 						case '90':
-						  return 'd';
+						  return '90%';
 						default:
 						  return '';
 					  }

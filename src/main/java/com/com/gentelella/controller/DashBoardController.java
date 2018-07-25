@@ -64,6 +64,8 @@ public class DashBoardController {
 			cpu = sigar.getCpuPerc();
 			System.out.println(String.format("Cpu수치 >> 시간 : %s / 시스템 : %s / 아이들  : %s ",
 					CpuPerc.format(cpu.getUser()), CpuPerc.format(cpu.getSys()), CpuPerc.format(cpu.getIdle())));
+			
+			System.out.println("@@"+CpuPerc.format(cpu.getUser()));
 			//메모리측정 영역
 			mem = sigar1.getMem();
 			 //KB -> GB 변환 
@@ -107,27 +109,6 @@ public class DashBoardController {
 	@RequestMapping(value = "/mypage", method = RequestMethod.GET)
 	public String mypage(Model model) {
 		return VIEW_PATH + "mypage";
-	}
-	// VIEW_PATH2 영역
-	//개발용 기타 API 샘플 페이지(차트,폼 레이아웃, 아이콘)
-	@RequestMapping(value = "/chartjs", method = RequestMethod.GET)
-	public String chartjs(Model model) {
-		return VIEW_PATH2 + "chartjs";
-	}
-	//차트페이지
-	@RequestMapping(value = "/chartjs2", method = RequestMethod.GET)
-	public String chartjs2(Model model) {
-		return VIEW_PATH2 + "chartjs2";
-	}
-	//차트페이지
-	@RequestMapping(value = "/echarts", method = RequestMethod.GET)
-	public String echarts(Model model) {
-		return VIEW_PATH2 + "echarts";
-	}
-	//아이콘 페이지
-	@RequestMapping(value = "/icons", method = RequestMethod.GET)
-	public String icons(Model model) {
-		return VIEW_PATH2 + "icons";
 	}
 	//SMTP 패스워드 찾기
 	@RequestMapping(value = "/form", method = RequestMethod.GET)
