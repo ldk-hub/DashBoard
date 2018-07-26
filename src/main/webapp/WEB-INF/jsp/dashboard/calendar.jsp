@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
-	
   <!-- page content -->
         <div class="right_col" role="main">
           <div class="">
@@ -118,6 +117,25 @@
     <div id="fc_create" data-toggle="modal" data-target="#CalenderModalNew"></div>
     <div id="fc_edit" data-toggle="modal" data-target="#CalenderModalEdit"></div>
     <!-- /calendar modal -->
+    
+    <script type="text/javascript">
+        jQuery("#calendar").fullCalendar({
+ 		events: function (start, end, timezone, callback) {
+   	         $.ajax({
+   	          url: '/calendar',
+   	          type: "POST",
+   	          datatype: 'json',
+   	          data: {calendarDate:$('#calendar').fullCalendar('getDate').format('YYYYMMDD')},
+   	          success: function(data){
+   	              var json = data.calendarList;
+   	              var events = [];
+   	            
+   	              
+   	              callback(events);
+   	          },
+   	      		});
+            }
+        </script>
 	
 	<!-- 모달 인풋 데이터 초기화 -->
 	<script type="text/javascript">

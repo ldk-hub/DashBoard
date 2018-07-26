@@ -26,13 +26,12 @@
 	<!-- 스케쥴 목록 호출 -->
 	<select id="scheduleList" resultType="map">
 		SELECT 
-			SEQ, 
 			TITLE,
 			CONTENT,
 			INT_DATE,
 			INT_NAME, 
-			START_DATE, 
-			END_DATE
+			TO_CHAR(START_DATE, 'YYYY-MM-DD'),
+			TO_CHAR(END_DATE, 'YYYY-MM-DD')
 			FROM
 		AP_SCHEDULE
 	</select>

@@ -48,7 +48,7 @@ public class DashBoardController {
 	// VIEW_PATH 서비스제공 페이지
 	// 메인페이지
 	@RequestMapping(value = "/dashboard", method = RequestMethod.GET)
-	public String dashboard(Model model) {
+	public String dashboard(Model model)throws Exception{
 	    User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		System.out.println("현재로그인" + user.getUsername());
 		
@@ -64,8 +64,6 @@ public class DashBoardController {
 			cpu = sigar.getCpuPerc();
 			System.out.println(String.format("Cpu수치 >> 시간 : %s / 시스템 : %s / 아이들  : %s ",
 					CpuPerc.format(cpu.getUser()), CpuPerc.format(cpu.getSys()), CpuPerc.format(cpu.getIdle())));
-			
-			System.out.println("@@"+CpuPerc.format(cpu.getUser()));
 			//메모리측정 영역
 			mem = sigar1.getMem();
 			 //KB -> GB 변환 
@@ -84,19 +82,10 @@ public class DashBoardController {
 	}
 	// 일정관리페이지
 	@RequestMapping(value = "/calendar", method = RequestMethod.GET)
-	@ResponseBody //json 파싱
-	public List<Map<String, String>> calendar(Model model) throws Exception {
-				
+	public String calendar(Model model) throws Exception {
 			Map<String, Object> paramMap = new HashMap<String, Object>();
-			
-			/*paramMap.put("sDay", syear + "/" + smonth + "/01");
-			paramMap.put("eDay", eyear + "/" + emonth + "/01");*/
-			List<Map<String, String>> resultMap = dashBoardService.getScheduleArticles(paramMap);
-			
-			/*System.out.println("22222222222paramMap"+paramMap);
-			System.out.println("33333333333model"+model);
-			System.out.println("44444444444resultMap"+resultMap);*/
-			return resultMap;
+			model.addAttribute("resultMap", dashBoardService.getScheduleArticles(paramMap));
+			return VIEW_PATH + "calendar";
 	}
 	// 의뢰용 페이지
 	@RequestMapping(value = "/hyopage", method = RequestMethod.GET)

@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
-<script src="/static/vendors/echarts/dist/echarts.min.js"></script>
-
 <!-- page content -->
 <div class="right_col" role="main">
 	<!-- 상단 집계 -->
@@ -49,70 +47,28 @@
 
 	<div class="row">
 		<!-- 차트 -->
-		<div class="col-md-12 col-sm-12 col-xs-12">
-			<div class="dashboard_graph">
+		 <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>상품 월별 차트</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
 
-				<div class="row x_title">
-					<div class="col-md-6">
-						<h3>
-							일일 통계 데이터 차트 <small>Graph(위의 발생된 데이터 그래프로 측정 호출 예정)</small>
-						</h3>
-					</div>
-				</div>
+                    <div id="echart_line" style="height:350px;"></div>
 
-				<div class="col-md-9 col-sm-9 col-xs-12">
-					<div id="chart_plot_01" class="demo-placeholder"></div>
-				</div>
-				<div class="col-md-3 col-sm-3 col-xs-12 bg-white">
-					<div class="x_title">
-						<h2>실적</h2>
-						<div class="clearfix"></div>
-					</div>
-
-					<div class="col-md-12 col-sm-12 col-xs-6">
-						<div>
-							<p>Facebook Campaign</p>
-							<div class="">
-								<div class="progress progress_sm" style="width: 76%;">
-									<div class="progress-bar bg-green" role="progressbar"
-										data-transitiongoal="80"></div>
-								</div>
-							</div>
-						</div>
-						<div>
-							<p>Twitter Campaign</p>
-							<div class="">
-								<div class="progress progress_sm" style="width: 76%;">
-									<div class="progress-bar bg-green" role="progressbar"
-										data-transitiongoal="60"></div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-12 col-sm-12 col-xs-6">
-						<div>
-							<p>Conventional Media</p>
-							<div class="">
-								<div class="progress progress_sm" style="width: 76%;">
-									<div class="progress-bar bg-green" role="progressbar"
-										data-transitiongoal="40"></div>
-								</div>
-							</div>
-						</div>
-						<div>
-							<p>Bill boards</p>
-							<div class="">
-								<div class="progress progress_sm" style="width: 76%;">
-									<div class="progress-bar bg-green" role="progressbar"
-										data-transitiongoal="50"></div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-		</div>
+                  </div>
+                </div>
+                </div>
 	</div>
 	<br />
 	<!-- CPU 측정 -->
@@ -133,131 +89,6 @@
 				</div>
 				<div class="x_content">
 				<p>CPU 점유율</p>
-							
-			    <script>
-			    function init_echarts() {
-			    	if ($('#echart_gauge').length ){ 
-			
-			    var echartGauge = echarts.init(document.getElementById('echart_gauge'), theme);
-
-				  echartGauge.setOption({
-					tooltip: {
-					  formatter: "{a} <br/>{b} : {c}%"
-					},
-					toolbox: {
-					  show: true,
-					  feature: {
-						restore: {
-						  show: true,
-						  title: "Restore"
-						},
-						saveAsImage: {
-						  show: true,
-						  title: "Save Image"
-						}
-					  }
-					},
-					series: [{
-					  name: 'Performance',
-					  type: 'gauge',
-					  center: ['50%', '50%'],
-					  startAngle: 140,
-					  endAngle: -140,
-					  min: 0,
-					  max: 100,
-					  precision: 0,
-					  splitNumber: 10,
-					  axisLine: {
-						show: true,
-						lineStyle: {
-						  color: [
-							[0.2, 'lightgreen'],
-							[0.4, 'orange'],
-							[0.8, 'skyblue'],
-							[1, '#ff4500']
-						  ],
-						  width: 30
-						}
-					  },
-					  axisTick: {
-						show: true,
-						splitNumber: 5,
-						length: 8,
-						lineStyle: {
-						  color: '#eee',
-						  width: 1,
-						  type: 'solid'
-						}
-					  },
-					  axisLabel: {
-						show: true,
-						formatter: function(v) {
-						  switch (v + '') {
-							case '10':
-							  return '10%';
-							case '30':
-							  return '30%';
-							case '60':
-							  return '60%';
-							case '90':
-							  return '90%';
-							default:
-							  return '';
-						  }
-						},
-						textStyle: {
-						  color: '#333'
-						}
-					  },
-					  splitLine: {
-						show: true,
-						length: 30,
-						lineStyle: {
-						  color: '#eee',
-						  width: 2,
-						  type: 'solid'
-						}
-					  },
-					  pointer: {
-						length: '80%',
-						width: 8,
-						color: 'auto'
-					  },
-					  title: {
-						show: true,
-						offsetCenter: ['-65%', -10],
-						textStyle: {
-						  color: '#333',
-						  fontSize: 15
-						}
-					  },
-					  detail: {
-						show: true,
-						backgroundColor: 'rgba(0,0,0,0)',
-						borderWidth: 0,
-						borderColor: '#ccc',
-						width: 100,
-						height: 40,
-						offsetCenter: ['-60%', 10],
-						formatter: '{value}%',
-						textStyle: {
-						  color: 'auto',
-						  fontSize: 30
-						}
-					  },
-					  data: [{
-						value: 50,
-						name: 'Performance'
-					  }]
-					}]
-				  });
-			        }
-			        clearInterval(timeTicket);
-					timeTicket = setInterval(function (){
-					    option.series[0].data[0].value = (Math.random()*100).toFixed(2) - 0;
-					    myChart.setOption(option, true);
-					},2000)
-			    </script>
 					<div id="echart_gauge" style="height: 305px;"></div>
 				</div>
 			</div>
