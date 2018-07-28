@@ -65,7 +65,7 @@
                 <div class="form-group">
                   <label class="col-sm-3 control-label">상세내역</label>
                   <div class="col-sm-9">
-                    <textarea class="form-control" style="height:55px;" id="descr" name="descr"></textarea>
+                    <textarea class="form-control" style="height:55px;" id="content" name="content"></textarea>
                   </div>
                 </div>
               </form>
@@ -99,7 +99,7 @@
                 <div class="form-group">
                   <label class="col-sm-3 control-label">상세내역</label>
                   <div class="col-sm-9">
-                    <textarea class="form-control" style="height:55px;" id="descr2" name="descr2"></textarea>
+                    <textarea class="form-control" style="height:55px;" id="content2" name="content2"></textarea>
                   </div>
                 </div>
 
@@ -117,30 +117,10 @@
     <div id="fc_create" data-toggle="modal" data-target="#CalenderModalNew"></div>
     <div id="fc_edit" data-toggle="modal" data-target="#CalenderModalEdit"></div>
     <!-- /calendar modal -->
-    
-    <script type="text/javascript">
-        jQuery("#calendar").fullCalendar({
- 		events: function (start, end, timezone, callback) {
-   	         $.ajax({
-   	          url: '/calendar',
-   	          type: "POST",
-   	          datatype: 'json',
-   	          data: {calendarDate:$('#calendar').fullCalendar('getDate').format('YYYYMMDD')},
-   	          success: function(data){
-   	              var json = data.calendarList;
-   	              var events = [];
-   	            
-   	              
-   	              callback(events);
-   	          },
-   	      		});
-            }
-        </script>
-	
 	<!-- 모달 인풋 데이터 초기화 -->
 	<script type="text/javascript">
 		function modalClose(){
 			$('#title').val('');
-			$('#descr').val('');
+			$('#content').val('');
 		}
 	</script>

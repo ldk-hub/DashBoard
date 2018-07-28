@@ -83,9 +83,16 @@ public class DashBoardController {
 	// 일정관리페이지
 	@RequestMapping(value = "/calendar", method = RequestMethod.GET)
 	public String calendar(Model model) throws Exception {
-			Map<String, Object> paramMap = new HashMap<String, Object>();
-			model.addAttribute("resultMap", dashBoardService.getScheduleArticles(paramMap));
 			return VIEW_PATH + "calendar";
+	}
+	//일정목록 호출
+	@RequestMapping(value = "/calendarList", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Map<String, String>> calendarList(Model model) throws Exception {
+			Map<String, Object> paramMap = new HashMap<String, Object>();
+			System.out.println("일정 목록"+dashBoardService.getScheduleArticles(paramMap));
+			
+			return dashBoardService.getScheduleArticles(paramMap);
 	}
 	// 의뢰용 페이지
 	@RequestMapping(value = "/hyopage", method = RequestMethod.GET)

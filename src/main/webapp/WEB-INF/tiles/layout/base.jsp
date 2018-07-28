@@ -165,6 +165,7 @@
 	        $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
 	    });
 	</script>
+	<!-- 일정관리페이지 -->
 	<script type="text/javascript">
         jQuery("#calendar").fullCalendar({
             header : {
@@ -203,134 +204,44 @@
                     , textColor : "#FFFFFF"
                 }
             ], 
+            events: function(start, end, timezone, callback) {
+                $.ajax({
+                    url: '/calendarList',
+                    dataType: 'json',
+                    success: function(data) {
+                    	alert(data);
+                        var events = [];
+                        $(data).each(function() {
+                            events.push({
+                                title: $(this).attr('title'),
+                               start: $(this).attr('start'),
+                               end: $(this).attr('end')
+                            });
+                        });
+                        callback(events);
+                    }
+                });
+            },
             loading:function(bool) {
                 jQuery("#loading").toggle(bool);
             }
         });
 	</script>
-	
-	 <script>
-	 $('#echart_gauge').length({
-			    var echartGauge = echarts.init(document.getElementById('echart_gauge'), theme);
-
-				  echartGauge.setOption({
-					tooltip: {
-					  formatter: "{a} <br/>{b} : {c}%"
-					},
-					toolbox: {
-					  show: true,
-					  feature: {
-						restore: {
-						  show: true,
-						  title: "Restore"
-						},
-						saveAsImage: {
-						  show: true,
-						  title: "Save Image"
-						}
-					  }
-					},
-					series: [{
-					  name: 'Performance',
-					  type: 'gauge',
-					  center: ['50%', '50%'],
-					  startAngle: 140,
-					  endAngle: -140,
-					  min: 0,
-					  max: 100,
-					  precision: 0,
-					  splitNumber: 10,
-					  axisLine: {
-						show: true,
-						lineStyle: {
-						  color: [
-							[0.2, 'lightgreen'],
-							[0.4, 'orange'],
-							[0.8, 'skyblue'],
-							[1, '#ff4500']
-						  ],
-						  width: 30
-						}
-					  },
-					  axisTick: {
-						show: true,
-						splitNumber: 5,
-						length: 8,
-						lineStyle: {
-						  color: '#eee',
-						  width: 1,
-						  type: 'solid'
-						}
-					  },
-					  axisLabel: {
-						show: true,
-						formatter: function(v) {
-						  switch (v + '') {
-							case '10':
-							  return '10%';
-							case '30':
-							  return '30%';
-							case '60':
-							  return '60%';
-							case '90':
-							  return '90%';
-							default:
-							  return '';
-						  }
-						},
-						textStyle: {
-						  color: '#333'
-						}
-					  },
-					  splitLine: {
-						show: true,
-						length: 30,
-						lineStyle: {
-						  color: '#eee',
-						  width: 2,
-						  type: 'solid'
-						}
-					  },
-					  pointer: {
-						length: '80%',
-						width: 8,
-						color: 'auto'
-					  },
-					  title: {
-						show: true,
-						offsetCenter: ['-65%', -10],
-						textStyle: {
-						  color: '#333',
-						  fontSize: 15
-						}
-					  },
-					  detail: {
-						show: true,
-						backgroundColor: 'rgba(0,0,0,0)',
-						borderWidth: 0,
-						borderColor: '#ccc',
-						width: 100,
-						height: 40,
-						offsetCenter: ['-60%', 10],
-						formatter: '{value}%',
-						textStyle: {
-						  color: 'auto',
-						  fontSize: 30
-						}
-					  },
-					  data: [{
-						value: 40,
+	<!-- CPU 게이지 -->	 
+	 <script type="text/javascript">
+	 	$("#echart_gauge").length{
+ 		 var echartGauge = echarts.init(document.getElementById('echart_gauge'), theme);
+ 			echartGauge.setOption({
+ 				series: [{
+		 			data: [{
+						value: 50,
 						name: 'Performance'
 					  }]
-					}]
-				  });
-			        }
-			        clearInterval(timeTicket);
-					timeTicket = setInterval(function (){
-					    option.series[0].data[0].value = (Math.random()*100).toFixed(2) - 0;
-					    myChart.setOption(option, true);
-					},2000)
-			    </script>
+				}]
+	 		})
+	 	}
+	 </script>
+	 
 	<script src="/static/js/custom.min.js"></script>
 </body>
 </html>
