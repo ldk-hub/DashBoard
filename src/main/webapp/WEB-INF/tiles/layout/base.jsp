@@ -207,17 +207,17 @@
             events: function(start, end, timezone, callback) {
                 $.ajax({
                     url: '/calendarList',
-                    dataType: 'json',
+                   	dataType: 'json',
                     success: function(data) {
-                    	alert(data);
                         var events = [];
-                        $(data).each(function() {
+                        	 $(data).each(function() {
                             events.push({
-                                title: $(this).attr('title'),
-                               start: $(this).attr('start'),
-                               end: $(this).attr('end')
+                            	title: $(this).attr('TITLE'),
+                                start: $(this).attr('START_DATE'),
+                                end: $(this).attr('END_DATE'),
+                                color: '#C2185B'
                             });
-                        });
+                        }); 
                         callback(events);
                     }
                 });
@@ -229,7 +229,7 @@
 	</script>
 	<!-- CPU 게이지 -->	 
 	 <script type="text/javascript">
-	 	$("#echart_gauge").length{
+	/*  	$("#echart_gauge").length{
  		 var echartGauge = echarts.init(document.getElementById('echart_gauge'), theme);
  			echartGauge.setOption({
  				series: [{
@@ -239,7 +239,7 @@
 					  }]
 				}]
 	 		})
-	 	}
+	 	} */
 	 </script>
 	 
 	<script src="/static/js/custom.min.js"></script>

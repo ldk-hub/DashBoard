@@ -28,8 +28,8 @@
 		SELECT 
 			TITLE,
 			CONTENT,
-			TO_CHAR(START_DATE, 'YYYY-MM-DD') startDate,
-			TO_CHAR(END_DATE, 'YYYY-MM-DD') endDate
+			to_char(START_DATE, 'yyyy/mm/dd hh24:mi:ss') START_DATE,
+			to_char(END_DATE, 'yyyy/mm/dd hh24:mi:ss') END_DATE
 			FROM
 		AP_SCHEDULE
 	</select>

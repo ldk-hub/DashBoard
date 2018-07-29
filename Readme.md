@@ -3,13 +3,13 @@
 JAVA1.8, Spring Boot, Security, OracleDB, lombok, Mybatis, jpa, hibernate, gentelella, Tiles3
 
 ## 메인페이지
-![screencapture-localhost-9090-dashboard-2018-07-25-21_32_22](https://user-images.githubusercontent.com/12209348/43201076-729ecc0a-9052-11e8-8135-a10c6af656f9.png)
+![screencapture-localhost-9090-dashboard-2018-07-29-13_13_50](https://user-images.githubusercontent.com/12209348/43362942-452b4810-9332-11e8-9d7f-9bd4e38f9a07.png)
 
 ## 데이터차트페이지
-![screencapture-localhost-9090-hyopage-2018-06-03-12_26_22](https://user-images.githubusercontent.com/12209348/40882894-5de6cc14-672a-11e8-8f36-c8f9dbb29459.png)
+![screencapture-localhost-9090-hyopage-2018-07-29-13_14_12](https://user-images.githubusercontent.com/12209348/43362941-450339c4-9332-11e8-9277-6694821ee320.png)
 
 ## 일정계획페이지
-![screencapture-localhost-9090-calendar-2018-06-08-12_52_44](https://user-images.githubusercontent.com/12209348/41138715-253696e0-6b1e-11e8-9090-ad03880f1b8e.png)
+![screencapture-localhost-9090-calendar-2018-07-29-15_33_35](https://user-images.githubusercontent.com/12209348/43363652-d2852e80-9344-11e8-8424-53bb0b09291a.png)
 
 ## 로그인페이지
 ![screencapture-localhost-9090-login-2018-05-14-12_28_49](https://user-images.githubusercontent.com/12209348/39977138-c70af462-5772-11e8-89f5-fd99f96a6de2.png)
@@ -27,7 +27,7 @@ JAVA1.8, Spring Boot, Security, OracleDB, lombok, Mybatis, jpa, hibernate, gente
 ![screencapture-localhost-9090-mypage-2018-06-08-13_08_42](https://user-images.githubusercontent.com/12209348/41138730-44814f86-6b1e-11e8-995b-a592d267f941.png)
 
 ## local PC(server) infomation(CPU,memory, model 등) 점유율 측정(sigar API)
-![3](https://user-images.githubusercontent.com/12209348/43034946-ee15ec90-8d20-11e8-8471-4a0eb5ae65f3.PNG)
+![default](https://user-images.githubusercontent.com/12209348/43362948-91c6f26e-9332-11e8-9ef2-5738fb58c32e.PNG)
 
 
 ### 진행 예정

@@ -50,7 +50,7 @@ public class DashBoardController {
 	@RequestMapping(value = "/dashboard", method = RequestMethod.GET)
 	public String dashboard(Model model)throws Exception{
 	    User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		System.out.println("현재로그인" + user.getUsername());
+		System.out.println("현재로그인 : " + user.getUsername());
 		
 		//cpu점유율 측정(차트로 퍼센 테이지 호출 예정)
 		System.out.println("================== PC정보 ====================");
@@ -62,7 +62,7 @@ public class DashBoardController {
 		try {
 			//cpu측정 영역
 			cpu = sigar.getCpuPerc();
-			System.out.println(String.format("Cpu수치 >> 시간 : %s / 시스템 : %s / 아이들  : %s ",
+			System.out.println(String.format("Cpu점유율 -> 사용중 : %s / 시스템 : %s / 아이들  : %s ",
 					CpuPerc.format(cpu.getUser()), CpuPerc.format(cpu.getSys()), CpuPerc.format(cpu.getIdle())));
 			//메모리측정 영역
 			mem = sigar1.getMem();
@@ -71,7 +71,7 @@ public class DashBoardController {
 			Double usedCPU = (double) mem.getUsed() / 1000000000;
 			Double freeCPU = (double) mem.getFree() / 1000000000;
 			DecimalFormat df = new DecimalFormat(pattern);
-			System.out.println(String.format("Memory수치 >>  총 : %s / 사용 : %s / Free : %s ",
+			System.out.println(String.format("Memory점유율 ->  총 : %s / 사용중 : %s / 대기중 : %s ",
 					String.valueOf(df.format(totalCPU) + " GB"),
 					String.valueOf(df.format(usedCPU) + " GB"),
 					String.valueOf(df.format(freeCPU) + " GB")));
@@ -90,8 +90,6 @@ public class DashBoardController {
 	@ResponseBody
 	public List<Map<String, String>> calendarList(Model model) throws Exception {
 			Map<String, Object> paramMap = new HashMap<String, Object>();
-			System.out.println("일정 목록"+dashBoardService.getScheduleArticles(paramMap));
-			
 			return dashBoardService.getScheduleArticles(paramMap);
 	}
 	// 의뢰용 페이지
