@@ -3,7 +3,7 @@
 JAVA1.8, Spring Boot, Security, OracleDB, lombok, Mybatis, jpa, hibernate, gentelella, Tiles3
 
 ## 메인페이지
-![screencapture-localhost-9090-dashboard-2018-07-29-13_13_50](https://user-images.githubusercontent.com/12209348/43362942-452b4810-9332-11e8-9d7f-9bd4e38f9a07.png)
+![screencapture-localhost-9090-dashboard-2018-07-29-15_36_40](https://user-images.githubusercontent.com/12209348/43363683-45fd9a32-9345-11e8-9e76-4c96e39ace30.png)
 
 ## 데이터차트페이지
 ![screencapture-localhost-9090-hyopage-2018-07-29-13_14_12](https://user-images.githubusercontent.com/12209348/43362941-450339c4-9332-11e8-9277-6694821ee320.png)

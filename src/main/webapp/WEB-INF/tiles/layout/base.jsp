@@ -206,7 +206,7 @@
             ], 
             events: function(start, end, timezone, callback) {
                 $.ajax({
-                    url: '/calendarList',
+                    url: '/scheduleList',
                    	dataType: 'json',
                     success: function(data) {
                         var events = [];
@@ -227,10 +227,11 @@
             }
         });
 	</script>
-	<!-- CPU 게이지 -->	 
+	
+	<!-- CPU 점유율 -->	 
 	 <script type="text/javascript">
-	/*  	$("#echart_gauge").length{
- 		 var echartGauge = echarts.init(document.getElementById('echart_gauge'), theme);
+	// 	$("#echart_gauge").length{
+ 		 var echartGauge = echarts.init(document.getElementById('echart_gauge'));
  			echartGauge.setOption({
  				series: [{
 		 			data: [{
@@ -239,8 +240,13 @@
 					  }]
 				}]
 	 		})
-	 	} */
+	 	//} */
 	 </script>
+	 
+	 <!-- 메모리 점유율 -->
+	  <script type="text/javascript">
+	  
+	  </script>
 	 
 	<script src="/static/js/custom.min.js"></script>
 </body>

@@ -35,23 +35,30 @@
 	</select>
 	
 	<!-- 스케쥴 등록 -->
-	<insert id="scheduleInsert">
+	<insert id="scheduleInsert" parameterType="map">
 		INSERT INTO 
-		AP_SCHEDULE(SEQ, 
-				TITLE,
-				CONTENT,
-				INT_DATE,
-				INT_NAME, 
-				START_DATE, 
-				END_DATE) 
-		VALUES(AP_SCHEDULE.nextval, 
-				#{title},
-				#{content},
-				sysdate,
-				#{intName}, 
-				#{startDate}, 
-				#{endDate})
+        AP_SCHEDULE(SEQ, 
+                TITLE,
+                CONTENT,
+                INT_DATE,
+                INT_NAME, 
+                START_DATE, 
+                END_DATE) 
+        VALUES(AP_SCHEDULE.nextval, 
+                #{title},
+                #{content},
+                #{startDate}, 
+                #{endDate},
+                 sysdate,
+                #{intName})
 	</insert>
+	
+	<!-- 스케줄 삭제 -->
+	<delete id="scheduleDelete" parameterType="String">
+		DELETE FROM AP_SCHEDULE
+		      WHERE INT_NAME = #{INT_NAME}
+		      AND TITLE = #{TITLE}
+	</delete>
 	
 </mapper>
   

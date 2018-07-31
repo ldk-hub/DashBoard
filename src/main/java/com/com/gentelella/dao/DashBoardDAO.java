@@ -11,6 +11,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.ui.Model;
 
 import com.com.gentelella.vo.DashBoardVO;
 
@@ -26,21 +27,21 @@ public class DashBoardDAO extends SqlSessionDaoSupport {
 		return getSqlSession().selectList("dashBoardMapper.selectBoardList", dashBoardVO);
 	}
     //smtp이메일
-	public String getPw(Map<String, Object> paramMap) {
+	public String getPw(Map<String, Object> paramMap) throws Exception {
 		return getSqlSession().selectOne("dashBoardMapper.getPw", paramMap);
 	}
-	//스케쥴 리스트 
+	//일정 목록 
 	public List<Map<String, String>> getScheduleArticles(Map<String, Object> paramMap)throws Exception  {
 	List<Map<String, String>> scheduleArticle = getSqlSession().selectList("dashBoardMapper.scheduleList", paramMap);
-		
-		/*for(Map<String, String> map : scheduleArticle){
-			String title = map.get("title");
-			title = title.replaceAll("<script>","&lt;script&gt;");
-			title = title.replaceAll("</script>","&lt;/script&gt;");
-			map.put("title",title);
-		}*/
-		
 		return scheduleArticle.size()==0?new ArrayList<Map<String,String>>():scheduleArticle;
+	}
+	//일정 등록
+	public int scheduleInsert(Map<String, Object> paramMap) throws Exception {
+		return getSqlSession().insert("dashBoardMapper.scheduleInsert", paramMap);
+	}
+	//일정 삭제
+	public void scheduleDelete(Model model) throws Exception {
+		getSqlSession().delete("dashBoardMapper.scheduleDelete", model);
 	}
 	
 }

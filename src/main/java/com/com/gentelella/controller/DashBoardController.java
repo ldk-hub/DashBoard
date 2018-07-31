@@ -42,13 +42,14 @@ public class DashBoardController {
 	// 스프링부트 시작시 logback 사용가능함 base.xml에서 로그레벨 설정할 것
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	// 뷰패스를 지정해서 영역분리 및 편의기능
-	private static final String VIEW_PATH = "dashboard/";
-	private static final String VIEW_PATH2 = "itemsample/";
+	private static final String VIEW_PATH = "dashboard/"; //실사용 페이지
+	private static final String VIEW_PATH2 = "itemsample/";//커스텀용 페이지
 
 	// VIEW_PATH 서비스제공 페이지
 	// 메인페이지
 	@RequestMapping(value = "/dashboard", method = RequestMethod.GET)
 	public String dashboard(Model model)throws Exception{
+		//로그인한 유저정보
 	    User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		System.out.println("현재로그인 : " + user.getUsername());
 		
@@ -86,11 +87,24 @@ public class DashBoardController {
 			return VIEW_PATH + "calendar";
 	}
 	//일정목록 호출
-	@RequestMapping(value = "/calendarList", method = RequestMethod.GET)
+	@RequestMapping(value = "/scheduleList", method = RequestMethod.GET)
 	@ResponseBody
 	public List<Map<String, String>> calendarList(Model model) throws Exception {
 			Map<String, Object> paramMap = new HashMap<String, Object>();
 			return dashBoardService.getScheduleArticles(paramMap);
+	}
+	//일정 등록
+	@RequestMapping(value = "/scheduleInsert", method = RequestMethod.GET)
+	@ResponseBody
+	public int scheduleInsert(Model model) throws Exception {
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+			return dashBoardService.scheduleInsert(paramMap);
+	}
+	//일정삭제
+	@RequestMapping(value = "/scheduleDelete", method = RequestMethod.GET)
+	@ResponseBody
+	public void scheduleDelete(Model model) throws Exception {
+		 dashBoardService.scheduleDelete(model);
 	}
 	// 의뢰용 페이지
 	@RequestMapping(value = "/hyopage", method = RequestMethod.GET)
