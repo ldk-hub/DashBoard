@@ -64,7 +64,7 @@
 	        <tiles:insertAttribute name="footer" />
 	    </div>
 	</div>
-
+	
 	<!-- jQuery -->
 	<script src="/static/vendors/jquery/dist/jquery.min.js"></script>
 	<!-- Bootstrap -->
@@ -227,28 +227,123 @@
             }
         });
 	</script>
-	
-	<!-- CPU 점유율 -->	 
-	 <script type="text/javascript">
-	// 	$("#echart_gauge").length{
- 		 var echartGauge = echarts.init(document.getElementById('echart_gauge'));
- 			echartGauge.setOption({
- 				series: [{
-		 			data: [{
-						value: 50,
-						name: 'Performance'
-					  }]
-				}]
-	 		})
-	 	//} */
-	 </script>
-	 
-	 <!-- 메모리 점유율 -->
-	  <script type="text/javascript">
-	  
-	  </script>
-	 
+
 	<script src="/static/js/custom.min.js"></script>
+	
+	<script type="text/javascript">
+	function init_echarts() {
+			var e = echarts.init(document.getElementById("echart_gauge"));
+			e.setOption({
+				tooltip : {
+					formatter : "{a} <br/>{b} : {c}%"
+				},
+				toolbox : {
+					show : !0,
+					feature : {
+						restore : {
+							show : !0,
+							title : "Restore"
+						},
+						saveAsImage : {
+							show : !0,
+							title : "Save Image"
+						}
+					}
+				},
+				series : [ {
+					name : "cpu 점유율",
+					type : "gauge",
+					center : [ "50%", "50%" ],
+					startAngle : 140,
+					endAngle : -140,
+					min : 0,
+					max : 100,
+					precision : 0,
+					splitNumber : 10,
+					axisLine : {
+						show : !0,
+						lineStyle : {
+							color : [ [ .2, "lightgreen" ], [ .4, "orange" ],
+									[ .8, "skyblue" ], [ 1, "#ff4500" ] ],
+							width : 30
+						}
+					},
+					axisTick : {
+						show : !0,
+						splitNumber : 5,
+						length : 8,
+						lineStyle : {
+							color : "#eee",
+							width : 1,
+							type : "solid"
+						}
+					},
+					axisLabel : {
+						show : !0,
+						formatter : function(a) {
+							switch (a + "") {
+							case "10":
+								return "10%";
+							case "30":
+								return "30%";
+							case "50":
+								return "50%";
+							case "70":
+								return "70%";
+							case "90":
+								return "90%";
+							default:
+								return ""
+							}
+						},
+						textStyle : {
+							color : "#333"
+						}
+					},
+					splitLine : {
+						show : !0,
+						length : 30,
+						lineStyle : {
+							color : "#eee",
+							width : 2,
+							type : "solid"
+						}
+					},
+					pointer : {
+						length : "80%",
+						width : 8,
+						color : "auto"
+					},
+					title : {
+						show : !0,
+						offsetCenter : [ "-65%", -10 ],
+						textStyle : {
+							color : "#333",
+							fontSize : 15
+						}
+					},
+					detail : {
+						show : !0,
+						backgroundColor : "rgba(0,0,0,0)",
+						borderWidth : 0,
+						borderColor : "#ccc",
+						width : 100,
+						height : 40,
+						offsetCenter : [ "-60%", 10 ],
+						formatter : "{value}%",
+						textStyle : {
+							color : "auto",
+							fontSize : 30
+						}
+					},
+					data : [ {
+						value : 77,
+						name : "Performance"
+					} ]
+				} ]
+			})
+	}
+	</script>
 </body>
 </html>
 

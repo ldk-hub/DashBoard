@@ -52,11 +52,11 @@
                     <div class="col-md-9 col-sm-9 col-xs-12">
                       <div class="" role="tabpanel" data-example-id="togglable-tabs">
                         <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-                          <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">참여 프로젝트</a>
+                          <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">프로젝트</a>
                           </li>
                           <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">방명록</a>
                           </li>
-                          <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">업무 역량</a>
+                          <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">업무역량</a>
                           </li>
                         </ul>
                         <div id="myTabContent" class="tab-content">
@@ -66,10 +66,10 @@
                               <thead>
                                 <tr>
                                   <th>순번</th>
-                                  <th>프로젝트명</th>
-                                  <th>계약 업체</th>
-                                  <th>개발시간(Hour)</th>
-                                  <th>프로젝트기여도</th>
+                                  <th>프로젝트</th>
+                                  <th>계약업체</th>
+                                  <th>개발시간</th>
+                                  <th>기여도</th>
                                 </tr>
                               </thead>
                               <tbody>
