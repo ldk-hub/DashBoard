@@ -229,11 +229,13 @@
 	</script>
 
 	<script src="/static/js/custom.min.js"></script>
-	
+	<!-- 차트게이지 -->
 	<script type="text/javascript">
-	function init_echarts() {
-			var e = echarts.init(document.getElementById("echart_gauge"));
-			e.setOption({
+	var myChart; 
+	
+	function init_echarts2(){
+			var myChart = echarts.init(document.getElementById("echart_gauge"));
+			myChart.setOption({
 				tooltip : {
 					formatter : "{a} <br/>{b} : {c}%"
 				},
@@ -343,7 +345,42 @@
 				} ]
 			})
 	}
+	myChart.setOption(options); 
+     timeId = setInterval("getChartData();",2000);// 
 	</script>
+	
+	<!-- 차트 데이터 json 전송 -->
+	<!-- <script type="text/javascript"> 
+            function getChartData() { 
+                var options = myChart.getOption(); 
+                $.ajax({ 
+                    type : "post", 
+                    async : false, 
+                    url : "getDynmicLineData.do", 
+                    data : {}, 
+                    dataType : "json", 
+                    success : function(result) { 
+                        if (result) { 
+                            options.legend.data = result.legend; 
+                            options.xAxis[0].data = result.category; 
+                            options.series[0].data = result.series[0].data; 
+                                                alert(options.series[0].data);
+                            myChart.setOption(options); 
+                        } 
+                    }, 
+                    error : function(errorMsg) { 
+                        alert("에러"); 
+                    } 
+                }); 
+            } 
+        </script>  -->
+        
+       <script type="text/javascript"> 
+			$(document).ready(function() {
+				init_echarts2();
+			});
+		</script>
 </body>
 </html>
+
 
