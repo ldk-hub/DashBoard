@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+<script type="text/javascript"
+	src="//apis.daum.net/maps/maps3.js?apikey=9f62d9b2cb6f39cf29cf2b959862c8eb"></script>
 <!-- page content -->
 <div class="right_col" role="main">
 	<!-- 상단 집계 -->
@@ -275,13 +277,11 @@
 	</div>
 	
 	 <div class="row">
-		<!-- 인구정보 -->
+		<!-- 지도 -->
 		<div class="col-md-12 col-sm-12 col-xs-12">
 			<div class="x_panel">
 				<div class="x_title">
-					<h2>
-						세계 인구 수 정보 <small>2010년 기준</small>
-					</h2>
+					<h2>대한민국 지도 정보	</h2>
 					<ul class="nav navbar-right panel_toolbox">
 						<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 						</li>
@@ -293,7 +293,39 @@
 					<div class="clearfix"></div>
 				</div>
 				<div class="x_content">
-					<div id="echart_world_map" style="height: 370px;"></div>
+					<div id="map" style="width: 100%; height: 400px; margin: auto;">
+					<script>
+					var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+					var options = { //지도를 생성할 때 필요한 기본 옵션
+					center: new daum.maps.LatLng(37.72176756698391, 126.75141594184569), //지도의 중심좌표.
+					level: 13 //지도의 레벨(확대, 축소 정도)
+					};
+					var map = new daum.maps.Map(container, options); //지도 생성 및 객체 리턴
+					
+					function panTo() {
+					    // 이동할 위도 경도 위치를 생성합니다 
+					    var moveLatLon = new daum.maps.LatLng(37.72176756698391, 126.75141594184569);
+					 // 지도를 클릭한 위치에 표출할 마커입니다
+						var marker = new daum.maps.Marker({ 
+						    // 지도 중심좌표에 마커를 생성합니다 
+						    position: map.getCenter() 
+						}); 
+						// 지도에 마커를 표시합니다
+						marker.setMap(map);
+					    // 지도 중심을 부드럽게 이동시킵니다
+					    // 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
+					    map.panTo(moveLatLon);            
+					}        
+					// 일반 지도와 스카이뷰로 지도 타입을 전환할 수 있는 지도타입 컨트롤을 생성합니다
+					var mapTypeControl = new daum.maps.MapTypeControl();
+					// 지도에 컨트롤을 추가해야 지도위에 표시됩니다
+					// daum.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOPRIGHT는 오른쪽 위를 의미합니다
+					map.addControl(mapTypeControl, daum.maps.ControlPosition.TOPRIGHT);
+					// 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
+					var zoomControl = new daum.maps.ZoomControl();
+					map.addControl(zoomControl, daum.maps.ControlPosition.RIGHT);
+				</script>
+				</div>
 				</div>
 			</div>
 		</div>
