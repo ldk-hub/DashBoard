@@ -78,7 +78,7 @@
 					</div>
 					<!-- spring security는 form 전송시 csrf 공격 방어를 하기위해  토큰값을 보내야 하도록 규정되어있어 히든값으로 넣어준다-->
 					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-					<button type="submit" class="btn btn-sm btn-success">로그인</button>		 
+					<button type="submit" class="btn btn-sm btn-dark">로그인</button>		 
               <div class="clearfix"></div>
 
               <div class="separator">
@@ -88,7 +88,7 @@
 				
                 <div class="clearfix"></div>
                 <br />
-				<button type="button" class="btn btn-sm btn-success"
+				<button type="button" class="btn btn-sm btn-dark"
 							data-toggle="modal" data-target="#PassModal">비밀번호 찾기</button>		 
                 <div>
                   <h1><i class="fa fa-paw"></i>LeeDongOk`s Site</h1>
@@ -143,8 +143,8 @@
                  <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                  <!-- spring security는 form 전송시 csrf 공격 방어를 하기위해  토큰값을 보내야 하도록 규정되어있어 히든값으로 넣어준다-->
 					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                 	<button type="submit" class="btn btn-info" >가입</button>
-                 	<button type="reset" class="btn btn-info" onclick = "location.href = '#signin' " >취소</button>
+                 	<button type="submit" class="btn btn-dark" >가입</button>
+                 	<button type="reset" class="btn btn-dark" onclick = "location.href = '#signin' " >취소</button>
                  </div>
               </div>
               <div class="clearfix"></div>
@@ -190,8 +190,8 @@
 								</div>
 								</div>
 							<div class="modal-footer">
-								<button type="button" class="btn btn-warning" OnClick="passEmail()">메일 보내기</button>
-								<button type="button" class="btn btn-warning" data-dismiss="modal" OnClick="modalClose()">닫기</button>
+								<button type="button" class="btn btn-dark" OnClick="passEmail()">메일 보내기</button>
+								<button type="button" class="btn btn-dark" data-dismiss="modal" OnClick="modalClose()">닫기</button>
 							</div>
 						</div>
 					</div>

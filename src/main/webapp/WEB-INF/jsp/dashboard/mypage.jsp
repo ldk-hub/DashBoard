@@ -42,7 +42,7 @@
                           <a href="https://github.com/leedongok" target="_blank">github.com/leedongok</a>
                         </li>
                       </ul>
-					<button type="button" class="btn btn-success"
+					<button type="button" class="btn btn-dark"
 							data-toggle="modal" data-target="#updateUsermodal">회원 정보등록</button>
                       <br />
 
@@ -258,7 +258,7 @@
 								<div id="editor-one" class="editor-wrapper"></div>
 								<textarea name="descr" id="descr" style="display: none;"></textarea>
 								<br />
-								<button type="submit" class="btn btn-sm btn-success">등록</button>	
+								<button type="submit" class="btn btn-sm btn-dark">등록</button>	
 								<div class="ln_solid"></div>
 							</div>
 						</div>
@@ -352,8 +352,8 @@
 								</div>
 								</div>
 							<div class="modal-footer">
-								<button type="button" class="btn btn-warning" OnClick="">등록</button>
-								<button type="button" class="btn btn-warning" data-dismiss="modal">닫기</button>
+								<button type="button" class="btn btn-dark" OnClick="">등록</button>
+								<button type="button" class="btn btn-dark" data-dismiss="modal">닫기</button>
 							</div>
 						</div>
 					</div>

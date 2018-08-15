@@ -6,43 +6,48 @@
 <!-- page content -->
 <div class="right_col" role="main">
 	<!-- 상단 집계 -->
-	<div class="row tile_count">
-		<div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-			<span class="count_top"><i class="fa fa-user"></i> 전체 회원 수</span>
-			<div class="count">216</div>
-			<span class="count_bottom"><i class="green">4% </i> 전주 대비</span>
-		</div>
-		<div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-			<span class="count_top"><i class="fa fa-clock-o"></i> 평균 사용시간</span>
-			<div class="count">123.50</div>
-			<span class="count_bottom"><i class="green"><i
-					class="fa fa-sort-asc"></i>3% </i> 전주 대비</span>
-		</div>
-		<div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-			<span class="count_top"><i class="fa fa-male"></i> 남성 비율</span>
-			<div class="count green">2,500</div>
-			<span class="count_bottom"><i class="green"><i
-					class="fa fa-sort-asc"></i>34% </i> 전주 대비</span>
-		</div>
-		<div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-			<span class="count_top"><i class="fa fa-female"></i> 여성 비율</span>
-			<div class="count">4,567</div>
-			<span class="count_bottom"><i class="red"><i
-					class="fa fa-sort-desc"></i>12% </i> 전주 대비</span>
-		</div>
-		<div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-			<span class="count_top"><i class="fa fa-download"></i> 오늘 발생 된
-				데이터</span>
-			<div class="count">2,315</div>
-			<span class="count_bottom"><i class="green"><i
-					class="fa fa-sort-asc"></i>34% </i> 전주 대비</span>
-		</div>
-		<div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-			<span class="count_top"><i class="fa fa-line-chart"></i>오늘 접속자
-				수</span>
-			<div class="count">7,325</div>
-			<span class="count_bottom"><i class="green"><i
-					class="fa fa-sort-asc"></i>34% </i> 전주 대비</span>
+	<div class="col-md-12 col-sm-12 col-xs-12">
+		<div class="x_panel">
+			<div class="row tile_count">
+				<div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+					<span class="count_top"><i class="fa fa-user"></i> 전체 회원 수</span>
+					<div class="count">216</div>
+					<span class="count_bottom"><i class="green">4% </i> 전주 대비</span>
+				</div>
+				<div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+					<span class="count_top"><i class="fa fa-clock-o"></i> 평균
+						사용시간</span>
+					<div class="count">123.50</div>
+					<span class="count_bottom"><i class="green"><i
+							class="fa fa-sort-asc"></i>3% </i> 전주 대비</span>
+				</div>
+				<div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+					<span class="count_top"><i class="fa fa-male"></i> 남성 비율</span>
+					<div class="count green">2,500</div>
+					<span class="count_bottom"><i class="green"><i
+							class="fa fa-sort-asc"></i>34% </i> 전주 대비</span>
+				</div>
+				<div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+					<span class="count_top"><i class="fa fa-female"></i> 여성 비율</span>
+					<div class="count">4,567</div>
+					<span class="count_bottom"><i class="red"><i
+							class="fa fa-sort-desc"></i>12% </i> 전주 대비</span>
+				</div>
+				<div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+					<span class="count_top"><i class="fa fa-download"></i> 오늘 발생
+						된 데이터</span>
+					<div class="count">2,315</div>
+					<span class="count_bottom"><i class="green"><i
+							class="fa fa-sort-asc"></i>34% </i> 전주 대비</span>
+				</div>
+				<div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+					<span class="count_top"><i class="fa fa-line-chart"></i>오늘
+						접속자 수</span>
+					<div class="count">7,325</div>
+					<span class="count_bottom"><i class="green"><i
+							class="fa fa-sort-asc"></i>34% </i> 전주 대비</span>
+				</div>
+			</div>
 		</div>
 	</div>
 	<!-- /top tiles -->

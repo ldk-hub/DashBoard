@@ -200,7 +200,7 @@
                 {
                       googleCalendarId : "ko.south_korea#holiday@group.v.calendar.google.com"
                     , className : "koHolidays"
-                    , color : "#FF0000"
+                    , color : "#110101"
                     , textColor : "#FFFFFF"
                 }
             ], 
