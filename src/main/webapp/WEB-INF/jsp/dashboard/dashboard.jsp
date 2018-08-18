@@ -298,8 +298,20 @@
 					<div class="clearfix"></div>
 				</div>
 				<div class="x_content">
-					<div id="map" style="width: 100%; height: 400px; margin: auto;">
-					<script>
+						<p>
+						    <input type="checkbox" id="chkTraffic" onclick="setOverlayMapTypeId()" /> 교통정보 보기       
+						    <input type="checkbox" id="chkBicycle" onclick="setOverlayMapTypeId()" /> 자전거도로 정보 보기
+						</p>
+					<div id="map" style="width: 100%; height: 500px; margin: auto;">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+		<script>
 					var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
 					var options = { //지도를 생성할 때 필요한 기본 옵션
 					center: new daum.maps.LatLng(37.72176756698391, 126.75141594184569), //지도의 중심좌표.
@@ -321,6 +333,28 @@
 					    // 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
 					    map.panTo(moveLatLon);            
 					}        
+					
+					var mapTypes = {
+						    traffic :  daum.maps.MapTypeId.TRAFFIC,
+						    bicycle : daum.maps.MapTypeId.BICYCLE
+						};
+					function setOverlayMapTypeId() {
+				        chkTraffic = document.getElementById('chkTraffic'),
+				        chkBicycle = document.getElementById('chkBicycle');
+					    
+					    // 지도 타입을 제거합니다
+					    for (var type in mapTypes) {
+					        map.removeOverlayMapTypeId(mapTypes[type]);    
+					    }
+					    // 교통정보 체크박스가 체크되어있으면 지도에 교통정보 지도타입을 추가합니다
+					    if (chkTraffic.checked) {
+					        map.addOverlayMapTypeId(mapTypes.traffic);    
+					    }
+					    // 자전거도로정보 체크박스가 체크되어있으면 지도에 자전거도로정보 지도타입을 추가합니다
+					    if (chkBicycle.checked) {
+					        map.addOverlayMapTypeId(mapTypes.bicycle);    
+					    }
+					}
 					// 일반 지도와 스카이뷰로 지도 타입을 전환할 수 있는 지도타입 컨트롤을 생성합니다
 					var mapTypeControl = new daum.maps.MapTypeControl();
 					// 지도에 컨트롤을 추가해야 지도위에 표시됩니다
@@ -330,12 +364,6 @@
 					var zoomControl = new daum.maps.ZoomControl();
 					map.addControl(zoomControl, daum.maps.ControlPosition.RIGHT);
 				</script>
-				</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
 
 
 
