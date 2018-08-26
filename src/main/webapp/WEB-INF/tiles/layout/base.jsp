@@ -345,8 +345,7 @@
 				} ]
 			})
 	}
-	myChart.setOption(options); 
-     timeId = setInterval("getChartData();",2000);// 
+    // timeId = setInterval("getChartData();",2000); 시스템 상시 콜 부하테스트 해봐야함
 	</script>
 	<!-- 게이지 차트  -->
        <script type="text/javascript"> 

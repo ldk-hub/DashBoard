@@ -298,13 +298,12 @@
 					<div class="clearfix"></div>
 				</div>
 				<div class="x_content">
-						<p>
-						    <input type="checkbox" id="chkTraffic" onclick="setOverlayMapTypeId()" /> 교통정보 보기       
-						    <input type="checkbox" id="chkBicycle" onclick="setOverlayMapTypeId()" /> 자전거도로 정보 보기
-						</p>
-					<div id="map" style="width: 100%; height: 500px; margin: auto;">
-						
-					</div>
+						    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-5">
+						    <input type="checkbox" id="chkTraffic" onclick="setOverlayMapTypeId()" /> 실시간 교통정보       
+						    <input type="checkbox" id="chkBicycle" onclick="setOverlayMapTypeId()" /> 자전거 도로 정보 
+							</div>
+					<div id="map" style="width: 100%; height: 500px; margin: auto;"></div>
+					
 				</div>
 			</div>
 		</div>

@@ -31,14 +31,15 @@ JAVA1.8, Spring Boot, Security, OracleDB, lombok, Mybatis, jpa, hibernate, gente
 
 
 ### 진행 예정
-1. local 장비 서버 및 pc 정보 게이지형 차트
+1. CPU, RAM 수치 게이지형 차트 연동
 2. 풀캘린더 스케쥴 등록 처리 (목록 호출완료, 수정, 삭제 기능 추가예정)
 3. 계정별 풀캘린더 목록리스트 메인 페이지 to-do list 호출
 4. 메인페이지 회원정보 통계 수치 등록
 5. 마이페이지 업무 스킬 인벤토리 등록
 6. 차트 통계용 샘플데이터 크롤링 선행(바그래프,선그래프용)
 7. (바형, 선형 그래프)차트 정보 DB 데이터 연동
-8. 의뢰페이지 엑셀 파일업로드 DB 테이블 임포트(xls,xlsx)
+8. 의뢰페이지 엑셀 파일업로드 DB 테이블 임포트(xls, xlsx)
+9. 로그인 oAuth 연동 기능 추가 (네이버, 카카오톡)
 
 ### 완료내역
 1. 시큐리티 로그인, 로그아웃 세션처리 완료(jpa)
@@ -50,6 +51,7 @@ JAVA1.8, Spring Boot, Security, OracleDB, lombok, Mybatis, jpa, hibernate, gente
 7. 대시보드 내 시큐리티 principal 정보 호출
 8. 패스워드 분실 SMTP 비밀번호 찾기 로직 완료
 9. 메인페이지 다음(카카오) 지도 api로 변경 완료
+10. 메인페이지 실시간도로교통정보, 자전거 도로 정보 기능 추가 완료
 
 ### 사용된 API 목록
 Datatables,
