@@ -8,6 +8,7 @@ import java.util.Map;
 import org.hyperic.sigar.CpuPerc;
 import org.hyperic.sigar.Mem;
 import org.hyperic.sigar.Sigar;
+import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,8 @@ import com.com.gentelella.service.DashBoardServiceImpl;
 import com.com.gentelella.smtp.Email;
 import com.com.gentelella.smtp.EmailSender;
 import com.com.gentelella.vo.DashBoardVO;
+
+
 
 @Controller
 public class DashBoardController {
@@ -60,6 +63,7 @@ public class DashBoardController {
 	public String myChart(Model model)throws Exception{
 	//cpu점유율 측정(차트로 퍼센 테이지 호출 예정)
 			System.out.println("================== PC정보 ====================");
+			JSONObject cpuObj = new JSONObject();
 			Sigar sigar = new Sigar();// cpu
 			Sigar sigar1 = new Sigar();//메모리
 			CpuPerc cpu = null;//cpu
@@ -81,10 +85,13 @@ public class DashBoardController {
 						String.valueOf(df.format(totalCPU) + " GB"),
 						String.valueOf(df.format(usedCPU) + " GB"),
 						String.valueOf(df.format(freeCPU) + " GB")));
+				
+				cpuObj.put("data",CpuPerc.format(cpu.getIdle()));
+				System.out.println(cpuObj.toString());
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			return pattern;
+			return cpuObj.toString();
 	}
 	
 	// 일정관리페이지

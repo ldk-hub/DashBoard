@@ -18,6 +18,7 @@
     <link href="/static/vendors/animate.css/animate.min.css" rel="stylesheet">
     <!-- Custom Theme Style -->
     <link href="/static/css/custom.min.css" rel="stylesheet">
+    
    
     <!-- 비밀번호 이메일 찾기 -->
 	<script type="text/javascript">	
@@ -79,6 +80,19 @@
 					<!-- spring security는 form 전송시 csrf 공격 방어를 하기위해  토큰값을 보내야 하도록 규정되어있어 히든값으로 넣어준다-->
 					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 					<button type="submit" class="btn btn-sm btn-dark">로그인</button>		 
+					 <!-- 네이버아이디로로그인 버튼 노출 영역 -->
+					  <div id="naver_id_login"></div>
+					  <!-- //네이버아이디로로그인 버튼 노출 영역 -->
+					  <script type="text/javascript">
+					  	var naver_id_login = new naver_id_login("YOUR_CLIENT_ID", "YOUR_CALLBACK_URL");
+					  	var state = naver_id_login.getUniqState();
+					  	naver_id_login.setButton("white", 2,40);
+					  	naver_id_login.setDomain("YOUR_SERVICE_URL");
+					  	naver_id_login.setState(state);
+					  	naver_id_login.setPopup();
+					  	naver_id_login.init_naver_id_login();
+					  </script>
+					
               <div class="clearfix"></div>
 
               <div class="separator">
@@ -197,8 +211,8 @@
 					</div>
 				</div>
 				
-			
-	
+	<!-- 네이버 인증로그인 -->		
+	 <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
 	<!-- ajax -->
 	<script src="/static/vendors/jquery/src/ajax.js"></script>
     <!-- jQuery -->
