@@ -57,43 +57,55 @@ public class DashBoardController {
 		System.out.println("현재로그인 : " + user.getUsername());
 		return VIEW_PATH + "dashboard";
 	}
-	//차트 데이터 전송(수정중)
+	
+	//CPU차트 데이터 전송(수정중)
 	@RequestMapping(value = "/myChart", method = RequestMethod.GET)
 	@ResponseBody
 	public String myChart(Model model)throws Exception{
 	//cpu점유율 측정(차트로 퍼센 테이지 호출 예정)
-			System.out.println("================== PC정보 ====================");
-			JSONObject cpuObj = new JSONObject();
-			Sigar sigar = new Sigar();// cpu
-			Sigar sigar1 = new Sigar();//메모리
-			CpuPerc cpu = null;//cpu
-			Mem mem = null;//memory
-			String pattern = "####.##";//memory
+		System.out.println("================== CPU정보 ====================");
+		JSONObject cpuObj = new JSONObject();
+		Sigar sigar = new Sigar(); 
+		CpuPerc cpu = null; 
 			try {
 				//cpu측정 영역
 				cpu = sigar.getCpuPerc();
-				System.out.println(String.format("Cpu점유율 -> 사용중 : %s / 시스템 : %s / 아이들  : %s ",
-						CpuPerc.format(cpu.getUser()), CpuPerc.format(cpu.getSys()), CpuPerc.format(cpu.getIdle())));
-				//메모리측정 영역
-				mem = sigar1.getMem();
-				 //KB -> GB 변환 
-				Double totalCPU = (double) mem.getTotal() / 1000000000;
-				Double usedCPU = (double) mem.getUsed() / 1000000000;
-				Double freeCPU = (double) mem.getFree() / 1000000000;
-				DecimalFormat df = new DecimalFormat(pattern);
-				System.out.println(String.format("Memory점유율 ->  총 : %s / 사용중 : %s / 대기중 : %s ",
-						String.valueOf(df.format(totalCPU) + " GB"),
-						String.valueOf(df.format(usedCPU) + " GB"),
-						String.valueOf(df.format(freeCPU) + " GB")));
-				
-				cpuObj.put("data",CpuPerc.format(cpu.getIdle()));
-				System.out.println(cpuObj.toString());
+						System.out.println(String.format("Cpu점유율 -> 사용중 : %s / 시스템 : %s / 아이들  : %s ",
+					CpuPerc.format(cpu.getUser()), CpuPerc.format(cpu.getSys()), CpuPerc.format(cpu.getIdle())));
+					cpuObj.put("cpuInfo",CpuPerc.format(cpu.getIdle()));
+						//System.out.println(cpuObj.toString());
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			return cpuObj.toString();
+		return cpuObj.toString();
 	}
 	
+	//메모리 차트 데이터 전송(수정중)
+	@RequestMapping(value = "/myChart2", method = RequestMethod.GET)
+	@ResponseBody
+	public String myChart2(Model model)throws Exception{
+		JSONObject memObj = new JSONObject();
+		Sigar sigar1 = new Sigar();//메모리
+		Mem mem = null;//memory
+		String pattern = "####.##";//memory
+			try {
+					//메모리측정 영역
+					mem = sigar1.getMem();
+					 //KB -> GB 변환 
+					Double totalCPU = (double) mem.getTotal() / 1000000000;
+					Double usedCPU = (double) mem.getUsed() / 1000000000;
+					Double freeCPU = (double) mem.getFree() / 1000000000;
+					DecimalFormat df = new DecimalFormat(pattern);
+					System.out.println(String.format("Memory점유율 ->  총 : %s / 사용중 : %s / 대기중 : %s ",
+							String.valueOf(df.format(totalCPU) + " GB"),
+							String.valueOf(df.format(usedCPU) + " GB"),
+							String.valueOf(df.format(freeCPU) + " GB")));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		return memObj.toString();
+	}
+		
 	// 일정관리페이지
 	@RequestMapping(value = "/calendar", method = RequestMethod.GET)
 	public String calendar(Model model) throws Exception {

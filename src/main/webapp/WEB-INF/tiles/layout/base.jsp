@@ -344,30 +344,37 @@
 					} ]
 				} ]
 			})
-	}
+		}
+		myChart.setOption(options); 
+     	timeId = setInterval("getChartData();",2000); // 시스템 상시 콜 부하테스트 해봐야함
+	</script>
 	
+	<script type="text/javascript"> 
 	
-	
-     //timeId = setInterval("getChartData();",2000); // 시스템 상시 콜 부하테스트 해봐야함
 	</script>
 	<!-- 게이지 차트  -->
        <script type="text/javascript"> 
 			$(document).ready(function() {
 				
-				$.ajax({
-			        url: '/myChart',
-			       	dataType: 'json',
-			        success: function(data) {
-			        	alert(data);
-			        	
-			                }
-					}
-				);
-			            
-			
+				function getChartData() { 
+					 var options = myChart.getOption(); 
+							//차트 데이터 
+							$.ajax({
+								async : false,
+						        url: '/myChart',
+						        dataType: 'json',
+						        success: function(data) {
+						        	//alert(data.cpuInfo);
+						        	options.legend.data = data.cpuInfo; 
+						        	alert(options.legend.data);
+						        	
+						        	myChart.setOption(options); 
+					                }
+								}
+							);
+				}
+				//차트 시작
 				init_echarts2();
-				
-				
 			});
 		</script>
 </body>
