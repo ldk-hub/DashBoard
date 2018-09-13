@@ -2,7 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%><!-- 커스텀태그 추가 -->
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>    
-    
+
+
+			
     		<!-- 라인 그래프  -->
       		<div class="right_col" role="main">
       		
@@ -106,3 +108,6 @@
               </div>
             </div>
           </div>
+
+         
+	

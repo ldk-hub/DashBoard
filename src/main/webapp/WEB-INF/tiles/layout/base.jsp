@@ -116,7 +116,7 @@
 	<!-- echart -->
 	<script src="/static/vendors/echarts/dist/echarts.min.js"></script>
 	<script src="/static/vendors/echarts/map/js/world.js"></script>
-	<!-- Datatables -->
+	 <!-- Datatables -->
 	<script src="/static/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
 	<script src="/static/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 	<script src="/static/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
@@ -345,36 +345,42 @@
 				} ]
 			})
 		}
-		myChart.setOption(options); 
-     	timeId = setInterval("getChartData();",2000); // 시스템 상시 콜 부하테스트 해봐야함
+		//myChart.setOption()
+     	//timeId = setInterval("getChartData();",2000); // 시스템 상시 콜 부하테스트 해봐야함
 	</script>
-	
-	<script type="text/javascript"> 
-	
-	</script>
-	<!-- 게이지 차트  -->
+		<script type="text/javascript"> 
+		function getChartData() { 
+		 var options = myChart.getOption(); 
+				//차트 데이터 
+				$.ajax({
+					async : false,
+			        url: '/myChart',
+			        dataType: 'json',
+			        success: function(data) {
+			        	alert(data.cpuInfo);
+			        	options.legend.data = data.cpuInfo; 
+			        	alert(options.legend.data);
+			        	
+			        	myChart.setOption(options); 
+		                }
+					}
+				);
+			}
+		</script>
+		<!-- 데이타 테이블 -->
+		<script type="text/javascript"> 
+			$('#datatable-buttons').DataTable({
+				"responsive" : false
+			});
+		</script>
+		
+		<!-- 게이지 차트  -->
        <script type="text/javascript"> 
 			$(document).ready(function() {
-				
-				function getChartData() { 
-					 var options = myChart.getOption(); 
-							//차트 데이터 
-							$.ajax({
-								async : false,
-						        url: '/myChart',
-						        dataType: 'json',
-						        success: function(data) {
-						        	//alert(data.cpuInfo);
-						        	options.legend.data = data.cpuInfo; 
-						        	alert(options.legend.data);
-						        	
-						        	myChart.setOption(options); 
-					                }
-								}
-							);
-				}
 				//차트 시작
 				init_echarts2();
+				//CPU 정보 호출
+				getChartData();
 			});
 		</script>
 </body>

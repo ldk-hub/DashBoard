@@ -41,6 +41,8 @@ JAVA1.8, Spring Boot, Security, OracleDB, lombok, Mybatis, jpa, hibernate, gente
 8. 의뢰페이지 엑셀 파일업로드 DB 테이블 임포트(xls, xlsx)
 9. 로그인 oAuth 연동 기능 추가 (네이버, 카카오톡)
 
+10. datatables 제어 input기능, 반응형테이블 제거, 새로고침, 디자인, 버튼 기능 해결 
+
 ### 완료내역
 1. 시큐리티 로그인, 로그아웃 세션처리 완료(jpa)
 2. 샘플데이터 게시판목록 호출 완료(mybatis)
