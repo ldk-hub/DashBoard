@@ -1,0 +1,104 @@
+.table
+    margin 0
+    width 1px
+    box-sizing border-box
+    table-layout fixed
+    border-collapse collapse
+    border 1px hidden transparent
+
+.lside-area .table
+    width 100%
+
+.cell
+    overflow hidden
+    border-width 1px
+    border-style solid
+    white-space nowrap
+    padding 0
+
+    .cell-content
+        padding 12px 12px 11px
+        overflow hidden
+        box-sizing border-box
+        word-break break-all
+
+    img
+        vertical-align middle
+
+.cell-head
+    padding 0
+    text-align center
+
+.cell-summary
+    padding 0 12px
+
+.cell-disabled
+    input
+        &[type=text],
+        &[type=password]
+            opacity 0.3
+
+.cell-ellipsis
+    .cell-content
+        text-overflow ellipsis
+
+.cell-has-input
+    .cell-content
+        padding 4px 5px
+
+.cell-has-tree
+    height inherit // to set pixel value on td's height
+    box-sizing border-box
+
+    .cell-content
+        padding-left 14px
+
+.cell-content
+    .content-before
+        float left
+        margin-right 2px
+        line-height 1.5
+
+    .content-after
+        float right
+        margin-left 2px
+        line-height 1.5
+
+    .content-input
+        display block
+        overflow hidden
+        line-height 1.5
+        *margin-left -2px
+        *padding-left 2px
+
+    input
+        &[type=text],
+        &[type=password]
+            width 100%
+            padding 6px 7px
+            border solid 1px #ddd
+
+    label + input
+        margin-left 10px
+
+    select
+        box-sizing border-box
+        width 100%
+
+.column-resize-container
+    display none
+    position relative
+    width 0
+
+.column-resize-handle
+    float left
+    position absolute
+    bottom 1px
+    left -99px
+    width 7px
+    background #000
+    opacity 0
+    cursor col-resize
+
+.column-resize-handle-last
+    width 3px

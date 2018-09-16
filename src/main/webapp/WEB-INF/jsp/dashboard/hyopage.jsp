@@ -3,8 +3,80 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%><!-- 커스텀태그 추가 -->
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>    
 
+	
+<script type="text/javascript">
+var grid = new tui.Grid({
+    el: $('#grid'),
+    scrollX: false,
+    scrollY: false,
+    header: {
+        height: 160,
+        complexColumns: [
+            {
+                title: 'Basic',
+                name: 'mergeColumn1',
+                childNames: ['name', 'artist']
+            },
+            {
+                title: 'Extra',
+                name: 'mergeColumn2',
+                childNames: ['type', 'release', 'genre']
+            },
+            {
+                title: 'Detail',
+                name: 'mergeColumn3',
+                childNames: ['mergeColumn1', 'mergeColumn2']
+            },
+            {
+                title: 'Count',
+                name: 'mergeColumn4',
+                childNames: ['downloadCount', 'listenCount']
+            },
+            {
+                title: 'Album Info',
+                name: 'mergeColumn5',
+                childNames: ['price', 'mergeColumn3', 'mergeColumn4']
+            }
+        ]
+    },
+    columns: [
+        {
+            title: 'Name',
+            name: 'name'
+        },
+        {
+            title: 'Artist',
+            name: 'artist'
+        },
+        {
+            title: 'Type',
+            name: 'type'
+        },
+        {
+            title: 'Release',
+            name: 'release'
+        },
+        {
+            title: 'Genre',
+            name: 'genre'
+        },
+        {
+            title: 'Price',
+            name: 'price'
+        },
+        {
+            title: 'Download',
+            name: 'downloadCount'
+        },
+        {
+            title: 'Listen',
+            name: 'listenCount'
+        }
+    ]
+});
 
-			
+grid.setData(gridData);
+</script>
     		<!-- 라인 그래프  -->
       		<div class="right_col" role="main">
       		
@@ -36,7 +108,27 @@
                   </div>
                 </div>
               </div>
-    		
+    		<!-- 테이블 화면 -->
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>고객별 정보</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+              		<!-- 토스트 UI 호출 -->
+              		<div id="grid"></div>
+              		
+                  </div>
+                </div>
 				<!-- 테이블 화면 -->
                 <div class="x_panel">
                   <div class="x_title">
@@ -53,6 +145,7 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
+              
                     <table id="datatable-buttons" class="table table-striped table-bordered">
                       <thead>
                         <tr>
@@ -110,4 +203,3 @@
           </div>
 
          
-	

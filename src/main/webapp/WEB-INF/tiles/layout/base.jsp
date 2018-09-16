@@ -46,6 +46,9 @@
     <link href="/static/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
     <!-- Custom Theme Style -->
     <link href="/static/css/custom.min.css" rel="stylesheet">
+    <!-- 토스트 UI -->
+	<link rel="stylesheet" href="/static/vendors/tui.grid/dist/tui-grid.css" />
+
 </head>
 <body class="nav-md">
 	<div class="container body">
@@ -134,6 +137,8 @@
 	<script src="/static/vendors/pdfmake/build/vfs_fonts.js"></script>
 	<!-- Dropzone.js -->
 	<script src="/static/vendors/dropzone/dist/min/dropzone.min.js"></script>
+	<!-- Toast UI -->
+	<script src="/static/vendors/tui.grid/dist/tui-grid.js"></script>
  	<!-- Initialize datetimepicker -->
 	<script>
 	    $('#myDatepicker').datetimepicker();
@@ -367,9 +372,14 @@
 				);
 			}
 		</script>
-		<!-- 데이타 테이블 -->
+	    <!-- 데이타 테이블 -->
 		<script type="text/javascript"> 
-			$('#datatable-buttons').DataTable({
+		function dataTables() { 
+		var myTable= echarts.init(document.getElementById("datatable-buttons"));
+			
+			myTable.setOption
+		
+		$('#datatable-buttons').DataTable({
 				"responsive" : false
 			});
 		</script>
@@ -381,6 +391,7 @@
 				init_echarts2();
 				//CPU 정보 호출
 				getChartData();
+				dataTables();
 			});
 		</script>
 </body>
