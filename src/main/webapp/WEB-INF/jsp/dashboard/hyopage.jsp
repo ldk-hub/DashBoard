@@ -3,80 +3,123 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%><!-- 커스텀태그 추가 -->
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>    
 
-	
+    <script type = "text/javascript" src = "https://uicdn.toast.com/tui.code-snippet/latest/tui-code-snippet.min.js"></script> 
+    <script type = "text/javascript" src = "https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.min.js"></script> 
+    <script type = "text/javascript" src = "https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.min.js"></script>
+<script
+  src="https://code.jquery.com/jquery-1.11.0.js"
+  integrity="sha256-zgND4db0iXaO7v4CLBIYHGoIIudWI5hRMQrPB20j0Qw="
+  crossorigin="anonymous"></script>
 <script type="text/javascript">
 var grid = new tui.Grid({
-    el: $('#grid'),
+    el: $('#tgrid'),
     scrollX: false,
     scrollY: false,
-    header: {
-        height: 160,
-        complexColumns: [
-            {
-                title: 'Basic',
-                name: 'mergeColumn1',
-                childNames: ['name', 'artist']
-            },
-            {
-                title: 'Extra',
-                name: 'mergeColumn2',
-                childNames: ['type', 'release', 'genre']
-            },
-            {
-                title: 'Detail',
-                name: 'mergeColumn3',
-                childNames: ['mergeColumn1', 'mergeColumn2']
-            },
-            {
-                title: 'Count',
-                name: 'mergeColumn4',
-                childNames: ['downloadCount', 'listenCount']
-            },
-            {
-                title: 'Album Info',
-                name: 'mergeColumn5',
-                childNames: ['price', 'mergeColumn3', 'mergeColumn4']
-            }
-        ]
-    },
     columns: [
         {
             title: 'Name',
-            name: 'name'
+            name: 'name',
+            onBeforeChange: function(ev){
+                console.log('Before change:' + ev);
+            },
+            onAfterChange: function(ev){
+                console.log('After change:' + ev);
+            },
+            editOptions: {
+                type: 'text',
+                useViewMode: true
+            }
         },
         {
             title: 'Artist',
-            name: 'artist'
+            name: 'artist',
+            onBeforeChange: function(ev){
+                console.log('Before change:' + ev);
+                ev.stop();
+            },
+            onAfterChange: function(ev){
+                console.log('After change:' + ev);
+            },
+            editOptions: {
+                type: 'text',
+                maxLength: 10,
+                useViewMode: false
+            }
         },
         {
             title: 'Type',
-            name: 'type'
-        },
-        {
-            title: 'Release',
-            name: 'release'
+            name: 'typeCode',
+            onBeforeChange: function(ev){
+                console.log('Before change:' + ev);
+            },
+            onAfterChange: function(ev){
+                console.log('After change:' + ev);
+            },
+            editOptions: {
+                type: 'select',
+                listItems: [
+                    { text: 'Deluxe', value: '1' },
+                    { text: 'EP', value: '2' },
+                    { text: 'Single', value: '3' }
+                ],
+                useViewMode: true
+            }
         },
         {
             title: 'Genre',
-            name: 'genre'
+            name: 'genreCode',
+            onBeforeChange: function(ev){
+                console.log('Before change:' + ev);
+            },
+            onAfterChange: function(ev){
+                console.log('After change:' + ev);
+            },
+            editOptions: {
+                type: 'checkbox',
+                listItems: [
+                    { text: 'Pop', value: '1' },
+                    { text: 'Rock', value: '2' },
+                    { text: 'R&B', value: '3' },
+                    { text: 'Electronic', value: '4' },
+                    { text: 'etc.', value: '5' }
+                ],
+                useViewMode: true
+            },
+            copyOptions: {
+                useListItemText: true // when this option is used, the copy value is concatenated text
+            }
         },
         {
-            title: 'Price',
-            name: 'price'
-        },
-        {
-            title: 'Download',
-            name: 'downloadCount'
-        },
-        {
-            title: 'Listen',
-            name: 'listenCount'
+            title: 'Grade',
+            name: 'grade',
+            onBeforeChange: function(ev){
+                console.log('Before change:' + ev);
+            },
+            onAfterChange: function(ev){
+                console.log('After change:' + ev);
+            },
+            copyOptions: {
+                useListItemText: true
+            },
+            editOptions: {
+                type: 'radio',
+                listItems: [
+                    { text: '★☆☆☆☆', value: '1' },
+                    { text: '★★☆☆☆', value: '2' },
+                    { text: '★★★☆☆', value: '3' },
+                    { text: '★★★★☆', value: '4' },
+                    { text: '★★★★★', value: '5' }
+                ],
+                useViewMode: true
+            }
         }
     ]
 });
 
 grid.setData(gridData);
 </script>
+
+
     		<!-- 라인 그래프  -->
       		<div class="right_col" role="main">
       		
@@ -125,7 +168,7 @@ grid.setData(gridData);
                   </div>
                   <div class="x_content">
               		<!-- 토스트 UI 호출 -->
-              		<div id="grid"></div>
+              		<div id="tgrid"></div>
               		
                   </div>
                 </div>
@@ -201,5 +244,8 @@ grid.setData(gridData);
               </div>
             </div>
           </div>
+
+
+	
 
          

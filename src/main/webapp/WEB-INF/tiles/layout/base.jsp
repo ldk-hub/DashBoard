@@ -44,10 +44,10 @@
     <link href="/static/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
     <link href="/static/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
     <link href="/static/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet"  href="/static/toast/tui.grid/dist/tui-grid.css" />
     <!-- Custom Theme Style -->
     <link href="/static/css/custom.min.css" rel="stylesheet">
-    <!-- 토스트 UI -->
-	<link rel="stylesheet" href="/static/vendors/tui.grid/dist/tui-grid.css" />
 
 </head>
 <body class="nav-md">
@@ -137,8 +137,15 @@
 	<script src="/static/vendors/pdfmake/build/vfs_fonts.js"></script>
 	<!-- Dropzone.js -->
 	<script src="/static/vendors/dropzone/dist/min/dropzone.min.js"></script>
-	<!-- Toast UI -->
-	<script src="/static/vendors/tui.grid/dist/tui-grid.js"></script>
+	
+	
+	<script src="/static/toast/underscore-min.js"></script>
+	<script src="/static/toast/backbone-min.js"></script>
+	<script src="/static/toast/tui.code-snippet/dist/tui-code-snippet.js"></script>
+	<script src="/static/toast/tui.pagination/dist/tui-pagination.js"></script>
+	<script src="/static/toast/tui.date-picker/dist/tui-date-picker.js"></script>
+	<script src="/static/toast/tui.grid/dist/tui-grid.js"></script>
+	
  	<!-- Initialize datetimepicker -->
 	<script>
 	    $('#myDatepicker').datetimepicker();
@@ -374,14 +381,14 @@
 		</script>
 	    <!-- 데이타 테이블 -->
 		<script type="text/javascript"> 
-		function dataTables() { 
+	/* 	function dataTables() { 
 		var myTable= echarts.init(document.getElementById("datatable-buttons"));
 			
 			myTable.setOption
 		
 		$('#datatable-buttons').DataTable({
 				"responsive" : false
-			});
+			}); */
 		</script>
 		
 		<!-- 게이지 차트  -->
@@ -391,7 +398,7 @@
 				init_echarts2();
 				//CPU 정보 호출
 				getChartData();
-				dataTables();
+				//dataTables();
 			});
 		</script>
 </body>
