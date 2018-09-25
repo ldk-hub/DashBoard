@@ -6,7 +6,7 @@ JAVA1.8, Spring Boot, Security, OracleDB, lombok, Mybatis, jpa, hibernate, gente
 ![screencapture-localhost-9090-dashboard-2018-08-16-20_38_37](https://user-images.githubusercontent.com/12209348/44206480-e3919200-a194-11e8-9336-eea6b0437190.png)
 
 ## 데이터차트페이지
-![screencapture-localhost-9090-hyopage-2018-08-16-20_39_12](https://user-images.githubusercontent.com/12209348/44206487-edb39080-a194-11e8-8eec-050fce1b4ffd.png)
+![screencapture-localhost-9090-hyopage-2018-09-25-21_34_09](https://user-images.githubusercontent.com/12209348/46014601-d60fe600-c10a-11e8-8fd3-06993cf13fa6.png)
 
 ## 일정계획페이지
 ![screencapture-localhost-9090-calendar-2018-08-16-20_39_25](https://user-images.githubusercontent.com/12209348/44206493-f73cf880-a194-11e8-96a3-57cacfdbbfe8.png)

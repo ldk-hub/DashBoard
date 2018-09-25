@@ -146,28 +146,21 @@
 
 
 <script type="text/javascript">
-var grid = new tui.Grid({
-    el: $('#grid'),
-    scrollX: false,
-    scrollY: false,
+var Grid = tui.Grid;
+var instance = new Grid({
+    el: $('#grid'), 
     columns: [
         {
-            title: 'Name',
-            name: 'name',
-            onBeforeChange: function(ev){
-                console.log('Before change:' + ev);
-            },
-            onAfterChange: function(ev){
-                console.log('After change:' + ev);
-            },
-            editOptions: {
-                type: 'text',
-                useViewMode: true
-            }
+            title: '제품순번',
+            name: 'product_number'
         },
         {
-            title: 'Artist',
-            name: 'artist',
+            title: '자재번호 ',
+            name: 'item_number'
+        },
+        {
+            title: '제품명',
+            name: 'item_name',
             onBeforeChange: function(ev){
                 console.log('Before change:' + ev);
                 ev.stop();
@@ -182,8 +175,24 @@ var grid = new tui.Grid({
             }
         },
         {
-            title: 'Type',
-            name: 'typeCode',
+            title: '제품상세',
+            name: 'item_content',
+            onBeforeChange: function(ev){
+                console.log('Before change:' + ev);
+                ev.stop();
+            },
+            onAfterChange: function(ev){
+                console.log('After change:' + ev);
+            },
+            editOptions: {
+                type: 'text',
+                maxLength: 10,
+                useViewMode: false
+            }
+        },
+        {
+            title: '브랜드명',
+            name: 'brand_name',
             onBeforeChange: function(ev){
                 console.log('Before change:' + ev);
             },
@@ -199,57 +208,71 @@ var grid = new tui.Grid({
                 ],
                 useViewMode: true
             }
+        }
+    ],
+    data: [
+        {
+        	product_number: 'Beautiful Lies',
+        	item_number: 'Birdy',
+        	item_name: '2016.03.26',
+        	item_content: 'Pop',
+        	brand_name: 'Deluxe'
         },
         {
-            title: 'Genre',
-            name: 'genreCode',
-            onBeforeChange: function(ev){
-                console.log('Before change:' + ev);
-            },
-            onAfterChange: function(ev){
-                console.log('After change:' + ev);
-            },
-            editOptions: {
-                type: 'checkbox',
-                listItems: [
-                    { text: 'Pop', value: '1' },
-                    { text: 'Rock', value: '2' },
-                    { text: 'R&B', value: '3' },
-                    { text: 'Electronic', value: '4' },
-                    { text: 'etc.', value: '5' }
-                ],
-                useViewMode: true
-            },
-            copyOptions: {
-                useListItemText: true // when this option is used, the copy value is concatenated text
-            }
+        	product_number: 'Beautiful Lies',
+        	item_number: 'Birdy',
+        	item_name: '2016.03.26',
+        	item_content: 'Pop',
+        	brand_name: 'Deluxe'
         },
         {
-            title: 'Grade',
-            name: 'grade',
-            onBeforeChange: function(ev){
-                console.log('Before change:' + ev);
-            },
-            onAfterChange: function(ev){
-                console.log('After change:' + ev);
-            },
-            copyOptions: {
-                useListItemText: true
-            },
-            editOptions: {
-                type: 'radio',
-                listItems: [
-                    { text: '★☆☆☆☆', value: '1' },
-                    { text: '★★☆☆☆', value: '2' },
-                    { text: '★★★☆☆', value: '3' },
-                    { text: '★★★★☆', value: '4' },
-                    { text: '★★★★★', value: '5' }
-                ],
-                useViewMode: true
-            }
+        	product_number: 'Beautiful Lies',
+        	item_number: 'Birdy',
+        	item_name: '2016.03.26',
+        	item_content: 'Pop',
+        	brand_name: '2016.03.26'
+        },
+        {
+        	product_number: 'Beautiful Lies',
+        	item_number: 'Birdy',
+        	item_name: '2016.03.26',
+        	item_content: 'Pop',
+        	brand_name: '2016.03.26'
+        },
+        {
+        	product_number: 'Beautiful Lies',
+        	item_number: 'Birdy',
+        	item_name: '2016.03.26',
+        	item_content: 'Pop',
+        	brand_name: '2016.03.26'
+        },
+        {
+        	product_number: 'Beautiful Lies',
+        	item_number: 'Birdy',
+        	item_name: '2016.03.26',
+        	item_content: 'Pop',
+        	brand_name: '2016.03.26'
+        },
+        {
+        	product_number: 'Beautiful Lies',
+        	item_number: 'Birdy',
+        	item_name: '2016.03.26',
+        	item_content: 'Pop',
+        	brand_name: '2016.03.26'
         }
     ]
 });
 
+Grid.applyTheme('striped', {
+    grid: {
+        border: '#aaa',
+        text: '#333'
+    },
+    cell: {
+        disabled: {
+            text: '#999'
+        }
+    }
+});
 </script>
          
