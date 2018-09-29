@@ -2,9 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
-  <!-- page content -->
+  <!-- 캘린더 API S -->
         <div class="right_col" role="main">
-          <div class="">
             <div class="clearfix"></div>
             <div class="row">
               <div class="col-md-12">
@@ -31,10 +30,9 @@
               </div>
             </div>
           </div>
-        </div>
-        <!-- /page content -->
+        <!-- 캘린더 API E-->
         
-        <!-- calendar modal -->
+       <!-- 캘린더 내부 모달 S -->
     <div id="CalenderModalNew" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -116,9 +114,9 @@
 
     <div id="fc_create" data-toggle="modal" data-target="#CalenderModalNew"></div>
     <div id="fc_edit" data-toggle="modal" data-target="#CalenderModalEdit"></div>
-    <!-- /calendar modal -->
+      <!-- 캘린더 내부 모달 E -->
     
-	<!-- 모달 인풋 데이터 초기화 -->
+	<!-- 모달  데이터 초기화 -->
 	<script type="text/javascript">
 		function modalClose(){
 			$('#title').val('');

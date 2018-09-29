@@ -2,9 +2,11 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <script type="text/javascript"	src="//apis.daum.net/maps/maps3.js?apikey=9f62d9b2cb6f39cf29cf2b959862c8eb"></script>
-<!-- page content -->
+
+
+
 <div class="right_col" role="main">
-	<!-- 상단 집계 -->
+	<!-- 상단 집계S -->
 	<div class="col-md-12 col-sm-12 col-xs-12">
 		<div class="x_panel">
 			<div class="row tile_count">
@@ -49,35 +51,38 @@
 			</div>
 		</div>
 	</div>
-	<!-- /top tiles -->
+	<!-- 상단 집계 E-->
 
 	<div class="row">
-		<!-- 차트 -->
-		 <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>상품 월별 차트</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
+		<!-- e차트 S -->
+		<div class="col-md-12 col-sm-12 col-xs-12">
+			<div class="x_panel">
+				<div class="x_title">
+					<h2>상품 월별 차트</h2>
+					<ul class="nav navbar-right panel_toolbox">
+						<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+						</li>
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown" role="button" aria-expanded="false"><i
+								class="fa fa-wrench"></i></a></li>
+						<li><a class="close-link"><i class="fa fa-close"></i></a></li>
+					</ul>
+					<div class="clearfix"></div>
+				</div>
+				<div class="x_content">
 
-                    <div id="echart_line" style="height:350px;"></div>
+					<div id="echart_line" style="height: 350px;"></div>
 
-                  </div>
-                </div>
-                </div>
+				</div>
+			</div>
+		</div>
 	</div>
+	<!-- e차트 E -->
+	
 	<br />
-	<!-- CPU 측정 -->
+
+
+	<!-- CPU 측정 S -->
 	<div class="row">
 		<div class="col-md-4 col-sm-4 col-xs-12">
 			<div class="x_panel">
@@ -99,9 +104,33 @@
 				</div>
 			</div>
 		</div>
-		<!-- 메모리 측정 -->
+		<!-- CPU 측정 E -->
+		
+		<!-- 메모리 측정 S  추후진행-->
+		<!-- <div class="row">
+		<div class="col-md-4 col-sm-4 col-xs-12">
+			<div class="x_panel">
+				<div class="x_title">
+					<h2>PC상태 정보</h2>
+					<ul class="nav navbar-right panel_toolbox">
+						<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+						</li>
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown" role="button" aria-expanded="false"><i
+								class="fa fa-wrench"></i></a></li>
+						<li><a class="close-link"><i class="fa fa-close"></i></a></li>
+					</ul>
+					<div class="clearfix"></div>
+				</div>
+				<div class="x_content">
+				<p>CPU 점유율</p>
+					<div id="echart_gauge" style="height: 305px;"></div>
+				</div>
+			</div>
+		</div> -->
+		<!-- 메모리 측정 E -->
 
-		<!-- 일정표 -->
+		<!-- 일정표 S -->
 		<div class="col-md-4 col-sm-4 col-xs-12">
 			<div class="x_panel">
 				<div class="x_title">
@@ -162,8 +191,9 @@
 				</div>
 			</div>
 		</div>
+		<!-- 일정표 E -->
 		
-	 <!-- 날씨정보 -->
+	 <!-- 날짜 UI S -->
 		<div class="col-md-4 col-sm-4 col-xs-12">
 			<div class="x_panel">
 				<div class="x_title">
@@ -277,11 +307,11 @@
 				</div>
 			</div>
 		</div>
-		<!-- end of weather widget -->
+		<!-- 날짜 UI E -->
 	</div>
 	
+	<!-- 지도 API S -->
 	 <div class="row">
-		<!-- 지도 -->
 		<div class="col-md-12 col-sm-12 col-xs-12">
 			<div class="x_panel">
 				<div class="x_title">
@@ -307,61 +337,63 @@
 			</div>
 		</div>
 	</div>
+	<!-- 지도 API E -->
 </div>
-
-		<script>
-					var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
-					var options = { //지도를 생성할 때 필요한 기본 옵션
-					center: new daum.maps.LatLng(37.72176756698391, 126.75141594184569), //지도의 중심좌표.
-					level: 13 //지도의 레벨(확대, 축소 정도)
-					};
-					var map = new daum.maps.Map(container, options); //지도 생성 및 객체 리턴
-					
-					function panTo() {
-					    // 이동할 위도 경도 위치를 생성합니다 
-					    var moveLatLon = new daum.maps.LatLng(37.72176756698391, 126.75141594184569);
-					 // 지도를 클릭한 위치에 표출할 마커입니다
-						var marker = new daum.maps.Marker({ 
-						    // 지도 중심좌표에 마커를 생성합니다 
-						    position: map.getCenter() 
-						}); 
-						// 지도에 마커를 표시합니다
-						marker.setMap(map);
-					    // 지도 중심을 부드럽게 이동시킵니다
-					    // 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
-					    map.panTo(moveLatLon);            
-					}        
-					
-					var mapTypes = {
-						    traffic :  daum.maps.MapTypeId.TRAFFIC,
-						    bicycle : daum.maps.MapTypeId.BICYCLE
-						};
-					function setOverlayMapTypeId() {
-				        chkTraffic = document.getElementById('chkTraffic'),
-				        chkBicycle = document.getElementById('chkBicycle');
-					    
-					    // 지도 타입을 제거합니다
-					    for (var type in mapTypes) {
-					        map.removeOverlayMapTypeId(mapTypes[type]);    
-					    }
-					    // 교통정보 체크박스가 체크되어있으면 지도에 교통정보 지도타입을 추가합니다
-					    if (chkTraffic.checked) {
-					        map.addOverlayMapTypeId(mapTypes.traffic);    
-					    }
-					    // 자전거도로정보 체크박스가 체크되어있으면 지도에 자전거도로정보 지도타입을 추가합니다
-					    if (chkBicycle.checked) {
-					        map.addOverlayMapTypeId(mapTypes.bicycle);    
-					    }
-					}
-					// 일반 지도와 스카이뷰로 지도 타입을 전환할 수 있는 지도타입 컨트롤을 생성합니다
-					var mapTypeControl = new daum.maps.MapTypeControl();
-					// 지도에 컨트롤을 추가해야 지도위에 표시됩니다
-					// daum.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOPRIGHT는 오른쪽 위를 의미합니다
-					map.addControl(mapTypeControl, daum.maps.ControlPosition.TOPRIGHT);
-					// 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
-					var zoomControl = new daum.maps.ZoomControl();
-					map.addControl(zoomControl, daum.maps.ControlPosition.RIGHT);
-				</script>
+		
+		<!-- 지도 API 제어 명령어 -->
+		<script type="text/javascript">
+			var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+			var options = { //지도를 생성할 때 필요한 기본 옵션
+			center: new daum.maps.LatLng(37.72176756698391, 126.75141594184569), //지도의 중심좌표.
+			level: 13 //지도의 레벨(확대, 축소 정도)
+			};
+			var map = new daum.maps.Map(container, options); //지도 생성 및 객체 리턴
+			
+			function panTo() {
+			    // 이동할 위도 경도 위치를 생성합니다 
+			    var moveLatLon = new daum.maps.LatLng(37.72176756698391, 126.75141594184569);
+			 // 지도를 클릭한 위치에 표출할 마커입니다
+				var marker = new daum.maps.Marker({ 
+				    // 지도 중심좌표에 마커를 생성합니다 
+				    position: map.getCenter() 
+				}); 
+				// 지도에 마커를 표시합니다
+				marker.setMap(map);
+			    // 지도 중심을 부드럽게 이동시킵니다
+			    // 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
+			    map.panTo(moveLatLon);            
+			}        
+			
+			var mapTypes = {
+				    traffic :  daum.maps.MapTypeId.TRAFFIC,
+				    bicycle : daum.maps.MapTypeId.BICYCLE
+				};
+			function setOverlayMapTypeId() {
+		        chkTraffic = document.getElementById('chkTraffic'),
+		        chkBicycle = document.getElementById('chkBicycle');
+			    
+			    // 지도 타입을 제거합니다
+			    for (var type in mapTypes) {
+			        map.removeOverlayMapTypeId(mapTypes[type]);    
+			    }
+			    // 교통정보 체크박스가 체크되어있으면 지도에 교통정보 지도타입을 추가합니다
+			    if (chkTraffic.checked) {
+			        map.addOverlayMapTypeId(mapTypes.traffic);    
+			    }
+			    // 자전거도로정보 체크박스가 체크되어있으면 지도에 자전거도로정보 지도타입을 추가합니다
+			    if (chkBicycle.checked) {
+			        map.addOverlayMapTypeId(mapTypes.bicycle);    
+			    }
+			}
+			// 일반 지도와 스카이뷰로 지도 타입을 전환할 수 있는 지도타입 컨트롤을 생성합니다
+			var mapTypeControl = new daum.maps.MapTypeControl();
+			// 지도에 컨트롤을 추가해야 지도위에 표시됩니다
+			// daum.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOPRIGHT는 오른쪽 위를 의미합니다
+			map.addControl(mapTypeControl, daum.maps.ControlPosition.TOPRIGHT);
+			// 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
+			var zoomControl = new daum.maps.ZoomControl();
+			map.addControl(zoomControl, daum.maps.ControlPosition.RIGHT);
+		</script>
 
 
 

@@ -10,7 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>500 에러 </title>
-
+	<!-- favicon -->
+ 	<link rel="shortcut icon" type="image/x-icon" href="/static/images/favicon.ico">
     <!-- Bootstrap -->
     <link href="/static/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->

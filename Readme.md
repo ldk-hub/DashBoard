@@ -40,8 +40,7 @@ JAVA1.8, Spring Boot, Security, OracleDB, lombok, Mybatis, jpa, hibernate, gente
 7. (바형, 선형 그래프)차트 정보 DB 데이터 연동
 8. 의뢰페이지 엑셀 파일업로드 DB 테이블 임포트(xls, xlsx)
 9. 로그인 oAuth 연동 기능 추가 (네이버, 카카오톡)
-
-10. datatables 제어 input기능, 반응형테이블 제거, 새로고침, 디자인, 버튼 기능 해결 
+10. toast 그리드형 데이터 제어 처리 
 
 ### 완료내역
 1. 시큐리티 로그인, 로그아웃 세션처리 완료(jpa)
@@ -69,7 +68,10 @@ Flot,
 iCheck,
 gauge,
 NProgress,
-Skycons 등
+Skycons,
+toast grid,
+daum maps ,
+naver Oauth2 등
 
 ## 개발 이슈
 1. SMTP 비밀번호 찾기 properties 정보 노출로 계정 정보 삭제

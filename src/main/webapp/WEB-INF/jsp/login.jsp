@@ -8,6 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>통계정보사이트 </title>
+    <!-- favicon -->
+ 	<link rel="shortcut icon" type="image/x-icon" href="/static/images/favicon.ico">
     <!-- Bootstrap -->
     <link href="/static/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -105,8 +107,8 @@
 				<button type="button" class="btn btn-sm btn-dark"
 							data-toggle="modal" data-target="#PassModal">비밀번호 찾기</button>		 
                 <div>
-                  <h1><i class="fa fa-paw"></i>LeeDongOk`s Site</h1>
-                  <p>©2018 All Rights Reserved. LeeDongOk Develop Site</p>
+                  <h1><i class="fa fa-desktop"></i> LDK Developer Site</h1>
+                  <p>©2018 All Rights Reserved.</p>
                 </div>
               </div>
               
@@ -171,8 +173,8 @@
                 <br />
 
                 <div>
-                  <h1><i class="fa fa-paw"></i>LeeDongOk`s Site</h1>
-                  <p>©2018 All Rights Reserved. LeeDongOk Develop Site</p>
+                  <h1><i class="fa fa-desktop"></i> LDK Developer Site</h1>
+                  <p>© 2018 All Rights Reserved.</p>
                 </div>
               </div>
             </form>
@@ -212,9 +214,7 @@
 				</div>
 				
 	<!-- 네이버 인증로그인 -->		
-	 <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
-	<!-- ajax -->
-	<script src="/static/vendors/jquery/src/ajax.js"></script>
+ 	<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
     <!-- jQuery -->
     <script src="/static/vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->

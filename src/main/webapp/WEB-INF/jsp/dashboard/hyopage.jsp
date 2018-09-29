@@ -8,14 +8,13 @@
 <link rel="stylesheet" type="text/css" href="../static/vendors/tui-grid/tui-pagination/dist/tui-pagination.css" />
 
 
-
     		<!-- 라인 그래프  -->
       		<div class="right_col" role="main">
       		
       		  <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Bar Graph</h2>
+                    <h2>바그래프 통계</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -40,10 +39,13 @@
                   </div>
                 </div>
               </div>
-    		<!-- 테이블 화면 -->
+              
+    		<!-- 그리드형 API S -->
+    		<div class="row">
+    		  <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>고객별 정보</h2>
+                    <h2>그리드형 데이터 제어</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -61,10 +63,16 @@
               		
                   </div>
                 </div>
-				<!-- 테이블 화면 -->
+              </div>
+              </div>
+				<!-- 그리드형 API E-->
+				
+			<!--  테이블형 API S-->
+			<div class="row">
+			  <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>상품별 정보 데이터</h2>
+                    <h2>테이블형 데이터 제어</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -102,9 +110,11 @@
                     </table>
                   </div>
                 </div>
-    
+   			 </div>
+   			 </div>
+   			 <!--  테이블형 API E-->
              
-            <!-- 파일업로드 -->
+            <!-- 파일업로드API S -->
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
@@ -132,6 +142,7 @@
                 </div>
               </div>
             </div>
+            <!-- 파일업로드API E -->
           </div>
           
 <!-- Toast Grid -->
@@ -144,7 +155,7 @@
 <script src="../static/vendors/tui-grid/tui-grid/dist/tui-grid.js"></script>
 
 
-
+<!-- 그리드 제어 명령어 -->
 <script type="text/javascript">
 var Grid = tui.Grid;
 var instance = new Grid({
