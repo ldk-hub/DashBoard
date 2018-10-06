@@ -6,10 +6,8 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
-import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 
@@ -42,6 +40,18 @@ public class DashBoardDAO extends SqlSessionDaoSupport {
 	//일정 삭제
 	public void scheduleDelete(Model model) throws Exception {
 		getSqlSession().delete("dashBoardMapper.scheduleDelete", model);
+	}
+	//카운트
+	public int totalUser(DashBoardVO dashBoardVO) throws Exception {
+		return getSqlSession().totalUser("dashBoardMapper.totalUser", dashBoardVO);
+	}
+	
+	public int countMale(DashBoardVO dashBoardVO) throws Exception {
+		return getSqlSession().countMale("dashBoardMapper.countMale", dashBoardVO);
+	}
+	
+	public int countFemale(DashBoardVO dashBoardVO) throws Exception {
+		return getSqlSession().countFemale("dashBoardMapper.countFemale", dashBoardVO);
 	}
 	
 }

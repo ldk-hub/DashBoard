@@ -40,8 +40,16 @@ public class DashBoardServiceImpl implements DashBoardService  {
 	public void scheduleDelete(Model model) throws Exception {
 		dashBoardDAO.scheduleDelete(model);
 	}
-
-
 	
+	//카운트정보
+	public int totalUser(DashBoardVO dashBoardVO) throws Exception {
+		return dashBoardDAO.totalUser(dashBoardVO);
+	}
+	public int countMale(DashBoardVO dashBoardVO) throws Exception {
+		return dashBoardDAO.countMale(dashBoardVO);
+	}
+	public int countFemale(DashBoardVO dashBoardVO) throws Exception {
+		return dashBoardDAO.countFemale(dashBoardVO);
+	}
 
 }

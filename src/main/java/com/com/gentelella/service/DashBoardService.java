@@ -18,4 +18,11 @@ public interface DashBoardService {
 	public int scheduleInsert(Map<String, Object> paramMap) throws Exception;
 	
 	public void scheduleDelete(Model model) throws Exception;
+	
+	public int totalUser(DashBoardVO dashBoardVO) throws Exception;
+	
+	public int countMale(DashBoardVO dashBoardVO) throws Exception;
+	
+	public int countFemale(DashBoardVO dashBoardVO) throws Exception;
+	
 }
