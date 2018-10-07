@@ -42,16 +42,16 @@ public class DashBoardDAO extends SqlSessionDaoSupport {
 		getSqlSession().delete("dashBoardMapper.scheduleDelete", model);
 	}
 	//카운트
-	public int totalUser(DashBoardVO dashBoardVO) throws Exception {
-		return getSqlSession().totalUser("dashBoardMapper.totalUser", dashBoardVO);
+	public int totalUser(Model model) throws Exception {
+		return getSqlSession().selectOne("dashBoardMapper.totalUser", model);
 	}
 	
-	public int countMale(DashBoardVO dashBoardVO) throws Exception {
-		return getSqlSession().countMale("dashBoardMapper.countMale", dashBoardVO);
+	public int countMale(Model model) throws Exception {
+		return getSqlSession().selectOne("dashBoardMapper.countMale", model);
 	}
 	
-	public int countFemale(DashBoardVO dashBoardVO) throws Exception {
-		return getSqlSession().countFemale("dashBoardMapper.countFemale", dashBoardVO);
+	public int countFemale(Model model) throws Exception {
+		return getSqlSession().selectOne("dashBoardMapper.countFemale", model);
 	}
 	
 }

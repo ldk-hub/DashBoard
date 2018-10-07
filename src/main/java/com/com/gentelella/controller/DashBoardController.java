@@ -55,6 +55,10 @@ public class DashBoardController {
 		//로그인한 유저정보
 	    User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		System.out.println("현재로그인 : " + user.getUsername());
+		
+		//카운트정보 아직 미처리
+		model.addAllAttributes(dashBoardService.totalData(model));
+		
 		return VIEW_PATH + "dashboard";
 	}
 	
@@ -174,4 +178,7 @@ public class DashBoardController {
 		         return mav;
 		    }
 		}
+		
+		
+		
 }

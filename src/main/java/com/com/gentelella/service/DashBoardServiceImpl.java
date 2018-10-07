@@ -1,5 +1,6 @@
 package com.com.gentelella.service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -42,14 +43,13 @@ public class DashBoardServiceImpl implements DashBoardService  {
 	}
 	
 	//카운트정보
-	public int totalUser(DashBoardVO dashBoardVO) throws Exception {
-		return dashBoardDAO.totalUser(dashBoardVO);
+	public Map<String, Object> totalData(Model model) throws Exception {
+		
+		model.addAttribute("1", dashBoardDAO.totalUser(model));
+		model.addAttribute("1",dashBoardDAO.countMale(model));
+		model.addAttribute("1",dashBoardDAO.countFemale(model));
+		return null;
 	}
-	public int countMale(DashBoardVO dashBoardVO) throws Exception {
-		return dashBoardDAO.countMale(dashBoardVO);
-	}
-	public int countFemale(DashBoardVO dashBoardVO) throws Exception {
-		return dashBoardDAO.countFemale(dashBoardVO);
-	}
+
 
 }
