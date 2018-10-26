@@ -19,6 +19,10 @@ public interface DashBoardService {
 	
 	public void scheduleDelete(Model model) throws Exception;
 	
-	public Map<String, Object> totalData(Model model) throws Exception;
+	public int totalUser(Model model) throws Exception;
+	
+	public int countMale(Model model) throws Exception;
+	
+	public int countFemale(Model model) throws Exception;
 	
 }

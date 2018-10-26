@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
-<script type="text/javascript"	src="//apis.daum.net/maps/maps3.js?apikey=9f62d9b2cb6f39cf29cf2b959862c8eb"></script>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%><!-- 커스텀태그 추가 -->
+<script type="text/javascript"	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e0fe198a94267329d51b8335fe81e6ea"></script>
 
 
 
@@ -12,7 +13,7 @@
 			<div class="row tile_count">
 				<div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
 					<span class="count_top"><i class="fa fa-user"></i> 전체 회원 수</span>
-					<div class="count">216</div>
+					<div class="count">${totalUser}</div>
 					<span class="count_bottom"><i class="green">4% </i> 전주 대비</span>
 				</div>
 				<div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
@@ -24,13 +25,13 @@
 				</div>
 				<div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
 					<span class="count_top"><i class="fa fa-male"></i> 남성 비율</span>
-					<div class="count green">2,500</div>
+					<div class="count green">${countMale}</div>
 					<span class="count_bottom"><i class="green"><i
 							class="fa fa-sort-asc"></i>34% </i> 전주 대비</span>
 				</div>
 				<div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
 					<span class="count_top"><i class="fa fa-female"></i> 여성 비율</span>
-					<div class="count">4,567</div>
+					<div class="count">${countFemale}</div>
 					<span class="count_bottom"><i class="red"><i
 							class="fa fa-sort-desc"></i>12% </i> 전주 대비</span>
 				</div>

@@ -42,14 +42,17 @@ public class DashBoardServiceImpl implements DashBoardService  {
 		dashBoardDAO.scheduleDelete(model);
 	}
 	
-	//카운트정보
-	public Map<String, Object> totalData(Model model) throws Exception {
-		
-		model.addAttribute("1", dashBoardDAO.totalUser(model));
-		model.addAttribute("1",dashBoardDAO.countMale(model));
-		model.addAttribute("1",dashBoardDAO.countFemale(model));
-		return null;
+	
+	public int totalUser(Model model) throws Exception {
+		return dashBoardDAO.totalUser(model);
 	}
+	public int countMale(Model model) throws Exception {
+		return dashBoardDAO.countMale(model);
+	}
+	public int countFemale(Model model) throws Exception {
+		return dashBoardDAO.countFemale(model);
+	}
+	
 
 
 }
