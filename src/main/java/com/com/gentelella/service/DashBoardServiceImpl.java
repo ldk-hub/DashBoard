@@ -53,6 +53,9 @@ public class DashBoardServiceImpl implements DashBoardService  {
 		return dashBoardDAO.countFemale(model);
 	}
 	
+	public List<Object> schedule(Model model) throws Exception {
+		return dashBoardDAO.schedule(model);
+	}
 
 
 }

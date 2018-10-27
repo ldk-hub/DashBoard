@@ -136,7 +136,7 @@
 			<div class="x_panel">
 				<div class="x_title">
 					<h2>
-						오늘의 할일<small>일정표 스케쥴 데이터 호출 예정</small>
+						오늘의 할일<small>일정표 스케쥴 링크연동 예정</small>
 					</h2>
 					<ul class="nav navbar-right panel_toolbox">
 						<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -149,46 +149,18 @@
 					<div class="clearfix"></div>
 				</div>
 				<div class="x_content">
+				<c:forEach items="${scheduleList}" var="list">
 					<article class="media event">
 						<a class="pull-left date">
-							<p class="month">April</p>
-							<p class="day">23</p>
+							<p class="month">${list.MON}
+							<p class="day">${list.DAY}</p>
 						</a>
-						<div class="media-body">
-							<a class="title" href="#">Item One Title</a>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							<div class="media-body">
+							<a class="title" href="#">${list.TITLE}</a>
+							<p>${list.CONTENT}</p>
 						</div>
 					</article>
-					<article class="media event">
-						<a class="pull-left date">
-							<p class="month">April</p>
-							<p class="day">23</p>
-						</a>
-						<div class="media-body">
-							<a class="title" href="#">Item Two Title</a>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-						</div>
-					</article>
-					<article class="media event">
-						<a class="pull-left date">
-							<p class="month">April</p>
-							<p class="day">23</p>
-						</a>
-						<div class="media-body">
-							<a class="title" href="#">Item Two Title</a>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-						</div>
-					</article>
-					<article class="media event">
-						<a class="pull-left date">
-							<p class="month">April</p>
-							<p class="day">23</p>
-						</a>
-						<div class="media-body">
-							<a class="title" href="#">Item Two Title</a>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-						</div>
-					</article>
+					</c:forEach>
 				</div>
 			</div>
 		</div>

@@ -274,10 +274,10 @@ var instance = new Grid({
     ]
 });
 
-Grid.applyTheme('striped', {
+Grid.applyTheme('default', {
     grid: {
-        border: '#aaa',
-        text: '#333'
+        border: '#fff',
+        text: '#222'
     },
     cell: {
         disabled: {

@@ -55,10 +55,12 @@ public class DashBoardController {
 		//로그인한 유저정보
 	    User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		System.out.println("현재로그인 : " + user.getUsername());
-		//카운트정보 아직 미처리
+		//카운트정보 
 		model.addAttribute("totalUser", dashBoardService.totalUser(model));
 		model.addAttribute("countFemale", dashBoardService.countFemale(model));
 		model.addAttribute("countMale", dashBoardService.countMale(model));
+		model.addAttribute("scheduleList", dashBoardService.schedule(model));
+		System.out.println(dashBoardService.schedule(model));
 		return VIEW_PATH + "dashboard";
 	}
 	
@@ -76,7 +78,7 @@ public class DashBoardController {
 				cpu = sigar.getCpuPerc();
 						System.out.println(String.format("Cpu점유율 -> 사용중 : %s / 시스템 : %s / 아이들  : %s ",
 					CpuPerc.format(cpu.getUser()), CpuPerc.format(cpu.getSys()), CpuPerc.format(cpu.getIdle())));
-					cpuObj.put("cpuInfo",CpuPerc.format(cpu.getIdle()));
+					cpuObj.put("data",CpuPerc.format(cpu.getIdle()));
 						//System.out.println(cpuObj.toString());
 			} catch (Exception e) {
 				e.printStackTrace();

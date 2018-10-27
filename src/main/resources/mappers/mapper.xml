@@ -75,6 +75,16 @@
 		select count(*) from AP_USERS
 	</select>
 	
+	<select id="schedule"  resultType="hashmap" parameterType="hashmap">
+		select 
+			seq, 
+			title, 
+			content, 
+			content,to_char(start_date, 'MM') mon,
+			to_char(start_date, 'DD') day,
+			int_name 
+		from AP_SCHEDULE
+	</select>
 	
 </mapper>
   

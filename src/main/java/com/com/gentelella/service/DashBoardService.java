@@ -25,4 +25,5 @@ public interface DashBoardService {
 	
 	public int countFemale(Model model) throws Exception;
 	
+	public  List<Object> schedule(Model model) throws Exception;
 }
