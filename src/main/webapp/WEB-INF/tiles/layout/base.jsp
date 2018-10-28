@@ -46,7 +46,6 @@
     <link href="/static/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
     <link href="/static/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
     
-    <link rel="stylesheet"  href="/static/toast/tui.grid/dist/tui-grid.css" />
     <!-- Custom Theme Style -->
     <link href="/static/css/custom.min.css" rel="stylesheet">
 
@@ -138,14 +137,6 @@
 	<script src="/static/vendors/pdfmake/build/vfs_fonts.js"></script>
 	<!-- Dropzone.js -->
 	<script src="/static/vendors/dropzone/dist/min/dropzone.min.js"></script>
-	
-	
-	<script src="/static/toast/underscore-min.js"></script>
-	<script src="/static/toast/backbone-min.js"></script>
-	<script src="/static/toast/tui.code-snippet/dist/tui-code-snippet.js"></script>
-	<script src="/static/toast/tui.pagination/dist/tui-pagination.js"></script>
-	<script src="/static/toast/tui.date-picker/dist/tui-date-picker.js"></script>
-	<script src="/static/toast/tui.grid/dist/tui-grid.js"></script>
 	
  	<!-- Initialize datetimepicker -->
 	<script>

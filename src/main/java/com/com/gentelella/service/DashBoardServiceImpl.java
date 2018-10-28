@@ -56,6 +56,10 @@ public class DashBoardServiceImpl implements DashBoardService  {
 	public List<Object> schedule(Model model) throws Exception {
 		return dashBoardDAO.schedule(model);
 	}
+	
+	public int listDataCount(Model model) throws Exception {
+		return dashBoardDAO.listDataCount(model);
+	}
 
 
 }

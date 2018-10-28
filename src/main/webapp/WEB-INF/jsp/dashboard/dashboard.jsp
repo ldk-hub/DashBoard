@@ -1,10 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%><!-- 커스텀태그 추가 -->
 <script type="text/javascript"	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e0fe198a94267329d51b8335fe81e6ea"></script>
-
-
 
 <div class="right_col" role="main">
 	<!-- 상단 집계S -->
@@ -36,9 +33,8 @@
 							class="fa fa-sort-desc"></i>12% </i> 전주 대비</span>
 				</div>
 				<div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-					<span class="count_top"><i class="fa fa-download"></i> 오늘 발생
-						된 데이터</span>
-					<div class="count">2,315</div>
+					<span class="count_top"><i class="fa fa-download"></i> 리스트 집계 데이터</span>
+					<div class="count">${listDataCount}</div>
 					<span class="count_bottom"><i class="green"><i
 							class="fa fa-sort-asc"></i>34% </i> 전주 대비</span>
 				</div>
@@ -106,30 +102,6 @@
 			</div>
 		</div>
 		<!-- CPU 측정 E -->
-		
-		<!-- 메모리 측정 S  추후진행-->
-		<!-- <div class="row">
-		<div class="col-md-4 col-sm-4 col-xs-12">
-			<div class="x_panel">
-				<div class="x_title">
-					<h2>PC상태 정보</h2>
-					<ul class="nav navbar-right panel_toolbox">
-						<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-						</li>
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown" role="button" aria-expanded="false"><i
-								class="fa fa-wrench"></i></a></li>
-						<li><a class="close-link"><i class="fa fa-close"></i></a></li>
-					</ul>
-					<div class="clearfix"></div>
-				</div>
-				<div class="x_content">
-				<p>CPU 점유율</p>
-					<div id="echart_gauge" style="height: 305px;"></div>
-				</div>
-			</div>
-		</div> -->
-		<!-- 메모리 측정 E -->
 
 		<!-- 일정표 S -->
 		<div class="col-md-4 col-sm-4 col-xs-12">
@@ -156,7 +128,7 @@
 							<p class="day">${list.DAY}</p>
 						</a>
 							<div class="media-body">
-							<a class="title" href="#">${list.TITLE}</a>
+						<a class="title" href="#">${list.TITLE}</a>
 							<p>${list.CONTENT}</p>
 						</div>
 					</article>

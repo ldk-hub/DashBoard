@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%><!-- 커스텀태그 추가 -->
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>    
 
@@ -7,10 +6,8 @@
 <link rel="stylesheet" type="text/css" href="../static/vendors/tui-grid/tui-grid/dist/tui-grid.css" />
 <link rel="stylesheet" type="text/css" href="../static/vendors/tui-grid/tui-pagination/dist/tui-pagination.css" />
 
-
     		<!-- 라인 그래프  -->
       		<div class="right_col" role="main">
-      		
       		  <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
@@ -41,7 +38,6 @@
               </div>
               
     		<!-- 그리드형 API S -->
-    		<div class="row">
     		  <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
@@ -55,21 +51,17 @@
                       <li><a class="close-link"><i class="fa fa-close"></i></a>
                       </li>
                     </ul>
+                     </div>
                     <div class="clearfix"></div>
-                  </div>
+                   
                   <div class="x_content">
               		<!-- 토스트 UI 호출 -->
               		<div id="grid"></div>
-              		
                   </div>
                 </div>
               </div>
-              </div>
 				<!-- 그리드형 API E-->
-				
-			<!--  테이블형 API S-->
-			<div class="row">
-			  <div class="col-md-12 col-sm-12 col-xs-12">
+				   <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
                     <h2>테이블형 데이터 제어</h2>
@@ -78,6 +70,12 @@
                       </li>
                       <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
                       </li>
                       <li><a class="close-link"><i class="fa fa-close"></i></a>
                       </li>
@@ -85,8 +83,7 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-              
-                    <table id="datatable-buttons" class="table table-striped table-bordered">
+                  <table id="datatable-buttons" class="table table-striped table-bordered">
                       <thead>
                         <tr>
                           <th>자재번호</th>
@@ -110,10 +107,7 @@
                     </table>
                   </div>
                 </div>
-   			 </div>
-   			 </div>
-   			 <!--  테이블형 API E-->
-             
+              </div>
             <!-- 파일업로드API S -->
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
@@ -159,19 +153,21 @@
 <script type="text/javascript">
 var Grid = tui.Grid;
 var instance = new Grid({
-    el: $('#grid'), 
+    el: $('#grid'),
+    data: this.$list,   
+    header: {background: 'skyblue'},
     columns: [
         {
             title: '제품순번',
-            name: 'product_number'
+            name: 'certNo'
         },
         {
             title: '자재번호 ',
-            name: 'item_number'
+            name: 'itemNo'
         },
         {
             title: '제품명',
-            name: 'item_name',
+            name: 'itemName',
             onBeforeChange: function(ev){
                 console.log('Before change:' + ev);
                 ev.stop();
@@ -187,7 +183,7 @@ var instance = new Grid({
         },
         {
             title: '제품상세',
-            name: 'item_content',
+            name: 'reason',
             onBeforeChange: function(ev){
                 console.log('Before change:' + ev);
                 ev.stop();
@@ -203,7 +199,7 @@ var instance = new Grid({
         },
         {
             title: '브랜드명',
-            name: 'brand_name',
+            name: 'brdName',
             onBeforeChange: function(ev){
                 console.log('Before change:' + ev);
             },
@@ -222,68 +218,12 @@ var instance = new Grid({
         }
     ],
     data: [
-        {
-        	product_number: 'Beautiful Lies',
-        	item_number: 'Birdy',
-        	item_name: '2016.03.26',
-        	item_content: 'Pop',
-        	brand_name: 'Deluxe'
-        },
-        {
-        	product_number: 'Beautiful Lies',
-        	item_number: 'Birdy',
-        	item_name: '2016.03.26',
-        	item_content: 'Pop',
-        	brand_name: 'Deluxe'
-        },
-        {
-        	product_number: 'Beautiful Lies',
-        	item_number: 'Birdy',
-        	item_name: '2016.03.26',
-        	item_content: 'Pop',
-        	brand_name: '2016.03.26'
-        },
-        {
-        	product_number: 'Beautiful Lies',
-        	item_number: 'Birdy',
-        	item_name: '2016.03.26',
-        	item_content: 'Pop',
-        	brand_name: '2016.03.26'
-        },
-        {
-        	product_number: 'Beautiful Lies',
-        	item_number: 'Birdy',
-        	item_name: '2016.03.26',
-        	item_content: 'Pop',
-        	brand_name: '2016.03.26'
-        },
-        {
-        	product_number: 'Beautiful Lies',
-        	item_number: 'Birdy',
-        	item_name: '2016.03.26',
-        	item_content: 'Pop',
-        	brand_name: '2016.03.26'
-        },
-        {
-        	product_number: 'Beautiful Lies',
-        	item_number: 'Birdy',
-        	item_name: '2016.03.26',
-        	item_content: 'Pop',
-        	brand_name: '2016.03.26'
-        }
+       
     ]
 });
 
-Grid.applyTheme('default', {
-    grid: {
-        border: '#fff',
-        text: '#222'
-    },
-    cell: {
-        disabled: {
-            text: '#999'
-        }
-    }
-});
+Grid.applyTheme('default');
+
+
 </script>
          

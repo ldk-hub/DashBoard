@@ -55,9 +55,13 @@ public class DashBoardDAO extends SqlSessionDaoSupport {
 		return getSqlSession().selectOne("dashBoardMapper.countFemale", model);
 	}
 	
-	
-	 public List<Object> schedule(Model model) throws Exception {
-			return getSqlSession().selectList("dashBoardMapper.schedule", model);
-		}
+	public List<Object> schedule(Model model) throws Exception {
+		return getSqlSession().selectList("dashBoardMapper.schedule", model);
+	}
+	 
+	public int listDataCount(Model model) throws Exception {
+		return getSqlSession().selectOne("dashBoardMapper.listDataCount", model);
+	}
+	 
 }
 

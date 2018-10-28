@@ -64,6 +64,10 @@
 	<select id="countMale"  resultType="Integer">
 		select count(SEX) from AP_USERS where sex = 'M'
 	</select>
+	<select id="listDataCount"  resultType="Integer">
+	SELECT count(*)
+			  FROM AP_STATISTIC
+	</select>
 	
 	<!--여성회원 카운트 -->
 	<select id="countFemale"  resultType="Integer">
