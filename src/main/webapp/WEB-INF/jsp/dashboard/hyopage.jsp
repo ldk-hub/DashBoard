@@ -151,11 +151,10 @@
 
 <!-- 그리드 제어 명령어 -->
 <script type="text/javascript">
-var Grid = tui.Grid;
-var instance = new Grid({
+var grid = new tui.Grid({
     el: $('#grid'),
-    data: this.$list,   
-    header: {background: 'skyblue'},
+    bodyHeight: 550,
+    rowHeaders:['rowNum'],
     columns: [
         {
             title: '제품순번',
@@ -216,14 +215,26 @@ var instance = new Grid({
                 useViewMode: true
             }
         }
-    ],
-    data: [
-       
     ]
 });
 
-Grid.applyTheme('default');
+		grid.use('Net',{
+			perPage:500,
+			readDataMethod: 'GET',
+			api:{
+				readData:'/selectBoardList'
+			}
+		});
+	
+		
+		grid.on('response', function(data) {
+			
+			console.log("1",data);
+		    // when receiving response regardless of success/fail
+		});
 
+
+	var net = grid.getAddOn('Net');
 
 </script>
          

@@ -1,5 +1,6 @@
 package com.com.gentelella.controller;
 
+import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.List;
@@ -27,6 +28,8 @@ import com.com.gentelella.service.DashBoardServiceImpl;
 import com.com.gentelella.smtp.Email;
 import com.com.gentelella.smtp.EmailSender;
 import com.com.gentelella.vo.DashBoardVO;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 
@@ -146,6 +149,28 @@ public class DashBoardController {
 		map.put("list", resultList);
 		return VIEW_PATH + "hyopage";
 	}
+	
+	//그리드용 리스트
+	@RequestMapping(value = "/selectBoardList", method = RequestMethod.GET)
+	@ResponseBody
+	public Object selectBoardList(ModelMap map, DashBoardVO dashBoardVO) throws Exception {
+		return resultData(dashBoardService.selectBoardList(dashBoardVO),dashBoardVO);
+	}
+		public Object resultData(List<DashBoardVO> list, DashBoardVO dashBoardVO)throws JsonProcessingException, SQLException{
+			HashMap <String, Object> res = new HashMap<String,Object>();
+			HashMap <String, Object> data = new HashMap<String,Object>();
+				data.put("contents", list);
+				res.put("result", true);
+				res.put("data",data);
+				
+			if(list.size()>0) {
+				ObjectMapper jackson = new ObjectMapper();
+				String jsonString = jackson.writeValueAsString(res);
+				return jsonString;
+			}
+			return null;
+		}
+	
 	// 회원정보 확인페이지
 	@RequestMapping(value = "/mypage", method = RequestMethod.GET)
 	public String mypage(Model model) {
