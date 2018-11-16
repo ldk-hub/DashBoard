@@ -36,6 +36,12 @@
 	</div>
 	<!-- /sidebar menu -->
 
+
+	<!-- 사이드 바 메인 타이머 -->
+	<body onload="printClock()">
+		<div style="overflow:hidden; width:100%; height:150px; line-height:60px; color:#999;font-size:30px; text-align:center;" id="clock">
+		</div>
+	</body>
 	<!-- /menu footer buttons -->
 	<div class="sidebar-footer hidden-small">
 	    <a data-toggle="tooltip" data-placement="top" title="mypage" href="mypage">
@@ -52,9 +58,6 @@
 	    </a>
 	</div>
 	<!-- /menu footer buttons -->
-	
-	
-	
 
 	<!-- 대시보드 풀스크린 적용 -->
 	<script type="text/javascript">
@@ -73,5 +76,40 @@
 		  }
 		}
 	</script>
-	
-
+	<!-- 시계 30초기점으로 컬러 변경 옵션 스크립트 -->
+	<script type="text/javascript">
+		function printClock() {
+		    var clock = document.getElementById("clock");            // 출력할 장소 선택
+		    var currentDate = new Date();                                     // 현재시간
+		    var calendar = currentDate.getFullYear() + "-" + (currentDate.getMonth()+1) + "-" + currentDate.getDate() // 현재 날짜
+		    var amPm = 'AM'; // 초기값 AM
+		    var currentHours = addZeros(currentDate.getHours(),2); 
+		    var currentMinute = addZeros(currentDate.getMinutes() ,2);
+		    var currentSeconds =  addZeros(currentDate.getSeconds(),2);
+		    
+		    if(currentHours >= 12){ // 시간이 12보다 클 때 PM으로 세팅, 12를 빼줌
+		    	amPm = 'PM';
+		    	currentHours = addZeros(currentHours - 12,2);
+		    }
+		
+		    if(currentSeconds >= 30){// 50초 이상일 때 색을 변환해 준다.
+		       currentSeconds = '<span style="color:#FE2E64;">'+currentSeconds+'</span>'
+		       currentMinute = '<span style="color:#FE2E64;">'+currentMinute+'</span>'
+		       currentHours = '<span style="color:#FE2E64;">'+currentHours+'</span>'
+		    }
+		    clock.innerHTML = calendar+"<br/>" + currentHours+":"+currentMinute+":"+currentSeconds +" <span style='font-size:20px;'>"+ amPm+"</span>"; //날짜를 출력해 줌
+		    
+		    setTimeout("printClock()",1000); // 1초마다 printClock() 함수 호출
+		}
+		
+		function addZeros(num, digit) { // 자릿수 맞춰주기
+			  var zero = '';
+			  num = num.toString();
+			  if (num.length < digit) {
+			    for (i = 0; i < digit - num.length; i++) {
+			      zero += '0';
+			    }
+			  }
+			  return zero + num;
+		}
+	</script>

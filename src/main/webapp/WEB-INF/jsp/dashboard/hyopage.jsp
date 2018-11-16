@@ -217,24 +217,97 @@ var grid = new tui.Grid({
         }
     ]
 });
-
-		grid.use('Net',{
+		
+		//그리드에서 지원하는 NET통신
+		 grid.use('Net',{
 			perPage:500,
 			readDataMethod: 'GET',
 			api:{
 				readData:'/selectBoardList'
 			}
-		});
-	
+		}); 
+		 var net = grid.getAddOn('Net');
 		
 		grid.on('response', function(data) {
-			
 			console.log("1",data);
 		    // when receiving response regardless of success/fail
 		});
+		
+		
+		//ajax 데이터 통신 
+		 /* $.ajax({
+		    	type:'POST',
+				url : '/selectBoardList',
+				data : {
+					build_code: buildCode, 
+					search_date: pickDate
+					},
+				dataType:"json",
+				beforeSend : function(xhr)
+              {   //데이터를 전송하기 전에 헤더에 csrf값을 설정한다
+                  xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
+              },
+				success:function(result){
+					grid.setData(result.data);
+				},
+				error:function(result){
+					alert("에러발생");
+				}
+			});	 */
 
+</script>
 
-	var net = grid.getAddOn('Net');
+<script type="text/javascript">
+  		
+   </script>
 
+<!-- 그리드 툴 테마 설정 -->
+   <script type="text/javascript">
+tui.Grid.applyTheme("default", {
+	  grid: {
+    background: '#fff',
+    border: '#ccc',
+    text: '#444'
+	},
+	selection: {
+	    background: '#4daaf9',
+	    border: '#004082'
+	},
+	toolbar: {
+	    border: '#ccc',
+	    background: '#fff'
+	},
+	scrollbar: {
+	    background: '#f5f5f5',
+	    thumb: '#2c2c2c',
+	    active: '#c1c1c1'
+	},
+		  cell: {
+	    normal: {
+	        background: '#fbfbfb',
+	        border: '#e0e0e0'
+	    },
+	    head: {
+	        background: '#2c2c2c',
+	        border: '#999',
+	        text:'#E7E7E7'
+	    },
+	    editable: {
+	        background: '#fbfbfb'
+	    },
+	    selectedHead: {
+	        background: '#424242'
+	    },
+	    focused: {
+	        border: '#C94948'
+	    },
+	    disabled: {
+	        text: '#b0b0b0'
+	    },
+	    currentRow: {
+	        background: '#e0ffe0'
+	    }
+	}
+});
 </script>
          

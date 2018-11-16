@@ -43,8 +43,16 @@
 		    <artifactId>json</artifactId>
 		    <version>20180130</version>
 		</dependency>
-	
-	
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-context-support</artifactId>
+		    <version>3.1.1.RELEASE</version>
+		</dependency>
+         <dependency>
+             <groupId>com.sun.mail</groupId>
+             <artifactId>javax.mail</artifactId>
+             <version>1.6.2</version>
+         </dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -56,6 +64,12 @@
 			<scope>test</scope>
 		</dependency>
 		
+			<dependency>
+			    <groupId>org.springframework.security</groupId>
+			    <artifactId>spring-security-core</artifactId>
+			    </dependency>
+
+				
 		<!-- 스프링 시큐리티 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -151,7 +165,6 @@
 		<dependency>
 		    <groupId>org.springframework.boot</groupId>
 		    <artifactId>spring-boot-starter-mail</artifactId>
-		    <version>1.4.3.RELEASE</version>
 		</dependency>
 		
 		<!-- 메모리측정 -->
@@ -160,6 +173,8 @@
 		    <artifactId>sigar</artifactId>
 		    <version>1.6.4</version>
 		</dependency>
+		
+
 		
 		<!-- jackson -->
 		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->

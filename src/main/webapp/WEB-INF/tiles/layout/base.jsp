@@ -238,7 +238,6 @@
 	var myChart; 
 	function init_echarts2(){
 			var myChart = echarts.init(document.getElementById("echart_gauge"));
-			$.get('data.json').done(function (data) {
 			myChart.setOption({
 				tooltip : {
 					formatter : "{a} <br/>{b} : {c}%"
@@ -348,9 +347,7 @@
 					} ]
 				} ]
 			})
-			}
 		}
-	}
 		//myChart.setOption()
      	//timeId = setInterval("getChartData();",2000); // 시스템 상시 콜 부하테스트 해봐야함
 	</script>

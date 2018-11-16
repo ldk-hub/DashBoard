@@ -144,9 +144,9 @@ public class DashBoardController {
 	// 의뢰용 페이지
 	@RequestMapping(value = "/hyopage", method = RequestMethod.GET)
 	public String hyopage(ModelMap map, DashBoardVO dashBoardVO) throws Exception {
-		List<DashBoardVO> resultList = dashBoardService.selectBoardList(dashBoardVO);
+		/*List<DashBoardVO> resultList = dashBoardService.selectBoardList(dashBoardVO);
 		System.out.println(resultList);
-		map.put("list", resultList);
+		map.put("list", resultList);*/
 		return VIEW_PATH + "hyopage";
 	}
 	
@@ -154,6 +154,8 @@ public class DashBoardController {
 	@RequestMapping(value = "/selectBoardList", method = RequestMethod.GET)
 	@ResponseBody
 	public Object selectBoardList(ModelMap map, DashBoardVO dashBoardVO) throws Exception {
+		
+		System.out.println(dashBoardService.selectBoardList(dashBoardVO));
 		return resultData(dashBoardService.selectBoardList(dashBoardVO),dashBoardVO);
 	}
 		public Object resultData(List<DashBoardVO> list, DashBoardVO dashBoardVO)throws JsonProcessingException, SQLException{
