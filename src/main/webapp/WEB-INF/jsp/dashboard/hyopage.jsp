@@ -153,27 +153,20 @@
 <script type="text/javascript">
 var grid = new tui.Grid({
     el: $('#grid'),
-    bodyHeight: 550,
+    bodyHeight: 350,
     rowHeaders:['rowNum'],
     columns: [
         {
-            title: '제품순번',
-            name: 'certNo'
+            title: '브랜드명',
+            name: 'BRDNAME'
         },
         {
             title: '자재번호 ',
-            name: 'itemNo'
+            name: 'ITEMNO'
         },
         {
             title: '제품명',
-            name: 'itemName',
-            onBeforeChange: function(ev){
-                console.log('Before change:' + ev);
-                ev.stop();
-            },
-            onAfterChange: function(ev){
-                console.log('After change:' + ev);
-            },
+            name: 'ITEMNAME',
             editOptions: {
                 type: 'text',
                 maxLength: 10,
@@ -182,14 +175,7 @@ var grid = new tui.Grid({
         },
         {
             title: '제품상세',
-            name: 'reason',
-            onBeforeChange: function(ev){
-                console.log('Before change:' + ev);
-                ev.stop();
-            },
-            onAfterChange: function(ev){
-                console.log('After change:' + ev);
-            },
+            name: 'REASON',
             editOptions: {
                 type: 'text',
                 maxLength: 10,
@@ -199,12 +185,6 @@ var grid = new tui.Grid({
         {
             title: '브랜드명',
             name: 'brdName',
-            onBeforeChange: function(ev){
-                console.log('Before change:' + ev);
-            },
-            onAfterChange: function(ev){
-                console.log('After change:' + ev);
-            },
             editOptions: {
                 type: 'select',
                 listItems: [
@@ -257,9 +237,17 @@ var grid = new tui.Grid({
 
 </script>
 
-<script type="text/javascript">
-  		
-   </script>
+  	<!-- 데이타 테이블 -->
+		<script type="text/javascript"> 
+		function dataTables() { 
+		var myTable= echarts.init(document.getElementById("datatable-buttons"));
+			
+			myTable.setOption
+		
+		$('#datatable-buttons').DataTable({
+				"responsive" : false
+			}); 
+		</script>
 
 <!-- 그리드 툴 테마 설정 -->
    <script type="text/javascript">

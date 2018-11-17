@@ -17,8 +17,8 @@ public class DashBoardServiceImpl implements DashBoardService  {
 	@Autowired
 	DashBoardDAO dashBoardDAO;
 	//의뢰페이지 목록
-	public List<DashBoardVO> selectBoardList(DashBoardVO dashBoardVO)throws Exception {
-		return dashBoardDAO.selectBoardList(dashBoardVO);
+	public List<Map<String, String>> selectBoardList(Map<String, Object> paramMap)throws Exception {
+		return dashBoardDAO.selectBoardList(paramMap);
 	}
 
 	//패스워드 분실

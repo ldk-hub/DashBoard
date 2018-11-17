@@ -340,5 +340,153 @@
 			map.addControl(zoomControl, daum.maps.ControlPosition.RIGHT);
 		</script>
 
-
+<!-- 차트게이지 -->
+	<script type="text/javascript">
+	var myChart; 
+	function init_echarts2(){
+			var myChart = echarts.init(document.getElementById("echart_gauge"));
+			myChart.setOption({
+				tooltip : {
+					formatter : "{a} <br/>{b} : {c}%"
+				},
+				toolbox : {
+					show : !0,
+					feature : {
+						restore : {
+							show : !0,
+							title : "Restore"
+						},
+						saveAsImage : {
+							show : !0,
+							title : "Save Image"
+						}
+					}
+				},
+				series : [ {
+					name : "cpu 점유율",
+					type : "gauge",
+					center : [ "50%", "50%" ],
+					startAngle : 140,
+					endAngle : -140,
+					min : 0,
+					max : 100,
+					precision : 0,
+					splitNumber : 10,
+					axisLine : {
+						show : !0,
+						lineStyle : {
+							color : [ [ .2, "lightgreen" ], [ .4, "orange" ],
+									[ .8, "skyblue" ], [ 1, "#ff4500" ] ],
+							width : 30
+						}
+					},
+					axisTick : {
+						show : !0,
+						splitNumber : 5,
+						length : 8,
+						lineStyle : {
+							color : "#eee",
+							width : 1,
+							type : "solid"
+						}
+					},
+					axisLabel : {
+						show : !0,
+						formatter : function(a) {
+							switch (a + "") {
+							case "10":
+								return "10%";
+							case "30":
+								return "30%";
+							case "50":
+								return "50%";
+							case "70":
+								return "70%";
+							case "90":
+								return "90%";
+							default:
+								return ""
+							}
+						},
+						textStyle : {
+							color : "#333"
+						}
+					},
+					splitLine : {
+						show : !0,
+						length : 30,
+						lineStyle : {
+							color : "#eee",
+							width : 2,
+							type : "solid"
+						}
+					},
+					pointer : {
+						length : "80%",
+						width : 8,
+						color : "auto"
+					},
+					title : {
+						show : !0,
+						offsetCenter : [ "-65%", -10 ],
+						textStyle : {
+							color : "#333",
+							fontSize : 15
+						}
+					},
+					detail : {
+						show : !0,
+						backgroundColor : "rgba(0,0,0,0)",
+						borderWidth : 0,
+						borderColor : "#ccc",
+						width : 100,
+						height : 40,
+						offsetCenter : [ "-60%", 10 ],
+						formatter : "{value}%",
+						textStyle : {
+							color : "auto",
+							fontSize : 30
+						}
+					},
+					data : [ {
+						value : data.data,
+						name : "Performance"
+					} ]
+				} ]
+			})
+		}
+		//myChart.setOption()
+     	//timeId = setInterval("getChartData();",2000); // 시스템 상시 콜 부하테스트 해봐야함
+	</script>
+		<script type="text/javascript"> 
+		function getChartData() { 
+		 var options = myChart.getOption(); 
+				//차트 데이터 
+				$.ajax({
+					async : false,
+			        url: '/myChart',
+			        dataType: 'json',
+			        success: function(data) {
+			        	alert(data.cpuInfo);
+			        	options.legend.data = data.cpuInfo; 
+			        	alert(options.legend.data);
+			        	
+			        	myChart.setOption(options); 
+		                }
+					}
+				);
+			}
+		</script>
+	  
+		
+		<!-- 게이지 차트  -->
+       <script type="text/javascript"> 
+			$(document).ready(function() {
+				//차트 시작
+				init_echarts2();
+				//CPU 정보 호출
+				getChartData();
+				//dataTables();
+			});
+		</script>
 

@@ -151,14 +151,13 @@ public class DashBoardController {
 	}
 	
 	//그리드용 리스트
-	@RequestMapping(value = "/selectBoardList", method = RequestMethod.GET)
+	@RequestMapping(value = "/selectBoardList", method = RequestMethod.GET )
 	@ResponseBody
-	public Object selectBoardList(ModelMap map, DashBoardVO dashBoardVO) throws Exception {
-		
-		System.out.println(dashBoardService.selectBoardList(dashBoardVO));
-		return resultData(dashBoardService.selectBoardList(dashBoardVO),dashBoardVO);
+	public Object selectBoardList(Map<String, Object> paramMap, ModelMap map) throws Exception {
+		return resultData(dashBoardService.selectBoardList(paramMap),paramMap);
 	}
-		public Object resultData(List<DashBoardVO> list, DashBoardVO dashBoardVO)throws JsonProcessingException, SQLException{
+		//그리드 양식 가공
+		public Object resultData(List<Map<String, String>> list, Map<String, Object> paramMap)throws JsonProcessingException, SQLException{
 			HashMap <String, Object> res = new HashMap<String,Object>();
 			HashMap <String, Object> data = new HashMap<String,Object>();
 				data.put("contents", list);

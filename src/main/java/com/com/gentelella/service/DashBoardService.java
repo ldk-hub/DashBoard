@@ -9,7 +9,7 @@ import com.com.gentelella.vo.DashBoardVO;
 
 public interface DashBoardService {
 
-	public List<DashBoardVO> selectBoardList(DashBoardVO dashBoardVO) throws Exception;
+	public List<Map<String, String>> selectBoardList(Map<String, Object> paramMap) throws Exception;
 
 	public String getPw(Map<String, Object> paramMap) throws Exception;
 

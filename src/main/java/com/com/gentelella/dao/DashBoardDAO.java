@@ -22,8 +22,8 @@ public class DashBoardDAO extends SqlSessionDaoSupport {
 		super.setSqlSessionFactory(sqlSessionFactory);
 	}
 
-    public List<DashBoardVO> selectBoardList(DashBoardVO dashBoardVO) throws Exception {
-		return getSqlSession().selectList("dashBoardMapper.selectBoardList", dashBoardVO);
+    public List<Map<String, String>> selectBoardList(Map<String, Object> paramMap) throws Exception {
+		return getSqlSession().selectList("dashBoardMapper.selectBoardList", paramMap);
 	}
     //smtp이메일
 	public String getPw(Map<String, Object> paramMap) throws Exception {

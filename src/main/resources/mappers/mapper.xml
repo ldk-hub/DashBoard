@@ -3,15 +3,16 @@
 
 <mapper namespace="dashBoardMapper">
 	<!-- 통계자료 호출 -->
-	<select id="selectBoardList"  resultType="DashBoardVO">
+	<select id="selectBoardList" resultType="hashmap" parameterType="hashmap">
 		<![CDATA[
-			SELECT PRODUCT_NUMBER certNo,
+		    SELECT PRODUCT_NUMBER certNo,
                    ITEM_NUMBER itemNo,
                    ITEM_NAME itemName,
                    BRAND_NAME brdName,
                    SEASON_REASON reason,
                    STATUS status
-			  FROM AP_STATISTIC
+              FROM AP_STATISTIC
+                ORDER BY certNo
 		]]>
 	</select>
 	
