@@ -96,11 +96,11 @@
 	                     <tbody>
 							<c:forEach items="${list}" var="resultList">
 								<tr>
-									<th scope="row">${resultList.itemNo }</th>
-									<th scope="row">${resultList.itemName }</th>
-									<th scope="row">${resultList.brdName }</th>
-									<th scope="row">${resultList.reason }</th>
-									<th scope="row">${resultList.status }</th>
+									<th scope="row">${resultList.ITEMNO }</th>
+									<th scope="row">${resultList.ITEMNAME }</th>
+									<th scope="row">${resultList.BRDNAME }</th>
+									<th scope="row">${resultList.REASON }</th>
+									<th scope="row">${resultList.STATUS }</th>
 								</tr>
 							</c:forEach>
 						</tbody>

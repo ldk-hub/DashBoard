@@ -93,11 +93,11 @@
 		    }
 		
 		    if(currentSeconds >= 30){// 50초 이상일 때 색을 변환해 준다.
-		       currentSeconds = '<span style="color:#FE2E64;">'+currentSeconds+'</span>'
-		       currentMinute = '<span style="color:#FE2E64;">'+currentMinute+'</span>'
-		       currentHours = '<span style="color:#FE2E64;">'+currentHours+'</span>'
+		       currentSeconds = '<span style="color:#8fbc8f;">'+currentSeconds+'</span>'
+		       currentMinute = '<span style="color:#8fbc8f;">'+currentMinute+'</span>'
+		       currentHours = '<span style="color:#8fbc8f;">'+currentHours+'</span>'
 		    }
-		    clock.innerHTML = calendar+"<br/>" + currentHours+":"+currentMinute+":"+currentSeconds +" <span style='font-size:20px;'>"+ amPm+"</span>"; //날짜를 출력해 줌
+		    clock.innerHTML = currentHours+":"+currentMinute+":"+currentSeconds +" <span style='font-size:20px;'>"+ amPm+"</span>"; //날짜를 출력해 줌
 		    
 		    setTimeout("printClock()",1000); // 1초마다 printClock() 함수 호출
 		}

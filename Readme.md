@@ -3,16 +3,16 @@
 JAVA1.8, Spring Boot, Security, OracleDB, lombok, Mybatis, jpa, hibernate, gentelella, Tiles3
 
 ## 메인페이지
-![screencapture-localhost-9090-dashboard-2018-08-16-20_38_37](https://user-images.githubusercontent.com/12209348/44206480-e3919200-a194-11e8-9336-eea6b0437190.png)
+![mainpage](https://user-images.githubusercontent.com/12209348/48657076-53533980-ea70-11e8-86d6-72a49c2d574f.png)
 
 ## 데이터차트페이지
-![screencapture-localhost-9090-hyopage-2018-09-25-21_34_09](https://user-images.githubusercontent.com/12209348/46014601-d60fe600-c10a-11e8-8fd3-06993cf13fa6.png)
+![data](https://user-images.githubusercontent.com/12209348/48657074-53533980-ea70-11e8-9114-97814ee4b032.png)
 
 ## 일정계획페이지
-![screencapture-localhost-9090-calendar-2018-08-16-20_39_25](https://user-images.githubusercontent.com/12209348/44206493-f73cf880-a194-11e8-96a3-57cacfdbbfe8.png)
+![calendar](https://user-images.githubusercontent.com/12209348/48657075-53533980-ea70-11e8-9f1a-a3f63f96bbe8.png)
 
 ## 로그인페이지
-![screencapture-localhost-9090-login-2018-08-16-20_40_03](https://user-images.githubusercontent.com/12209348/44206630-6d415f80-a195-11e8-9307-8de988bed8a1.png)
+![login](https://user-images.githubusercontent.com/12209348/48657077-53ebd000-ea70-11e8-846b-34a72b50f7c5.png)
 
 ## SMTP 이메일 비밀번호 찾기
 ![screencapture-localhost-9090-login-2018-08-16-20_50_35](https://user-images.githubusercontent.com/12209348/44206867-27d16200-a196-11e8-9b48-354e21f17a74.png)
@@ -34,13 +34,11 @@ JAVA1.8, Spring Boot, Security, OracleDB, lombok, Mybatis, jpa, hibernate, gente
 1. CPU, RAM 수치 게이지형 차트 연동
 2. 풀캘린더 스케쥴 등록 처리 (목록 호출완료, 수정, 삭제 기능 추가예정)
 3. 계정별 풀캘린더 목록리스트 메인 페이지 to-do list 호출
-4. 메인페이지 회원정보 통계 수치 등록
-5. 마이페이지 업무 스킬 인벤토리 등록
-6. 차트 통계용 샘플데이터 크롤링 선행(바그래프,선그래프용)
-7. (바형, 선형 그래프)차트 정보 DB 데이터 연동
-8. 의뢰페이지 엑셀 파일업로드 DB 테이블 임포트(xls, xlsx)
-9. 로그인 oAuth 연동 기능 추가 (네이버, 카카오톡)
-10. toast 그리드형 데이터 제어 처리 
+4. 마이페이지 업무 스킬 인벤토리 등록
+5. 차트 통계용 샘플데이터 크롤링 선행(바그래프,선그래프용)
+6. (바형, 선형 그래프)차트 정보 DB 데이터 연동
+7. 의뢰페이지 엑셀 파일업로드 DB 테이블 임포트(xls, xlsx)
+8. 로그인 oAuth 연동 기능 추가 (네이버, 카카오톡)
 
 ### 완료내역
 1. 시큐리티 로그인, 로그아웃 세션처리 완료(jpa)
@@ -53,6 +51,9 @@ JAVA1.8, Spring Boot, Security, OracleDB, lombok, Mybatis, jpa, hibernate, gente
 8. 패스워드 분실 SMTP 비밀번호 찾기 로직 완료
 9. 메인페이지 다음(카카오) 지도 api로 변경 완료
 10. 메인페이지 실시간도로교통정보, 자전거 도로 정보 기능 추가 완료
+11. TUI GRID 데이터 제어 완료 
+12. 메인페이지 회원정보 통계 수치 호출 완료
+13. 사이드바 시계 기능 추가 완료
 
 ### 사용된 API 목록
 Datatables,
@@ -81,3 +82,4 @@ naver Oauth2 등
 5. 세계 인구수 정보 보다 다음(카카오) 지도 api를 통한 지역정보를 가져오는게 효율적일것으로 판단하여 변경 예정
 6. 시각적효과를 위한 백그라운드 컬러 검정계열로 변경
 7. 네이버 인증 토큰 발행 테스트 중 
+8. 사이드바 시계 30초 단위 컬러변경 기능 추가

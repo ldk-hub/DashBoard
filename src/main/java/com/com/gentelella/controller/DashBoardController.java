@@ -143,17 +143,19 @@ public class DashBoardController {
 	}
 	// 의뢰용 페이지
 	@RequestMapping(value = "/hyopage", method = RequestMethod.GET)
-	public String hyopage(ModelMap map, DashBoardVO dashBoardVO) throws Exception {
-		/*List<DashBoardVO> resultList = dashBoardService.selectBoardList(dashBoardVO);
-		System.out.println(resultList);
-		map.put("list", resultList);*/
+	public String hyopage(Map<String, Object> paramMap, ModelMap map) throws Exception {
+		
+		System.out.println(dashBoardService.selectBoardList(paramMap));
+		map.addAttribute("list", dashBoardService.selectBoardList(paramMap));
+		
 		return VIEW_PATH + "hyopage";
 	}
 	
 	//그리드용 리스트
-	@RequestMapping(value = "/selectBoardList", method = RequestMethod.GET )
+	@RequestMapping(value = "/selectBoardList", method = RequestMethod.GET, produces = "application/json; charset=utf8")
 	@ResponseBody
 	public Object selectBoardList(Map<String, Object> paramMap, ModelMap map) throws Exception {
+		
 		return resultData(dashBoardService.selectBoardList(paramMap),paramMap);
 	}
 		//그리드 양식 가공
