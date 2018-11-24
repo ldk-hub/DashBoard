@@ -1,32 +1,32 @@
 # Hybrid Web Admin DashBoard
-## 시스템 사용환경
+## System use environment
 JAVA1.8, Spring Boot, Security, OracleDB, lombok, Mybatis, jpa, hibernate, gentelella, Tiles3
 
-## 메인페이지
+## Main DashBoard
 ![mainpage](https://user-images.githubusercontent.com/12209348/48657076-53533980-ea70-11e8-86d6-72a49c2d574f.png)
 
-## 데이터차트페이지
+## Data Chart Page
 ![data](https://user-images.githubusercontent.com/12209348/48657074-53533980-ea70-11e8-9114-97814ee4b032.png)
 
-## 일정계획페이지
+## Calendar Page
 ![calendar](https://user-images.githubusercontent.com/12209348/48657075-53533980-ea70-11e8-9f1a-a3f63f96bbe8.png)
 
-## 로그인페이지
+## Login Page
 ![login](https://user-images.githubusercontent.com/12209348/48657077-53ebd000-ea70-11e8-846b-34a72b50f7c5.png)
 
-## SMTP 이메일 비밀번호 찾기
+## SMTP E-mail Find Password
 ![screencapture-localhost-9090-login-2018-08-16-20_50_35](https://user-images.githubusercontent.com/12209348/44206867-27d16200-a196-11e8-9b48-354e21f17a74.png)
 
-## 회원가입 페이지(정규식 추가)
+## Membership page (Add regular expression)
 ![screencapture-localhost-9090-login-2018-08-16-20_41_04](https://user-images.githubusercontent.com/12209348/44206667-86e2a700-a195-11e8-82b5-cf75d610f89d.png)
 
-## 회원가입한 계정정보 패스워드 암호화
+## Encrypt the member account information password
 ![1](https://user-images.githubusercontent.com/12209348/41805983-90200564-76ee-11e8-8c9d-ae10c214f873.PNG)
 
-## 회원정보 페이지(회원별 데이터화 예정)
+## Member information page (data for each member)
 ![screencapture-localhost-9090-mypage-2018-08-16-20_39_51](https://user-images.githubusercontent.com/12209348/44206682-8f3ae200-a195-11e8-8d04-2e9faef932fd.png)
 
-## local PC(server) infomation(CPU,memory, model 등) 점유율 측정(sigar API)
+## local PC(server) infomation(CPU, Memory 등)
 ![default](https://user-images.githubusercontent.com/12209348/43362948-91c6f26e-9332-11e8-9ef2-5738fb58c32e.PNG)
 
 
@@ -55,7 +55,7 @@ JAVA1.8, Spring Boot, Security, OracleDB, lombok, Mybatis, jpa, hibernate, gente
 12. 메인페이지 회원정보 통계 수치 호출 완료
 13. 사이드바 시계 기능 추가 완료
 
-### 사용된 API 목록
+### List of API`S used
 Datatables,
 JQVMap,
 Dropzone,

@@ -45,6 +45,9 @@ public class DashBoardController {
 	@Autowired
 	private Email email;
 	
+	@Autowired
+	private ObjectMapper objectMapper;
+	
 	// 스프링부트 시작시 logback 사용가능함 base.xml에서 로그레벨 설정할 것
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	// 뷰패스를 지정해서 영역분리 및 편의기능
@@ -173,6 +176,21 @@ public class DashBoardController {
 			}
 			return null;
 		}
+		
+		
+		// 그리드 삽입시 로직
+		/*String test = map.get("createdrows");
+		 * 
+		 * objectMapper.mapper.readvalue(test, new Typereference<List<Map<string,object>>>(){});
+		try {
+		List<map<string,object>> data =mapper.readvalue(test, new Typereference<List<Map<string,object>>>(){});
+		for(int i =0; i>data.size();i++){
+		서비스.전달(data.get(i));
+		}
+		}
+		} catch (IOException e) {
+		e.printStackTrace();
+		}*/
 	
 	// 회원정보 확인페이지
 	@RequestMapping(value = "/mypage", method = RequestMethod.GET)
