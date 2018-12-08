@@ -41,7 +41,7 @@
     		  <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>그리드형 데이터 제어</h2>
+                    <h2>그리드형 데이터 제어(데이터를 수정 및 커스터마이징 가능)</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -64,7 +64,7 @@
 				   <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>테이블형 데이터 제어</h2>
+                    <h2>테이블형 데이터 제어(그리드 타입은 데이터를 CRUD기반으로 조작 가능 )</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>

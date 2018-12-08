@@ -51,14 +51,18 @@
 	        <span class="glyphicon glyphicon-fullscreen" aria-hidden="true" onclick="toggleFullScreen();"></span>
 	    </a>
 	    <a data-toggle="tooltip" data-placement="top" title="Lock">
-	        <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+	        <span onclick ="statusBarDown();" class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
 	    </a>
 	    <a data-toggle="tooltip" data-placement="top" title="Logout" href="logout">
 	        <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
 	    </a>
 	</div>
 	<!-- /menu footer buttons -->
-
+	<script type="text/javascript">
+	function statusBarDown(){
+		$('.nav_menu').slideDown();
+	}
+	</script>
 	<!-- 대시보드 풀스크린 적용 -->
 	<script type="text/javascript">
 		function toggleFullScreen() {

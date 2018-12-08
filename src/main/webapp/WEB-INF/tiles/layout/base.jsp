@@ -234,6 +234,9 @@
 
 	<script src="/static/js/custom.min.js"></script>
 	
+	<script type="text/javascript">
+			$('.nav_menu').slideUp();
+	</script>
 </body>
 </html>
 
