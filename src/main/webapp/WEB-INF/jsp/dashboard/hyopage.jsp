@@ -51,13 +51,16 @@
                       <li><a class="close-link"><i class="fa fa-close"></i></a>
                       </li>
                     </ul>
-                     </div>
                     <div class="clearfix"></div>
-                   
+                   </div>
                   <div class="x_content">
               		<!-- 토스트 UI 호출 -->
               		<div id="grid"></div>
                   </div>
+                   <button type="button" class="btn btn-warning antosubmit" id = "addRow">로우추가</button>
+                   <button type="button" class="btn btn-warning antosubmit" id = "deleteRow">로우삭제</button>
+                   <button type="button" class="btn btn-primary antosubmit" id = "updateGrid">수정</button>
+                   <button type="button" class="btn btn-primary antosubmit" id ="deleteGrid">삭제</button>
                 </div>
               </div>
 				<!-- 그리드형 API E-->
@@ -154,7 +157,7 @@
 var grid = new tui.Grid({
     el: $('#grid'),
     bodyHeight: 350,
-    rowHeaders:['rowNum'],
+    rowHeaders:['checkbox','rowNum'],
     columns: [
         {
             title: '브랜드명',
@@ -203,15 +206,20 @@ var grid = new tui.Grid({
 			perPage:500,
 			readDataMethod: 'GET',
 			api:{
-				readData:'/selectBoardList'
+				readData:'/selectBoardList',
+				createdData : '/insertRows'
 			}
 		}); 
 		 var net = grid.getAddOn('Net');
 		
+		 
+		// 후처리 로직 성공 실패 유무 
 		grid.on('response', function(data) {
 			console.log("1",data);
-		    // when receiving response regardless of success/fail
+		    
 		});
+		
+		
 		
 		
 		//ajax 데이터 통신 

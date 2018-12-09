@@ -147,10 +147,7 @@ public class DashBoardController {
 	// 의뢰용 페이지
 	@RequestMapping(value = "/hyopage", method = RequestMethod.GET)
 	public String hyopage(Map<String, Object> paramMap, ModelMap map) throws Exception {
-		
-		System.out.println(dashBoardService.selectBoardList(paramMap));
 		map.addAttribute("list", dashBoardService.selectBoardList(paramMap));
-		
 		return VIEW_PATH + "hyopage";
 	}
 	
@@ -158,7 +155,6 @@ public class DashBoardController {
 	@RequestMapping(value = "/selectBoardList", method = RequestMethod.GET, produces = "application/json; charset=utf8")
 	@ResponseBody
 	public Object selectBoardList(Map<String, Object> paramMap, ModelMap map) throws Exception {
-		
 		return resultData(dashBoardService.selectBoardList(paramMap),paramMap);
 	}
 		//그리드 양식 가공
@@ -179,18 +175,52 @@ public class DashBoardController {
 		
 		
 		// 그리드 삽입시 로직
-		/*String test = map.get("createdrows");
-		 * 
-		 * objectMapper.mapper.readvalue(test, new Typereference<List<Map<string,object>>>(){});
+		/*@RequestMapping(value = "/insertRows", method = RequestMethod.GET)
+		public String insertRows(Map<String, Object> paramMap, ModelMap map) throws Exception {
+		String test = map.get("createdrows");
+		  objectMapper.mapper.readvalue(test, new Typereference<List<Map<string,object>>>(){});
 		try {
 		List<map<string,object>> data =mapper.readvalue(test, new Typereference<List<Map<string,object>>>(){});
 		for(int i =0; i>data.size();i++){
-		서비스.전달(data.get(i));
+		//서비스.전달(data.get(i));
 		}
 		}
 		} catch (IOException e) {
 		e.printStackTrace();
-		}*/
+		}
+}*/
+		
+		// 그리드 수정
+		/*@RequestMapping(value = "/insertRows", method = RequestMethod.GET)
+		public String insertRows(Map<String, Object> paramMap, ModelMap map) throws Exception {
+		String test = map.get("createdrows");
+		  objectMapper.mapper.readvalue(test, new Typereference<List<Map<string,object>>>(){});
+		try {
+		List<map<string,object>> data =mapper.readvalue(test, new Typereference<List<Map<string,object>>>(){});
+		for(int i =0; i>data.size();i++){
+		//서비스.전달(data.get(i));
+		}
+		}
+		} catch (IOException e) {
+		e.printStackTrace();
+		}
+}*/
+		// 그리드 삭제
+		/*@RequestMapping(value = "/insertRows", method = RequestMethod.GET)
+		public String insertRows(Map<String, Object> paramMap, ModelMap map) throws Exception {
+		String test = map.get("createdrows");
+		  objectMapper.mapper.readvalue(test, new Typereference<List<Map<string,object>>>(){});
+		try {
+		List<map<string,object>> data =mapper.readvalue(test, new Typereference<List<Map<string,object>>>(){});
+		for(int i =0; i>data.size();i++){
+		//서비스.전달(data.get(i));
+		}
+		}
+		} catch (IOException e) {
+		e.printStackTrace();
+		}
+}*/
+
 	
 	// 회원정보 확인페이지
 	@RequestMapping(value = "/mypage", method = RequestMethod.GET)
