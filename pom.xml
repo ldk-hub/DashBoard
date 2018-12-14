@@ -38,12 +38,10 @@
 		<dependency>
 		    <groupId>org.json</groupId>
 		    <artifactId>json</artifactId>
-		    <version>20180130</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.springframework</groupId>
 		    <artifactId>spring-context-support</artifactId>
-		    <version>3.1.1.RELEASE</version>
 		</dependency>
         <dependency>
 		    <groupId>javax.mail</groupId>
@@ -85,20 +83,7 @@
        	<dependency>
 		    <groupId>com.fasterxml.jackson.datatype</groupId>
 		    <artifactId>jackson-datatype-jsr310</artifactId>
-		    <version>2.9.7</version>
 		</dependency>
-       <!-- 	
-       	<dependency>
-		    <groupId>org.hibernate</groupId>
-		    <artifactId>hibernate-core</artifactId>
-		    <version>5.2.12.Final</version>
-		</dependency>
-		
-		<dependency>
-		    <groupId>org.hibernate</groupId>
-		    <artifactId>hibernate-entitymanager</artifactId>
-		    <version>5.1.0.Final</version>
-		</dependency> -->
 	
 		<!-- 롬복 설치 -->	
 		<dependency>
@@ -158,7 +143,6 @@
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
-			<version>1.2</version>
 		</dependency>
 
 		<!-- smtp 메일정보서비스  -->
@@ -174,17 +158,16 @@
 		    <version>1.6.4</version>
 		</dependency>
 		
-
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-core</artifactId>
+	    </dependency>
 		
-		<!-- jackson -->
-		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
-			<dependency>
-			    <groupId>com.fasterxml.jackson.core</groupId>
-			    <artifactId>jackson-core</artifactId>
-			    <version>2.9.5</version>
-			</dependency>
-			
-			
+		<dependency>
+		    <groupId>org.bgee.log4jdbc-log4j2</groupId>
+		    <artifactId>log4jdbc-log4j2-jdbc4.1</artifactId>
+		    <version>1.16</version>
+		</dependency>  
    	 	
 	</dependencies>
 	<build>
