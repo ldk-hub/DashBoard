@@ -54,13 +54,16 @@
                     <div class="clearfix"></div>
                    </div>
                   <div class="x_content">
-              		<!-- 토스트 UI 호출 -->
-              		<div id="grid"></div>
+          		<!-- 토스트 UI 호출 -->
+         		<div id="grid"></div>
+              		<div class="clearfix"></div>
+              		
+		          		   <button type="button" class="btn btn-warning antosubmit" id = "addRow">로우추가</button>
+		                   <button type="button" class="btn btn-warning antosubmit" id = "deleteRow">로우삭제</button>
+		                   <button type="button" class="btn btn-primary antosubmit" id = "updateGrid">수정</button>
+		                   <button type="button" class="btn btn-primary antosubmit" id ="deleteGrid">삭제</button>
                   </div>
-                   <button type="button" class="btn btn-warning antosubmit" id = "addRow">로우추가</button>
-                   <button type="button" class="btn btn-warning antosubmit" id = "deleteRow">로우삭제</button>
-                   <button type="button" class="btn btn-primary antosubmit" id = "updateGrid">수정</button>
-                   <button type="button" class="btn btn-primary antosubmit" id ="deleteGrid">삭제</button>
+                  
                 </div>
               </div>
 				<!-- 그리드형 API E-->
@@ -249,12 +252,12 @@ var grid = new tui.Grid({
 		<script type="text/javascript"> 
 		function dataTables() { 
 		var myTable= echarts.init(document.getElementById("datatable-buttons"));
-			
-			myTable.setOption
+			myTable.setOption;
 		
 		$('#datatable-buttons').DataTable({
 				"responsive" : false
 			}); 
+		}
 		</script>
 
 <!-- 그리드 툴 테마 설정 -->

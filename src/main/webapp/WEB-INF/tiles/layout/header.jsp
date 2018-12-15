@@ -25,3 +25,21 @@
     </div>
 </div>
 <!-- /top navigation -->
+
+<script src="/static/vendors/jquery/dist/jquery.min.js"></script>
+
+
+<script type="text/javascript">
+/* 헤더로 축소시킬경우 시계 숨기기 */
+$('#menu_toggle').click(function(){
+	
+	if($('#clock').is(':visible')){
+		$('#clock').hide();
+	}else{
+		$('#clock').show();
+	}
+	
+});
+	
+	
+</script>
