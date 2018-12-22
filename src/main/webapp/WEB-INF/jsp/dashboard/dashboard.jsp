@@ -464,3 +464,30 @@
 	//myChart.setOption()
 	//timeId = setInterval("getChartData();",2000); // 시스템 상시 콜 부하테스트 해봐야함
 </script>
+
+
+
+<!-- 자동실행기능 -->
+<script type="text/javascript">
+var autoRefreshYn = "N"; //기준지역변수
+
+function setAutoRefreshYn() {
+    if (autoRefreshYn == "N") {
+        if(!confirm("자동 새로고침 설정을 ON으로 변경하시겠습니까?")) {
+            return;
+        }
+        
+        autoRefreshYn = "Y";
+        autoRefresh = setInterval(function() {
+			alert("잘작동중임.");        	
+            $('#targetSearch').trigger('click');
+        }, 3000); // 5초 간격으로 리스트 검색
+    } else {
+        if(!confirm("자동 새로고침 설정을 OFF로 변경하시겠습니까?")) {
+            return;
+        }
+        autoRefreshYn = "N";
+        clearInterval(autoRefresh);
+    }
+}
+</script>
