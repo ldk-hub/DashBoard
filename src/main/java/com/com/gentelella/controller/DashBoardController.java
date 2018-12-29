@@ -1,5 +1,6 @@
 package com.com.gentelella.controller;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.util.HashMap;
@@ -27,8 +28,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.com.gentelella.service.DashBoardServiceImpl;
 import com.com.gentelella.smtp.Email;
 import com.com.gentelella.smtp.EmailSender;
-import com.com.gentelella.vo.DashBoardVO;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 
@@ -205,22 +206,28 @@ public class DashBoardController {
 		e.printStackTrace();
 		}
 }*/
-		// 그리드 삭제
-		/*@RequestMapping(value = "/insertRows", method = RequestMethod.GET)
-		public String insertRows(Map<String, Object> paramMap, ModelMap map) throws Exception {
-		String test = map.get("createdrows");
-		  objectMapper.mapper.readvalue(test, new Typereference<List<Map<string,object>>>(){});
-		try {
-		List<map<string,object>> data =mapper.readvalue(test, new Typereference<List<Map<string,object>>>(){});
-		for(int i =0; i>data.size();i++){
-		//서비스.전달(data.get(i));
-		}
-		}
-		} catch (IOException e) {
-		e.printStackTrace();
-		}
-}*/
+	
 
+		//그리드 체크 로우삭제
+		@RequestMapping(value = "/delGrid", method = {RequestMethod.GET,RequestMethod.POST})
+		@ResponseBody
+		public HashMap<String, Integer> delGrid(@RequestParam Map<String,String> paramMap) throws Exception {
+			String Test = paramMap.get("delParam");
+			ObjectMapper mapper = new ObjectMapper();
+			try {
+				List<Map<String, Object>> data= mapper.readValue(Test,new TypeReference<List<Map<String, Object>>>(){});
+					for(int i = 0; i<data.size(); i++) {
+						
+						System.out.println(data.get(i));
+						dashBoardService.delGrid(data.get(i));
+					}
+					}catch(IOException e) {
+						e.printStackTrace();
+				}
+			HashMap<String, Integer> map = new HashMap<String, Integer>();
+			map.put("code",1);
+			return map;
+		}
 	
 	// 회원정보 확인페이지
 	@RequestMapping(value = "/mypage", method = RequestMethod.GET)

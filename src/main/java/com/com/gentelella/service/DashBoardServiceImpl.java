@@ -61,5 +61,9 @@ public class DashBoardServiceImpl implements DashBoardService  {
 		return dashBoardDAO.listDataCount(model);
 	}
 
+	public int delGrid(Map<String, Object> map)throws Exception {
+		return dashBoardDAO.delGrid(map);
+	}
+
 
 }

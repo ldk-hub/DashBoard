@@ -102,6 +102,9 @@
 				
                 <div class="clearfix"></div>
                 <br />
+                <c:if test="${error!=null}"> 
+						    ${error} 
+						</c:if>  
 				<button type="button" class="btn btn-sm btn-dark"
 							data-toggle="modal" data-target="#PassModal">비밀번호 찾기</button>		 
                 <div>

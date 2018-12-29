@@ -263,50 +263,96 @@ var grid = new tui.Grid({
 <!-- 그리드 툴 테마 설정 -->
    <script type="text/javascript">
 tui.Grid.applyTheme("default", {
-	  grid: {
-    background: '#fff',
-    border: '#ccc',
-    text: '#444'
-	},
-	selection: {
-	    background: '#4daaf9',
-	    border: '#004082'
-	},
-	toolbar: {
-	    border: '#ccc',
-	    background: '#fff'
-	},
-	scrollbar: {
-	    background: '#f5f5f5',
-	    thumb: '#2c2c2c',
-	    active: '#c1c1c1'
-	},
+	 grid: {
+	      background: '#fff',
+	      border: '#ccc',
+	      text: '#444'
+	  },
+	  selection: {
+	      background: '#585858',
+	      border: '#004082'
+	  },
+	  toolbar: {
+	      border: '#ccc',
+	      background: '#3a3a3a'
+	  },
+	  scrollbar: {
+	      background: '#3a3a3a',
+	      thumb: '#f5f5f5',
+	      emptySpace: '#3a3a3a',
+	      active: '#c1c1c1'
+	  },
 		  cell: {
-	    normal: {
-	        background: '#fbfbfb',
-	        border: '#e0e0e0'
-	    },
-	    head: {
-	        background: '#2c2c2c',
-	        border: '#999',
-	        text:'#E7E7E7'
-	    },
-	    editable: {
-	        background: '#fbfbfb'
-	    },
-	    selectedHead: {
-	        background: '#424242'
-	    },
-	    focused: {
-	        border: '#C94948'
-	    },
-	    disabled: {
-	        text: '#b0b0b0'
-	    },
-	    currentRow: {
-	        background: '#e0ffe0'
-	    }
-	}
+	      normal: {
+	          background: '#fbfbfb',
+	          border: '#3a3a3a'
+	      },
+	      head: {
+	          background: '#3a3a3a',
+	          border: '#999',
+	          text:'#E7E7E7'
+	      },
+	      rowHead: {
+	          background: '#3a3a3a',
+	          border: '#eee',
+	          text: '#fff',
+	      },
+	      summary: {
+	          background: '#3a3a3a',
+	          border: '#eee',
+	          text: '#fff',
+	      },
+	      editable: {
+	          background: '#fbfbfb'
+	      },
+	      selectedHead: {
+	          background: '#616161'
+	      },
+	      selectedRowHead: {
+	          background: '#616161'
+	      },
+	      focused: {
+	          border: '#C94948'
+	      },
+	      disabled: {
+	          text: '#b0b0b0'
+	      },
+	      currentRow: {
+	          background: '#F5DA81'
+	      }
+	  }
 });
 </script>
-         
+
+<!-- 그리드 삭제 이벤트 -->
+ <script type="text/javascript">
+	$("#deleteGrid").click(function() {
+			 if(confirm("삭제 하시겠습니까?") == false) {
+		         return false;
+		     }
+			if(grid.getCheckedRowKeys(true) == "[]"){
+				alert("체크박스를 선택하시오.");
+				return false;
+			}
+				
+			 
+			 var test = grid.getCheckedRows(true);
+			 
+			 $.ajax({
+			        url:"/delGrid",
+			        type:'POST',
+			        data: {delParam:test},
+			        dataType:'json',
+			        success:function(data){
+			        	if(data.code==1){
+			        		 alert("삭제완료.");
+			        	}else{
+			        		
+			        	}
+			        },
+			        error:function(data){
+			        	alert("에러발생 관리자에게 문의하시오.");
+			        }
+			    });
+		}); 
+</script>

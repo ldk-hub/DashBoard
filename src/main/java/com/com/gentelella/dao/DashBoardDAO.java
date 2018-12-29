@@ -62,6 +62,10 @@ public class DashBoardDAO extends SqlSessionDaoSupport {
 	public int listDataCount(Model model) throws Exception {
 		return getSqlSession().selectOne("dashBoardMapper.listDataCount", model);
 	}
+
+	public int delGrid(Map<String, Object> map)throws Exception {
+		return getSqlSession().delete("dashBoardMapper.deleteGrid", map);
+	}
 	 
 }
 

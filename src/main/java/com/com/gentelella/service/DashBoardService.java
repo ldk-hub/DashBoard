@@ -28,4 +28,6 @@ public interface DashBoardService {
 	public  List<Object> schedule(Model model) throws Exception;
 	
 	public int listDataCount(Model model) throws Exception;
+	
+	public int delGrid(Map<String, Object> map)throws Exception;
 }

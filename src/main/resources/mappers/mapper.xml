@@ -91,5 +91,12 @@
 		from AP_SCHEDULE
 	</select>
 	
+	
+	<delete id="deleteGrid"  parameterType="hashmap">
+	delete from AP_STATISTIC 
+		where product_number = #{CERTNO} 
+			and item_number = #{ITEMNO}
+	</delete>
+	
 </mapper>
   
