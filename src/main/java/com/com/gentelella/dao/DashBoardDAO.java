@@ -66,6 +66,10 @@ public class DashBoardDAO extends SqlSessionDaoSupport {
 	public int delGrid(Map<String, Object> map)throws Exception {
 		return getSqlSession().delete("dashBoardMapper.deleteGrid", map);
 	}
+
+	public int insertSchedule(Map<String, String> paramMap) {
+		return getSqlSession().insert("dashBoardMapper.insertSchedule", paramMap);
+	}
 	 
 }
 

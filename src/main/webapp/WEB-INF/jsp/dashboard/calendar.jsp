@@ -70,43 +70,8 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary antosubmit">저장</button>
+            <button type="button" class="btn btn-primary antosubmit" id="schedule">저장</button>
             <button type="button" class="btn btn-default antoclose" data-dismiss="modal" OnClick="modalClose()">닫기</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div id="CalenderModalEdit" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h4 class="modal-title" id="myModalLabel2">일정 등록</h4>
-          </div>
-          <div class="modal-body">
-
-            <div id="testmodal2" style="padding: 5px 20px;">
-              <form id="antoform2" class="form-horizontal calender" role="form">
-                <div class="form-group">
-                  <label class="col-sm-3 control-label">제목</label>
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" id="title2" name="title2">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-3 control-label">상세내역</label>
-                  <div class="col-sm-9">
-                    <textarea class="form-control" style="height:55px;" id="content2" name="content2"></textarea>
-                  </div>
-                </div>
-
-              </form>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary antosubmit2">저장</button>
-            <button type="button" class="btn btn-default antoclose2" data-dismiss="modal"  >닫기</button>
           </div>
         </div>
       </div>
@@ -123,3 +88,61 @@
 			$('#content').val('');
 		}
 	</script>
+	
+	
+	<!-- 스케쥴 등록 -->
+	<script type="text/javascript">
+	$('#schedule').click(function(){
+		if($('#title').val() == ""){
+			alert("제목을 입력해주세요.");
+			$('#title').focus();
+			return false;
+		}
+		if($('#content').val() == ""){
+			alert("내용을 입력해주세요.");
+			$('#content').focus();
+			return false;
+		}
+		var splt_date= $('#reservation').val().split('-');
+			
+		alert(splt_date[0]);
+		alert(splt_date[1]);
+		
+			$.ajax({
+		    	type:'POST',
+				url : '/selectBoardList',
+				data : {
+					start_date : splt_date[0],
+					end_date : splt_date[1],
+					title: $('#title').val(), 
+					content: $('#content').val()
+					},
+				dataType:"json",
+				beforeSend : function(xhr)
+              {   //데이터를 전송하기 전에 헤더에 csrf값을 설정한다
+                  xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
+              },
+				success:function(data){
+		alert(data);
+		alert(data.result);
+					if(data.result == 1){
+						alert("등록되었습니다.");
+					}
+				},
+				error:function(result){
+					alert("에러발생");
+				}
+			});
+		});
+	</script>
+	
+	
+	<!-- 스케쥴 삭제 -->
+	<script type="text/javascript">
+	
+	
+	</script>
+	
+	
+	
+	

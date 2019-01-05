@@ -64,6 +64,10 @@ public class DashBoardServiceImpl implements DashBoardService  {
 	public int delGrid(Map<String, Object> map)throws Exception {
 		return dashBoardDAO.delGrid(map);
 	}
+	//스케쥴 등록
+	public int insertSchedule(Map<String, String> paramMap)throws Exception {
+		return dashBoardDAO.insertSchedule(paramMap);
+	}
 
 
 }

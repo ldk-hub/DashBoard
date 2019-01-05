@@ -174,40 +174,6 @@ public class DashBoardController {
 			return null;
 		}
 		
-		
-		// 그리드 삽입시 로직
-		/*@RequestMapping(value = "/insertRows", method = RequestMethod.GET)
-		public String insertRows(Map<String, Object> paramMap, ModelMap map) throws Exception {
-		String test = map.get("createdrows");
-		  objectMapper.mapper.readvalue(test, new Typereference<List<Map<string,object>>>(){});
-		try {
-		List<map<string,object>> data =mapper.readvalue(test, new Typereference<List<Map<string,object>>>(){});
-		for(int i =0; i>data.size();i++){
-		//서비스.전달(data.get(i));
-		}
-		}
-		} catch (IOException e) {
-		e.printStackTrace();
-		}
-}*/
-		
-		// 그리드 수정
-		/*@RequestMapping(value = "/insertRows", method = RequestMethod.GET)
-		public String insertRows(Map<String, Object> paramMap, ModelMap map) throws Exception {
-		String test = map.get("createdrows");
-		  objectMapper.mapper.readvalue(test, new Typereference<List<Map<string,object>>>(){});
-		try {
-		List<map<string,object>> data =mapper.readvalue(test, new Typereference<List<Map<string,object>>>(){});
-		for(int i =0; i>data.size();i++){
-		//서비스.전달(data.get(i));
-		}
-		}
-		} catch (IOException e) {
-		e.printStackTrace();
-		}
-}*/
-	
-
 		//그리드 체크 로우삭제
 		@RequestMapping(value = "/delGrid", method = {RequestMethod.GET,RequestMethod.POST})
 		@ResponseBody
@@ -228,7 +194,7 @@ public class DashBoardController {
 			map.put("code",1);
 			return map;
 		}
-	
+
 	// 회원정보 확인페이지
 	@RequestMapping(value = "/mypage", method = RequestMethod.GET)
 	public String mypage(Model model) {
@@ -265,4 +231,20 @@ public class DashBoardController {
 	         return mav;
 	    }
 	}
+	
+	//캘린더
+	@RequestMapping(value = "/insertSchedule", method ={RequestMethod.GET,RequestMethod.POST})
+	@ResponseBody
+	public HashMap<String,Integer> insertSchedule(@RequestParam Map<String,String> paramMap,ModelMap model) throws Exception {
+		 //계정던져
+		User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		 System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@2"+user.getUsername());
+		 paramMap.put("int_name", user.getUsername());
+		 
+		 //리턴
+		HashMap <String, Integer> hm = new HashMap<String,Integer>();
+		hm.put("result", dashBoardService.insertSchedule(paramMap));
+		return hm;
+	}
+	
 }

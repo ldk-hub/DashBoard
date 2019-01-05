@@ -221,31 +221,6 @@ var grid = new tui.Grid({
 			console.log("1",data);
 		    
 		});
-		
-		
-		
-		
-		//ajax 데이터 통신 
-		 /* $.ajax({
-		    	type:'POST',
-				url : '/selectBoardList',
-				data : {
-					build_code: buildCode, 
-					search_date: pickDate
-					},
-				dataType:"json",
-				beforeSend : function(xhr)
-              {   //데이터를 전송하기 전에 헤더에 csrf값을 설정한다
-                  xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
-              },
-				success:function(result){
-					grid.setData(result.data);
-				},
-				error:function(result){
-					alert("에러발생");
-				}
-			});	 */
-
 </script>
 
   	<!-- 데이타 테이블 -->

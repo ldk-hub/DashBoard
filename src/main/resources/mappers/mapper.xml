@@ -35,25 +35,6 @@
 		AP_SCHEDULE
 	</select>
 	
-	<!-- 스케쥴 등록 -->
-	<insert id="scheduleInsert" parameterType="map">
-		INSERT INTO 
-        AP_SCHEDULE(SEQ, 
-                TITLE,
-                CONTENT,
-                INT_DATE,
-                INT_NAME, 
-                START_DATE, 
-                END_DATE) 
-        VALUES(AP_SCHEDULE.nextval, 
-                #{title},
-                #{content},
-                #{startDate}, 
-                #{endDate},
-                 sysdate,
-                #{intName})
-	</insert>
-	
 	<!-- 스케줄 삭제 -->
 	<delete id="scheduleDelete" parameterType="String">
 		DELETE FROM AP_SCHEDULE
@@ -97,6 +78,25 @@
 		where product_number = #{CERTNO} 
 			and item_number = #{ITEMNO}
 	</delete>
+	
+	<!-- 스케쥴 등록 -->
+	<insert id="insertSchedule" parameterType="hashmap">
+		INSERT INTO 
+        AP_SCHEDULE(SEQ, 
+                TITLE,
+                CONTENT,
+                START_DATE, 
+                END_DATE,
+                INT_DATE,
+                INT_NAME) 
+        VALUES(ldk_seq.nextval, 
+                #{title},
+                #{content},
+                #{start_date}, 
+                #{end_date},
+                 sysdate,
+                #{int_name})
+	</insert>
 	
 </mapper>
   
