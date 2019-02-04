@@ -14,6 +14,8 @@
 </div>
 <br />
 	<!-- sidebar menu -->
+	
+	
 	<div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
 	    <div class="menu_section">
 	        <h3>업무관리 목록</h3>
@@ -32,6 +34,7 @@
 	                </ul>
 	            </li> -->
 	        </ul>
+	         <button id="compose" class="btn btn-sm btn-success btn-block" type="button">채팅 시작</button>
 	    </div>
 	</div>
 	<!-- /sidebar menu -->
@@ -57,6 +60,30 @@
 	        <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
 	    </a>
 	</div>
+	
+	
+	
+	 <!-- 채팅창 UI -->
+    <div class="compose col-md-6 col-xs-12">
+      <div class="compose-header">
+        	대화 시작하기
+        <button type="button" class="close compose-close">
+          <span>×</span>
+        </button>
+      </div>
+
+      <div class="compose-body">
+        <div id="alerts"></div>
+
+
+        <div id="editor" class="editor-wrapper"></div>
+      </div>
+
+      <div class="compose-footer">
+        <button id="send" class="btn btn-sm btn-success" type="button">전송</button>
+      </div>
+    </div>
+    <!-- /compose -->
 	<!-- /menu footer buttons -->
 	<script type="text/javascript">
 	function statusBarDown(){

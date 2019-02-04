@@ -238,7 +238,6 @@ public class DashBoardController {
 	public HashMap<String,Integer> insertSchedule(@RequestParam Map<String,String> paramMap,ModelMap model) throws Exception {
 		 //계정던져
 		User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		 System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@2"+user.getUsername());
 		 paramMap.put("int_name", user.getUsername());
 		 
 		 //리턴
@@ -246,5 +245,19 @@ public class DashBoardController {
 		hm.put("result", dashBoardService.insertSchedule(paramMap));
 		return hm;
 	}
+	
+	//웹소켓 파트
+	//STOMP 란 ?
+	/*- 이전 TTMP로 알려진 간단한 (또는 스트리밍) 텍스트 지향 메시지 프로토콜 (STOMP)는,
+	메시지 지향 미들웨어 (MOM) 작업을 위해 디자인 된 간단한 텍스트 기반 프로토콜입니다. 
+	그것은 STOMP 클라이언트가 프로토콜을 지원하는 모든 메시지 브로커와 이야기 할 수있는 상호 운용 와이어 형식을 제공합니다.
+	그것은 다른 언어로 개발 한 클라이언트 소프트웨어에서 통신을 수신 할 수있는 하나의 프로그래밍 언어 나 플랫폼 용으로 개발 된 브로커를 의미,
+	따라서 언어 불가 지론이다.*/
+ 	/*@MessageMapping("/hello")
+    @SendTo("/topic/greetings")
+    public Greeting greeting(HelloMessage message) throws Exception {
+        Thread.sleep(1000); // simulated delay
+        return new Greeting("Hello, " + HtmlUtils.htmlEscape(message.getName()) + "!");
+    }*/
 	
 }
