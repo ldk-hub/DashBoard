@@ -49,6 +49,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	          .invalidateHttpSession(true) //세션날리기
 	          .logoutSuccessUrl("/login") //로그아웃 성공시 이동할 경로
 	          .and()
-	       .exceptionHandling().accessDeniedPage("/403");//권한이 없을경우 해당 url로 이동
-	  }
+	          // Remember Me 추가
+	          // 아래의 코드를 추가하면 'configureGlobal' 을 사용하지 않아도 된다.
+	          //      만약 passwordEncoder 를 사용하는 경우는 사용해야 한다.
+	          // 아래도 체인 순서는 중요하다.
+	          .rememberMe()
+	          .key("springBootBase")           // 쿠키값으로 암호화된 값을 전달하고, 로그인 상태를 기억합니다.
+	          .rememberMeParameter("remember-me")
+	          .tokenValiditySeconds(2419200)       // 쿠키유지 시간(설정되어있지 않으면 기본 2주)
+	          .and()
+	          .sessionManagement()
+	          .maximumSessions(1)//최대접속세션계정당 1개
+	          .maxSessionsPreventsLogin(false)//이전세션 강퇴시키고 새로접속시도한사람이 들어가게끔
+	          .expiredUrl("/500error");
+	       /*   .and()
+	      .exceptionHandling().accessDeniedPage("/403");//권한이 없을경우 해당 url로 이동
+*/	  }
 }

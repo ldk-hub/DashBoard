@@ -1680,7 +1680,7 @@ if (typeof NProgress != 'undefined') {
 				  buttonClasses: ['btn btn-default'],
 				  applyClass: 'btn-small btn-primary',
 				  cancelClass: 'btn-small',
-				  format: 'MM/DD/YYYY',
+				  format: 'YYYY/MM/DD',
 				  separator: ' to ',
 				  locale: {
 					applyLabel: 'Submit',
@@ -1772,7 +1772,7 @@ if (typeof NProgress != 'undefined') {
 			  timePicker: true,
 			  timePickerIncrement: 30,
 			  locale: {
-				format: 'MM/DD/YYYY h:mm A'
+				format: 'YYYY/MM/DD h:mm A'
 			  }
 			});
 	

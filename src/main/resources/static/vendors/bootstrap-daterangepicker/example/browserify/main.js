@@ -74,7 +74,7 @@ $(document).ready(function() {
 
     if ($('#locale').is(':checked')) {
       options.locale = {
-        format: 'MM/DD/YYYY HH:mm',
+        format: 'YYY/MM/DD HH:mm',
         separator: ' - ',
         applyLabel: 'Apply',
         cancelLabel: 'Cancel',

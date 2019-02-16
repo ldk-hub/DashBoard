@@ -88,8 +88,6 @@
 			$('#content').val('');
 		}
 	</script>
-	
-	
 	<!-- 스케쥴 등록 -->
 	<script type="text/javascript">
 	$('#schedule').click(function(){
@@ -103,14 +101,13 @@
 			$('#content').focus();
 			return false;
 		}
+		
+	
 		var splt_date= $('#reservation').val().split('-');
 			
-		alert(splt_date[0]);
-		alert(splt_date[1]);
-		
 			$.ajax({
 		    	type:'POST',
-				url : '/selectBoardList',
+				url : '/insertSchedule',
 				data : {
 					start_date : splt_date[0],
 					end_date : splt_date[1],
@@ -139,7 +136,17 @@
 	
 	<!-- 스케쥴 삭제 -->
 	<script type="text/javascript">
-	
+	$( document ).ready(function() {
+		
+		$('#demo').daterangepicker({
+		   
+		}, function(start, end) { start.format('YYYY-MM-DD') end.format('YYYY-MM-DD')
+		});
+		$('#reservation').on('apply.daterangepicker', function(ev, picker) {
+			  picker.startDate.format('YYYY-MM-DD');
+			  picker.endDate.format('YYYY-MM-DD');
+			});
+	});
 	
 	</script>
 	

@@ -152,6 +152,7 @@ public class DashBoardController {
 		return VIEW_PATH + "hyopage";
 	}
 	
+	
 	//그리드용 리스트
 	@RequestMapping(value = "/selectBoardList", method = RequestMethod.GET, produces = "application/json; charset=utf8")
 	@ResponseBody
@@ -240,6 +241,9 @@ public class DashBoardController {
 		User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		 paramMap.put("int_name", user.getUsername());
 		 
+		 
+		 
+		 System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+paramMap);
 		 //리턴
 		HashMap <String, Integer> hm = new HashMap<String,Integer>();
 		hm.put("result", dashBoardService.insertSchedule(paramMap));

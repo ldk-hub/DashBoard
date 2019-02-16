@@ -64,7 +64,8 @@
 	
 	
 	 <!-- 채팅창 UI -->
-    <div class="compose col-md-6 col-xs-12">
+	 <div id="upList">
+    <div class="compose col-md-4 col-xs-12">
       <div class="compose-header">
         	대화 시작하기
         <button type="button" class="close compose-close">
@@ -83,7 +84,10 @@
         <button id="send" class="btn btn-sm btn-success" type="button">전송</button>
       </div>
     </div>
+    </div>
     <!-- /compose -->
+    
+    
 	<!-- /menu footer buttons -->
 	<script type="text/javascript">
 	function statusBarDown(){
