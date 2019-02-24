@@ -14,6 +14,8 @@ import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
@@ -28,6 +30,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.com.gentelella.service.DashBoardServiceImpl;
 import com.com.gentelella.smtp.Email;
 import com.com.gentelella.smtp.EmailSender;
+import com.com.gentelella.vo.UserCustom;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -58,7 +61,7 @@ public class DashBoardController {
 	// VIEW_PATH 서비스제공 페이지
 	// 메인페이지
 	@RequestMapping(value = "/dashboard", method = RequestMethod.GET)
-	public String dashboard(Model model)throws Exception{
+	public String dashboard(@RequestParam Map<String, String> paramMap, Model model, @AuthenticationPrincipal UserCustom userCustom)throws Exception{
 		//로그인한 유저정보
 	    User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		System.out.println("현재로그인 : " + user.getUsername());
@@ -69,8 +72,17 @@ public class DashBoardController {
 		model.addAttribute("listDataCount", dashBoardService.listDataCount(model));
 		//스케쥴 리스트정보
 		model.addAttribute("scheduleList", dashBoardService.schedule(model));
+		
+		Authentication loggedInUser = SecurityContextHolder.getContext().getAuthentication();
+	    String username = loggedInUser.getName();
+	    String organization_code = userCustom.getOrganization_code(); //추가정보로 끌어온 조직코드
+	    
+	    paramMap.put("organization_code", organization_code); //시큐리티로그인 ID,password + 별도로 추가정보 끌어옴
+	    paramMap.put("user_id", username);
+	   // model.addAttribute("selectList",dashBoardService.selectBoxList(paramMap));
 		return VIEW_PATH + "dashboard";
 	}
+	
 	
 	//CPU차트 데이터 전송(수정중)
 	@RequestMapping(value = "/myChart", method = RequestMethod.GET)

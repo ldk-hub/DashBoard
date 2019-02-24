@@ -32,4 +32,19 @@ public UserCustom(String username, String password
            , authorities);
    	this.organization_code = organization_code;
   }
+
+public String getOrganization_code() {
+	return organization_code;
 }
+
+public void setOrganization_code(String organization_code) {
+	this.organization_code = organization_code;
+}
+
+@Override
+public String toString() {
+	return super.toString() + "; Organization"+this.organization_code;
+	}
+
+}
+
