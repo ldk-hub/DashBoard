@@ -33,7 +33,7 @@ public UserCustom(String username, String password
    	this.organization_code = organization_code;
   }
 
-public String getOrganization_code() {
+/*public String getOrganization_code() {
 	return organization_code;
 }
 
@@ -45,6 +45,6 @@ public void setOrganization_code(String organization_code) {
 public String toString() {
 	return super.toString() + "; Organization"+this.organization_code;
 	}
-
+*/
 }
 

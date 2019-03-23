@@ -65,7 +65,7 @@ public class DashBoardController {
 		//로그인한 유저정보
 	    User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		System.out.println("현재로그인 : " + user.getUsername());
-		//카운트정보 
+		//카운트정보  
 		model.addAttribute("totalUser", dashBoardService.totalUser(model));
 		model.addAttribute("countFemale", dashBoardService.countFemale(model));
 		model.addAttribute("countMale", dashBoardService.countMale(model));
@@ -75,9 +75,9 @@ public class DashBoardController {
 		
 		Authentication loggedInUser = SecurityContextHolder.getContext().getAuthentication();
 	    String username = loggedInUser.getName();
-	    String organization_code = userCustom.getOrganization_code(); //추가정보로 끌어온 조직코드
+	    //String organization_code = userCustom.getOrganization_code(); //추가정보로 끌어온 조직코드
 	    
-	    paramMap.put("organization_code", organization_code); //시큐리티로그인 ID,password + 별도로 추가정보 끌어옴
+	   // paramMap.put("organization_code", organization_code); //시큐리티로그인 ID,password + 별도로 추가정보 끌어옴
 	    paramMap.put("user_id", username);
 	   // model.addAttribute("selectList",dashBoardService.selectBoxList(paramMap));
 		return VIEW_PATH + "dashboard";
