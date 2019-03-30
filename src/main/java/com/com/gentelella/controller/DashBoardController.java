@@ -276,4 +276,16 @@ public class DashBoardController {
         return new Greeting("Hello, " + HtmlUtils.htmlEscape(message.getName()) + "!");
     }*/
 	
+	//세컨더리 대시보드 페이지
+	@RequestMapping(value = "/secondery", method = RequestMethod.GET)
+	public String secondery(@RequestParam Map<String, String> paramMap, Model model, @AuthenticationPrincipal UserCustom userCustom)throws Exception{
+		return VIEW_PATH + "secondery";
+	}
+	
+	//서드 페이지
+	@RequestMapping(value = "/thirdy", method = RequestMethod.GET)
+	public String thirdy(@RequestParam Map<String, String> paramMap, Model model, @AuthenticationPrincipal UserCustom userCustom)throws Exception{
+		return VIEW_PATH + "thirdy";
+	}
+	
 }

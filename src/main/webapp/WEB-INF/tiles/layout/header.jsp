@@ -16,7 +16,9 @@
                         <span class=" fa fa-angle-down"></span>
                     </a>
                     <ul class="dropdown-menu dropdown-usermenu pull-right">
-                        <li><a href="mypage"> 마이페이지</a></li>
+                    	<li><a href="secondery"><i class="fa fa-tachometer pull-right"></i>실시간모니터링</a></li>
+               			<li><a href="thirdy"><i class="fa fa-cogs pull-right"></i>실시간이벤트 관리</a></li>
+                        <li><a href="mypage"><i class="fa fa-child pull-right"></i> 마이페이지</a></li>
                         <li><a href="logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                     </ul>
                 </li>
