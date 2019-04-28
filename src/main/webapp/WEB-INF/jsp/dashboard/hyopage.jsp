@@ -57,11 +57,12 @@
           		<!-- 토스트 UI 호출 -->
          		<div id="grid"></div>
               		<div class="clearfix"></div>
-              		
+              		  <div class="modal-footer">
 		          		   <button type="button" class="btn btn-warning antosubmit" id = "addRow">로우추가</button>
 		                   <button type="button" class="btn btn-warning antosubmit" id = "deleteRow">로우삭제</button>
 		                   <button type="button" class="btn btn-primary antosubmit" id = "updateGrid">수정</button>
 		                   <button type="button" class="btn btn-primary antosubmit" id ="deleteGrid">삭제</button>
+	                   </div>
                   </div>
                   
                 </div>
@@ -160,6 +161,7 @@
 var grid = new tui.Grid({
     el: $('#grid'),
     bodyHeight: 350,
+    virtualScrolling :true,
     rowHeaders:['checkbox','rowNum'],
     columns: [
         {
@@ -176,7 +178,7 @@ var grid = new tui.Grid({
             editOptions: {
                 type: 'text',
                 maxLength: 10,
-                useViewMode: false
+                useViewMode: true
             }
         },
         {
@@ -185,7 +187,7 @@ var grid = new tui.Grid({
             editOptions: {
                 type: 'text',
                 maxLength: 10,
-                useViewMode: false
+                useViewMode: true
             }
         },
         {
@@ -236,66 +238,71 @@ var grid = new tui.Grid({
 		</script>
 
 <!-- 그리드 툴 테마 설정 -->
-   <script type="text/javascript">
+  <script type="text/javascript">
 tui.Grid.applyTheme("default", {
 	 grid: {
-	      background: '#fff',
-	      border: '#ccc',
-	      text: '#444'
-	  },
-	  selection: {
-	      background: '#585858',
-	      border: '#004082'
-	  },
-	  toolbar: {
-	      border: '#ccc',
-	      background: '#3a3a3a'
-	  },
-	  scrollbar: {
-	      background: '#3a3a3a',
-	      thumb: '#f5f5f5',
-	      emptySpace: '#3a3a3a',
-	      active: '#c1c1c1'
-	  },
-		  cell: {
-	      normal: {
-	          background: '#fbfbfb',
-	          border: '#3a3a3a'
-	      },
-	      head: {
-	          background: '#3a3a3a',
-	          border: '#999',
-	          text:'#E7E7E7'
-	      },
-	      rowHead: {
-	          background: '#3a3a3a',
-	          border: '#eee',
-	          text: '#fff',
-	      },
-	      summary: {
-	          background: '#3a3a3a',
-	          border: '#eee',
-	          text: '#fff',
-	      },
-	      editable: {
-	          background: '#fbfbfb'
-	      },
-	      selectedHead: {
-	          background: '#616161'
-	      },
-	      selectedRowHead: {
-	          background: '#616161'
-	      },
-	      focused: {
-	          border: '#C94948'
-	      },
-	      disabled: {
-	          text: '#b0b0b0'
-	      },
-	      currentRow: {
-	          background: '#F5DA81'
-	      }
-	  }
+  	   background: '#3a3a3a',
+  	   border: '#000000',
+  	   text: '#444'
+  		  },
+  		  selection: {
+  		      background: '#585858',
+  		      border: '#004082'
+  		  },
+  		  toolbar: {
+  		      border: '#000000',
+  		      background: '#262930'
+  		  },
+  		  scrollbar: {
+  		      background: '#262930',
+  		      thumb: '#000000',
+  		      emptySpace: '#262930',
+  		      active: '#c1c1c1'
+  		  },
+  		  cell: {
+  	   normal: {
+  	       background: '#3a3a3a',
+  	       border: '#000000',
+  	       text: '#fff'
+  	   },
+  	   head: {
+  	       background: '#262930',
+  	       border: '#000000',
+  	       text:'#E7E7E7'
+  	   },
+  	   rowHead: {
+  	       background: '#262930',
+  	       border: '#000000',
+  	       text: '#fff'
+  	   },
+  	   summary: {
+  	       background: '#262930',
+  	       border: '#000000',
+  	       text: '#fff'
+  	   },
+  	   editable: {
+  	       background: '#3a3a3a',
+  	       border: '#fff',
+  	       text: '#fff'
+  	   },
+  	   selectedHead: {
+  	       background: '#616161'
+  	   },
+  	   selectedRowHead: {
+  	       background: '#616161'
+  	   },
+  	   focused: {
+  	       border: '#FFBF00'
+  	   },
+  	   disabled: {
+  	      background: '#3a3a3a',
+  	      border: '#000000',
+  	      text: '#fff'
+  	   },
+  	   currentRow: {
+  	       background: '#2F0B3A'
+  	   }
+  	  }
 });
 </script>
 
