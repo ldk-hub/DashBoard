@@ -15,6 +15,9 @@
 ## Main DashBoard
 ![mainpage](https://user-images.githubusercontent.com/12209348/48657076-53533980-ea70-11e8-86d6-72a49c2d574f.png)
 
+### RealTime Monitering Page
+![screencapture-localhost-9090-secondery-2019-05-04-15_13_31](https://user-images.githubusercontent.com/12209348/57174842-daaa3300-6e7f-11e9-9e36-9905977f4452.png)
+
 ## Data Chart Page
 ![data](https://user-images.githubusercontent.com/12209348/48657074-53533980-ea70-11e8-9114-97814ee4b032.png)
 
@@ -46,10 +49,6 @@
 2. 풀캘린더 스케쥴 등록 처리 (목록 호출완료, 수정, 삭제 기능 추가예정)
 3. 계정별 풀캘린더 목록리스트 메인 페이지 to-do list 호출
 4. 마이페이지 업무 스킬 인벤토리 등록
-5. 차트 통계용 샘플데이터 크롤링
-6. 차트 정보 DB 데이터 연동
-7. 의뢰페이지 엑셀 파일업로드 DB 테이블 임포트(xls, xlsx)
-
 
 ### 완료내역
 1. 시큐리티 로그인, 로그아웃 세션처리 완료(jpa)
@@ -65,9 +64,10 @@
 11. TUI GRID 데이터 제어 완료 
 12. 메인페이지 회원정보 통계 수치 호출 완료
 13. 사이드바 시계 기능 추가 완료
-14. 시스템 테이블 및 데이터 로그 설정(log4jdbc)
-15. 커스터마이징 용 대시보드 페이지 추가
-16. 대시보드 관리페이지 
+14. 시스템 테이블 및 데이터 로그 설정(log4jdbc)완료
+15. 커스터마이징 용 대시보드 페이지 추가 완료
+16. 대시보드 관리페이지 개발완료
+17. 실시간 모니터링용 페이지개발완료
 
 ### 개발이슈
 1. SMTP 비밀번호 찾기 properties 정보 노출로 계정 정보 삭제
@@ -76,10 +76,9 @@
 4. local 장비 서버 및 pc 정보 차트연동
 5. 세계 인구수 정보 보다 다음(카카오) 지도 api를 통한 지역정보를 가져오는게 효율적일것으로 판단하여 변경 예정
 6. 시각적효과를 위한 백그라운드 컬러 검정계열로 변경
-7. 네이버 인증 토큰 발행 테스트 중 
-8. 사이드바 시계 30초 단위 컬러변경 기능 추가
-9. socket.io와 웹소켓의 차이 구분 후 스프링부트 기반의 웹소켓 채팅 기능 개발 진행 중
-10. tui-grid 업데이트 bootstrap-timepicker 업데이트 해야함.
+7. 사이드바 시계 30초 단위 컬러변경 기능 추가
+8. socket.io와 웹소켓의 차이 구분 후 스프링부트 기반의 웹소켓 채팅 기능 개발 진행 중
+9. tui-grid 업데이트 bootstrap-timepicker 업데이트 예정.
 
 ### API
  - System table : Datatables, tui grid
@@ -87,8 +86,7 @@
  - 차트 : echart, gauge
  - 캘린더 : fullcalendar, bootstrap-daterangepicker, Bootstrap Colorpicker, DateJS
  - 기타 : Dropzone, NProgress, iCheck, Flot
- 
- 
+  
 ### 개발환경
   - 개발언어 : JAVA1.8
   - 스프링 : Spring Boot, Spring Security, 

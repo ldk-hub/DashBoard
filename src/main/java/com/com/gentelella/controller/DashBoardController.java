@@ -262,6 +262,20 @@ public class DashBoardController {
 		return hm;
 	}
 	
+	
+	//세컨더리 대시보드 페이지
+	@RequestMapping(value = "/secondery", method = RequestMethod.GET)
+	public String secondery(@RequestParam Map<String, String> paramMap, Model model, @AuthenticationPrincipal UserCustom userCustom)throws Exception{
+		return VIEW_PATH + "secondery";
+	}
+	
+	//서드 페이지
+	@RequestMapping(value = "/thirdy", method = RequestMethod.GET)
+	public String thirdy(@RequestParam Map<String, String> paramMap, Model model, @AuthenticationPrincipal UserCustom userCustom)throws Exception{
+		return VIEW_PATH + "thirdy";
+	}
+	
+
 	//웹소켓 파트
 	//STOMP 란 ?
 	/*- 이전 TTMP로 알려진 간단한 (또는 스트리밍) 텍스트 지향 메시지 프로토콜 (STOMP)는,
@@ -276,18 +290,413 @@ public class DashBoardController {
         return new Greeting("Hello, " + HtmlUtils.htmlEscape(message.getName()) + "!");
     }*/
 	
-	//세컨더리 대시보드 페이지
-	@RequestMapping(value = "/secondery", method = RequestMethod.GET)
-	public String secondery(@RequestParam Map<String, String> paramMap, Model model, @AuthenticationPrincipal UserCustom userCustom)throws Exception{
-		return VIEW_PATH + "secondery";
+/*
+	
+	@RequestMapping(value = "/dashboard", method = RequestMethod.GET)
+	public String dashboard(@RequestParam Map<String, String> paramMap, ModelMap model, @AuthenticationPrincipal UserCustom userCustom)throws Exception{
+	    Authentication loggedInUser = SecurityContextHolder.getContext().getAuthentication();
+	    String username = loggedInUser.getName();
+	    String organization_code = userCustom.getOrganization_code();
+	    logger.warn("접속한 유저 : "+username);
+	    paramMap.put("organization_code", organization_code);
+	    paramMap.put("user_id", username);
+	    model.addAttribute("selectList",dashBoardService.selectBoxList(paramMap));
+	    return VIEW_PATH + "dashboard";
 	}
 	
-	//서드 페이지
-	@RequestMapping(value = "/thirdy", method = RequestMethod.GET)
-	public String thirdy(@RequestParam Map<String, String> paramMap, Model model, @AuthenticationPrincipal UserCustom userCustom)throws Exception{
-		return VIEW_PATH + "thirdy";
+	//에러페이지 호출
+	@RequestMapping(value = "/500error")
+	public String error(@RequestParam Map<String, String> paramMap, ModelMap model)throws Exception{
+	    return  "500error";
+	}
+	@RequestMapping(value = "/403error")
+	public String error2(@RequestParam Map<String, String> paramMap, ModelMap model)throws Exception{
+	    return  "403error";
+	}
+	@RequestMapping(value = "/404error")
+	public String error3(@RequestParam Map<String, String> paramMap, ModelMap model)throws Exception{
+	    return  "404error";
 	}
 	
+	@RequestMapping(value = "/selectGeneralInfo", method = RequestMethod.POST, produces="text/plain;charset=UTF-8")
+	@ResponseBody
+	public Object selectGeneralInfo(@RequestParam Map<String, String> paramMap, ModelAndView mav)throws Exception{
+		return resultData(dashBoardService.selectGeneralInfo(paramMap), paramMap);
+	} 
+	@RequestMapping(value = "/avgTempList", method = RequestMethod.POST, produces="application/json")
+	@ResponseBody
+	public List<Object> avgTempList(@RequestParam Map<String, String> paramMap, ModelAndView mav)throws Exception{
+	    return dashBoardService.avgTempList(paramMap);
+	}
+	
+	@RequestMapping(value = "/avgHumiList", method = RequestMethod.POST, produces="application/json")
+	@ResponseBody
+	public List<Object> avgHumiList(@RequestParam Map<String, String> paramMap, ModelAndView mav)throws Exception{
+	    return dashBoardService.avgHumiList(paramMap);
+	}
+	
+	@RequestMapping(value = "/dashboard2", method = RequestMethod.GET)
+	public String dashboard2(@RequestParam Map<String, String> paramMap, ModelMap model) throws Exception {
+		 Authentication loggedInUser = SecurityContextHolder.getContext().getAuthentication();
+		    String username = loggedInUser.getName();
+		paramMap.put("user_id", username);
+		model.addAttribute("selectList",dashBoardService.selectBoxList(paramMap));
+		return VIEW_PATH + "dashboard2";
+	}
+	@RequestMapping(value = "/selectInfo", method = RequestMethod.POST)
+	public ModelAndView selectInfo(@RequestParam Map<String, String> paramMap, ModelAndView mav)throws Exception{
+		ModelAndView mv = new ModelAndView("jsonView");
+		mv.addObject("result",dashBoardService.selectInfo(paramMap));
+		return mv;
+	}
+
+	@RequestMapping(value = "/selectFcInfo", method = RequestMethod.POST, produces="text/plain;charset=UTF-8")
+	@ResponseBody
+	public Object selectFcInfo(@RequestParam Map<String, String> paramMap, ModelAndView mav)throws Exception{
+		return resultData(dashBoardService.selectFcInfo(paramMap), paramMap);
+	}
+
+	@RequestMapping(value = "/selectEnergyInfo", method = RequestMethod.POST, produces="text/plain;charset=UTF-8")
+	@ResponseBody
+	public Object selectEnergyInfo(@RequestParam Map<String, String> paramMap) throws Exception {
+		return resultData(dashBoardService.selectEnergyInfo(paramMap), paramMap);
+	}
+
+	@RequestMapping(value = "/selectSetTemp", method = RequestMethod.POST, produces="text/plain;charset=UTF-8")
+	@ResponseBody
+	public Object selectSetTemp(@RequestParam Map<String, String> paramMap, ModelAndView mav)throws Exception{
+		return resultData(dashBoardService.selectSetTemp(paramMap), paramMap);
+	}
+	
+	@RequestMapping(value = "/userInfoList", method = RequestMethod.POST, produces="text/plain;charset=UTF-8")
+	@ResponseBody
+	public Object userInfoList(@RequestParam Map<String, String> paramMap, ModelAndView mav)throws Exception{
+		return resultData(dashBoardService.userInfoList(paramMap), paramMap);
+	}
+	
+	public Object resultData(List<Object> list, Map<String, String> paramMap) throws JsonProcessingException, SQLException{
+		HashMap <String,Object> res = new HashMap <String,Object>();
+		HashMap <String,Object> data = new HashMap <String,Object>();
+		data.put("contents", list);
+		res.put("result",true);
+		res.put("data",data);
+		if(list.size()>0) {
+			ObjectMapper jackson = new ObjectMapper();
+			String jsonString = jackson.writeValueAsString(res);
+			return jsonString;
+		}
+		return null;
+	}
+	
+	@RequestMapping(value = "/dashboard3", method = RequestMethod.GET)
+	public String dashboard3(ModelMap map) throws Exception {
+		return VIEW_PATH + "dashboard3";
+	}
+	@RequestMapping(value = "/insertBaseInfo", method = RequestMethod.POST)
+	@ResponseBody
+	public HashMap<String, Integer> insertBaseInfo(@RequestParam Map<String, String> paramMap, ModelAndView mav) throws Exception {
+		 int tt  =  dashBoardService.insertBaseInfo(paramMap);
+		 HashMap<String, Integer> map = new HashMap<String, Integer>();
+		    map.put("code",tt);
+		    return map;
+	}
+	
+	@RequestMapping(value = "/insertPriceInfo", method = RequestMethod.POST)
+	@ResponseBody
+	public HashMap<String, Integer> insertPriceInfo(@RequestParam Map<String, String> paramMap, ModelAndView mav) throws Exception {
+		int tt  = dashBoardService.insertPriceInfo(paramMap);
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+	    map.put("code",tt);
+	    return map;
+	}
+	@RequestMapping(value = "/insertGasInfo", method = RequestMethod.POST)
+	@ResponseBody
+	public HashMap<String, Integer> insertGasInfo(@RequestParam Map<String, String> paramMap, ModelAndView mav) throws Exception {
+		int tt  = dashBoardService.insertGasInfo(paramMap);
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+	    map.put("code",tt);
+	    return map;
+	}
+
+	@RequestMapping(value = "/insertFcInfo", method = {RequestMethod.GET,RequestMethod.POST})
+	@ResponseBody
+	public HashMap<String, String> insertFcInfo(@RequestParam Map<String,String> paramMap) throws Exception {
+		String Test = paramMap.get("createdRows");
+		//제이슨타입으로 담는다.
+		ObjectMapper mapper = new ObjectMapper();
+		
+		try {
+			List<Map<String, Object>> data= mapper.readValue(Test,new TypeReference<List<Map<String, Object>>>(){});
+			
+				for(int i = 0; i<data.size(); i++) {
+					dashBoardService.insertFcInfo(data.get(i));
+				}
+			
+				}catch(IOException e) {
+					e.printStackTrace();
+			}
+		
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("code","1");
+	    map.put("msg", "등록완료.");
+	    return map;
+	}
+	
+	@RequestMapping(value = "/insertEnergyInfo", method = {RequestMethod.GET,RequestMethod.POST})
+	@ResponseBody
+	public HashMap<String, String> insertEnergyInfo(@RequestParam Map<String,String> paramMap) throws Exception {
+		String Test = paramMap.get("createdRows");
+		ObjectMapper mapper = new ObjectMapper();
+		try {
+			List<Map<String, Object>> data= mapper.readValue(Test,new TypeReference<List<Map<String, Object>>>(){});
+				for(int i = 0; i<data.size(); i++) {
+					
+					dashBoardService.insertEnergyInfo(data.get(i));
+				}
+			}catch(IOException e) {
+				e.printStackTrace();
+			}
+			HashMap<String, String> map = new HashMap<String, String>();
+			map.put("code","1");
+		    map.put("msg", "등록완료.");
+		    return map;
+		}
+	
+	
+		@RequestMapping(value = "/insertSetTempGrid", method = {RequestMethod.GET,RequestMethod.POST})
+		@ResponseBody
+		public HashMap<String, String> insertSetTempGrid(@RequestParam Map<String,String> paramMap) throws Exception {
+			String Test = paramMap.get("createdRows");
+			ObjectMapper mapper = new ObjectMapper();
+			try {
+				List<Map<String, Object>> data= mapper.readValue(Test,new TypeReference<List<Map<String, Object>>>(){});
+					for(int i = 0; i<data.size(); i++) {
+						dashBoardService.insertSetTempGrid(data.get(i));
+					}
+				
+				}catch(IOException e) {
+					e.printStackTrace();
+				}
+			HashMap<String, String> map = new HashMap<String, String>();
+			map.put("code","1");
+		    map.put("msg", "등록완료.");
+		    return map;
+		}
+		
+		@RequestMapping(value = "/udtGeneralInfo", method = {RequestMethod.GET,RequestMethod.POST})
+		@ResponseBody
+		public HashMap<String, String> udtGeneralInfo(@RequestParam Map<String,Object> paramMap) throws Exception {
+			String Test = (String) paramMap.get("updatedRows");
+			ObjectMapper mapper = new ObjectMapper();
+			try {
+				List<Map<String, Object>> data= mapper.readValue(Test,new TypeReference<List<Map<String, Object>>>(){});
+					for(int i = 0; i<data.size(); i++) {
+						dashBoardService.udtGeneralInfo(data.get(i));
+					}
+				}catch(IOException e) {
+					e.printStackTrace();
+				}
+			HashMap<String, String> map = new HashMap<String, String>();
+		    map.put("msg", "수정완료.");
+		    return map;
+		}
+		
+		@RequestMapping(value = "/udtSetInfo", method = {RequestMethod.GET,RequestMethod.POST})
+		@ResponseBody
+		public HashMap<String, String> udtSetInfo(@RequestParam Map<String,String> paramMap) throws Exception {
+			String Test = paramMap.get("updatedRows");
+			ObjectMapper mapper = new ObjectMapper();
+			try {
+				List<Map<String, Object>> data= mapper.readValue(Test,new TypeReference<List<Map<String, Object>>>(){});
+					for(int i = 0; i<data.size(); i++) {
+						dashBoardService.udtSetInfo(data.get(i));
+					}
+				}catch(IOException e) {
+					e.printStackTrace();
+				}
+			HashMap<String, String> map = new HashMap<String, String>();
+			map.put("code","1");
+		    map.put("msg", "수정완료.");
+		    return map;
+		}
+		
+			@RequestMapping(value = "/udtBuildFc", method = {RequestMethod.GET,RequestMethod.POST})
+			@ResponseBody
+			public HashMap<String, String> udtBuildFc(@RequestParam Map<String,String> paramMap) throws Exception {
+				String Test = paramMap.get("updatedRows");
+				ObjectMapper mapper = new ObjectMapper();
+				try {
+					List<Map<String, Object>> data= mapper.readValue(Test,new TypeReference<List<Map<String, Object>>>(){});
+						for(int i = 0; i<data.size(); i++) {
+							dashBoardService.udtBuildFc(data.get(i));
+						}
+						}catch(IOException e) {
+							e.printStackTrace();
+					}
+				HashMap<String, String> map = new HashMap<String, String>();
+				map.put("code","1");
+			    map.put("msg", "수정완료.");
+			    return map;
+			}
+		
+			@RequestMapping(value = "/udtFcInfo", method = {RequestMethod.GET,RequestMethod.POST})
+			@ResponseBody
+			public HashMap<String, String> udtFcInfo(@RequestParam Map<String,String> paramMap) throws Exception {
+				String Test = paramMap.get("updatedRows");
+				ObjectMapper mapper = new ObjectMapper();
+				try {
+					List<Map<String, Object>> data= mapper.readValue(Test,new TypeReference<List<Map<String, Object>>>(){});
+						for(int i = 0; i<data.size(); i++) {
+							dashBoardService.udtFcInfo(data.get(i));
+						}
+					}catch(IOException e) {
+						e.printStackTrace();
+					}
+				HashMap<String, String> map = new HashMap<String, String>();
+			    map.put("msg", "수정완료.");
+			    return map;
+			}
+		
+			@RequestMapping(value = "/udtSetInfo2", method = {RequestMethod.GET,RequestMethod.POST})
+			@ResponseBody
+			public HashMap<String, String> udtSetInfo2(@RequestParam Map<String,String> paramMap) throws Exception {
+				String Test = paramMap.get("updatedRows");
+				ObjectMapper mapper = new ObjectMapper();
+				try {
+					List<Map<String, Object>> data= mapper.readValue(Test,new TypeReference<List<Map<String, Object>>>(){});
+						for(int i = 0; i<data.size(); i++) {
+							dashBoardService.udtSetInfo2(data.get(i));
+						}
+					}catch(IOException e) {
+						e.printStackTrace();
+					}
+				HashMap<String, String> map = new HashMap<String, String>();
+				map.put("code","1");
+			    map.put("msg", "수정완료.");
+			    return map;
+			}
+			
+			@RequestMapping(value = "/TempDataOnOff", method = RequestMethod.GET)
+			@ResponseBody
+			public HashMap<String, Integer> TempDataOnOff(@RequestParam Map<String,String> paramMap) throws Exception {
+				int tt = 	dashBoardService.TempDataOnOff(paramMap);
+				HashMap<String, Integer> map = new HashMap<String, Integer>();
+				map.put("code",tt);
+				return map;
+			}
+			@RequestMapping(value = "/insertUserInfo", method = {RequestMethod.GET,RequestMethod.POST})
+			@ResponseBody
+			public HashMap<String, Integer> insertUserInfo(@RequestParam Map<String, String> paramMap, ModelAndView mav) throws Exception {
+			     int tt  = 	dashBoardService.insertUserInfo(paramMap);
+				HashMap<String, Integer> map = new HashMap<String, Integer>();
+				map.put("code",tt);
+			    return map;
+			}
+			@RequestMapping(value = "/checkId", method = {RequestMethod.GET,RequestMethod.POST})
+			@ResponseBody
+			public HashMap<String, Integer> checkId(@RequestParam Map<String, String> paramMap, ModelAndView mav) throws Exception {
+				int tt  = 	dashBoardService.checkId(paramMap);
+				HashMap<String, Integer> map = new HashMap<String, Integer>();
+				map.put("code",tt);
+			    return map;
+			}
+			
+			@RequestMapping(value = "/delBuildFc", method = {RequestMethod.GET,RequestMethod.POST})
+			@ResponseBody
+			public HashMap<String, Integer> delBuildFc(@RequestParam Map<String,String> paramMap) throws Exception {
+				String Test = paramMap.get("delParam");
+				ObjectMapper mapper = new ObjectMapper();
+				try {
+					List<Map<String, Object>> data= mapper.readValue(Test,new TypeReference<List<Map<String, Object>>>(){});
+						for(int i = 0; i<data.size(); i++) {
+							dashBoardService.delBuildFc(data.get(i));
+						}
+					}catch(IOException e) {
+						e.printStackTrace();
+					}
+				
+				HashMap<String, Integer> map = new HashMap<String, Integer>();
+				map.put("code",1);
+				return map;
+			}
+			
+			@RequestMapping(value = "/delFcInfo", method = {RequestMethod.GET,RequestMethod.POST})
+			@ResponseBody
+			public HashMap<String, Integer> delFcInfo(@RequestParam Map<String,String> paramMap) throws Exception {
+				String Test = paramMap.get("delParam");
+				ObjectMapper mapper = new ObjectMapper();
+				try {
+					List<Map<String, Object>> data= mapper.readValue(Test,new TypeReference<List<Map<String, Object>>>(){});
+						for(int i = 0; i<data.size(); i++) {
+							dashBoardService.delFcInfo(data.get(i));
+						}
+						}catch(IOException e) {
+							e.printStackTrace();
+					}
+				HashMap<String, Integer> map = new HashMap<String, Integer>();
+				map.put("code",1);
+				return map;
+			}
+			
+			@RequestMapping(value = "/delSetInfo2", method = {RequestMethod.GET,RequestMethod.POST})
+			@ResponseBody
+			public HashMap<String, Integer> delSetInfo2(@RequestParam Map<String,String> paramMap) throws Exception {
+				String Test = paramMap.get("delParam");
+				ObjectMapper mapper = new ObjectMapper();
+				try {
+					List<Map<String, Object>> data= mapper.readValue(Test,new TypeReference<List<Map<String, Object>>>(){});
+						for(int i = 0; i<data.size(); i++) {
+							dashBoardService.delSetInfo2(data.get(i));
+						}
+						}catch(IOException e) {
+							e.printStackTrace();
+					}
+				HashMap<String, Integer> map = new HashMap<String, Integer>();
+				map.put("code",1);
+				return map;
+			}
+			
+			@RequestMapping(value = "/delUser", method = {RequestMethod.GET,RequestMethod.POST})
+			@ResponseBody
+			public HashMap<String, Integer> delUser(@RequestParam Map<String,String> paramMap) throws Exception {
+				String Test = paramMap.get("delParam");
+				ObjectMapper mapper = new ObjectMapper();
+				try {
+					List<Map<String, Object>> data= mapper.readValue(Test,new TypeReference<List<Map<String, Object>>>(){});
+						for(int i = 0; i<data.size(); i++) {
+							dashBoardService.delUser(data.get(i));
+						}
+						}catch(IOException e) {
+							e.printStackTrace();
+					}
+				HashMap<String, Integer> map = new HashMap<String, Integer>();
+				map.put("code",1);
+				return map;
+			}
+						
+			@RequestMapping(value = "/rtTotalData", method ={RequestMethod.GET,RequestMethod.POST})
+			@ResponseBody
+			public List<Object> rtTotalData(@RequestParam Map<String,String> paramMap,ModelMap model) throws Exception {
+				return dashBoardService.rtTotalData(paramMap);
+			}
+			
+			@RequestMapping(value = "/rtDataResult", method ={RequestMethod.GET,RequestMethod.POST})
+			@ResponseBody
+			public HashMap<String, Integer> rtDataResult(@RequestParam Map<String,String> paramMap,ModelMap model) throws Exception {
+				int tt = dashBoardService.rtDataResult(paramMap);
+				HashMap<String, Integer> map = new HashMap<String, Integer>();
+				map.put("code",tt);
+			    return map;
+			}
+			
+			@RequestMapping(value = "/dashboard1", method = RequestMethod.GET)
+			public String dashboard1(@RequestParam Map<String, String> paramMap, ModelMap model) throws Exception {
+				return VIEW_PATH + "dashboard1";
+			}
+			
+			
+
+}*/
 	
 	
 }
