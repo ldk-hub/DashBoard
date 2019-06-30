@@ -158,7 +158,7 @@
 
 <!-- 그리드 제어 명령어 -->
 <script type="text/javascript">
-var grid = new tui.Grid({
+var grid1 = new tui.Grid({
     el: $('#grid'),
     bodyHeight: 350,
     virtualScrolling :true,
@@ -190,6 +190,16 @@ var grid = new tui.Grid({
                 useViewMode: true
             }
         },
+      //grid에서 이미지 넣는방법
+    	{
+        		title : '온도트렌드',
+        		name : 'file_name',
+        		align: 'center',
+        		width: 450,
+        		 formatter : function(value, rowData) {
+                     return "<img src='" + value + "' style='"width "' />";
+                 }
+        	},
         {
             title: '브랜드명',
             name: 'brdName',
@@ -207,7 +217,7 @@ var grid = new tui.Grid({
 });
 		
 		//그리드에서 지원하는 NET통신
-		 grid.use('Net',{
+		 grid1.use('Net',{
 			perPage:500,
 			readDataMethod: 'GET',
 			api:{
@@ -215,14 +225,87 @@ var grid = new tui.Grid({
 				createdData : '/insertRows'
 			}
 		}); 
-		 var net = grid.getAddOn('Net');
+		 var net = grid1.getAddOn('Net');
 		
 		 
 		// 후처리 로직 성공 실패 유무 
-		grid.on('response', function(data) {
+		grid1.on('response', function(data) {
 			console.log("1",data);
 		    
 		});
+		
+		
+		//동적 셀렉트박스 구성하기
+		//1번셀렉트박스의 값을기반으로 조회하여 2번차수의 셀렉트박스에 결과 리스트를 호출하여 선택할수있게한다.
+		$('#SearchStore').change(function(){
+			$.ajax({
+				type:'POST',
+				url : '/storeDeviceInfo',
+				data : {
+					store_name : $('#SearchStore').val(),
+					},
+				dataType:"json",
+				success:function(data){
+					$.each(data, function(key, val) {
+						//1번선택값에 의한 결과값을 2번셀렉트에 주입
+						$('#storeDeviceInfo').append("<option value='"+val.device_nm+"'>"+val.device_nm+"</option>");
+					});
+				}
+			});
+		});
+
+
+		//tui-grid 내에서 해당 셀클릭해서 팝업띄우는 액션을 호출하는 
+		//해당미리보기 구현되면 팝업으로 상세보기 기능 예고
+		/* 셀을 클릭할 때 팝업을 띄워주는 기능을 제공하고 있지는 않지만 제공되고 있는 
+		focusChange이벤트를 이용해서 해당 rowKey와 columnName을 가져와서 팝업을 띄워주도록 
+		하는 방식으로 개발이 될 수 있을 것 같습니다. */
+		grid1.on('focusChange', (ev) => {
+			  const{columnName, rowKey} = ev;
+			  //클릭한셀의 정보 가져오기
+			  //console.log(grid1.getRow(rowKey));
+			  //img 의 src를 변경하는 방법
+			  $("#img_form_url").attr("src", imgurl);
+			  //팝업창띄우기 가장마지막에
+			  $('#popupModalNew').modal('toggle');
+			});
+		
+		
+		
+		//이미지 프론트와 백로직둘다 체크
+		//파일업로드 확장자, 파일크기 제한 유효성 체크
+		function getCmaFileView() {
+			//파일정보
+			if( $("#file_upload_field").val() != "" ){
+				var ext = $('#file_upload_field').val().split('.').pop().toLowerCase();
+				      if($.inArray(ext, ['gif','png','jpg','jpeg']) == -1) {
+					 alert('gif,png,jpg,jpeg 파일만 업로드 할수 있습니다.');
+					 $("#file_upload_field").val("");
+					 return;
+				      }
+				}
+			//이미지 파일 사이즈
+			if(document.getElementById("file_upload_field").value!=""){
+			    var fileSize = document.getElementById("file_upload_field").files[0].size;
+			    var maxSize = 5 * 1024 * 1024;//5MB
+			 	 
+			    if(fileSize > maxSize){
+			       alert("첨부파일 사이즈는 5MB 이내로 등록 가능합니다. ");
+			        $("#file_upload_field").val("");
+			        return;
+			     }
+			} 
+		}
+		//자바스크립트 내 guid생성 이미지와 데이터 키값 매핑용으로 유니크 값 사용
+		function guid() {
+			  function s4() {
+			    return Math.floor((1 + Math.random()) * 0x10000)
+			      .toString(16)
+			      .substring(1);
+			  }
+			  return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+			    s4() + '-' + s4() + s4() + s4();
+			}
 </script>
 
   	<!-- 데이타 테이블 -->
@@ -312,13 +395,13 @@ tui.Grid.applyTheme("default", {
 			 if(confirm("삭제 하시겠습니까?") == false) {
 		         return false;
 		     }
-			if(grid.getCheckedRowKeys(true) == "[]"){
+			if(grid1.getCheckedRowKeys(true) == "[]"){
 				alert("체크박스를 선택하시오.");
 				return false;
 			}
 				
 			 
-			 var test = grid.getCheckedRows(true);
+			 var test = grid1.getCheckedRows(true);
 			 
 			 $.ajax({
 			        url:"/delGrid",
