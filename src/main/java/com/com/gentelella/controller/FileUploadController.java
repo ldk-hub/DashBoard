@@ -54,7 +54,7 @@ public class FileUploadController {
 	         upload_map.put("file_url", safeFile);
 	         
 	         //정보전송
-	         imgSendService.insertFileInfo(upload_map);
+	         //imgSendService.insertFileInfo(upload_map);
 	        try {
 	            mf.transferTo(new File(safeFile));
 	        } catch (IllegalStateException e) {

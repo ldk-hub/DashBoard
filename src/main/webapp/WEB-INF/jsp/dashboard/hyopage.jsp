@@ -156,6 +156,16 @@
 <script src="../static/vendors/tui-grid/tui-grid/dist/tui-grid.js"></script>
 
 
+
+<script type="text/javascript">
+//자바스크립트 YYYY-MM-DD 오늘 날짜 구하기
+var Now = new Date();
+		var NowTime = Now.getFullYear();
+		NowTime += '.' + (Now.getMonth()+1);
+		NowTime += '.' + Now.getDate();
+		//현재날짜 이전의 날짜는 선택못하도록 막
+		//$('#myDatepicker2').data("DateTimePicker").minDate(NowTime);
+		</script>
 <!-- 그리드 제어 명령어 -->
 <script type="text/javascript">
 var grid1 = new tui.Grid({
@@ -322,71 +332,71 @@ var grid1 = new tui.Grid({
 
 <!-- 그리드 툴 테마 설정 -->
   <script type="text/javascript">
-tui.Grid.applyTheme("default", {
-	 grid: {
-  	   background: '#3a3a3a',
-  	   border: '#000000',
-  	   text: '#444'
-  		  },
-  		  selection: {
-  		      background: '#585858',
-  		      border: '#004082'
-  		  },
-  		  toolbar: {
-  		      border: '#000000',
-  		      background: '#262930'
-  		  },
-  		  scrollbar: {
-  		      background: '#262930',
-  		      thumb: '#000000',
-  		      emptySpace: '#262930',
-  		      active: '#c1c1c1'
-  		  },
-  		  cell: {
-  	   normal: {
-  	       background: '#3a3a3a',
-  	       border: '#000000',
-  	       text: '#fff'
-  	   },
-  	   head: {
-  	       background: '#262930',
-  	       border: '#000000',
-  	       text:'#E7E7E7'
-  	   },
-  	   rowHead: {
-  	       background: '#262930',
-  	       border: '#000000',
-  	       text: '#fff'
-  	   },
-  	   summary: {
-  	       background: '#262930',
-  	       border: '#000000',
-  	       text: '#fff'
-  	   },
-  	   editable: {
-  	       background: '#3a3a3a',
-  	       border: '#fff',
-  	       text: '#fff'
-  	   },
-  	   selectedHead: {
-  	       background: '#616161'
-  	   },
-  	   selectedRowHead: {
-  	       background: '#616161'
-  	   },
-  	   focused: {
-  	       border: '#FFBF00'
-  	   },
-  	   disabled: {
-  	      background: '#3a3a3a',
-  	      border: '#000000',
-  	      text: '#fff'
-  	   },
-  	   currentRow: {
-  	       background: '#2F0B3A'
-  	   }
-  	  }
-});
+  tui.Grid.applyTheme("default", {
+		grid : {
+			background : '#3a3a3a',
+			border : '#000000',
+			text : '#444'
+		},
+		selection : {
+			background : '#A4A4A4',
+			border : '#004082'
+		},
+		toolbar : {
+			border : '#000000',
+			background : '#262930'
+		},
+		scrollbar : {
+			background : '#262930',
+			thumb : '#fff',
+			emptySpace : '#262930',
+			active : '#c1c1c1'
+		},
+		cell : {
+			normal : {
+				background : '#3a3a3a',
+				border : '#000000',
+				text : '#fff'
+			},
+			head : {
+				background : '#262930',
+				border : '#000000',
+				text : '#c3f400'
+			},
+			rowHead : {
+				background : '#262930',
+				border : '#000000',
+				text : '#fff'
+			},
+			summary : {
+				background : '#262930',
+				border : '#000000',
+				text : '#fff'
+			},
+			editable : {
+				background : '#3a3a3a',
+				border : '#fff',
+				text : '#fff'
+			},
+			selectedHead : {
+				background : '#616161'
+			},
+			selectedRowHead : {
+				background : '#616161'
+			},
+			focused : {
+				border : '#FFBF00'
+			},
+			disabled : {
+				background : '#3a3a3a',
+				border : '#000000',
+				text : '#fff'
+			},
+			currentRow : {
+				background : '#0B243B'
+			}
+		}
+	});
 </script>
 
 <!-- 그리드 삭제 이벤트 -->
