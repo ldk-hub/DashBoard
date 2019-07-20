@@ -149,7 +149,7 @@ toast API
 		//PushEventList();
 		//fireDashboardList();
 	});
-	</script>
+</script>
 
 <!-- 문자 전송 -->
 <script type="text/javascript">
@@ -196,9 +196,6 @@ toast API
 		});
 	} */
 </script>
-
-
-
 
 
 <script type="text/javascript">

@@ -36,7 +36,7 @@
 	                </ul>
 	            </li> -->
 	        </ul>
-	         <button id="compose" class="btn btn-sm btn-success btn-block" type="button">채팅 시작</button>
+	         <!-- <button id="compose" class="btn btn-sm btn-success btn-block" type="button">채팅 시작</button> -->
 	    </div>
 	</div>
 	<!-- /sidebar menu -->

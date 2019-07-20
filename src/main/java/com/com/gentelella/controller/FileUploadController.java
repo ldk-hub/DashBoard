@@ -13,15 +13,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import com.com.gentelella.service.ImgSendService;
+//import com.com.gentelella.service.ImgSendService;
 
 
 
 @Controller
 public class FileUploadController {
 	
-	@Autowired
-	ImgSendService imgSendService;
+	/*@Autowired
+	ImgSendService imgSendService;*/
 	
 	  @RequestMapping(value = "/requestupload1")
 	    public String requestupload1(MultipartHttpServletRequest mtfRequest) throws Exception {
@@ -33,9 +33,9 @@ public class FileUploadController {
 	        MultipartFile mf = mtfRequest.getFile("file_upload_field");
 	        
 	        //로컬 
-	        //String path = "C:\\image\\";
-	        //운영 
-	        String path = "/upload/";
+	        String path = "C:\\image\\";
+	        //서버의 경우 path가 다름  
+	        //String path = "/upload/";
 	        
 	        //파일관련 정보저장
 	        String gs_guid = mtfRequest.getParameter("gs_guid"); //맵핑정보

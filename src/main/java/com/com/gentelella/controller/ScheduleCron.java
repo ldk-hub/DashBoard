@@ -15,7 +15,7 @@ import com.com.gentelella.service.ScheduleSendService;
 //활용목적 웹에서 주기적 시간마다 체크해야하는 비즈니스 로직필요시 사용
 //예를들면 시간제 예약 시스템 -> 지정한 시간이 도래하였을때 지정한 플로우를 탈수있게끔 
 @Component
-public class ScheduleCron {
+public abstract class ScheduleCron {
 	
 	@Autowired
 	ScheduleSendService scheduleSendService;

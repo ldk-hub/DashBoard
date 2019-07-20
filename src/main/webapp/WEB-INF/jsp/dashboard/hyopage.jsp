@@ -201,7 +201,7 @@ var grid1 = new tui.Grid({
             }
         },
       //grid에서 이미지 넣는방법
-    	{
+    	/* {
         		title : '온도트렌드',
         		name : 'file_name',
         		align: 'center',
@@ -209,7 +209,7 @@ var grid1 = new tui.Grid({
         		 formatter : function(value, rowData) {
                      return "<img src='" + value + "' style='"width "' />";
                  }
-        	},
+        	}, */
         {
             title: '브랜드명',
             name: 'brdName',
