@@ -7,7 +7,7 @@
 <link rel="stylesheet" type="text/css"	href="../static/vendors/sos_js/common/css/ad_solution.css" />
 <link rel="stylesheet" type="text/css"	href="../static/vendors/bootstrap-timepicker/css/bootstrap-timepicker.min.css" />
 
-<div class="right_col" role="main">
+<div class="right_col" role="main" style="background-color:#5c5c5c38;">
 	<div class="row">
 		<div class="col-md-12 col-sm-12 col-xs-12">
 			<div class="x_panel">

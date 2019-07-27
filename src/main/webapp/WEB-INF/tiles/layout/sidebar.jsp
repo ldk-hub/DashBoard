@@ -44,7 +44,7 @@
 
 	<!-- 사이드 바 메인 타이머 -->
 	<body onload="printClock()">
-		<div style="overflow:hidden; width:100%; height:150px; line-height:60px; color:#999;font-size:30px; text-align:center;" id="clock">
+		<div style="overflow:hidden; width:100%; height:150px; line-height:60px; color:#c3f400;font-size:30px; text-align:center;" id="clock">
 		</div>
 	</body>
 	<!-- /menu footer buttons -->

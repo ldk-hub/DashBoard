@@ -5,10 +5,10 @@
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e0fe198a94267329d51b8335fe81e6ea"></script>
 
-<div class="right_col" role="main">
+<div class="right_col" role="main"  style="background-color:#5c5c5c38;" >
 	<!-- 상단 집계S -->
 	<div class="col-md-12 col-sm-12 col-xs-12">
-		<div class="x_panel">
+		<div class="x_panel" style="background-color:#2f2e2e;">
 			<div class="row tile_count">
 				<div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
 					<span class="count_top"><i class="fa fa-user"></i> 전체 회원 수</span>
@@ -56,7 +56,7 @@
 	<div class="row">
 		<!-- e차트 S -->
 		<div class="col-md-12 col-sm-12 col-xs-12">
-			<div class="x_panel">
+			<div class="x_panel" style="background-color:#2f2e2e;">
 				<div class="x_title">
 					<h2>상품 월별 차트</h2>
 					<ul class="nav navbar-right panel_toolbox">
@@ -85,7 +85,7 @@
 	<!-- CPU 측정 S -->
 	<div class="row">
 		<div class="col-md-4 col-sm-4 col-xs-12">
-			<div class="x_panel">
+			<div class="x_panel" style="background-color:#2f2e2e;">
 				<div class="x_title">
 					<h2>PC상태 정보</h2>
 					<ul class="nav navbar-right panel_toolbox">
@@ -108,7 +108,7 @@
 
 		<!-- 일정표 S -->
 		<div class="col-md-4 col-sm-4 col-xs-12">
-			<div class="x_panel">
+			<div class="x_panel" style="background-color:#2f2e2e;">
 				<div class="x_title">
 					<h2>
 						오늘의 할일<small>일정표 스케쥴 링크연동 예정</small>
@@ -143,7 +143,7 @@
 
 		<!-- 날짜 UI S -->
 		<div class="col-md-4 col-sm-4 col-xs-12">
-			<div class="x_panel">
+			<div class="x_panel" style="background-color:#2f2e2e;">
 				<div class="x_title">
 					<h2>
 						오늘의 날씨정보<small>날씨API(skp,구글 등)대체방안찾기</small>
@@ -264,7 +264,7 @@
 	<!-- 지도 API S -->
 	<div class="row">
 		<div class="col-md-12 col-sm-12 col-xs-12">
-			<div class="x_panel">
+			<div class="x_panel" style="background-color:#2f2e2e;">
 				<div class="x_title">
 					<h2>대한민국 지도 정보</h2>
 					<ul class="nav navbar-right panel_toolbox">

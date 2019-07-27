@@ -5,7 +5,7 @@
 <link rel="stylesheet" type="text/css" href="../static/vendors/tui-grid/tui-grid/dist/tui-grid.css" />
 <link rel="stylesheet" type="text/css" href="../static/vendors/tui-grid/tui-pagination/dist/tui-pagination.css" />
  
-<div class="right_col" role="main">
+<div class="right_col" role="main" style="background-color:#5c5c5c38;">
 
 	<div class="row">
 		<div class="col-md-12 col-sm-12 col-xs-12">
@@ -15,7 +15,7 @@
 						<strong>재난대응 실시간 모니터링</strong>
 					</h2>
 					<ul class="nav navbar-right panel_toolbox">
-						<li><h2 id="clock1" style="font-size: 1.5em; font-weight:800; color:#347edc;"></h2> </li>
+						<li><h2 id="clock1" style="font-size: 1.5em; font-weight:800; color:#efae17;"></h2> </li>
 					</ul>
 					<div class="clearfix"></div>
 				</div>

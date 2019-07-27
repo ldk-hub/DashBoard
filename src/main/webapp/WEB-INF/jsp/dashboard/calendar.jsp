@@ -3,7 +3,7 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
   <!-- 캘린더 API S -->
-        <div class="right_col" role="main">
+        <div class="right_col" role="main" style="background-color:#5c5c5c38;">
             <div class="clearfix"></div>
             <div class="row">
               <div class="col-md-12">

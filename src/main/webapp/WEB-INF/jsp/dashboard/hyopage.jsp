@@ -7,9 +7,9 @@
 <link rel="stylesheet" type="text/css" href="../static/vendors/tui-grid/tui-pagination/dist/tui-pagination.css" />
 
     		<!-- 라인 그래프  -->
-      		<div class="right_col" role="main">
+      		<div class="right_col" role="main" style="background-color:#5c5c5c38;" >
       		  <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
+                <div class="x_panel" style="background-color:#2f2e2e;">
                   <div class="x_title">
                     <h2>바그래프 통계</h2>
                     <ul class="nav navbar-right panel_toolbox">
@@ -39,7 +39,7 @@
               
     		<!-- 그리드형 API S -->
     		  <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
+                <div class="x_panel" style="background-color:#2f2e2e;">
                   <div class="x_title">
                     <h2>그리드형 데이터 제어(데이터를 수정 및 커스터마이징 가능)</h2>
                     <ul class="nav navbar-right panel_toolbox">
@@ -69,7 +69,7 @@
               </div>
 				<!-- 그리드형 API E-->
 				   <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
+                <div class="x_panel" style="background-color:#2f2e2e;">
                   <div class="x_title">
                     <h2>테이블형 데이터 제어(그리드 타입은 데이터를 CRUD기반으로 조작 가능 )</h2>
                     <ul class="nav navbar-right panel_toolbox">
@@ -89,7 +89,7 @@
                     </ul>
                     <div class="clearfix"></div>
                   </div>
-                  <div class="x_content">
+                  <div class="x_content"> 
                   <table id="datatable-buttons" class="table table-striped table-bordered">
                       <thead>
                         <tr>
@@ -118,7 +118,7 @@
             <!-- 파일업로드API S -->
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
+                <div class="x_panel" style="background-color:#2f2e2e;">
                   <div class="x_title">
                     <h2>파일 업로드 </h2>
                     <ul class="nav navbar-right panel_toolbox">
@@ -168,6 +168,9 @@ var Now = new Date();
 		</script>
 <!-- 그리드 제어 명령어 -->
 <script type="text/javascript">
+//데이터 그리드 내부에서 모바일로 접속시 가상키보드가 튀어나오던현상을 제거해줌. 
+//$(':focus').blur(); // 모바일 키보드 해제
+
 var grid1 = new tui.Grid({
     el: $('#grid'),
     bodyHeight: 350,
