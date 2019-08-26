@@ -1,0 +1,22 @@
+@charset "utf-8";
+/* CSS Document */
+@font-face {
+  font-family: 'Nanum Gothic';
+  font-style: normal;
+  font-weight: 400;
+  src: url(./font/NanumGothic-Regular.eot);
+  src: url(./font/NanumGothic.ttf);
+@font-face {
+  font-family: 'Nanum Gothic';
+  font-style: normal;
+  font-weight: 700;
+  src: url(./font/NanumGothic-Bold.eot);
+  src: url(./font/NanumGothic-Bold.ttf);
+}
+@font-face {
+  font-family: 'Nanum Gothic';
+  font-style: normal;
+  font-weight: 800;
+  src: url(./font/NanumGothic-ExtraBold.eot);
+  src: url(./font/NanumGothic-ExtraBold.ttf);
+}

@@ -1,0 +1,106 @@
+opacity(n)
+    opacity n
+    filter unquote('alpha(opacity=' + round(n * 100) + ')')
+
++prefix-classes('tui-grid-')
+    .container
+        width 100%
+        position relative
+        border-width 0
+        clear both
+        font-size 13px
+        font-family Arial, '돋움', Dotum, sans-serif
+
+        ::-webkit-scrollbar
+            -webkit-appearance none
+            width 17px
+            height 17px
+
+        ::-webkit-scrollbar-thumb
+            border 4px solid transparent
+            background-clip content-box
+
+        *
+            box-sizing content-box // reset bootstrap style
+
+        p, input, textarea
+            margin 0
+            padding 0
+            font-size @font-size
+            font-family @font-family
+
+        fieldset
+            margin 0
+            padding 0
+            border 0
+            display inline
+            white-space nowrap
+
+        input[type=text], input[type=password]
+            outline none
+            box-sizing border-box
+            line-height normal // prevent to be inherit
+
+        ul, li
+            list-style none
+            padding 0
+            margin 0
+
+        strong, em
+            font-style normal
+
+        .pagination
+            margin-top 20px
+
+    .clipboard
+        position fixed
+        top 0px
+        left -9999px
+        width 100px
+        height 100px
+
+    .btn-text
+        display inline-block
+        text-decoration none
+
+        span
+            display inline-block
+            position relative
+            font-size 11px
+            color #333
+            padding-left 17px
+            letter-spacing -1px
+            line-height 23px
+            white-space nowrap
+            cursor pointer
+            margin-left 8px
+            padding-right 7px
+
+        em
+            position absolute
+            left 0
+            top 5px
+            width 17px
+            height 12px
+            background url(../../images/icons.png) no-repeat
+
+    .btn-sorting
+        display inline-block
+        overflow hidden
+        margin-left 6px
+        height 16px
+        width 11px
+        background url(../../images/icons.png) -91px -10px no-repeat
+        vertical-align middle
+        cursor pointer
+
+    .btn-sorting-down
+        background-position -133px -10px
+
+    .btn-sorting-up
+        background-position -112px -10px
+
+    @import 'layer.styl'
+    @import 'table.styl'
+    @import 'layout.styl'
+    @import 'tree.styl'
