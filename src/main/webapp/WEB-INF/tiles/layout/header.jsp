@@ -20,7 +20,7 @@
 	                    <li><a href="hyopage"><i class="fa fa-bar-chart-o pull-right"></i>데이터차트</a></li>
 	                    <li><a href="calendar"><i class="fa fa-calendar pull-right"></i>일정표</a></li>
                     	<li><a href="secondery"><i class="fa fa-tachometer pull-right"></i>모니터링</a></li>
-               			<li><a href="thirdy"><i class="fa fa-cogs pull-right"></i>이벤트관리</a></li>
+               			<!-- <li><a href="thirdy"><i class="fa fa-cogs pull-right"></i>이벤트관리</a></li> -->
                         <li><a href="mypage"><i class="fa fa-child pull-right"></i> 마이페이지</a></li>
                         <li><a href="logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                     </ul>

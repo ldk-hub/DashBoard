@@ -24,7 +24,7 @@
 	            <li><a href="hyopage"><i class="fa  fa-bar-chart-o"></i> 데이터차트 <span class="label label-success pull-right">공사중</span></a></li>
 	            <li><a href="calendar"><i class="fa fa-calendar"></i>일정표</a></li>
 	            <li><a href="secondery"><i class="fa fa-tachometer"></i>모니터링</a></li>
-               <li><a href="thirdy"><i class="fa fa-cogs"></i>이벤트관리</a></li>
+               <!-- <li><a href="thirdy"><i class="fa fa-cogs"></i>이벤트관리</a></li> -->
 	            <!-- 미사용으로인한 주석처리 -->
 	           <!--  <li><a><i class="fa fa-desktop"></i> 개발 샘플API <span class="label label-success pull-right">개발용</span><span class="fa fa-chevron-down"></span></a>
 	                <ul class="nav child_menu">
@@ -89,17 +89,6 @@
     </div>
     <!-- /compose -->
     
-    
-	<!-- /menu footer buttons -->
-	<script type="text/javascript">
-	$("#onOff").click(function() {
-		if($('.nav_menu').is(':visible') == false){
-			$('.nav_menu').slideDown();
-		}else{
-			$('.nav_menu').slideUp();
-		}
-	});
-	</script>
 	<!-- 대시보드 풀스크린 적용 -->
 	<script type="text/javascript">
 		function toggleFullScreen() {
