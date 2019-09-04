@@ -109,6 +109,5 @@
                  sysdate,
                 #{int_name})
 	</insert>
-	
 </mapper>
   

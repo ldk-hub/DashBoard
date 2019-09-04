@@ -6,6 +6,7 @@
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e0fe198a94267329d51b8335fe81e6ea"></script>
 
 <div class="right_col" role="main"  style="background-color:#5c5c5c38;" >
+	<div class="row">
 	<!-- 상단 집계S -->
 	<div class="col-md-12 col-sm-12 col-xs-12">
 		<div class="x_panel" style="background-color:#2f2e2e;">
@@ -52,38 +53,10 @@
 		</div>
 	</div>
 	<!-- 상단 집계 E-->
-
-	<div class="row">
-		<!-- e차트 S -->
-		<div class="col-md-12 col-sm-12 col-xs-12">
-			<div class="x_panel" style="background-color:#2f2e2e;">
-				<div class="x_title">
-					<h2 style="color:#c3f400;">상품 월별 차트</h2>
-					<ul class="nav navbar-right panel_toolbox">
-						<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-						</li>
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown" role="button" aria-expanded="false"><i
-								class="fa fa-wrench"></i></a></li>
-						<li><a class="close-link"><i class="fa fa-close"></i></a></li>
-					</ul>
-					<div class="clearfix"></div>
-				</div>
-				<div class="x_content">
-
-					<div id="echart_line" style="height: 350px;"></div>
-
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- e차트 E -->
+	
 
 	<br />
-
-
 	<!-- CPU 측정 S -->
-	<div class="row">
 		<div class="col-md-4 col-sm-4 col-xs-12">
 			<div class="x_panel" style="background-color:#2f2e2e;">
 				<div class="x_title">
@@ -255,11 +228,31 @@
 			</div>
 		</div>
 		<!-- 날짜 UI E -->
+	
+		<!-- e차트 S -->
+		<div class="col-md-12 col-sm-12 col-xs-12">
+			<div class="x_panel" style="background-color:#2f2e2e;">
+				<div class="x_title">
+					<h2 style="color:#c3f400;">상품 월별 차트</h2>
+					<ul class="nav navbar-right panel_toolbox">
+						<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+						</li>
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown" role="button" aria-expanded="false"><i
+								class="fa fa-wrench"></i></a></li>
+						<li><a class="close-link"><i class="fa fa-close"></i></a></li>
+					</ul>
+					<div class="clearfix"></div>
+				</div>
+				<div class="x_content">
+
+					<div id="echart_line" style="height: 350px;"></div>
+
+				</div>
+			</div>
+		</div>
 	</div>
-	
-	
-	
-	
+	<!-- e차트 E -->
 	
 	<!-- 지도 API S -->
 	<div class="row">
@@ -289,9 +282,9 @@
 				</div>
 			</div>
 		</div>
-	</div>
+		</div>
 	<!-- 지도 API E -->
-</div>
+	</div>
 
 <!-- 지도 API 제어 명령어 -->
 <script type="text/javascript">

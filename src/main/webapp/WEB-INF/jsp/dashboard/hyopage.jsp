@@ -9,6 +9,7 @@
 
     		<!-- 라인 그래프  -->
       		<div class="right_col" role="main" style="background-color:#5c5c5c38;" >
+      		<div class="row">
       		  <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel" style="background-color:#2f2e2e;">
                   <div class="x_title">
@@ -117,7 +118,7 @@
                 </div>
               </div>
             <!-- 파일업로드API S -->
-            <div class="row">
+            
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel" style="background-color:#2f2e2e;">
                   <div class="x_title">
@@ -136,9 +137,6 @@
                   <div class="x_content">
                     <p>다중 업로드를 위해 여러 파일을 아래 상자에 끌어다 놓거나 파일을 선택하려면 클릭하십시오. 또는 상자를 클릭해서 업로드 해주세요. </p>
                     <form action="form_upload.html" class="dropzone" style="color:#363636"></form>
-                    <br />
-                    <br />
-                    <br />
                     <br />
                   </div>
                 </div>
