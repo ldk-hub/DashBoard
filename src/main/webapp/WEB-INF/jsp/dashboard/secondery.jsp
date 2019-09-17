@@ -75,43 +75,26 @@
 </div>
 </body>
 
-<!-- 모달 페이지  -->
-<div id="CalenderModalNew" class="modal fade" tabindex="-1"
-	role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
-	<div class="modal-dialog">
-		<div class="modal-content">
 
+
+
+<!-- 모달 페이지 -->
+<div id="popupModalNew" class="modal fade" tabindex="-1"
+	role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+	<div class="modal-dialog" style="width:1340px;">
+		<div class="modal-content" style="background-color:#2f2e2e;">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal"
-					aria-hidden="true">×</button>
-				<h4 class="modal-title" id="myModalLabel">
-					<strong>경보 발생 목록</strong>
+					aria-hidden="true" style=" color:#fff;">×</button>
+				<h4 style=" color:#c3f400; font-size: 2. 0em;" class="modal-title" id="myModalLabel">
+					<strong>사고현장 정보</strong>
 				</h4>
 			</div>
 			<div class="modal-body">
+					<img id="img_form_url" src="" style="width:1300px; height:700px;"/>
 				<div class="clearfix"></div>
-				<div class="table-responsive">
-					<table class="table table-striped jambo_table bulk_action">
-						<thead style="background-color:#262930;">
-							<tr  class="headings">
-								<th align="center" class="column-title" style="text-align:center;">발생시각</th>
-								<th align="center" class="column-title" style="text-align:center;">대응방안</th>
-								<th align="center" class="column-title" style="text-align:center;">구조인원</th>
-							</tr>
-						</thead>
-						<tbody>
-							<c:forEach items="${list}" var="resultList">
-								<tr class="even pointer">
-									<td align="center" scope="row">${resultList.msg_title }</td>
-									<td align="center" scope="row">${resultList.sms_send_chk }</td>
-									<td align="center" scope="row">${resultList.send_time }</td>
-								</tr>
-							</c:forEach>
-						</tbody>
-					</table>
-				</div>
+					
 			</div>
-
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default antoclose"	data-dismiss="modal" id="m_close">닫기</button>
 			</div>
@@ -119,15 +102,10 @@
 	</div>
 </div>
 
-<!-- Toast Grid -->
-<!-- <script src="../static/vendors/tui-grid/jquery/dist/jquery.js"></script>
-<script src="../static/vendors/tui-grid/underscore/underscore.js"></script>
-<script src="../static/vendors/tui-grid/backbone/backbone.js"></script>
-<script src="../static/vendors/tui-code-snippet/dist/tui-code-snippet.js"></script>
-<script src="../static/vendors/tui-pagination/dist/tui-pagination.js"></script>
-<script src="../static/vendors/tui-grid/tui-date-picker/dist/tui-date-picker.js"></script>
-<script src="../static/vendors/tui-grid/tui-grid/dist/tui-grid.js"></script> -->
 
+
+
+<!-- Toast Grid -->
 <script src="../static/vendors/toast/jquery/dist/jquery.js"></script>
 <script src="../static/vendors/toast/underscore/underscore.js"></script>
 <script src="../static/vendors/toast/backbone/backbone.js"></script>
@@ -179,9 +157,12 @@ var grid1 = new tui.Grid({
     	},
     	{
     		title : '상세내용',
-    		name : 'detail_info',
+    		name : 'file_name',
    			align: 'center',
-   			whiteSpace: 'pre-line'
+   			whiteSpace: 'pre-line',
+   		 	formatter : function(value, rowData) {
+             return "<img src='" + value +"'width='370px;'height='120px;'/>";
+         }
     	},
     	{
     		title : '상황발생일',
@@ -203,6 +184,16 @@ var grid1 = new tui.Grid({
     	}
     ]
 });
+
+//이미지 확대 모달 띄우기 프로세스
+grid1.on('focusChange', (ev) => {
+	  const{columnName, rowKey} = ev;
+	  var rowData   = grid1.getRow(rowKey);
+	  if(columnName =="file_name"){
+		  $("#img_form_url").attr("src", rowData.file_name);
+		  $('#popupModalNew').modal('toggle');
+	  }
+	});
 </script>
 
 <script type="text/javascript">
@@ -259,9 +250,37 @@ var grid1 = new tui.Grid({
 			    }
 			});
 		} 
+
+	//파일 업로드 시 해당되는 확장자만 저장
+	/* function getCmaFileView() {
+		if( $("#file_upload_field").val() != "" ){
+			var ext = $('#file_upload_field').val().split('.').pop().toLowerCase();
+			      if($.inArray(ext, ['gif','png','jpg','jpeg']) == -1) {
+			    	  
+			    	  Swal.fire({
+		     			  type: 'error',
+		     			  title: 'gif,png,jpg,jpeg 파일만 업로드 할수 있습니다.',
+		     			})
+				 $("#file_upload_field").val("");
+				 return;
+			      }
+			}
+		//파일용량 체크 프로세스
+		if(document.getElementById("file_upload_field").value!=""){
+		    var fileSize = document.getElementById("file_upload_field").files[0].size;
+		    var maxSize = 5 * 1024 * 1024;
+		 	 
+		    if(fileSize > maxSize){
+		    	  Swal.fire({
+	     			  type: 'error',
+	     			  title: '첨부파일 사이즈는 5MB 이내로 등록 가능합니다.',
+	     			})
+		        $("#file_upload_field").val("");
+		        return;
+		     }
+		} 
+	} */
 </script>
-
-
 
 
 <script type="text/javascript">

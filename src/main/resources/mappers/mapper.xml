@@ -77,7 +77,7 @@
 			person_info, 
 			damage, 
 			addr_info, 
-			detail_info, 
+			file_name, 
 			to_char(occur_dt,'YYYY.MM.DD HH24:MI:SS') occur_dt,
 			to_char(chk_dt,'YYYY.MM.DD HH24:MI:SS') chk_dt,
 			to_char(restore_dt,'YYYY.MM.DD HH24:MI:SS') restore_dt
