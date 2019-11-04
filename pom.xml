@@ -11,14 +11,14 @@
 	<name>springBoot</name>
 	<description>Demo project for Spring Boot</description>
 	
-	<!-- 오라클 저장소 선언 -->
-	<repositories>
+	<!-- 오라클 저장소  막혀서 주석처리함. -->
+<!-- 	<repositories>
 		<repository>
 			<id>oracle</id>
 			<name>ORACLE JDBC Repository</name>
 			<url>https://maven.atlassian.com/3rdparty/</url>
 		</repository>
-	</repositories>
+	</repositories> -->
 	
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -139,11 +139,11 @@
     	</dependency>
     	
 		<!-- 오라클  -->
-	    <dependency>
+	   <!--  <dependency>
 			<groupId>com.oracle</groupId>
 			<artifactId>ojdbc6</artifactId>
 			<version>12.1.0.1-atlassian-hosted</version>
-		</dependency>
+		</dependency> -->
 		
 		<!-- 타일즈3 -->
 		<dependency>
