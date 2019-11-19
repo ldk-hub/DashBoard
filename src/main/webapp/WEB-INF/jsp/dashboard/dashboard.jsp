@@ -5,6 +5,19 @@
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e0fe198a94267329d51b8335fe81e6ea"></script>
 
+<style>
+body { background-color: #30303d; color: #fff; }
+#chartdiv {
+  width: 100%;
+  height: 500px;
+}
+
+#chartdiv2 {
+  width: 100%;
+  height: 400px;
+  }
+</style>
+
 <div class="right_col" role="main"  style="background-color:#5c5c5c38;" >
 	<div class="row">
 	<!-- 상단 집계S -->
@@ -73,7 +86,9 @@
 				</div>
 				<div class="x_content">
 					<p>CPU 점유율</p>
-					<div id="echart_gauge" style="height: 305px;"></div>
+					
+					<div id="chartdiv" style="height: 305px;"></div>
+					<!-- <div id="echart_gauge" style="height: 305px;"></div> -->
 				</div>
 			</div>
 		</div>
@@ -245,9 +260,8 @@
 					<div class="clearfix"></div>
 				</div>
 				<div class="x_content">
-
-					<div id="echart_line" style="height: 350px;"></div>
-
+					<div id="chartdiv2"></div>
+					<!-- <div id="echart_line" style="height: 350px;"></div> -->
 				</div>
 			</div>
 		</div>
@@ -285,6 +299,243 @@
 		</div>
 	<!-- 지도 API E -->
 	</div>
+
+
+
+	<script src="../static/vendors/amcharts4/core.js"></script>
+	<script src="../static/vendors/amcharts4/charts.js"></script>
+	<script src="../static/vendors/amcharts4/maps.js"></script>
+	<script src="../static/vendors/amcharts4/themes/dark.js"></script>
+	<script src="../static/vendors/amcharts4/themes/animated.js"></script>
+<!-- 차트게이지 -->
+<!-- Chart code -->
+<script type="text/javascript">
+am4core.ready(function() {
+
+// Themes begin
+am4core.useTheme(am4themes_dark);
+am4core.useTheme(am4themes_animated);
+// Themes end
+
+// create chart
+var chart = am4core.create("chartdiv", am4charts.GaugeChart);
+chart.innerRadius = am4core.percent(82);
+
+/**
+ * Normal axis
+ */
+
+var axis = chart.xAxes.push(new am4charts.ValueAxis());
+axis.min = 0;
+axis.max = 100;
+axis.strictMinMax = true;
+axis.renderer.radius = am4core.percent(80);
+axis.renderer.inside = true;
+axis.renderer.line.strokeOpacity = 1;
+axis.renderer.ticks.template.disabled = false
+axis.renderer.ticks.template.strokeOpacity = 1;
+axis.renderer.ticks.template.length = 10;
+axis.renderer.grid.template.disabled = true;
+axis.renderer.labels.template.radius = 40;
+axis.renderer.labels.template.adapter.add("text", function(text) {
+  return text + "%";
+})
+
+/**
+ * Axis for ranges
+ */
+
+var colorSet = new am4core.ColorSet();
+
+var axis2 = chart.xAxes.push(new am4charts.ValueAxis());
+axis2.min = 0;
+axis2.max = 100;
+axis2.renderer.innerRadius = 10
+axis2.strictMinMax = true;
+axis2.renderer.labels.template.disabled = true;
+axis2.renderer.ticks.template.disabled = true;
+axis2.renderer.grid.template.disabled = true;
+
+var range0 = axis2.axisRanges.create();
+range0.value = 0;
+range0.endValue = 50;
+range0.axisFill.fillOpacity = 1;
+range0.axisFill.fill = colorSet.getIndex(0);
+
+var range1 = axis2.axisRanges.create();
+range1.value = 50;
+range1.endValue = 100;
+range1.axisFill.fillOpacity = 1;
+range1.axisFill.fill = colorSet.getIndex(2);
+
+/**
+ * Label
+ */
+
+var label = chart.radarContainer.createChild(am4core.Label);
+label.isMeasured = false;
+label.fontSize = 45;
+label.x = am4core.percent(50);
+label.y = am4core.percent(100);
+label.horizontalCenter = "middle";
+label.verticalCenter = "bottom";
+label.text = "50%";
+
+
+/**
+ * Hand
+ */
+
+var hand = chart.hands.push(new am4charts.ClockHand());
+hand.axis = axis2;
+hand.innerRadius = am4core.percent(20);
+hand.startWidth = 10;
+hand.pin.disabled = true;
+hand.value = 50;
+
+hand.events.on("propertychanged", function(ev) {
+  range0.endValue = ev.target.value;
+  range1.value = ev.target.value;
+  axis2.invalidate();
+});
+
+setInterval(function() {
+  var value = Math.round(Math.random() * 100);
+  label.text = value + "%";
+  var animation = new am4core.Animation(hand, {
+    property: "value",
+    to: value
+  }, 1000, am4core.ease.cubicOut).start();
+}, 2000);
+
+}); // end am4core.ready()
+</script>
+
+
+<script type="text/javascript">
+am4core.ready(function() {
+
+	// Themes begin
+	am4core.useTheme(am4themes_dark);
+	am4core.useTheme(am4themes_animated);
+	// Themes end
+
+	// Create chart instance
+	var chart = am4core.create("chartdiv2", am4charts.XYChart);
+
+	// Increase contrast by taking evey second color
+	chart.colors.step = 2;
+
+	// Add data
+	chart.data = generateChartData();
+
+	// Create axes
+	var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
+	dateAxis.renderer.minGridDistance = 50;
+
+	// Create series
+	function createAxisAndSeries(field, name, opposite, bullet) {
+	  var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+	  
+	  var series = chart.series.push(new am4charts.LineSeries());
+	  series.dataFields.valueY = field;
+	  series.dataFields.dateX = "date";
+	  series.strokeWidth = 2;
+	  series.yAxis = valueAxis;
+	  series.name = name;
+	  series.tooltipText = "{name}: [bold]{valueY}[/]";
+	  series.tensionX = 0.8;
+	  
+	  var interfaceColors = new am4core.InterfaceColorSet();
+	  
+	  switch(bullet) {
+	    case "triangle":
+	      var bullet = series.bullets.push(new am4charts.Bullet());
+	      bullet.width = 12;
+	      bullet.height = 12;
+	      bullet.horizontalCenter = "middle";
+	      bullet.verticalCenter = "middle";
+	      
+	      var triangle = bullet.createChild(am4core.Triangle);
+	      triangle.stroke = interfaceColors.getFor("background");
+	      triangle.strokeWidth = 2;
+	      triangle.direction = "top";
+	      triangle.width = 12;
+	      triangle.height = 12;
+	      break;
+	    case "rectangle":
+	      var bullet = series.bullets.push(new am4charts.Bullet());
+	      bullet.width = 10;
+	      bullet.height = 10;
+	      bullet.horizontalCenter = "middle";
+	      bullet.verticalCenter = "middle";
+	      
+	      var rectangle = bullet.createChild(am4core.Rectangle);
+	      rectangle.stroke = interfaceColors.getFor("background");
+	      rectangle.strokeWidth = 2;
+	      rectangle.width = 10;
+	      rectangle.height = 10;
+	      break;
+	    default:
+	      var bullet = series.bullets.push(new am4charts.CircleBullet());
+	      bullet.circle.stroke = interfaceColors.getFor("background");
+	      bullet.circle.strokeWidth = 2;
+	      break;
+	  }
+	  
+	  valueAxis.renderer.line.strokeOpacity = 1;
+	  valueAxis.renderer.line.strokeWidth = 2;
+	  valueAxis.renderer.line.stroke = series.stroke;
+	  valueAxis.renderer.labels.template.fill = series.stroke;
+	  valueAxis.renderer.opposite = opposite;
+	  valueAxis.renderer.grid.template.disabled = true;
+	}
+
+	createAxisAndSeries("visits", "Visits", false, "circle");
+	createAxisAndSeries("views", "Views", true, "triangle");
+	createAxisAndSeries("hits", "Hits", true, "rectangle");
+
+	// Add legend
+	chart.legend = new am4charts.Legend();
+
+	// Add cursor
+	chart.cursor = new am4charts.XYCursor();
+
+	// generate some random data, quite different range
+	function generateChartData() {
+	  var chartData = [];
+	  var firstDate = new Date();
+	  firstDate.setDate(firstDate.getDate() - 100);
+	  firstDate.setHours(0, 0, 0, 0);
+
+	  var visits = 1600;
+	  var hits = 2900;
+	  var views = 8700;
+
+	  for (var i = 0; i < 15; i++) {
+	    // we create date objects here. In your data, you can have date strings
+	    // and then set format of your dates using chart.dataDateFormat property,
+	    // however when possible, use date objects, as this will speed up chart rendering.
+	    var newDate = new Date(firstDate);
+	    newDate.setDate(newDate.getDate() + i);
+
+	    visits += Math.round((Math.random()<0.5?1:-1)*Math.random()*10);
+	    hits += Math.round((Math.random()<0.5?1:-1)*Math.random()*10);
+	    views += Math.round((Math.random()<0.5?1:-1)*Math.random()*10);
+
+	    chartData.push({
+	      date: newDate,
+	      visits: visits,
+	      hits: hits,
+	      views: views
+	    });
+	  }
+	  return chartData;
+	}
+
+	}); // end am4core.ready()
+
+</script>
 
 <!-- 지도 API 제어 명령어 -->
 <script type="text/javascript">
@@ -340,124 +591,6 @@
 	map.addControl(zoomControl, daum.maps.ControlPosition.RIGHT);
 </script>
 
-<!-- 차트게이지 -->
-<script type="text/javascript">
-	var myChart;
-	function init_echarts2() {
-		var myChart = echarts.init(document.getElementById("echart_gauge"));
-		myChart.setOption({
-			tooltip : {
-				formatter : "{a} <br/>{b} : {c}%"
-			},
-			toolbox : {
-				show : !0,
-				feature : {
-					restore : {
-						show : !0,
-						title : "Restore"
-					},
-					saveAsImage : {
-						show : !0,
-						title : "Save Image"
-					}
-				}
-			},
-			series : [ {
-				name : "cpu 점유율",
-				type : "gauge",
-				center : [ "50%", "50%" ],
-				startAngle : 140,
-				endAngle : -140,
-				min : 0,
-				max : 100,
-				precision : 0,
-				splitNumber : 10,
-				axisLine : {
-					show : !0,
-					lineStyle : {
-						color : [ [ .2, "lightgreen" ], [ .4, "orange" ],
-								[ .8, "skyblue" ], [ 1, "#ff4500" ] ],
-						width : 30
-					}
-				},
-				axisTick : {
-					show : !0,
-					splitNumber : 5,
-					length : 8,
-					lineStyle : {
-						color : "#eee",
-						width : 1,
-						type : "solid"
-					}
-				},
-				axisLabel : {
-					show : !0,
-					formatter : function(a) {
-						switch (a + "") {
-						case "10":
-							return "10%";
-						case "30":
-							return "30%";
-						case "50":
-							return "50%";
-						case "70":
-							return "70%";
-						case "90":
-							return "90%";
-						default:
-							return ""
-						}
-					},
-					textStyle : {
-						color : "#333"
-					}
-				},
-				splitLine : {
-					show : !0,
-					length : 30,
-					lineStyle : {
-						color : "#eee",
-						width : 2,
-						type : "solid"
-					}
-				},
-				pointer : {
-					length : "80%",
-					width : 8,
-					color : "auto"
-				},
-				title : {
-					show : !0,
-					offsetCenter : [ "-65%", -10 ],
-					textStyle : {
-						color : "#333",
-						fontSize : 15
-					}
-				},
-				detail : {
-					show : !0,
-					backgroundColor : "rgba(0,0,0,0)",
-					borderWidth : 0,
-					borderColor : "#ccc",
-					width : 100,
-					height : 40,
-					offsetCenter : [ "-60%", 10 ],
-					formatter : "{value}%",
-					textStyle : {
-						color : "auto",
-						fontSize : 30
-					}
-				},
-				data : [ {
-					value : data.data,
-					name : "Performance"
-				} ]
-			} ]
-		})
-	}
-	//myChart.setOption()
-	//timeId = setInterval("getChartData();",2000); // 시스템 상시 콜 부하테스트 해봐야함
-</script>
 
 
 

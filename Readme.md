@@ -55,6 +55,8 @@
 1. CPU, RAM 수치 게이지형 차트 연동
 2. 풀캘린더 스케쥴 등록 처리 (목록 호출완료, 수정, 삭제 기능 추가예정)
 3. 계정별 풀캘린더 목록리스트 메인 페이지 to-do list 호출
+4. echart -> amchart4 적용
+5. amchart4 실데이터 연동 테스트 작업
 
 ### 완료내역
 1. 시큐리티 로그인, 로그아웃 세션처리 완료(jpa)
@@ -89,18 +91,19 @@
 7. 사이드바 시계 30초 단위 컬러변경 기능 추가
 9. tui-grid 업데이트 bootstrap-timepicker 업데이트 완료
 10. 이미지 처리시 서버의 OS에 따라 path 설정 및 처리방식이 다름.
+11. 기존 oracle -> postgresql DB변환 하였음.
 
 ### API
  - System table : Datatables, tui grid
  - 날씨, 지도 : daum maps, Skycons
- - 차트 : echart, gauge
+ - 차트 : amcharts4
  - 캘린더 : fullcalendar, bootstrap-daterangepicker, Bootstrap Colorpicker, DateJS
  - 기타 : Dropzone, NProgress, iCheck, Flot
   
 ### 개발환경
   - 개발언어 : JAVA1.8
   - 스프링 : Spring Boot, Spring Security, 
-  - DB : OracleDB, Mybatis, jpa, hibernate, lombok
+  - DB : OracleDB, Postgresql-DB Mybatis, jpa, hibernate, lombok
   - UI : gentelella, Tiles3, Bootstrap4
 
 ### 프로젝트 세팅법

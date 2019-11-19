@@ -12,13 +12,13 @@
 	<description>Demo project for Spring Boot</description>
 	
 	<!-- 오라클 저장소  막혀서 주석처리함. -->
-<!-- 	<repositories>
+	<repositories>
 		<repository>
 			<id>oracle</id>
 			<name>ORACLE JDBC Repository</name>
 			<url>https://maven.atlassian.com/3rdparty/</url>
 		</repository>
-	</repositories> -->
+	</repositories> 
 	
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -179,6 +179,7 @@
 			<scope>provided</scope>
 		</dependency>
 		
+
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
