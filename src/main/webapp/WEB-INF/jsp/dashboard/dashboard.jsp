@@ -312,7 +312,7 @@ body { background-color: #30303d; color: #fff; }
 <script type="text/javascript">
 am4core.ready(function() {
 
-// Themes begin
+// Themes begin 컬러 및 애니메이션 효과 
 am4core.useTheme(am4themes_dark);
 am4core.useTheme(am4themes_animated);
 // Themes end
@@ -324,7 +324,6 @@ chart.innerRadius = am4core.percent(82);
 /**
  * Normal axis
  */
-
 var axis = chart.xAxes.push(new am4charts.ValueAxis());
 axis.min = 0;
 axis.max = 100;
@@ -348,20 +347,29 @@ axis.renderer.labels.template.adapter.add("text", function(text) {
 var colorSet = new am4core.ColorSet();
 
 var axis2 = chart.xAxes.push(new am4charts.ValueAxis());
+//게이지 최소값
 axis2.min = 0;
+//게이지 최대값
 axis2.max = 100;
+//부채살 구분선
+
+//각도 
+axis2.startAngle= -90;
+axis2.endAngle= 270;
+
 axis2.renderer.innerRadius = 10
 axis2.strictMinMax = true;
 axis2.renderer.labels.template.disabled = true;
 axis2.renderer.ticks.template.disabled = true;
 axis2.renderer.grid.template.disabled = true;
 
+//실데이터 값 
 var range0 = axis2.axisRanges.create();
 range0.value = 0;
 range0.endValue = 50;
 range0.axisFill.fillOpacity = 1;
 range0.axisFill.fill = colorSet.getIndex(0);
-
+//반대방향 채색효과
 var range1 = axis2.axisRanges.create();
 range1.value = 50;
 range1.endValue = 100;
@@ -371,36 +379,46 @@ range1.axisFill.fill = colorSet.getIndex(2);
 /**
  * Label
  */
-
+//게이지 내부의 폰트크기 및 초기 세팅 설정이 가능
 var label = chart.radarContainer.createChild(am4core.Label);
 label.isMeasured = false;
-label.fontSize = 45;
+label.fontSize = 30;
 label.x = am4core.percent(50);
 label.y = am4core.percent(100);
 label.horizontalCenter = "middle";
 label.verticalCenter = "bottom";
-label.text = "50%";
+label.text = "0%";
 
 
 /**
  * Hand
  */
-
+//핸드는 게이지의 바늘을 뜻함. 다수의 바늘을 소환가능
 var hand = chart.hands.push(new am4charts.ClockHand());
 hand.axis = axis2;
+//핀이 길이 퍼센티지
 hand.innerRadius = am4core.percent(20);
 hand.startWidth = 10;
+//중앙에 고정핀 표출유무
 hand.pin.disabled = true;
-hand.value = 50;
+//핀이 가르킬 시작값.
+hand.value = 0;
 
+//인터벌 주는 데이터 연계처리하는 프로퍼티 체인지 정보
 hand.events.on("propertychanged", function(ev) {
+  //양수
   range0.endValue = ev.target.value;
+  //음수
   range1.value = ev.target.value;
+  //실데이터
   axis2.invalidate();
 });
 
+
 setInterval(function() {
-  var value = Math.round(Math.random() * 100);
+ 	//실제 여기에 데이터가 인입되는 결과에따라 게이지가 바뀜.
+	var value = Math.round(Math.random() * 100);
+   //중앙라벨의 표시
   label.text = value + "%";
   var animation = new am4core.Animation(hand, {
     property: "value",
