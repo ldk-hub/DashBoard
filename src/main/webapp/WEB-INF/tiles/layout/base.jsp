@@ -116,9 +116,6 @@
 	<script src="/static/vendors/mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"></script>
 	<!-- jQuery Knob -->
 	<script src="/static/vendors/jquery-knob/dist/jquery.knob.min.js"></script>
-	<!-- echart -->
-	<!-- <script src="/static/vendors/echarts/dist/echarts.min.js"></script>
-	<script src="/static/vendors/echarts/map/js/world.js"></script> -->
 	 <!-- Datatables -->
 	<script src="/static/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
 	<script src="/static/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
@@ -138,7 +135,7 @@
 	<!-- Dropzone.js -->
 	<script src="/static/vendors/dropzone/dist/min/dropzone.min.js"></script>
 	
-	
+	<!-- amcharts4  -->
 	<script src="/static/vendors/amcharts4/core.js"></script>
 	<script src="/static/vendors/amcharts4/charts.js"></script>
 	<script src="/static/vendors/amcharts4/themes/dark.js"></script>

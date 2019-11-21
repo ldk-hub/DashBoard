@@ -17,34 +17,6 @@
     		<!-- 라인 그래프  -->
       		<div class="right_col" role="main" style="background-color:#5c5c5c38;" >
       		<div class="row">
-      		<!--   <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel" style="background-color:#2f2e2e;">
-                  <div class="x_title">
-                    <h2 style="color:#c3f400">바그래프 통계</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Settings 1</a>
-                          </li>
-                          <li><a href="#">Settings 2</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-
-                    <div id="mainb" style="height:350px;"></div>
-
-                  </div>
-                </div>
-              </div> -->
               
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel" style="background-color:#2f2e2e;">
@@ -194,7 +166,7 @@
 am4core.ready(function() {
 
 // Themes begin
-am4core.useTheme(am4themes_moonrisekingdom);
+am4core.useTheme(am4themes_dark);
 am4core.useTheme(am4themes_animated);
 // Themes end
 
@@ -309,14 +281,15 @@ chart.data = [{
     "townName": "Las Vegas",
     "townName2": "Las Vegas"
 }, {
-    "date": "2012-01-15"
+    "date": "2019-01-15"
 }, {
-    "date": "2012-01-16"
+    "date": "2019-01-16"
 }, {
-    "date": "2012-01-17"
+    "date": "2019-01-17"
 }];
 
 // Create axes
+//날짜 값 
 var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
 dateAxis.renderer.grid.template.location = 0;
 dateAxis.renderer.minGridDistance = 50;
@@ -333,7 +306,7 @@ durationAxis.baseUnit = "minute";
 durationAxis.renderer.grid.template.disabled = true;
 durationAxis.renderer.opposite = true;
 
-durationAxis.durationFormatter.durationFormat = "hh'h' mm'min'";
+durationAxis.durationFormatter.durationFormat = "hh':'mm";
 
 var latitudeAxis = chart.yAxes.push(new am4charts.ValueAxis());
 latitudeAxis.renderer.grid.template.disabled = true;
@@ -409,6 +382,12 @@ chart.cursor.lineX.fillOpacity = 0.1;
 
 }); // end am4core.ready()
 </script>
+
+
+
+
+
+
 
 <script type="text/javascript">
 //자바스크립트 YYYY-MM-DD 오늘 날짜 구하기

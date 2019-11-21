@@ -84,7 +84,10 @@ body { background-color: #30303d; color: #fff; }
 					</ul>
 					<div class="clearfix"></div>
 				</div>
+				<div class="count" style="text-align:center;"></div>
+				
 				<div class="x_content">
+				
 					<p>CPU 점유율</p>
 					
 					<div id="chartdiv" style="height: 305px;"></div>
@@ -415,21 +418,29 @@ hand.events.on("propertychanged", function(ev) {
 });
 
 
-setInterval(function() {
- 	//실제 여기에 데이터가 인입되는 결과에따라 게이지가 바뀜.
-	var value = Math.round(Math.random() * 100);
-   //중앙라벨의 표시
-  label.text = value + "%";
-  var animation = new am4core.Animation(hand, {
-    property: "value",
-    to: value
-  }, 1000, am4core.ease.cubicOut).start();
-}, 2000);
+
+		setInterval(function() {
+		    var value ;
+			$.ajax({
+				cache : false,
+				url : '/myChart',
+				success : function(data) {
+					//실제 여기에 데이터가 인입되는 결과에따라 게이지가 바뀜.
+					value =  Math.round(data.replace('%',""));
+				  	//중앙라벨의 표시
+					label.text = value + "%";
+					  var animation = new am4core.Animation(hand, {
+					    property: "value",
+					    to: value
+				  }, 1000, am4core.ease.cubicOut).start();
+				}
+			});
+		}, 2000);
 
 }); // end am4core.ready()
 </script>
 
-
+<!-- 멀티 라인 차트 -->
 <script type="text/javascript">
 am4core.ready(function() {
 
@@ -437,8 +448,8 @@ am4core.ready(function() {
 	am4core.useTheme(am4themes_dark);
 	am4core.useTheme(am4themes_animated);
 	// Themes end
-
-	// Create chart instance
+	
+	//멀티 라인 차트 선언
 	var chart = am4core.create("chartdiv2", am4charts.XYChart);
 
 	// Increase contrast by taking evey second color
@@ -462,6 +473,7 @@ am4core.ready(function() {
 	  series.yAxis = valueAxis;
 	  series.name = name;
 	  series.tooltipText = "{name}: [bold]{valueY}[/]";
+	  //라인의 곡선표현
 	  series.tensionX = 0.8;
 	  
 	  var interfaceColors = new am4core.InterfaceColorSet();

@@ -34,4 +34,10 @@ public abstract class ScheduleCron {
   		scheduleSendService.scheduleDateSet(time);
   	}
   }
+  
+  
+  
+  
+  
+  
 }
