@@ -324,6 +324,9 @@ am4core.useTheme(am4themes_animated);
 var chart = am4core.create("chartdiv", am4charts.GaugeChart);
 chart.innerRadius = am4core.percent(82);
 
+chart.startAngle = -140;
+chart.endAngle = 100;
+
 /**
  * Normal axis
  */
@@ -357,9 +360,6 @@ axis2.max = 100;
 //부채살 구분선
 
 //각도 
-axis2.startAngle= -90;
-axis2.endAngle= 270;
-
 axis2.renderer.innerRadius = 10
 axis2.strictMinMax = true;
 axis2.renderer.labels.template.disabled = true;
@@ -389,7 +389,7 @@ label.fontSize = 30;
 label.x = am4core.percent(50);
 label.y = am4core.percent(100);
 label.horizontalCenter = "middle";
-label.verticalCenter = "bottom";
+label.verticalCenter = "middle";
 label.text = "0%";
 
 
@@ -400,8 +400,8 @@ label.text = "0%";
 var hand = chart.hands.push(new am4charts.ClockHand());
 hand.axis = axis2;
 //핀이 길이 퍼센티지
-hand.innerRadius = am4core.percent(20);
-hand.startWidth = 10;
+hand.innerRadius = am4core.percent(40);
+hand.startWidth = 5;
 //중앙에 고정핀 표출유무
 hand.pin.disabled = true;
 //핀이 가르킬 시작값.

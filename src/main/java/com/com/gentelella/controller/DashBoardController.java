@@ -84,21 +84,19 @@ public class DashBoardController {
 	}
 	
 	
-	//CPU차트 데이터 전송(수정중)
-	
+	//CPU차트 데이터 전송	
 	@RequestMapping(value = "/myChart", method = RequestMethod.GET)
 	@ResponseBody
 	public String myChart(Model model) throws Exception { // cpu점유율
 		// 측정(차트로 퍼센 테이지 호출 예정)
-		System.out.println("================== CPU정보 ====================");
+		//System.out.println("================== CPU정보 ====================");
 		JSONObject cpuObj = new JSONObject();
 		Sigar sigar = new Sigar();
 		CpuPerc cpu = null;
 		try { 
 			//cpu측정 영역 
 			cpu = sigar.getCpuPerc();
-			System.out.println(String.format("Cpu점유율 -> 사용중 : %s / 시스템 : %s / 아이들  : %s ",
-					CpuPerc.format(cpu.getUser()), CpuPerc.format(cpu.getSys()), CpuPerc.format(cpu.getIdle())));
+			//System.out.println(String.format("Cpu점유율 -> 사용중 : %s / 시스템 : %s / 아이들  : %s ",	CpuPerc.format(cpu.getUser()), CpuPerc.format(cpu.getSys()), CpuPerc.format(cpu.getIdle())));
 			cpuObj.put("data", CpuPerc.format(cpu.getUser()));
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -280,12 +280,6 @@ chart.data = [{
     "duration": 470,
     "townName": "Las Vegas",
     "townName2": "Las Vegas"
-}, {
-    "date": "2019-01-15"
-}, {
-    "date": "2019-01-16"
-}, {
-    "date": "2019-01-17"
 }];
 
 // Create axes
@@ -301,7 +295,7 @@ distanceAxis.title.text = "Distance";
 distanceAxis.renderer.grid.template.disabled = true;
 
 var durationAxis = chart.yAxes.push(new am4charts.DurationAxis());
-durationAxis.title.text = "Duration";
+durationAxis.title.text = "시간";
 durationAxis.baseUnit = "minute";
 durationAxis.renderer.grid.template.disabled = true;
 durationAxis.renderer.opposite = true;
@@ -318,7 +312,7 @@ distanceSeries.dataFields.valueY = "distance";
 distanceSeries.dataFields.dateX = "date";
 distanceSeries.yAxis = distanceAxis;
 distanceSeries.tooltipText = "{valueY} miles";
-distanceSeries.name = "Distance";
+distanceSeries.name = "거리";
 distanceSeries.columns.template.fillOpacity = 0.7;
 distanceSeries.columns.template.propertyFields.strokeDasharray = "dashLength";
 distanceSeries.columns.template.propertyFields.fillOpacity = "alpha";
@@ -382,11 +376,6 @@ chart.cursor.lineX.fillOpacity = 0.1;
 
 }); // end am4core.ready()
 </script>
-
-
-
-
-
 
 
 <script type="text/javascript">
