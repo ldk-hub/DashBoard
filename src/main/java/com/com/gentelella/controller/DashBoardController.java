@@ -77,9 +77,9 @@ public class DashBoardController {
 	    String username = loggedInUser.getName();
 	    //String organization_code = userCustom.getOrganization_code(); //추가정보로 끌어온 조직코드
 	    
-	   // paramMap.put("organization_code", organization_code); //시큐리티로그인 ID,password + 별도로 추가정보 끌어옴
+	    // paramMap.put("organization_code", organization_code); //시큐리티로그인 ID,password + 별도로 추가정보 끌어옴
 	    paramMap.put("user_id", username);
-	   // model.addAttribute("selectList",dashBoardService.selectBoxList(paramMap));
+	    // model.addAttribute("selectList",dashBoardService.selectBoxList(paramMap));
 		return VIEW_PATH + "dashboard";
 	}
 	
@@ -105,7 +105,7 @@ public class DashBoardController {
 	}
 	 
 	
-	//메모리 차트 데이터 전송(수정중)
+	//메모리 차트 데이터 전송
 	@RequestMapping(value = "/myChart2", method = RequestMethod.GET)
 	@ResponseBody
 	public String myChart2(Model model)throws Exception{
@@ -160,6 +160,8 @@ public class DashBoardController {
 	@RequestMapping(value = "/hyopage", method = RequestMethod.GET)
 	public String hyopage(Map<String, String> paramMap, ModelMap map) throws Exception {
 		map.addAttribute("list", dashBoardService.selectBoardList(paramMap));
+		
+		
 		return VIEW_PATH + "hyopage";
 	}
 	

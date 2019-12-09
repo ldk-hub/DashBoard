@@ -95,8 +95,8 @@
                  <table id="datatable-buttons" class="table table-striped table-bordered">
                       <thead>
                         <tr>
+                          <th>순번</th>
                           <th>자재번호</th>
-                          <th>제품명</th>
                           <th>브랜드명</th>
                           <th>상세내용</th>
                           <th>기타</th>
@@ -105,8 +105,8 @@
 	                     <tbody>
 							<c:forEach items="${list}" var="resultList">
 								<tr>
+									<th scope="row">${resultList.CERTNO }</th>
 									<th scope="row">${resultList.ITEMNO }</th>
-									<th scope="row">${resultList.ITEMNAME }</th>
 									<th scope="row">${resultList.BRDNAME }</th>
 									<th scope="row">${resultList.REASON }</th>
 									<th scope="row">${resultList.STATUS }</th>
@@ -280,7 +280,7 @@ chart.data = [{
     "duration": 470,
     "townName": "Las Vegas",
     "townName2": "Las Vegas"
-}];
+}]; 
 
 // Create axes
 //날짜 값 
@@ -378,6 +378,16 @@ chart.cursor.lineX.fillOpacity = 0.1;
 </script>
 
 
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		selectBoardList();
+	});
+</script>
+
+
+
+
 <script type="text/javascript">
 //자바스크립트 YYYY-MM-DD 오늘 날짜 구하기
 var Now = new Date();
@@ -397,6 +407,10 @@ var grid1 = new tui.Grid({
     bodyHeight: 350,
     virtualScrolling :true,
     rowHeaders:['checkbox','rowNum'],
+    rowHeight: 70,
+    columnOptions:{
+    	width:100
+    },
     columns: [
         {
             title: '브랜드명',
@@ -435,23 +449,33 @@ var grid1 = new tui.Grid({
                  }
         	}, */
         {
-            title: '브랜드명',
-            name: 'brdName',
-            editOptions: {
-                type: 'select',
-                listItems: [
-                    { text: 'Deluxe', value: '1' },
-                    { text: 'EP', value: '2' },
-                    { text: 'Single', value: '3' }
-                ],
-                useViewMode: true
-            }
+            title: '구분',
+            name: 'STATUS',
         }
     ]
 });
 		
+		
+		
+		
+		
+function selectBoardList() {
+	$.ajax({
+			type:'POST',
+			url : '/selectBoardList',
+			dataType:"json",
+			success : function(result){
+				grid1.setData(result.data);
+			},
+			error: function(data){
+			      alert('error 관리자에게문의하시오.');
+		    }
+		});
+	} 
+		
+		
 		//그리드에서 지원하는 NET통신
-		/*  grid1.use('Net',{
+		/*   grid1.use('Net',{
 			perPage:500,
 			readDataMethod: 'GET',
 			api:{
@@ -494,15 +518,15 @@ var grid1 = new tui.Grid({
 		/* 셀을 클릭할 때 팝업을 띄워주는 기능을 제공하고 있지는 않지만 제공되고 있는 
 		focusChange이벤트를 이용해서 해당 rowKey와 columnName을 가져와서 팝업을 띄워주도록 
 		하는 방식으로 개발이 될 수 있을 것 같습니다. */
-		grid1.on('focusChange', (ev) => {
-			  const{columnName, rowKey} = ev;
+		//grid1.on('focusChange', (ev) => {
+			  //const{columnName, rowKey} = ev;
 			  //클릭한셀의 정보 가져오기
 			  //console.log(grid1.getRow(rowKey));
 			  //img 의 src를 변경하는 방법
-			  $("#img_form_url").attr("src", imgurl);
+			  //$("#img_form_url").attr("src", imgurl);
 			  //팝업창띄우기 가장마지막에
-			  $('#popupModalNew').modal('toggle');
-			});
+			 // $('#popupModalNew').modal('toggle');
+			//});
 		
 		
 		

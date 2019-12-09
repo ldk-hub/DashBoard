@@ -52,11 +52,8 @@
 
 
 ### 진행예정
-1. CPU, RAM 수치 게이지형 차트 연동
-2. 풀캘린더 스케쥴 등록 처리 (목록 호출완료, 수정, 삭제 기능 추가예정)
-3. 계정별 풀캘린더 목록리스트 메인 페이지 to-do list 호출
-4. echart -> amchart4 적용
-5. amchart4 실데이터 연동 테스트 작업
+1. amchart4 실데이터 연동 테스트 작업(라인차트, stock차트 테스트중)
+2. README.md 이미지 -> 움짤로 시연영상 변경 
 
 ### 완료내역
 1. 시큐리티 로그인, 로그아웃 세션처리 완료(jpa)
@@ -78,8 +75,11 @@
 17. 실시간 모니터링용 페이지개발완료
 18. 시스템 다크테마 적용완료
 19. read.me 뱃지 추가 및 링크 적용 및 시스템 이미지 최신화 작업 완료
-20. 이미지 업로드 처리
-21. tui-grid에서 저장된 이미지 호출
+20. 이미지 업로드 처리 
+21. tui-grid에서 저장된 이미지 호출 완료
+22. sigar 라이브러리 연동작업 완료
+23. 차트게이지 정보데이터 실시간 모니터링 완료
+24. echart -> amchart4 반영완료
 
 ### 개발이슈
 1. SMTP 비밀번호 찾기 properties 정보 노출로 계정 정보 삭제
@@ -92,6 +92,7 @@
 9. tui-grid 업데이트 bootstrap-timepicker 업데이트 완료
 10. 이미지 처리시 서버의 OS에 따라 path 설정 및 처리방식이 다름.
 11. 기존 oracle -> postgresql DB변환 하였음.
+12. echart경우 중국어라서 한계점이 많았음. ->amchart4같은 경우 최근 이슈되기도하고 반응형에서도 대응이 확실하여 전환하게됨.
 
 ### API
  - System table : Datatables, tui grid
@@ -102,10 +103,11 @@
   
 ### 개발환경
   - 개발언어 : JAVA1.8
-  - 스프링 : Spring Boot, Spring Security, 
-  - DB : OracleDB, Postgresql-DB Mybatis, jpa, hibernate, lombok
+  - 스프링 : Spring Boot, Spring Security
+  - DB : OracleDB, Postgresql-DB
   - UI : gentelella, Tiles3, Bootstrap4
-
+  - 기타 : Mybatis, jpa, lombok
+  
 ### 프로젝트 세팅법
 1. 라이브러리중 dist 폴더 세팅
 2. DB 테이블 싱크 (테이블 정보 세팅예정 일부는 jpa가 자동세팅함.)

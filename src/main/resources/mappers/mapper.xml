@@ -5,11 +5,11 @@
 	<!-- 통계자료 호출 -->
 	<select id="selectBoardList" resultType="hashmap" parameterType="hashmap">
 		<![CDATA[
-		    SELECT seq certNo,
-                   ITEM_NUMBER itemNo,
-                   BRAND_NAME brdName,
-                   SEASON_REASON reason,
-                   STATUS status
+		    SELECT seq CERTNO,
+                   ITEM_NUMBER ITEMNO,
+                   BRAND_NAME BRDNAME,
+                   SEASON_REASON REASON,
+                   STATUS STATUS
               FROM AP_STATISTIC
                 ORDER BY certNo
 		]]>

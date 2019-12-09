@@ -35,7 +35,7 @@
        <!-- 캘린더 내부 모달 S -->
     <div id="CalenderModalNew"  class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
-        <div class="modal-content" style="background-color:#5c5c5c38;">
+        <div class="modal-content" style="background-color:#5c5c5c;">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             <h4 class="modal-title" id="myModalLabel">일정 등록</h4>
@@ -70,7 +70,7 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary antosubmit" id="schedule">저장</button>
+            <button type="button" class="btn btn-success antosubmit" id="schedule">저장</button>
             <button type="button" class="btn btn-default antoclose" data-dismiss="modal" OnClick="modalClose()">닫기</button>
           </div>
         </div>

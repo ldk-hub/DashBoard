@@ -60,7 +60,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	          .and()
 	          .sessionManagement()
 	          .maximumSessions(1)//최대접속세션계정당 1개
-	          .maxSessionsPreventsLogin(false)//이전세션 강퇴시키고 새로접속시도한사람이 들어가게끔
+	          .maxSessionsPreventsLogin(true)//이전세션 강퇴시키고 새로접속시도한사람이 들어가게끔
 	          .expiredUrl("/500error");
 	       /*   .and()
 	      .exceptionHandling().accessDeniedPage("/403");//권한이 없을경우 해당 url로 이동
