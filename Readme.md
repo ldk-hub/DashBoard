@@ -12,7 +12,7 @@
  * [개발환경](#개발환경)
 
 
-## login,security, SMTP E-mail Find Password, Membership page (Add regular expression)
+# login,security, SMTP E-mail Find Password, Membership page (Add regular expression)
 ![녹화_2019_12_27_16_59_23_687](https://user-images.githubusercontent.com/12209348/71508393-f957b100-28ca-11ea-96b7-cc9c693cf0a9.gif)
 
 ## Encrypt the member account information password
