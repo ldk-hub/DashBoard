@@ -12,7 +12,7 @@
  * [개발환경](#개발환경)
 
 
-## login,security, SMTP E-mail Find Password, 
+## login,security, SMTP E-mail Find Password, Membership page (Add regular expression)
 ![녹화_2019_12_27_16_59_23_687](https://user-images.githubusercontent.com/12209348/71508393-f957b100-28ca-11ea-96b7-cc9c693cf0a9.gif)
 
 ## Encrypt the member account information password
@@ -30,11 +30,6 @@
 ## Calendar Page
 ![calendar](https://user-images.githubusercontent.com/12209348/48657075-53533980-ea70-11e8-9f1a-a3f63f96bbe8.png)
 
-## Login Page
-![login](https://user-images.githubusercontent.com/12209348/48657077-53ebd000-ea70-11e8-846b-34a72b50f7c5.png)
-
-## SMTP E-mail Find Password
-![screencapture-localhost-9090-login-2018-08-16-20_50_35](https://user-images.githubusercontent.com/12209348/44206867-27d16200-a196-11e8-9b48-354e21f17a74.png)
 
 ## Membership page (Add regular expression)
 ![screencapture-localhost-9090-login-2018-08-16-20_41_04](https://user-images.githubusercontent.com/12209348/44206667-86e2a700-a195-11e8-82b5-cf75d610f89d.png)
