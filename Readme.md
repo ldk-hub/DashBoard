@@ -4,7 +4,7 @@
 
 ### Introduce Menu List
 
- * [화면UI](#-- login)
+ * [화면UI](#login)
  * [진행예정](#진행예정)
  * [사용한 API](#API)
  * [진행예정](#개발이슈)
