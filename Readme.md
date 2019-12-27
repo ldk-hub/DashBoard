@@ -4,7 +4,7 @@
 
 ### Introduce Menu List
 
- * [화면UI](#DashBoard)
+ * [화면UI](#-- login)
  * [진행예정](#진행예정)
  * [사용한 API](#API)
  * [진행예정](#개발이슈)
@@ -12,14 +12,14 @@
  * [개발환경](#개발환경)
 
 
-### -- login,security, SMTP E-mail Find Password, Membership page (Add regular expression) --
+
+
+
+### -- login, security, SMTP E-mail Find Password, Membership page (Add regular expression) --
 ![녹화_2019_12_27_16_59_23_687](https://user-images.githubusercontent.com/12209348/71508393-f957b100-28ca-11ea-96b7-cc9c693cf0a9.gif)
 
 ## Encrypt the member account information password
 ![1](https://user-images.githubusercontent.com/12209348/41805983-90200564-76ee-11e8-8c9d-ae10c214f873.PNG)
-
-## Main DashBoard
-![mainpage](https://user-images.githubusercontent.com/12209348/48657076-53533980-ea70-11e8-86d6-72a49c2d574f.png)
 
 ### RealTime Monitoring Page
 ![screencapture-localhost-9110-secondery-2019-08-14-13_06_51](https://user-images.githubusercontent.com/12209348/62994062-f7013700-be94-11e9-9c0b-ac9eab6c3510.png)
