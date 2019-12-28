@@ -28,11 +28,19 @@
 
 ![default](https://user-images.githubusercontent.com/12209348/43362948-91c6f26e-9332-11e8-9ef2-5738fb58c32e.PNG)
 
-## Color Concept : Dark Theme
-![screencapture-localhost-9110-dashboard-2019-08-14-13_13_19](https://user-images.githubusercontent.com/12209348/62994145-58c1a100-be95-11e9-93e8-ebedea1211d2.png)
+## Main Page
+![screencapture-localhost-9110-dashboard-2019-12-28-13_21_32](https://user-images.githubusercontent.com/12209348/71538837-455f3000-2975-11ea-9f2c-240ce6180186.png)
+
+## Data Edit Page
 ![screencapture-localhost-9090-hyopage-2019-08-10-11_53_15](https://user-images.githubusercontent.com/12209348/62841157-bca26900-bcdf-11e9-894a-2d77cfc81e2f.png)
+
+## Schedule Page
 ![screencapture-localhost-9110-calendar-2019-08-13-11_04_55](https://user-images.githubusercontent.com/12209348/62910147-6524fb80-bdba-11e9-96c3-aeff500369ea.png)
+
+## user custom page
 ![screencapture-localhost-9110-mypage-2019-08-14-13_08_24](https://user-images.githubusercontent.com/12209348/62994061-f668a080-be94-11e9-9d0d-b53208b15b30.png)
+
+
 ### RealTime Monitoring Page
 ![screencapture-localhost-9110-secondery-2019-08-14-13_06_51](https://user-images.githubusercontent.com/12209348/62994062-f7013700-be94-11e9-9c0b-ac9eab6c3510.png)
 
@@ -41,7 +49,6 @@
 
 ### 진행예정
 1. amchart4 실데이터 연동 테스트 작업(라인차트, stock차트 테스트중)
-2. README.md 이미지 -> 움짤로 시연영상 변경 
 
 ### 완료내역
 1. 시큐리티 로그인, 로그아웃 세션처리 완료(jpa)
