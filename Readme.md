@@ -21,7 +21,11 @@
 ## Encrypt the member account information password
 ![1](https://user-images.githubusercontent.com/12209348/41805983-90200564-76ee-11e8-8c9d-ae10c214f873.PNG)
 
+
 ## local PC(server) infomation(CPU, Memory etc.)
+
+![CPU측정](https://user-images.githubusercontent.com/12209348/71538778-79862100-2974-11ea-891f-e0706ec22af9.gif)
+
 ![default](https://user-images.githubusercontent.com/12209348/43362948-91c6f26e-9332-11e8-9ef2-5738fb58c32e.PNG)
 
 ## Color Concept : Dark Theme
