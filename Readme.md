@@ -4,16 +4,13 @@
 
 ### Introduce Menu List
 
- * [화면UI](#expression)
+ * [API리스트](#리스트)
  * [진행예정](#진행예정)
- * [사용한 API](#API)
  * [진행예정](#개발이슈)
  * [완료내역](#완료내역)
  * [개발환경](#개발환경)
 
-
-
-
+  
 
 ### -- login, security, SMTP E-mail Find Password, Membership page (Add regular expression) --
 ![녹화_2019_12_27_16_59_23_687](https://user-images.githubusercontent.com/12209348/71508393-f957b100-28ca-11ea-96b7-cc9c693cf0a9.gif)
@@ -72,7 +69,7 @@
 17. 실시간 모니터링용 페이지개발완료
 18. 시스템 다크테마 변경완료
 19. read.me 뱃지 추가 및 링크 적용 및 시스템 이미지 최신화 작업 완료
-20. 이미지 업로드 처리 
+20. 이미지 업로드 처리 로직 추가 
 21. tui-grid에서 저장된 이미지 호출 완료
 22. sigar 라이브러리 연동작업 완료
 23. 차트게이지 정보데이터 실시간 모니터링 완료
@@ -91,11 +88,11 @@
 11. 기존 oracle -> postgresql DB변환 하였음.
 12. echart경우 중국어라서 한계점이 많았음. ->amchart4같은 경우 최근 이슈되기도하고 반응형에서도 대응이 확실하여 전환하게됨.
 
-### API
+### API리스트
  - System table : Datatables, tui grid
  - 날씨, 지도 : daum maps, Skycons
  - 차트 : amcharts4
- - 캘린더 : fullcalendar, bootstrap-daterangepicker, Bootstrap Colorpicker, DateJS
+ - 캘린더 : fullcalendar, bootstrap-daterangepicker, DateJS
  - 기타 : Dropzone, NProgress, iCheck, Flot
   
 ### 개발환경
