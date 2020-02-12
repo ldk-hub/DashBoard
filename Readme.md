@@ -95,11 +95,11 @@
  - 기타 : Dropzone, NProgress, iCheck, Flot
   
 ### 개발환경
-  - 개발언어 : JAVA1.8
-  - 스프링 : Spring Boot, Spring Security
+  - language : JAVA1.8
+  - framework : Spring Boot, Spring Security
   - DB : OracleDB, Postgresql-DB
   - UI : gentelella, Tiles3, Bootstrap4
-  - 기타 : Mybatis, jpa, lombok
+  - etc : Mybatis, jpa, lombok
   
 ### 프로젝트 세팅법
 1. 라이브러리중 dist 폴더 세팅
