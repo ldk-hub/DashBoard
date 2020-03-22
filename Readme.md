@@ -98,7 +98,7 @@
   - language : JAVA1.8
   - framework : Spring Boot, Spring Security
   - DB : OracleDB, Postgresql-DB
-  - UI : gentelella, Tiles3, Bootstrap4
+  - UI : gentelella, Tiles3, Bootstrap
   - etc : Mybatis, jpa, lombok
   
 ### 프로젝트 세팅법
