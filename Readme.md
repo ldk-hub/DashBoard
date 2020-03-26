@@ -85,7 +85,7 @@
 9. tui-grid 업데이트 bootstrap-timepicker 업데이트 완료
 10. 이미지 처리시 서버의 OS에 따라 path 설정 및 처리방식이 다름.
 11. 기존 oracle -> postgresql DB변환 하였음.
-12. echart경우 중국어라서 한계점이 많았음. ->amchart4같은 경우 최근 이슈되기도하고 반응형에서도 대응이 확실하여 전환하게됨.
+12. echart경우 중국어라서 한계점이 많았음. ->amchart4같은 경우 최근 이슈되기도하고 반응형에서도 대응이 확실하여 전환결정.
 
 ### API리스트
  - System table : Datatables, tui grid
