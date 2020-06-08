@@ -247,11 +247,11 @@ body { background-color: #30303d; color: #fff; }
 		</div>
 		<!-- 날짜 UI E -->
 	
-		<!-- e차트 S -->
+		<!-- amcharts S -->
 		<div class="col-md-12 col-sm-12 col-xs-12">
 			<div class="x_panel" style="background-color:#2f2e2e;">
 				<div class="x_title">
-					<h2 style="color:#c3f400;">상품 월별 차트</h2>
+					<h2 style="color:#c3f400;">메모리 점유 현황</h2>
 					<ul class="nav navbar-right panel_toolbox">
 						<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 						</li>
@@ -432,10 +432,10 @@ hand.events.on("propertychanged", function(ev) {
 					  var animation = new am4core.Animation(hand, {
 					    property: "value",
 					    to: value
-				  }, 1000, am4core.ease.cubicOut).start();
+				  }, 10000, am4core.ease.cubicOut).start();
 				}
 			});
-		}, 2000);
+		}, 20000);
 
 }); // end am4core.ready()
 </script>
@@ -444,10 +444,9 @@ hand.events.on("propertychanged", function(ev) {
 <script type="text/javascript">
 am4core.ready(function() {
 
-	// Themes begin
+	// amcharts 테마 및 애니메이션 설정
 	am4core.useTheme(am4themes_dark);
 	am4core.useTheme(am4themes_animated);
-	// Themes end
 	
 	//멀티 라인 차트 선언
 	var chart = am4core.create("chartdiv2", am4charts.XYChart);
@@ -520,10 +519,10 @@ am4core.ready(function() {
 	  valueAxis.renderer.opposite = opposite;
 	  valueAxis.renderer.grid.template.disabled = true;
 	}
-
-	createAxisAndSeries("visits", "Visits", false, "circle");
-	createAxisAndSeries("views", "Views", true, "triangle");
-	createAxisAndSeries("hits", "Hits", true, "rectangle");
+	//명칭과 도형 표기
+	createAxisAndSeries("total", "Total", false, "circle");
+	createAxisAndSeries("free", "Free", true, "triangle");
+	createAxisAndSeries("used", "Used", true, "rectangle");
 
 	// Add legend
 	chart.legend = new am4charts.Legend();
@@ -537,27 +536,29 @@ am4core.ready(function() {
 	  var firstDate = new Date();
 	  firstDate.setDate(firstDate.getDate() - 100);
 	  firstDate.setHours(0, 0, 0, 0);
-
-	  var visits = 1600;
-	  var hits = 2900;
-	  var views = 8700;
+		//초기 데이터 값
+	  var total = 0;
+	  var free = 0;
+	  var used = 0;
 
 	  for (var i = 0; i < 15; i++) {
-	    // we create date objects here. In your data, you can have date strings
-	    // and then set format of your dates using chart.dataDateFormat property,
-	    // however when possible, use date objects, as this will speed up chart rendering.
+		/*   여기서 날짜 객체를 만들 수 있음. 데이터에 날짜 문자열이 있을 수 있음
+		  chart.dataDateFormat 속성을 사용하여 날짜 형식을 설정하십시오.
+		  그러나 가능하면 날짜 개체를 사면됨. 이렇게 하면 차트 렌더링 속도가 빨라지기 때문이다. */
 	    var newDate = new Date(firstDate);
 	    newDate.setDate(newDate.getDate() + i);
-
-	    visits += Math.round((Math.random()<0.5?1:-1)*Math.random()*10);
-	    hits += Math.round((Math.random()<0.5?1:-1)*Math.random()*10);
-	    views += Math.round((Math.random()<0.5?1:-1)*Math.random()*10);
-
+		
+	    //현재는 랜덤으로 데이터를 돌리는중 <<이곳에 데이터 메모리 점유 부분 전달
+	    total += Math.round((Math.random()<0.5?1:-1)*Math.random()*10);
+	    free += Math.round((Math.random()<0.5?1:-1)*Math.random()*20);
+	    used += Math.round((Math.random()<0.5?1:-1)*Math.random()*10);
+		
+	    //데이터 매핑
 	    chartData.push({
 	      date: newDate,
-	      visits: visits,
-	      hits: hits,
-	      views: views
+	      total: total,
+	      free: free,
+	      used: used
 	    });
 	  }
 	  return chartData;
