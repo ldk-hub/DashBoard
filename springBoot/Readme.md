@@ -4,56 +4,49 @@
 
 ### Introduce Menu List
 
- * [화면UI](#DashBoard)
+ * [API리스트](#리스트)
  * [진행예정](#진행예정)
- * [사용한 API](#API)
  * [진행예정](#개발이슈)
  * [완료내역](#완료내역)
  * [개발환경](#개발환경)
 
+  
 
-## Main DashBoard
-![mainpage](https://user-images.githubusercontent.com/12209348/48657076-53533980-ea70-11e8-86d6-72a49c2d574f.png)
-
-### RealTime Monitoring Page
-![screencapture-localhost-9110-secondery-2019-08-14-13_06_51](https://user-images.githubusercontent.com/12209348/62994062-f7013700-be94-11e9-9c0b-ac9eab6c3510.png)
-
-## Data Chart Page
-![data](https://user-images.githubusercontent.com/12209348/48657074-53533980-ea70-11e8-9114-97814ee4b032.png)
-
-## Calendar Page
-![calendar](https://user-images.githubusercontent.com/12209348/48657075-53533980-ea70-11e8-9f1a-a3f63f96bbe8.png)
-
-## Login Page
-![login](https://user-images.githubusercontent.com/12209348/48657077-53ebd000-ea70-11e8-846b-34a72b50f7c5.png)
-
-## SMTP E-mail Find Password
-![screencapture-localhost-9090-login-2018-08-16-20_50_35](https://user-images.githubusercontent.com/12209348/44206867-27d16200-a196-11e8-9b48-354e21f17a74.png)
-
-## Membership page (Add regular expression)
-![screencapture-localhost-9090-login-2018-08-16-20_41_04](https://user-images.githubusercontent.com/12209348/44206667-86e2a700-a195-11e8-82b5-cf75d610f89d.png)
+### -- login, security, SMTP E-mail Find Password, Membership page (Add regular expression) --
+![녹화_2019_12_27_16_59_23_687](https://user-images.githubusercontent.com/12209348/71508393-f957b100-28ca-11ea-96b7-cc9c693cf0a9.gif)
 
 ## Encrypt the member account information password
 ![1](https://user-images.githubusercontent.com/12209348/41805983-90200564-76ee-11e8-8c9d-ae10c214f873.PNG)
 
-## Member information page (data for each member)
-![screencapture-localhost-9090-mypage-2018-08-16-20_39_51](https://user-images.githubusercontent.com/12209348/44206682-8f3ae200-a195-11e8-8d04-2e9faef932fd.png)
 
 ## local PC(server) infomation(CPU, Memory etc.)
+
+![CPU측정](https://user-images.githubusercontent.com/12209348/71538778-79862100-2974-11ea-891f-e0706ec22af9.gif)
+
 ![default](https://user-images.githubusercontent.com/12209348/43362948-91c6f26e-9332-11e8-9ef2-5738fb58c32e.PNG)
 
-## Color Concept : Dark Theme
-![screencapture-localhost-9110-dashboard-2019-08-14-13_13_19](https://user-images.githubusercontent.com/12209348/62994145-58c1a100-be95-11e9-93e8-ebedea1211d2.png)
+## Main Page
+![녹화_2019_12_28_13_50_01_980](https://user-images.githubusercontent.com/12209348/71539042-5dd14980-2979-11ea-973a-dc58d91aa385.gif)
+
+![screencapture-localhost-9110-dashboard-2019-12-28-13_21_32](https://user-images.githubusercontent.com/12209348/71538837-455f3000-2975-11ea-9f2c-240ce6180186.png)
+
+## Data Edit Page
 ![screencapture-localhost-9090-hyopage-2019-08-10-11_53_15](https://user-images.githubusercontent.com/12209348/62841157-bca26900-bcdf-11e9-894a-2d77cfc81e2f.png)
+
+## Schedule Page
 ![screencapture-localhost-9110-calendar-2019-08-13-11_04_55](https://user-images.githubusercontent.com/12209348/62910147-6524fb80-bdba-11e9-96c3-aeff500369ea.png)
+
+## user custom page
 ![screencapture-localhost-9110-mypage-2019-08-14-13_08_24](https://user-images.githubusercontent.com/12209348/62994061-f668a080-be94-11e9-9d0d-b53208b15b30.png)
 
+
+### RealTime Monitoring Page
+![screencapture-localhost-9110-secondery-2019-08-14-13_06_51](https://user-images.githubusercontent.com/12209348/62994062-f7013700-be94-11e9-9c0b-ac9eab6c3510.png)
 
 
 
 ### 진행예정
-1. amchart4 실데이터 연동 테스트 작업(라인차트, stock차트 테스트중)
-2. README.md 이미지 -> 움짤로 시연영상 변경 
+1. amchart4 실데이터 연동 테스트 작업(라인차트, stock차트 테스트중) - amcharts api 분석 -> 소스내 주석처리 중
 
 ### 완료내역
 1. 시큐리티 로그인, 로그아웃 세션처리 완료(jpa)
@@ -75,15 +68,15 @@
 17. 실시간 모니터링용 페이지개발완료
 18. 시스템 다크테마 변경완료
 19. read.me 뱃지 추가 및 링크 적용 및 시스템 이미지 최신화 작업 완료
-20. 이미지 업로드 처리 
+20. 이미지 업로드 처리 로직 추가 
 21. tui-grid에서 저장된 이미지 호출 완료
 22. sigar 라이브러리 연동작업 완료
 23. 차트게이지 정보데이터 실시간 모니터링 완료
 24. echart -> amchart4 반영완료
 
 ### 개발이슈
-1. SMTP 비밀번호 찾기 properties 정보 노출로 계정 정보 삭제
-2. 날씨 API darksky(api 1000번 테스트 호출 이후 유료), 구글 웨더(서비스 종료), skplant 웨더 API(서비스종료)로 인한 날씨정보 API 부재로 하드코딩 
+1. SMTP 비밀번호 찾기 properties 정보 계정 정보 삭제
+2. 날씨 API darksky(유료), 구글 웨더(서비스 종료), skplant 웨더 API(서비스종료)로 인한 날씨정보 API 부재로 하드코딩 
 3. 풀캘린더 일정 등록 및 삭제 로직 개발 중
 4. local 장비 서버 및 pc 정보 차트연동
 5. 세계 인구수 정보 보다 다음(카카오) 지도 api를 통한 지역정보를 가져오는게 효율적일것으로 판단하여 변경 
@@ -92,22 +85,22 @@
 9. tui-grid 업데이트 bootstrap-timepicker 업데이트 완료
 10. 이미지 처리시 서버의 OS에 따라 path 설정 및 처리방식이 다름.
 11. 기존 oracle -> postgresql DB변환 하였음.
-12. echart경우 중국어라서 한계점이 많았음. ->amchart4같은 경우 최근 이슈되기도하고 반응형에서도 대응이 확실하여 전환하게됨.
+12. echart경우 중국어라서 한계점이 많았음. ->amchart4같은 경우 최근 이슈되기도하고 반응형에서도 대응이 확실하여 전환결정.
 
-### API
+### API리스트
  - System table : Datatables, tui grid
  - 날씨, 지도 : daum maps, Skycons
  - 차트 : amcharts4
- - 캘린더 : fullcalendar, bootstrap-daterangepicker, Bootstrap Colorpicker, DateJS
+ - 캘린더 : fullcalendar, bootstrap-daterangepicker, DateJS
  - 기타 : Dropzone, NProgress, iCheck, Flot
   
 ### 개발환경
-  - 개발언어 : JAVA1.8
-  - 스프링 : Spring Boot, Spring Security
+  - language : JAVA1.8
+  - framework : Spring Boot, Spring Security
   - DB : OracleDB, Postgresql-DB
-  - UI : gentelella, Tiles3, Bootstrap4
-  - 기타 : Mybatis, jpa, lombok
+  - UI : gentelella, Tiles3, Bootstrap
+  - etc : Mybatis, jpa, lombok
   
 ### 프로젝트 세팅법
 1. 라이브러리중 dist 폴더 세팅
-2. DB 테이블 싱크 (테이블 정보 세팅예정 일부는 jpa가 자동세팅함.)
+2. DB 테이블 싱크 (테이블 구성도 별도 기재예정 일부  서버기동시 자동생성됨.)
