@@ -73,6 +73,9 @@ public class DashBoardServiceImpl implements DashBoardService  {
 		return dashBoardDAO.DashboardList(paramMap);
 	}
 
+	public List<Object> multiChart2(Map<String, String> paramMap)throws Exception {
+		return dashBoardDAO.multiChart2(paramMap);
+	}
 
 
 

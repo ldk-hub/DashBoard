@@ -33,4 +33,6 @@ public interface DashBoardService {
 	
 	public int insertSchedule(Map<String, String> paramMap) throws Exception;
 	
+	public List<Object> multiChart2(Map<String, String> paramMap) throws Exception;
+	
 }

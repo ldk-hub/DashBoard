@@ -109,5 +109,15 @@
                  sysdate,
                 #{int_name})
 	</insert>
+	<select id="multiChartData" resultType="hashmap" parameterType="hashmap">
+		SELECT seq, 
+			name,
+			temp1 free, 
+			temp2 total, 
+			temp3 used, 
+			to_char(date, 'YYYY-MM-DD') date
+		FROM multi_data 
+			limit 15
+	</select>
 </mapper>
   

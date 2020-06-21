@@ -74,6 +74,10 @@ public class DashBoardDAO extends SqlSessionDaoSupport {
 	public List<Object> DashboardList(Map<String, String> paramMap)throws Exception {
 		return getSqlSession().selectList("dashBoardMapper.DashboardList", paramMap);
 	}
+	
+	public List<Object> multiChart2(Map<String, String> paramMap)throws Exception {
+		return getSqlSession().selectList("dashBoardMapper.multiChartData", paramMap);
+	}
 	 
 }
 

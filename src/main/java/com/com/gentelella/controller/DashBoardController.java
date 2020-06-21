@@ -114,6 +114,8 @@ public class DashBoardController {
 		Mem mem = null;//memory
 		String pattern = "####.##";//memory
 			try {
+				
+				
 					//메모리측정 영역
 					mem = sigar1.getMem();
 					 //KB -> GB 변환 
@@ -129,6 +131,12 @@ public class DashBoardController {
 				e.printStackTrace();
 			}
 		return memObj.toString();
+	}
+	//멀티차트용 데이터 호출
+	@RequestMapping(value = "/multiChart2", method = {RequestMethod.GET,RequestMethod.POST}, produces = "application/json; charset=utf8")
+	@ResponseBody
+	public Object multiChart2(@RequestParam Map<String, String> paramMap, ModelMap map) throws Exception {
+		return resultData(dashBoardService.multiChart2(paramMap),paramMap);
 	}
 		
 	// 일정관리페이지
