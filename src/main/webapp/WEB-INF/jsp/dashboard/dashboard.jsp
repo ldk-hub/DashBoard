@@ -311,6 +311,25 @@ body { background-color: #30303d; color: #fff; }
 	<script src="../static/vendors/amcharts4/themes/dark.js"></script>
 	<script src="../static/vendors/amcharts4/themes/animated.js"></script>
 <!-- 차트게이지 -->
+
+<script type="text/javascript">
+$(document).ready(function(){
+	test();
+});
+</script>
+
+<script type="text/javascript">
+function test() {
+	$.ajax({
+		//cache : false,
+		url : '/multiChart2',
+		success : function(data) {
+			//여기에 데이터 연동 해야됨.값은 던져주게처리완료함.
+		}
+	});
+}
+</script>
+
 <!-- Chart code -->
 <script type="text/javascript">
 am4core.ready(function() {
@@ -432,7 +451,7 @@ hand.events.on("propertychanged", function(ev) {
 					  var animation = new am4core.Animation(hand, {
 					    property: "value",
 					    to: value
-				  }, 10000, am4core.ease.cubicOut).start();
+				  }, 1000, am4core.ease.cubicOut).start();
 				}
 			});
 		}, 20000);
@@ -562,7 +581,12 @@ am4core.ready(function() {
 	    });
 	  }
 	  return chartData;
+	  
 	}
+	
+	
+	
+
 
 	}); // end am4core.ready()
 
