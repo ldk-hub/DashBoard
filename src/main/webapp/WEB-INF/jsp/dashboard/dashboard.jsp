@@ -313,21 +313,9 @@ body { background-color: #30303d; color: #fff; }
 <!-- 차트게이지 -->
 
 <script type="text/javascript">
-$(document).ready(function(){
-	test();
-});
-</script>
-
-<script type="text/javascript">
-function test() {
-	$.ajax({
-		//cache : false,
-		url : '/multiChart2',
-		success : function(data) {
-			//여기에 데이터 연동 해야됨.값은 던져주게처리완료함.
-		}
-	});
-}
+/* $(document).ready(function(){
+	multiChart(); //멀티차트 
+}); */
 </script>
 
 <!-- Chart code -->
@@ -559,38 +547,52 @@ am4core.ready(function() {
 	  var total = 0;
 	  var free = 0;
 	  var used = 0;
-
-	  for (var i = 0; i < 15; i++) {
-		/*   여기서 날짜 객체를 만들 수 있음. 데이터에 날짜 문자열이 있을 수 있음
-		  chart.dataDateFormat 속성을 사용하여 날짜 형식을 설정하십시오.
-		  그러나 가능하면 날짜 개체를 사면됨. 이렇게 하면 차트 렌더링 속도가 빨라지기 때문이다. */
-	    var newDate = new Date(firstDate);
-	    newDate.setDate(newDate.getDate() + i);
-		
-	    //현재는 랜덤으로 데이터를 돌리는중 <<이곳에 데이터 메모리 점유 부분 전달
-	    total += Math.round((Math.random()<0.5?1:-1)*Math.random()*10);
-	    free += Math.round((Math.random()<0.5?1:-1)*Math.random()*20);
-	    used += Math.round((Math.random()<0.5?1:-1)*Math.random()*10);
-		
-	    //데이터 매핑
-	    chartData.push({
-	      date: newDate,
-	      total: total,
-	      free: free,
-	      used: used
-	    });
-	  }
-	  return chartData;
 	  
+	  //ajax 시작
+	  $.ajax({
+			type:'POST',
+			url : '/multiChart2',
+			dataType:"json",
+		success : function(data) { //멀티라인 차트 화면상 표출 15개 제한이라서 DB에서 15개의 데이터만 우선적으로 가져올수 있도록처리함.
+		    $.each(data, function(index, item){
+		    	var newDate = new Date(firstDate);
+		   		newDate.setDate(newDate.getDate()+index);//데이터 호출갯수증가치만큼 하루씩 증가토록 처리함
+		    	total += item.total; //초기 값에 누적된 값을 순차적으로 찍어내는 구조임 차트 표현식 상 15개가 맥시멈이여서 15개의 데이터만 리밋으로 호출해옴
+		    	used += item.used;
+		    	free += item.free;
+				 //데이터 매핑
+		    	 chartData.push({
+				      date: newDate, //날짜값 기준으로 차트 내 데이터가 찍힘
+				      total: total,  //메모리(임시)값을 표출 누적방식표출
+				      free: free,
+				      used: used
+			   		 });
+				});
+			}
+		});
+	  //ajax 끝
+	  return chartData;
 	}
-	
-	
-	
-
-
-	}); // end am4core.ready()
-
+}); // end am4core.ready()
 </script>
+
+<!-- 멀티차트 데이터 호출 -->
+<!-- <script type="text/javascript">
+function multiChart() {
+	$.ajax({
+			cache : false,
+			url : '/multiChart2',
+		success : function(data) {
+			//데이터 확인 
+			//alert(JSON.stringify(data));
+			total  //1번 x,y축 데이터
+			used   //2번 x,y축 데이터
+			free   //3번 x,y축 데이터
+			
+		}
+	});
+}
+</script> -->
 
 <!-- 지도 API 제어 명령어 -->
 <script type="text/javascript">

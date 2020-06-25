@@ -132,11 +132,13 @@ public class DashBoardController {
 			}
 		return memObj.toString();
 	}
+	
+	
 	//멀티차트용 데이터 호출
 	@RequestMapping(value = "/multiChart2", method = {RequestMethod.GET,RequestMethod.POST}, produces = "application/json; charset=utf8")
 	@ResponseBody
-	public Object multiChart2(@RequestParam Map<String, String> paramMap, ModelMap map) throws Exception {
-		return resultData(dashBoardService.multiChart2(paramMap),paramMap);
+	public List<Object> multiChart2(@RequestParam Map<String, String> paramMap) throws Exception {
+		return dashBoardService.multiChart2(paramMap);
 	}
 		
 	// 일정관리페이지

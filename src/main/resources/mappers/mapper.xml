@@ -115,7 +115,7 @@
 			temp1 free, 
 			temp2 total, 
 			temp3 used, 
-			to_char(date, 'YYYY-MM-DD') date
+			date
 		FROM multi_data 
 			limit 15
 	</select>
