@@ -92,7 +92,7 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content"> 
-                 <table id="datatable-buttons" class="table table-striped table-bordered">
+                 <table id="datatable-buttons" class="table table-bordered">
                       <thead>
                         <tr>
                           <th>순번</th>

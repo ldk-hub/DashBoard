@@ -63,7 +63,7 @@
 							<div id="myTabContent" class="tab-content">
 								<div role="tabpanel" class="tab-pane fade active in"
 									id="tab_content1" aria-labelledby="home-tab">
-									<table class="data table table-striped no-margin">
+									<table class="data table no-margin">
 										<thead>
 											<tr>
 												<th>순번</th>

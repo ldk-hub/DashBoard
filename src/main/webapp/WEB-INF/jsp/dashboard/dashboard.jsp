@@ -6,7 +6,7 @@
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e0fe198a94267329d51b8335fe81e6ea"></script>
 
 <style>
-body { background-color: #30303d; color: #fff; }
+/* body {  color: #fff; }  */
 #chartdiv {
   width: 100%;
   height: 500px;

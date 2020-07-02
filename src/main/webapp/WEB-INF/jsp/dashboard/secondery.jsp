@@ -81,7 +81,7 @@
 <!-- 모달 페이지 -->
 <div id="popupModalNew" class="modal fade" tabindex="-1"
 	role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
-	<div class="modal-dialog" style="width:1340px;">
+	<div class="modal-dialog" style="width:80%;">
 		<div class="modal-content" style="background-color:#2f2e2e;">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal"
@@ -91,7 +91,7 @@
 				</h4>
 			</div>
 			<div class="modal-body">
-					<img id="img_form_url" src="" style="width:1300px; height:700px;"/>
+					<img id="img_form_url" src="" style="width:100%; height:450px;"/>
 				<div class="clearfix"></div>
 					
 			</div>
