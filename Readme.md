@@ -44,6 +44,10 @@
 ![screencapture-localhost-9110-secondery-2019-08-14-13_06_51](https://user-images.githubusercontent.com/12209348/62994062-f7013700-be94-11e9-9c0b-ac9eab6c3510.png)
 
 
+### 개발예정
+1. Mybatis 사용 로직 -> JPA전환 작업
+2. 각 로직 또는 데이터 관련 TDD 구성
+
 ### 완료내역
 1. 시큐리티 로그인, 로그아웃 세션처리 완료(jpa사용)
 2. 샘플데이터 게시판목록 호출 완료(mybatis사용)
@@ -83,6 +87,7 @@
 14. 멀티라인차트,게이지차트 두가지를 한화면 내에서 동시 처리하는 과정에서 속도이슈 발생 최적화 방안 검토예정
 15. 쓰지 않는 라이브러리들 전부 제거 작업 ->로딩 및 속도저하 이슈 발생
 16. 다크테마 전환 과정 중 발생한 UI크래시  부분 개선
+17. 오라클 -> postgresql 전환중 마이바티스 전면 수정으로인한 이슈로 Mybatis -> JPA 전환 검토
 
 ### API리스트
  - System table : Datatables, tui grid
