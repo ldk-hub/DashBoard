@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
-
+<!-- bootstrap-daterangepicker -->
+    <link href="../static/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+	 <!-- bootstrap-datetimepicker -->
+    <link href="../static/vendors/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
   <!-- 캘린더 API S -->
         <div class="right_col" role="main" style="background-color:#5c5c5c38;">
             <div class="clearfix"></div>
@@ -81,6 +84,109 @@
     <div id="fc_edit" data-toggle="modal" data-target="#CalenderModalEdit"></div>
       <!-- 캘린더 내부 모달 E -->
     
+    <script src="../static/vendors/moment/min/moment.min.js"></script>
+    <!-- bootstrap-daterangepicker -->
+	<script src="../static/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+	 <!-- bootstrap-datetimepicker -->    
+	<script src="../static/vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+	<!-- FullCalendar -->
+	<script src="../static/vendors/fullcalendar/dist/fullcalendar.min.js"></script>
+	<script src="../static/vendors/fullcalendar/dist/gcal.js"></script>
+	
+	<!-- Initialize datetimepicker -->
+	<script>
+	    $('#myDatepicker').datetimepicker();
+	    
+	    $('#myDatepicker2').datetimepicker({
+	        format: 'YYYY.DD.MM'
+	    });
+	    
+	    $('#myDatepicker3').datetimepicker({
+	        format: 'hh:mm A'
+	    });
+	    
+	    $('#myDatepicker4').datetimepicker({
+	        ignoreReadonly: true,
+	        allowInputToggle: true
+	    });
+	
+	    $('#datetimepicker6').datetimepicker();
+	    
+	    $('#datetimepicker7').datetimepicker({
+	        useCurrent: false
+	    });
+	    
+	    $("#datetimepicker6").on("dp.change", function(e) {
+	        $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+	    });
+	    
+	    $("#datetimepicker7").on("dp.change", function(e) {
+	        $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+	    });
+	</script>
+	<!-- 일정관리페이지 -->
+	<script type="text/javascript">
+        jQuery("#calendar").fullCalendar({
+            header : {
+                  left : "month,today,agendaWeek"
+                , center : "title"
+                , right : "prev,next"
+            }
+	        , allDayDefault: true 
+	        , selectable: true
+	        , selectHelper: true
+            , lang : "ko"
+            , editable : true
+            , eventLimit : true
+            , googleCalendarApiKey : "AIzaSyDcnW6WejpTOCffshGDDb4neIrXVUA1EAE"  // Google API KEY
+           	, columnFormat:'ddd'
+   	        , monthNames: ["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"]
+   	       	, monthNamesShort: ["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"]
+   	        , dayNames: ["일요일","월요일","화요일","수요일","목요일","금요일","토요일"]
+   	        , dayNamesShort: ["일","월","화 ","수 ","목 ","금 ","토 "]      ///한글로변환
+   	        , buttonText: {
+   	    	    today : "오늘",
+   	    	    month : "월별",
+   	    	 agendaWeek : "일주일"
+   	    	   }
+            // 예제소스에 적힌 구글캘린더 API 키는 FullCalendar 예제에 있는 API키를 그대로 사용한 것이다.
+			, select: function(start, end) {
+			    $('#CalenderModalNew').modal('show');
+			    dt_start = moment(start).format('YYYY-MM-DD');
+			    dt_end = moment(end).format('YYYY-MM-DD');
+			   }
+            , eventSources : [// 대한민국의 공휴일
+                {
+                      googleCalendarId : "ko.south_korea#holiday@group.v.calendar.google.com"
+                    , className : "koHolidays"
+                    , color : "#9c2626"
+                    , textColor : "#FFFFFF"
+                }
+            ], 
+           /*  events: function(start, end, timezone, callback) {
+                $.ajax({
+                    url: '/scheduleList',
+                   	dataType: 'json',
+                    success: function(data) {
+                        var events = [];
+                        	 $(data).each(function() {
+                            events.push({
+                            	title: $(this).attr('TITLE'),
+                                start: $(this).attr('START_DATE'),
+                                end: $(this).attr('END_DATE'),
+                                color: '#C2185B'
+                            });
+                        }); 
+                        callback(events);
+                    }
+                });
+            }, */
+            loading:function(bool) {
+                jQuery("#loading").toggle(bool);
+            }
+        });
+	</script>
+	
 	<!-- 모달  데이터 초기화 -->
 	<script type="text/javascript">
 		function modalClose(){

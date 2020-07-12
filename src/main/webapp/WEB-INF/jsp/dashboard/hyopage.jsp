@@ -5,7 +5,12 @@
 <!-- Toast Grid -->
 <link rel="stylesheet" type="text/css" href="../static/vendors/toast/tui-grid/dist/tui-grid.css" />
 <link rel="stylesheet" type="text/css" href="../static/vendors/toast/tui-pagination/dist/tui-pagination.css" />
-
+ <!-- Datatables -->
+ <link href="../static/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+ <link href="../static/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+ <link href="../static/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+ <link href="../static/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+ <link href="../static/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
 <!-- 차트 스타일Styles -->
 <style>
 #chartdiv {
@@ -159,7 +164,22 @@
 <script src="../static/vendors/amcharts4/themes/moonrisekingdom.js"></script>
 <script src="../static/vendors/amcharts4/themes/animated.js"></script>
 <!-- <script src="../static/vendors/amcharts4/lang/ko_KR.js"></script> -->
-
+<!-- Datatables -->
+<script src="../static/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="../static/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="../static/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+<script src="../static/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+<script src="../static/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+<script src="../static/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+<script src="../static/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+<script src="../static/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+<script src="../static/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+<script src="../static/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script src="../static/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+<script src="../static/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+<script src="../static/vendors/jszip/dist/jszip.min.js"></script>
+<script src="../static/vendors/pdfmake/build/pdfmake.min.js"></script>
+<script src="../static/vendors/pdfmake/build/vfs_fonts.js"></script>
 
 <!-- Chart code -->
 <script>
