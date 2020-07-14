@@ -2,10 +2,17 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+<style type="text/css">	
+::-webkit-scrollbar{Display:none;}	
+</style>	
 <link rel="stylesheet" type="text/css" href="../static/vendors/toast/tui-grid/dist/tui-grid.css" />
 <link rel="stylesheet" type="text/css" href="../static/vendors/toast/tui-pagination/dist/tui-pagination.css" />
  
 <div class="right_col" role="main" style="background-color:#5c5c5c38;">
+
+
+<div style="-ms-overflow-style:none;">	
+</div>	
 
 	<div class="row">
 		<div class="col-md-12 col-sm-12 col-xs-12">
@@ -93,7 +100,26 @@
 			<div class="modal-body">
 					<img id="img_form_url" src="" style="width:100%; height:450px;"/>
 				<div class="clearfix"></div>
-					
+					 <div class="table-responsive">	
+					<table class="table table-striped jambo_table bulk_action">	
+						<thead style="background-color:#262930;">	
+							<tr  class="headings">	
+								<th align="center" class="column-title" style="font-size: 1.6em; text-align:center;">빌딩</th>	
+								<th align="center" class="column-title" style="font-size: 1.6em; text-align:center;">이벤트</th>	
+								<th align="center" class="column-title" style="font-size: 1.6em; text-align:center;">발생일시</th>	
+							</tr>	
+						</thead>	
+						<tbody>	
+							<c:forEach items="${list}" var="resultList">	
+								<tr class="even pointer">	
+									<td style="font-size: 1.5em;" align="center" scope="row">${resultList.build_nm }</td>	
+									<td style="font-size: 1.5em;" align="center" scope="row">${resultList.result_data }</td>	
+									<td style="font-size: 1.5em;" align="center" scope="row">${resultList.last_issue_dt }</td>	
+								</tr>	
+							</c:forEach>	
+						</tbody>	
+					</table>	
+				</div> 
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default antoclose"	data-dismiss="modal" id="m_close">닫기</button>

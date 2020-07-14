@@ -116,7 +116,4 @@ public void setRoles(Set<Role> roles) {
   
   private Set<Role> roles;
 
-  
-  
-
 }
