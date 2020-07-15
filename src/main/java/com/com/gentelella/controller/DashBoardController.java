@@ -79,9 +79,7 @@ public class DashBoardController {
 				//내부 로직 돌리기
 				MainData md = new MainData();
 				//테이블 여러번 호출테스트
-				md.getSeq() ;//롬복으로 데이터 끌어와야함. 근데 안불러짐 게터세터 수동설정 (추후 롬복연동 ㄱㄱ) 
-				md.getBRAND_NAME();
-				md.getSEASON_REASON();
+				
 				em.persist(md);
 				tx.commit();//작업내용 삽입
 			}catch(Exception e) {
