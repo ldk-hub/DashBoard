@@ -18,7 +18,7 @@
 					create-drop : create와 같으나 종료시점에 테이블 DROP
 					update : 변경분만 반영(운영DB에서는 절대사용 X) = validate: 엔티티와 테이블이 정상맵핑되었는지만 확인
 					none : 사용안함. -->
-			<property name="hibernate.hbm2ddl.auto" value="create" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
 			
         </properties>
     </persistence-unit>

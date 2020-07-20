@@ -109,6 +109,8 @@
                  sysdate,
                 #{int_name})
 	</insert>
+	
+	
 	<select id="multiChartData" resultType="hashmap" parameterType="hashmap">
 		SELECT seq, 
 			name,

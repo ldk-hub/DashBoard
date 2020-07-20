@@ -68,28 +68,6 @@ public class DashBoardController {
 	// 메인페이지
 	@RequestMapping(value = "/dashboard", method = RequestMethod.GET)
 	public String dashboard(@RequestParam Map<String, String> paramMap, Model model, @AuthenticationPrincipal UserCustom userCustom)throws Exception{
-		//로그인한 유저정보
-		//jpa 호출 로직 시작
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("hello");//퍼시스턴스유닛 네임 설정한 DB랑 맵핑해서 정보 호출
-		EntityManager em = emf.createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		
-		tx.begin();//트랜잭션시작
-			try {
-				//내부 로직 돌리기
-				MainData md = new MainData();
-				//테이블 여러번 호출테스트
-				
-				em.persist(md);
-				tx.commit();//작업내용 삽입
-			}catch(Exception e) {
-				tx.rollback();//트랜잭션 오류발생시 롤백
-			}finally {
-				em.close();//엔티티매니저 종료
-			}
-		emf.close();//모든 플로우 진행 후종료
-		//jpa 호출 로직 종료
-		
 	    User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		System.out.println("현재로그인 : " + user.getUsername());
 		//카운트정보  
@@ -167,6 +145,32 @@ public class DashBoardController {
 	@RequestMapping(value = "/multiChart2", method = {RequestMethod.GET,RequestMethod.POST}, produces = "application/json; charset=utf8")
 	@ResponseBody
 	public List<Object> multiChart2(@RequestParam Map<String, String> paramMap) throws Exception {
+		//jpa 호출 로직 시작
+				EntityManagerFactory emf = Persistence.createEntityManagerFactory("hello");//퍼시스턴스유닛 네임 설정한 DB랑 맵핑해서 정보 호출
+				EntityManager em = emf.createEntityManager();
+				EntityTransaction tx = em.getTransaction();
+				
+				tx.begin();//트랜잭션시작
+					try {
+						//내부 로직 돌리기
+						MainData md = new MainData();
+						//테이블 여러번 호출테스트
+						
+						
+						tx.commit();//작업내용 삽입
+					}catch(Exception e) {
+						tx.rollback();//트랜잭션 오류발생시 롤백
+					}finally {
+						em.close();//엔티티매니저 종료
+					}
+				emf.close();//모든 플로우 진행 후종료
+				//jpa 호출 로직 종료
+				
+				//jpa값
+				//System.out.println("@@@@@@@@@@@@@"+);
+				
+				
+		//여기도 jpa처리
 		return dashBoardService.multiChart2(paramMap);
 	}
 		
@@ -199,8 +203,6 @@ public class DashBoardController {
 	@RequestMapping(value = "/hyopage", method = RequestMethod.GET)
 	public String hyopage(Map<String, String> paramMap, ModelMap map) throws Exception {
 		map.addAttribute("list", dashBoardService.selectBoardList(paramMap));
-		
-		
 		return VIEW_PATH + "hyopage";
 	}
 	
@@ -209,8 +211,32 @@ public class DashBoardController {
 	@RequestMapping(value = "/selectBoardList", method = {RequestMethod.GET,RequestMethod.POST}, produces = "application/json; charset=utf8")
 	@ResponseBody
 	public Object selectBoardList(@RequestParam Map<String, String> paramMap, ModelMap map) throws Exception {
+		//jpa 호출 로직 시작
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("hello");//퍼시스턴스유닛 네임 설정한 DB랑 맵핑해서 정보 호출
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction tx = em.getTransaction();
 		
+		tx.begin();//트랜잭션시작
+			try {
+				//내부 로직 돌리기
+				MainData md = new MainData();
+				//테이블 여러번 호출테스트
+				
+				System.out.println("@$!#!@#!@#!@#"+md.toString());
+				tx.commit();//작업내용 삽입
+			}catch(Exception e) {
+				tx.rollback();//트랜잭션 오류발생시 롤백
+			}finally {
+				em.close();//엔티티매니저 종료
+			}
+		emf.close();//모든 플로우 진행 후종료
+		//jpa 호출 로직 종료
 		
+		//jpa값
+		//System.out.println("@@@@@@@@@@@@@"+);
+		
+		//mybatis값 
+		System.out.println("@@@@@@@@@@@@@"+dashBoardService.selectBoardList(paramMap));
 		
 		return resultData(dashBoardService.selectBoardList(paramMap),paramMap);
 	}
