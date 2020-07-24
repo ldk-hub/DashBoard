@@ -32,6 +32,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.com.gentelella.repository.CustomRepository;
 import com.com.gentelella.service.DashBoardServiceImpl;
 import com.com.gentelella.smtp.Email;
 import com.com.gentelella.smtp.EmailSender;
@@ -51,6 +52,9 @@ public class DashBoardController {
 	
 	@Autowired
 	private EmailSender emailSender;
+	
+	@Autowired
+	private CustomRepository customRepository;
 	
 	@Autowired
 	private Email email;
@@ -144,34 +148,9 @@ public class DashBoardController {
 	//멀티차트용 데이터 호출
 	@RequestMapping(value = "/multiChart2", method = {RequestMethod.GET,RequestMethod.POST}, produces = "application/json; charset=utf8")
 	@ResponseBody
-	public List<Object> multiChart2(@RequestParam Map<String, String> paramMap) throws Exception {
-		//jpa 호출 로직 시작
-				EntityManagerFactory emf = Persistence.createEntityManagerFactory("hello");//퍼시스턴스유닛 네임 설정한 DB랑 맵핑해서 정보 호출
-				EntityManager em = emf.createEntityManager();
-				EntityTransaction tx = em.getTransaction();
-				
-				tx.begin();//트랜잭션시작
-					try {
-						//내부 로직 돌리기
-						MainData md = new MainData();
-						//테이블 여러번 호출테스트
-						
-						
-						tx.commit();//작업내용 삽입
-					}catch(Exception e) {
-						tx.rollback();//트랜잭션 오류발생시 롤백
-					}finally {
-						em.close();//엔티티매니저 종료
-					}
-				emf.close();//모든 플로우 진행 후종료
-				//jpa 호출 로직 종료
-				
-				//jpa값
-				//System.out.println("@@@@@@@@@@@@@"+);
-				
-				
-		//여기도 jpa처리
-		return dashBoardService.multiChart2(paramMap);
+	public List<MainData> multiChart2(@RequestParam Map<String, String> paramMap) throws Exception {
+		//return dashBoardService.multiChart2(paramMap);// 마이바티스 데이터 호출
+		return customRepository.findAll(); //jpa사용
 	}
 		
 	// 일정관리페이지
