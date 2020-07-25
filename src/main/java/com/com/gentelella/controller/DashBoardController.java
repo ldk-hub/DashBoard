@@ -7,11 +7,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
-
 import org.hyperic.sigar.CpuPerc;
 import org.hyperic.sigar.Mem;
 import org.hyperic.sigar.Sigar;
@@ -32,6 +27,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.com.gentelella.repository.BoardRepository;
 import com.com.gentelella.repository.CustomRepository;
 import com.com.gentelella.service.DashBoardServiceImpl;
 import com.com.gentelella.smtp.Email;
@@ -57,6 +53,9 @@ public class DashBoardController {
 	private CustomRepository customRepository;
 	
 	@Autowired
+	private BoardRepository boardRepository;
+	
+	@Autowired
 	private Email email;
 	
 	@Autowired
@@ -74,7 +73,30 @@ public class DashBoardController {
 	public String dashboard(@RequestParam Map<String, String> paramMap, Model model, @AuthenticationPrincipal UserCustom userCustom)throws Exception{
 	    User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		System.out.println("현재로그인 : " + user.getUsername());
-		//카운트정보  
+		
+		//jpa 호출 로직 시작
+				/*EntityManagerFactory emf = Persistence.createEntityManagerFactory("hello");//퍼시스턴스유닛 네임 설정한 DB랑 맵핑해서 정보 호출
+				EntityManager em = emf.createEntityManager();
+				EntityTransaction tx = em.getTransaction();
+				
+				tx.begin();//트랜잭션시작
+					try {
+						//내부 로직 돌리기
+						MainData md = new MainData();
+						//테이블 여러번 호출테스트
+						
+						System.out.println("@$!#!@#!@#!@#"+md.toString());
+						tx.commit();//작업내용 삽입
+					}catch(Exception e) {
+						tx.rollback();//트랜잭션 오류발생시 롤백
+					}finally {
+						em.close();//엔티티매니저 종료
+					}
+				emf.close();//모든 플로우 진행 후종료
+		*/		//jpa 호출 로직 종료
+		
+		
+		//카운트정보  <<jpa 구현예정
 		model.addAttribute("totalUser", dashBoardService.totalUser(model));
 		model.addAttribute("countFemale", dashBoardService.countFemale(model));
 		model.addAttribute("countMale", dashBoardService.countMale(model));
@@ -85,12 +107,10 @@ public class DashBoardController {
 		Authentication loggedInUser = SecurityContextHolder.getContext().getAuthentication();
 	    String username = loggedInUser.getName();
 	    //String organization_code = userCustom.getOrganization_code(); //추가정보로 끌어온 조직코드
-	    
 	    // paramMap.put("organization_code", organization_code); //시큐리티로그인 ID,password + 별도로 추가정보 끌어옴
 	    paramMap.put("user_id", username);
 	    // model.addAttribute("selectList",dashBoardService.selectBoxList(paramMap));
 		return VIEW_PATH + "dashboard";
-		
 		
 	}
 	
@@ -125,8 +145,6 @@ public class DashBoardController {
 		Mem mem = null;//memory
 		String pattern = "####.##";//memory
 			try {
-				
-				
 					//메모리측정 영역
 					mem = sigar1.getMem();
 					 //KB -> GB 변환 
@@ -190,32 +208,8 @@ public class DashBoardController {
 	@RequestMapping(value = "/selectBoardList", method = {RequestMethod.GET,RequestMethod.POST}, produces = "application/json; charset=utf8")
 	@ResponseBody
 	public Object selectBoardList(@RequestParam Map<String, String> paramMap, ModelMap map) throws Exception {
-		//jpa 호출 로직 시작
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("hello");//퍼시스턴스유닛 네임 설정한 DB랑 맵핑해서 정보 호출
-		EntityManager em = emf.createEntityManager();
-		EntityTransaction tx = em.getTransaction();
 		
-		tx.begin();//트랜잭션시작
-			try {
-				//내부 로직 돌리기
-				MainData md = new MainData();
-				//테이블 여러번 호출테스트
-				
-				System.out.println("@$!#!@#!@#!@#"+md.toString());
-				tx.commit();//작업내용 삽입
-			}catch(Exception e) {
-				tx.rollback();//트랜잭션 오류발생시 롤백
-			}finally {
-				em.close();//엔티티매니저 종료
-			}
-		emf.close();//모든 플로우 진행 후종료
-		//jpa 호출 로직 종료
-		
-		//jpa값
-		//System.out.println("@@@@@@@@@@@@@"+);
-		
-		//mybatis값 
-		System.out.println("@@@@@@@@@@@@@"+dashBoardService.selectBoardList(paramMap));
+		System.out.println("################"+boardRepository.findAll());
 		
 		return resultData(dashBoardService.selectBoardList(paramMap),paramMap);
 	}
