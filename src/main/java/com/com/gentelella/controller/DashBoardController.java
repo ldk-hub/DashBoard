@@ -32,6 +32,7 @@ import com.com.gentelella.repository.CustomRepository;
 import com.com.gentelella.service.DashBoardServiceImpl;
 import com.com.gentelella.smtp.Email;
 import com.com.gentelella.smtp.EmailSender;
+import com.com.gentelella.vo.GridData;
 import com.com.gentelella.vo.MainData;
 import com.com.gentelella.vo.UserCustom;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -208,10 +209,22 @@ public class DashBoardController {
 	@RequestMapping(value = "/selectBoardList", method = {RequestMethod.GET,RequestMethod.POST}, produces = "application/json; charset=utf8")
 	@ResponseBody
 	public Object selectBoardList(@RequestParam Map<String, String> paramMap, ModelMap map) throws Exception {
-		
-		System.out.println("################"+boardRepository.findAll());
-		
-		return resultData(dashBoardService.selectBoardList(paramMap),paramMap);
+		//조회기능구현 완료 Mybatis -> JPA
+		return resultGridData(boardRepository.findAll(),paramMap);
+	}
+	//JPA전용 배열 분할처리
+	public Object resultGridData(List<GridData> list, Map<String, String> paramMap) throws JsonProcessingException, SQLException{
+		HashMap <String,Object> res = new HashMap <String,Object>();
+		HashMap <String,Object> data = new HashMap <String,Object>();
+		data.put("contents", list);
+		res.put("result",true);
+		res.put("data",data);
+		if(list.size()>0) {
+			ObjectMapper jackson = new ObjectMapper();
+			String jsonString = jackson.writeValueAsString(res);
+			return jsonString;
+		}
+		return null;
 	}
 	
 	//대시보드 리스트 호출 가공
@@ -324,6 +337,19 @@ public class DashBoardController {
 		return VIEW_PATH + "thirdy";
 	}
 	
+	//에러페이지 호출
+	@RequestMapping(value = "/500error")
+	public String error(@RequestParam Map<String, String> paramMap, ModelMap model)throws Exception{
+	    return  "500error";
+	}
+	@RequestMapping(value = "/403error")
+	public String error2(@RequestParam Map<String, String> paramMap, ModelMap model)throws Exception{
+	    return  "403error";
+	}
+	@RequestMapping(value = "/404error")
+	public String error3(@RequestParam Map<String, String> paramMap, ModelMap model)throws Exception{
+	    return  "404error";
+	}
 
 	//웹소켓 파트
 	//STOMP 란 ?
@@ -353,19 +379,7 @@ public class DashBoardController {
 	    return VIEW_PATH + "dashboard";
 	}
 	
-	//에러페이지 호출
-	@RequestMapping(value = "/500error")
-	public String error(@RequestParam Map<String, String> paramMap, ModelMap model)throws Exception{
-	    return  "500error";
-	}
-	@RequestMapping(value = "/403error")
-	public String error2(@RequestParam Map<String, String> paramMap, ModelMap model)throws Exception{
-	    return  "403error";
-	}
-	@RequestMapping(value = "/404error")
-	public String error3(@RequestParam Map<String, String> paramMap, ModelMap model)throws Exception{
-	    return  "404error";
-	}
+	
 	
 	@RequestMapping(value = "/selectGeneralInfo", method = RequestMethod.POST, produces="text/plain;charset=UTF-8")
 	@ResponseBody

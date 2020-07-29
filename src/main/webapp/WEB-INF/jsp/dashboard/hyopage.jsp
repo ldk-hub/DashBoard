@@ -110,11 +110,11 @@
 	                     <tbody>
 							<c:forEach items="${list}" var="resultList">
 								<tr>
-									<th scope="row">${resultList.CERTNO }</th>
-									<th scope="row">${resultList.ITEMNO }</th>
-									<th scope="row">${resultList.BRDNAME }</th>
-									<th scope="row">${resultList.REASON }</th>
-									<th scope="row">${resultList.STATUS }</th>
+									<th scope="row">${resultList.brand_name }</th>
+									<th scope="row">${resultList.item_number }</th>
+									<th scope="row">${resultList.season_reason }</th>
+									<th scope="row">${resultList.status }</th>
+									<th scope="row">${resultList.test }</th>
 								</tr>
 							</c:forEach>
 						</tbody>
@@ -434,15 +434,15 @@ var grid1 = new tui.Grid({
     columns: [
         {
             title: '브랜드명',
-            name: 'BRDNAME'
+            name: 'brand_name'
         },
         {
             title: '자재번호 ',
-            name: 'ITEMNO'
+            name: 'item_number'
         },
         {
             title: '제품명',
-            name: 'ITEMNAME',
+            name: 'season_reason',
             editOptions: {
                 type: 'text',
                 maxLength: 10,
@@ -451,7 +451,7 @@ var grid1 = new tui.Grid({
         },
         {
             title: '제품상세',
-            name: 'REASON',
+            name: 'status',
             editOptions: {
                 type: 'text',
                 maxLength: 10,
