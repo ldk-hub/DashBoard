@@ -168,6 +168,8 @@ public class DashBoardController {
 	@RequestMapping(value = "/multiChart2", method = {RequestMethod.GET,RequestMethod.POST}, produces = "application/json; charset=utf8")
 	@ResponseBody
 	public List<MainData> multiChart2(@RequestParam Map<String, String> paramMap) throws Exception {
+		
+		System.out.println("별도 JPQL 쿼리 호출 방식 @@@@@@@@@@@@@@@@@"+customRepository.findByTitle());
 		//return dashBoardService.multiChart2(paramMap);// 마이바티스 데이터 호출
 		return customRepository.findAll(); //jpa사용
 	}

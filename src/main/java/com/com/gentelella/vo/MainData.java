@@ -17,7 +17,7 @@ import lombok.Data;
 @Table(name = "MULTI_DATA")
 public class MainData {
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)//
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long seq;
 	@Column(name="name", nullable = true) //nullable은 false시 낫널조건주는거임
     private String name;

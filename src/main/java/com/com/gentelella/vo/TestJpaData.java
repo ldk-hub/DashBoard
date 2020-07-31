@@ -23,7 +23,6 @@ public class TestJpaData {
 		//@GeneratedValue 어노테이션은 해당 Id 값을 어떻게 자동으로 생성할지 전략을 선택할 수 있음
 	    @GeneratedValue(strategy = GenerationType.AUTO)//
 	    private Long seq;
-	   
 		
 		/*  @Column에서 지정한 멤버 변수와 데이터베이스의 컬럼명을 다르게 주고 싶다면 @Column(name="XXX") 
 		    같은 형식으로 작성해주면 됩니다. 그렇지 않으면 기본적으로 멤버 변수명과 일치하는 데이터베이스의 컬럼을 매핑*/
