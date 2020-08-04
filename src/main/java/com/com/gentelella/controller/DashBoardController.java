@@ -169,7 +169,7 @@ public class DashBoardController {
 	@ResponseBody
 	public List<MainData> multiChart2(@RequestParam Map<String, String> paramMap) throws Exception {
 		
-		System.out.println("별도 JPQL 쿼리 호출 방식 @@@@@@@@@@@@@@@@@"+customRepository.findByTitle());
+		//System.out.println("별도 JPQL 쿼리 호출 방식 @@@@@@@@@@@@@@@@@"+customRepository.findByTitle());
 		//return dashBoardService.multiChart2(paramMap);// 마이바티스 데이터 호출
 		return customRepository.findAll(); //jpa사용
 	}
@@ -323,15 +323,44 @@ public class DashBoardController {
 	}
 	
 	
-	//세컨더리 대시보드 페이지
 	@RequestMapping(value = "/secondery", method = RequestMethod.GET)
 	public String secondery(@RequestParam Map<String, String> paramMap, Model model, @AuthenticationPrincipal UserCustom userCustom)throws Exception{
 		return VIEW_PATH + "secondery";
 	}
 	
 	
-
 	
+	//그리드 데이터 삽입 로직
+	@RequestMapping(value = "/gridUptInsertData", method = {RequestMethod.GET,RequestMethod.POST})
+	@ResponseBody
+	public HashMap<String, String> insertFcInfo(@RequestParam Map<String,String> paramMap) throws Exception {
+		String Test = paramMap.get("createdRows");
+		String Test2 = paramMap.get("updatedRows");
+		//제이슨타입으로 담는다.
+		ObjectMapper mapper = new ObjectMapper();
+		List<Map<String, Object>> data= mapper.readValue(Test,new TypeReference<List<Map<String, Object>>>(){});
+		List<Map<String, Object>> data2= mapper.readValue(Test2,new TypeReference<List<Map<String, Object>>>(){});
+		
+		try {
+				if(paramMap.get("updatedRows") =="updatedRows"){
+					for(int i = 0; i<data.size(); i++) {
+						dashBoardService.insertInfo(data.get(i));
+					}
+				}else if(paramMap.get("createdRows") == "createdRows"){
+					for(int i = 0; i<data2.size(); i++) {
+						dashBoardService.updateInfo(data2.get(i));
+					}
+				}
+			
+				}catch(IOException e) {
+					e.printStackTrace();
+			}
+		
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("code","1");
+	    map.put("msg", "완료.");
+	    return map;
+	}
 	
 	//서드 페이지
 	@RequestMapping(value = "/thirdy", method = RequestMethod.GET)
@@ -483,29 +512,7 @@ public class DashBoardController {
 	    return map;
 	}
 
-	@RequestMapping(value = "/insertFcInfo", method = {RequestMethod.GET,RequestMethod.POST})
-	@ResponseBody
-	public HashMap<String, String> insertFcInfo(@RequestParam Map<String,String> paramMap) throws Exception {
-		String Test = paramMap.get("createdRows");
-		//제이슨타입으로 담는다.
-		ObjectMapper mapper = new ObjectMapper();
-		
-		try {
-			List<Map<String, Object>> data= mapper.readValue(Test,new TypeReference<List<Map<String, Object>>>(){});
-			
-				for(int i = 0; i<data.size(); i++) {
-					dashBoardService.insertFcInfo(data.get(i));
-				}
-			
-				}catch(IOException e) {
-					e.printStackTrace();
-			}
-		
-		HashMap<String, String> map = new HashMap<String, String>();
-		map.put("code","1");
-	    map.put("msg", "등록완료.");
-	    return map;
-	}
+	
 	
 	@RequestMapping(value = "/insertEnergyInfo", method = {RequestMethod.GET,RequestMethod.POST})
 	@ResponseBody

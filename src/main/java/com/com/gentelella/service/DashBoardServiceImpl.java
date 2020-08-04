@@ -78,5 +78,16 @@ public class DashBoardServiceImpl implements DashBoardService  {
 	}
 
 
+	public int insertInfo(Map<String, Object> paramMap)throws Exception {
+		return dashBoardDAO.insertInfo(paramMap);
+		
+	}
+
+	public int updateInfo(Map<String, Object> paramMap)throws Exception {
+		return dashBoardDAO.updateInfo(paramMap);
+		
+	}
+
+
 
 }

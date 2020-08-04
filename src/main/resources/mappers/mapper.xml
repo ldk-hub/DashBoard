@@ -121,5 +121,31 @@
 		FROM multi_data 
 			limit 15
 	</select>
+	 
+	
+	<update id="updateInfo" parameterType="hashmap">
+		UPDATE ap_user_role
+			SET password=#{password}
+		WHERE user_id=#{user_id}
+	</update>
+	
+	
+	<insert id="insertInfo" parameterType="hashmap">
+		INSERT INTO 
+        AP_SCHEDULE(SEQ, 
+                TITLE,
+                CONTENT,
+                START_DATE, 
+                END_DATE,
+                INT_DATE,
+                INT_NAME) 
+        VALUES(ldk_seq.nextval, 
+                #{title},
+                #{content},
+                #{start_date}, 
+                #{end_date},
+                 sysdate,
+                #{int_name})
+	</insert>
 </mapper>
   
