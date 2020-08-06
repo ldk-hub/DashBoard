@@ -2,8 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%><!-- 커스텀태그 추가 -->
-<script type="text/javascript"
-	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e0fe198a94267329d51b8335fe81e6ea"></script>
+ <script type="text/javascript"
+	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f7a76e79ab87a57d130a18e68d8e2d92"></script>
 
 <style>
 /* body {  color: #fff; }  */
@@ -598,17 +598,17 @@ function multiChart() {
 <script type="text/javascript">
 	var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
 	var options = { //지도를 생성할 때 필요한 기본 옵션
-		center : new daum.maps.LatLng(37.72176756698391, 126.75141594184569), //지도의 중심좌표.
+		center : new kakao.maps.LatLng(37.72176756698391, 126.75141594184569), //지도의 중심좌표.
 		level : 11
 	//지도의 레벨(확대, 축소 정도)
 	};
-	var map = new daum.maps.Map(container, options); //지도 생성 및 객체 리턴
+	var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
 	function panTo() {
 		// 이동할 위도 경도 위치를 생성합니다 
-		var moveLatLon = new daum.maps.LatLng(37.72176756698391,
+		var moveLatLon = new kakao.maps.LatLng(37.72176756698391,
 				126.75141594184569);
 		// 지도를 클릭한 위치에 표출할 마커입니다
-		var marker = new daum.maps.Marker({
+		var marker = new kakao.maps.Marker({
 			// 지도 중심좌표에 마커를 생성합니다 
 			position : map.getCenter()
 		});
@@ -619,8 +619,8 @@ function multiChart() {
 		map.panTo(moveLatLon);
 	}
 	var mapTypes = {
-		traffic : daum.maps.MapTypeId.TRAFFIC,
-		bicycle : daum.maps.MapTypeId.BICYCLE
+		traffic : kakao.maps.MapTypeId.TRAFFIC,
+		bicycle : kakao.maps.MapTypeId.BICYCLE
 	};
 	function setOverlayMapTypeId() {
 		chkTraffic = document.getElementById('chkTraffic'),
@@ -639,13 +639,13 @@ function multiChart() {
 		}
 	}
 	// 일반 지도와 스카이뷰로 지도 타입을 전환할 수 있는 지도타입 컨트롤을 생성합니다
-	var mapTypeControl = new daum.maps.MapTypeControl();
+	var mapTypeControl = new kakao.maps.MapTypeControl();
 	// 지도에 컨트롤을 추가해야 지도위에 표시됩니다
-	// daum.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOPRIGHT는 오른쪽 위를 의미합니다
-	map.addControl(mapTypeControl, daum.maps.ControlPosition.TOPRIGHT);
+	// kakao.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOPRIGHT는 오른쪽 위를 의미합니다
+	map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
 	// 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
-	var zoomControl = new daum.maps.ZoomControl();
-	map.addControl(zoomControl, daum.maps.ControlPosition.RIGHT);
+	var zoomControl = new kakao.maps.ZoomControl();
+	map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
 </script>
 
 

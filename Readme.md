@@ -59,6 +59,8 @@
   
 2. 각 로직 또는 데이터 관련 TDD 구성
 
+3. daum maps -> kakao maps 변경으로 크로스오리진(cors) 이슈 발생 
+
 ### 완료내역
 1. 시큐리티 로그인, 로그아웃 세션처리 완료(jpa사용)
 2. 샘플데이터 게시판목록 호출 완료(mybatis사용)
@@ -99,10 +101,11 @@
 15. 쓰지 않는 라이브러리들 전부 제거 작업 ->로딩 및 속도저하 이슈 발생
 16. 다크테마 전환 과정 중 발생한 UI크래시  부분 개선
 17. 오라클 -> postgresql 전환중 마이바티스 전면 수정으로인한 이슈로 Mybatis -> JPA 전환 검토
+18. daum 지도에서 카카오 지도 API 제공 기한 지나서 크로스 오리진 이슈 발생 -> kakao로 소스 변경완료
 
 ### API리스트
  - System table : Datatables, tui grid
- - 날씨, 지도 : daum maps, Skycons
+ - 날씨, 지도 : kakao maps, Skycons
  - 차트 : amcharts4
  - 캘린더 : fullcalendar, bootstrap-daterangepicker, DateJS
  - 기타 : Dropzone, NProgress, iCheck, Flot
