@@ -5,14 +5,12 @@ import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
 import com.com.gentelella.repository.UserRepository;
-import com.com.gentelella.vo.Role;
 import com.com.gentelella.vo.User;
  
 @Component
@@ -29,7 +27,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
        /* for (Role role : user.getRoles()) {
             grantedAuthorities.add(new SimpleGrantedAuthority(role.getName()));
         }*/
- 
+        //회원가입과 동시에 로그인 처리
         return new org.springframework.security.core.userdetails.User(user.getUsername(), 
                                                                       user.getPassword(),
                                                                       grantedAuthorities);

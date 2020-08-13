@@ -137,7 +137,7 @@ public class DashBoardController {
 	}
 	 
 	
-	//메모리 차트 데이터 전송
+	//메모리 차트 데이터 전송(UI연계작업 안함)
 	@RequestMapping(value = "/myChart2", method = RequestMethod.GET)
 	@ResponseBody
 	public String myChart2(Model model)throws Exception{
@@ -164,29 +164,26 @@ public class DashBoardController {
 	}
 	
 	
-	//멀티차트용 데이터 호출
+	//멀티라인차트용 데이터 호출
 	@RequestMapping(value = "/multiChart2", method = {RequestMethod.GET,RequestMethod.POST}, produces = "application/json; charset=utf8")
 	@ResponseBody
 	public List<MainData> multiChart2(@RequestParam Map<String, String> paramMap) throws Exception {
-		
-		//System.out.println("별도 JPQL 쿼리 호출 방식 @@@@@@@@@@@@@@@@@"+customRepository.findByTitle());
-		//return dashBoardService.multiChart2(paramMap);// 마이바티스 데이터 호출
 		return customRepository.findAll(); //jpa사용
 	}
 		
-	// 일정관리페이지
+	//캘린더API 일정관리페이지
 	@RequestMapping(value = "/calendar", method = RequestMethod.GET)
 	public String calendar(Model model) throws Exception {
 			return VIEW_PATH + "calendar";
 	}
-	//일정목록 호출
+	//캘린더API 일정목록 호출
 	@RequestMapping(value = "/scheduleList", method = RequestMethod.GET)
 	@ResponseBody
 	public List<Map<String, String>> calendarList(Model model) throws Exception {
 			Map<String, Object> paramMap = new HashMap<String, Object>();
 			return dashBoardService.getScheduleArticles(paramMap);
 	}
-	//일정 등록
+	//캘린더API 일정 등록
 	@RequestMapping(value = "/scheduleInsert", method = RequestMethod.GET)
 	@ResponseBody
 	public int scheduleInsert(Model model) throws Exception {
@@ -199,7 +196,7 @@ public class DashBoardController {
 	public void scheduleDelete(Model model) throws Exception {
 		 dashBoardService.scheduleDelete(model);
 	}
-	// 의뢰용 페이지
+	//그리드,차트, 업로드, 데이터테이블Api 관리페이지
 	@RequestMapping(value = "/hyopage", method = RequestMethod.GET)
 	public String hyopage(Map<String, String> paramMap, ModelMap map) throws Exception {
 		map.addAttribute("list", dashBoardService.selectBoardList(paramMap));
@@ -207,7 +204,7 @@ public class DashBoardController {
 	}
 	
 	
-	//그리드용 리스트
+	//그리드용 리스트 호출
 	@RequestMapping(value = "/selectBoardList", method = {RequestMethod.GET,RequestMethod.POST}, produces = "application/json; charset=utf8")
 	@ResponseBody
 	public Object selectBoardList(@RequestParam Map<String, String> paramMap, ModelMap map) throws Exception {
@@ -251,7 +248,7 @@ public class DashBoardController {
 		return null;
 	}
 		
-		//그리드 체크 로우삭제
+		//그리드 체크대상 로우삭제
 		@RequestMapping(value = "/delGrid", method = {RequestMethod.GET,RequestMethod.POST})
 		@ResponseBody
 		public HashMap<String, Integer> delGrid(@RequestParam Map<String,String> paramMap) throws Exception {
@@ -260,8 +257,7 @@ public class DashBoardController {
 			try {
 				List<Map<String, Object>> data= mapper.readValue(Test,new TypeReference<List<Map<String, Object>>>(){});
 					for(int i = 0; i<data.size(); i++) {
-						
-						System.out.println(data.get(i));
+						//System.out.println(data.get(i));
 						dashBoardService.delGrid(data.get(i));
 					}
 					}catch(IOException e) {
@@ -293,14 +289,10 @@ public class DashBoardController {
 	    String pw=dashBoardService.getPw(paramMap);
 	    System.out.println(pw);
 	    if(pw!=null) {
-	    	//이메일 전달 내용
-	        email.setContent("비밀번호는 "+pw+" 입니다.");
-	        //이메일 전달받을 계정
-	        email.setReceiver(e_mail);
-	        //이메일 전송 제목
-	        email.setSubject(id+"님 비밀번호 찾기 메일입니다.");
-	        //이메일 보낸 사람
-	        emailSender.SendEmail(email);
+	        email.setContent("비밀번호는 "+pw+" 입니다.");//이메일 전달 내용
+	        email.setReceiver(e_mail); //이메일 전달받을 계정
+	        email.setSubject(id+"님 비밀번호 찾기 메일입니다.");//이메일 전송 제목
+	        emailSender.SendEmail(email); //이메일 보낸 사람
 	        mav= new ModelAndView("redirect:/login.do");
 	    return mav;
 	    }else {
@@ -309,7 +301,7 @@ public class DashBoardController {
 	    }
 	}
 	
-	//캘린더
+	//캘린더API 리스트 호출
 	@RequestMapping(value = "/insertSchedule", method ={RequestMethod.GET,RequestMethod.POST})
 	@ResponseBody
 	public HashMap<String,Integer> insertSchedule(@RequestParam Map<String,String> paramMap,ModelMap model) throws Exception {
@@ -321,14 +313,11 @@ public class DashBoardController {
 		hm.put("result", dashBoardService.insertSchedule(paramMap));
 		return hm;
 	}
-	
-	
+	//모니터링 페이지 호출
 	@RequestMapping(value = "/secondery", method = RequestMethod.GET)
 	public String secondery(@RequestParam Map<String, String> paramMap, Model model, @AuthenticationPrincipal UserCustom userCustom)throws Exception{
 		return VIEW_PATH + "secondery";
 	}
-	
-	
 	
 	//그리드 데이터 삽입 로직
 	@RequestMapping(value = "/gridUptInsertData", method = {RequestMethod.GET,RequestMethod.POST})
@@ -397,20 +386,6 @@ public class DashBoardController {
     }*/
 	
 /*
-	
-	@RequestMapping(value = "/dashboard", method = RequestMethod.GET)
-	public String dashboard(@RequestParam Map<String, String> paramMap, ModelMap model, @AuthenticationPrincipal UserCustom userCustom)throws Exception{
-	    Authentication loggedInUser = SecurityContextHolder.getContext().getAuthentication();
-	    String username = loggedInUser.getName();
-	    String organization_code = userCustom.getOrganization_code();
-	    logger.warn("접속한 유저 : "+username);
-	    paramMap.put("organization_code", organization_code);
-	    paramMap.put("user_id", username);
-	    model.addAttribute("selectList",dashBoardService.selectBoxList(paramMap));
-	    return VIEW_PATH + "dashboard";
-	}
-	
-	
 	
 	@RequestMapping(value = "/selectGeneralInfo", method = RequestMethod.POST, produces="text/plain;charset=UTF-8")
 	@ResponseBody
@@ -765,9 +740,6 @@ public class DashBoardController {
 			public String dashboard1(@RequestParam Map<String, String> paramMap, ModelMap model) throws Exception {
 				return VIEW_PATH + "dashboard1";
 			}
-			
-			
-
 }*/
 	
 	

@@ -10,9 +10,6 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
-import org.springframework.web.servlet.ModelAndView;
-
-import com.com.gentelella.vo.DashBoardVO;
 
 @Repository
 public class DashBoardDAO extends SqlSessionDaoSupport {

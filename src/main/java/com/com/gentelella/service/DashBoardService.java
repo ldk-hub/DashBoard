@@ -5,7 +5,6 @@ import java.util.Map;
 
 import org.springframework.ui.Model;
 
-import com.com.gentelella.vo.DashBoardVO;
 
 public interface DashBoardService {
 

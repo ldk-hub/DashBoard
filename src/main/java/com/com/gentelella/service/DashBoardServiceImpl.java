@@ -42,25 +42,27 @@ public class DashBoardServiceImpl implements DashBoardService  {
 		dashBoardDAO.scheduleDelete(model);
 	}
 	
-	
+	//회원정보 총집계
 	public int totalUser(Model model) throws Exception {
 		return dashBoardDAO.totalUser(model);
 	}
+	//남자회원집계
 	public int countMale(Model model) throws Exception {
 		return dashBoardDAO.countMale(model);
 	}
+	//여성회원집계
 	public int countFemale(Model model) throws Exception {
 		return dashBoardDAO.countFemale(model);
 	}
-	
+	//스케줄링 로직
 	public List<Object> schedule(Model model) throws Exception {
 		return dashBoardDAO.schedule(model);
 	}
-	
+	//목록정보 집계
 	public int listDataCount(Model model) throws Exception {
 		return dashBoardDAO.listDataCount(model);
 	}
-
+	//그리드API 삭제처리로직
 	public int delGrid(Map<String, Object> map)throws Exception {
 		return dashBoardDAO.delGrid(map);
 	}
@@ -68,24 +70,21 @@ public class DashBoardServiceImpl implements DashBoardService  {
 	public int insertSchedule(Map<String, String> paramMap)throws Exception {
 		return dashBoardDAO.insertSchedule(paramMap);
 	}
-
+    //메인대시보드 리스트 정보호출
 	public List<Object> DashboardList(Map<String, String> paramMap)throws Exception {
 		return dashBoardDAO.DashboardList(paramMap);
 	}
-
+	//메인페이지 라인차트 정보 호출
 	public List<Object> multiChart2(Map<String, String> paramMap)throws Exception {
 		return dashBoardDAO.multiChart2(paramMap);
 	}
-
-
+	
 	public int insertInfo(Map<String, Object> paramMap)throws Exception {
 		return dashBoardDAO.insertInfo(paramMap);
-		
 	}
 
 	public int updateInfo(Map<String, Object> paramMap)throws Exception {
 		return dashBoardDAO.updateInfo(paramMap);
-		
 	}
 
 

@@ -21,7 +21,8 @@ public class UserServiceImpl implements UserService {
   
   @Autowired
   private BCryptPasswordEncoder bCryptPasswordEncoder;
-    
+ 
+  //로그인 유저정보 암복호화처리
   @Override  
   public void saveUser(User user,String[] roles) {
     user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
@@ -30,6 +31,7 @@ public class UserServiceImpl implements UserService {
     user.setRoles(rolesSet);
     userRepository.save(user);
   }
+  //유저정보 호출
   @Override
   public User findByUsername(String username) {
     return userRepository.findByUsername(username);

@@ -20,7 +20,7 @@ public abstract class ScheduleCron {
 	@Autowired
 	ScheduleSendService scheduleSendService;
 	
-	//10분단위 설정
+  //10분단위 설정 - 격주단위 정기단위 API 업데이트 체크(또는 SMS 정기체크) 모니터링중 특정 이슈발생시 조건으로 처리가능로직 구현가능
   @Scheduled(cron = "0 0/10 * * * *")
   //@Scheduled(cron = "*/30 * * * * *")
   public void aJob() throws Exception {

@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-//import com.com.gentelella.service.ImgSendService;
+import com.com.gentelella.service.ImgSendService;
+
 
 
 
