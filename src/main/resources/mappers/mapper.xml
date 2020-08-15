@@ -147,5 +147,22 @@
                  sysdate,
                 #{int_name})
 	</insert>
+	
+	<insert id="insertFileInfo" parameterType="hashmap">
+		INSERT INTO 
+			AP_FILE_INFO(seq, 
+				gs_guid,
+				og_file_name,
+				file_size, 
+				insert_date, 
+				file_name)
+		VALUES (ldk_seq.nextval,
+				#{gs_guid}, 
+				#{originFileName}, 
+				#{fileSize}, 
+				sysdate, 
+				#{safeFile})
+	</insert>
+	
 </mapper>
   

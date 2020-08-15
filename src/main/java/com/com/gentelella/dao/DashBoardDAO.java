@@ -83,6 +83,10 @@ public class DashBoardDAO extends SqlSessionDaoSupport {
 	public int insertInfo(Map<String, Object> paramMap)throws Exception {
 		return getSqlSession().insert("dashBoardMapper.insertInfo", paramMap);
 	}
+
+	public void insertFileInfo(Map<String, Object> upload_map)throws Exception {
+		getSqlSession().insert("dashBoardMapper.insertInfo", upload_map);
+	}
 	 
 }
 

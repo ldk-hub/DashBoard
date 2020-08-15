@@ -29,6 +29,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.com.gentelella.repository.BoardRepository;
 import com.com.gentelella.repository.CustomRepository;
+import com.com.gentelella.service.DashBoardService;
 import com.com.gentelella.service.DashBoardServiceImpl;
 import com.com.gentelella.smtp.Email;
 import com.com.gentelella.smtp.EmailSender;

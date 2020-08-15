@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.com.gentelella.service.DashBoardService;
 import com.com.gentelella.service.ImgSendService;
 
 
@@ -21,11 +22,11 @@ import com.com.gentelella.service.ImgSendService;
 @Controller
 public class FileUploadController {
 	
-	/*@Autowired
-	ImgSendService imgSendService;*/
+	@Autowired
+	DashBoardService dashBoardService;
 	
-	  @RequestMapping(value = "/requestupload1")
-	    public String requestupload1(MultipartHttpServletRequest mtfRequest) throws Exception {
+	  @RequestMapping(value = "/requestUpload")
+	    public String requestUpload(MultipartHttpServletRequest mtfRequest) throws Exception {
 		  
 		  SimpleDateFormat dayTime = new SimpleDateFormat("yyyyMMddhhmmss");
 		  Map<String, Object> upload_map = new HashMap<String, Object>();
@@ -33,13 +34,13 @@ public class FileUploadController {
 			String str = dayTime.format(new Date(time));
 	        MultipartFile mf = mtfRequest.getFile("file_upload_field");
 	        
-	        //로컬 
+	        //로컬 경로
 	        String path = "C:\\image\\";
-	        //서버의 경우 path가 다름  
+	        //리눅스 서버의 경우 path가 다름  
 	        //String path = "/upload/";
 	        
 	        //파일관련 정보저장
-	        String gs_guid = mtfRequest.getParameter("gs_guid"); //맵핑정보
+	        String gs_guid = mtfRequest.getParameter("gs_guid"); //파일마다 유니크값부여 동일명칭으로업로드되도 문제없음
 	        String originFileName = mf.getOriginalFilename(); // 원본 파일 명
 	        long fileSize = mf.getSize();                     // 파일 사이즈
 	        String safeFile = path+ gs_guid +"_" + originFileName;  // 변형된 파일명
@@ -55,7 +56,7 @@ public class FileUploadController {
 	         upload_map.put("file_url", safeFile);
 	         
 	         //정보전송
-	         //imgSendService.insertFileInfo(upload_map);
+	         dashBoardService.insertFileInfo(upload_map);
 	        try {
 	            mf.transferTo(new File(safeFile));
 	        } catch (IllegalStateException e) {

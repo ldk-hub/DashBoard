@@ -87,6 +87,11 @@ public class DashBoardServiceImpl implements DashBoardService  {
 		return dashBoardDAO.updateInfo(paramMap);
 	}
 
+	@Override
+	public void insertFileInfo(Map<String, Object> upload_map) throws Exception {
+		dashBoardDAO.insertFileInfo(upload_map);
+	}
+
 
 
 }

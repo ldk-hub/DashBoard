@@ -33,6 +33,7 @@ public interface DashBoardService {
 	public int insertSchedule(Map<String, String> paramMap) throws Exception;
 	
 	public List<Object> multiChart2(Map<String, String> paramMap) throws Exception;
-
-	
+	 //이미지 정보 삽입
+	public void insertFileInfo(Map<String, Object> upload_map) throws Exception;
+		
 }
