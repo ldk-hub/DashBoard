@@ -212,11 +212,16 @@ var grid1 = new tui.Grid({
 });
 
 //이미지 확대 모달 띄우기 프로세스
+//tui-grid 내에서 해당 셀클릭해서 팝업띄우는 액션을 호출하는 
+//해당미리보기 구현되면 팝업으로 상세보기 기능 예고
+/* 셀을 클릭할 때 팝업을 띄워주는 기능을 제공하고 있지는 않지만 제공되고 있는 
+focusChange이벤트를 이용해서 해당 rowKey와 columnName을 가져와서 팝업을 띄워주도록 
+하는 방식으로 개발이 될 수 있을 것 같습니다. nhn직접질의 해결 */
 grid1.on('focusChange', (ev) => {
-	  const{columnName, rowKey} = ev;
+	  const{columnName, rowKey} = ev; //클릭한 셀의 정보호출
 	  var rowData   = grid1.getRow(rowKey);
 	  if(columnName =="file_name"){
-		  $("#img_form_url").attr("src", rowData.file_name);
+		  $("#img_form_url").attr("src", rowData.file_name);//이미지 src경로 변경
 		  $('#popupModalNew').modal('toggle');
 	  }
 	});
@@ -246,7 +251,16 @@ grid1.on('focusChange', (ev) => {
 		});
 	} */
 	
- 
+	//자바스크립트 내 guid생성
+	function guid() {
+		  function s4() {
+		    return Math.floor((1 + Math.random()) * 0x10000)
+		      .toString(16)
+		      .substring(1);
+		  }
+		  return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+		    s4() + '-' + s4() + s4() + s4();
+		}
 	
 /* function PushEventList() {
 	$.ajax({
@@ -278,7 +292,7 @@ grid1.on('focusChange', (ev) => {
 		} 
 
 	//파일 업로드 시 해당되는 확장자만 저장
-	/* function getCmaFileView() {
+	 function getCmaFileView() {
 		if( $("#file_upload_field").val() != "" ){
 			var ext = $('#file_upload_field').val().split('.').pop().toLowerCase();
 			      if($.inArray(ext, ['gif','png','jpg','jpeg']) == -1) {
@@ -294,7 +308,7 @@ grid1.on('focusChange', (ev) => {
 		//파일용량 체크 프로세스
 		if(document.getElementById("file_upload_field").value!=""){
 		    var fileSize = document.getElementById("file_upload_field").files[0].size;
-		    var maxSize = 5 * 1024 * 1024;
+		    var maxSize = 5 * 1024 * 1024; //5mb로 제한 업로드
 		 	 
 		    if(fileSize > maxSize){
 		    	  Swal.fire({
@@ -305,7 +319,7 @@ grid1.on('focusChange', (ev) => {
 		        return;
 		     }
 		} 
-	} */
+	} 
 </script>
 
 
