@@ -458,16 +458,6 @@ var grid1 = new tui.Grid({
                 useViewMode: true
             }
         },
-      //grid에서 이미지 넣는방법
-    	/* {
-        		title : '온도트렌드',
-        		name : 'file_name',
-        		align: 'center',
-        		width: 450,
-        		 formatter : function(value, rowData) {
-                     return "<img src='" + value + "' style='"width "' />";
-                 }
-        	}, */
         {
             title: '구분',
             name: 'STATUS',

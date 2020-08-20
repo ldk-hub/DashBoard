@@ -8,10 +8,6 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
 
-import org.apache.log4j.spi.LoggerFactory;
-import org.slf4j.Logger;
-
-
 public final class DateUtil {
 	
 	 //protected Logger logger = LoggerFactory.getLogger(this.getClass());

@@ -1,6 +1,5 @@
 package com.com.gentelella.service;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -9,13 +8,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import com.com.gentelella.dao.DashBoardDAO;
-import com.com.gentelella.vo.DashBoardVO;
 
 @Service
 public class DashBoardServiceImpl implements DashBoardService  {
 
 	@Autowired
 	DashBoardDAO dashBoardDAO;
+	
 	//의뢰페이지 목록
 	public List<Object> selectBoardList(Map<String, String> paramMap)throws Exception {
 		return dashBoardDAO.selectBoardList(paramMap);
@@ -26,7 +25,6 @@ public class DashBoardServiceImpl implements DashBoardService  {
 	public String getPw(Map<String, Object> paramMap) throws Exception {
 		return dashBoardDAO.getPw(paramMap);
 	}
-	
 	
 	//일정 목록 
 	@Override
@@ -91,7 +89,5 @@ public class DashBoardServiceImpl implements DashBoardService  {
 	public void insertFileInfo(Map<String, Object> upload_map) throws Exception {
 		dashBoardDAO.insertFileInfo(upload_map);
 	}
-
-
 
 }

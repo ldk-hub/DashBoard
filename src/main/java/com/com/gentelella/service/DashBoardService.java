@@ -14,7 +14,6 @@ public interface DashBoardService {
 
 	public List<Map<String, String>> getScheduleArticles(Map<String, Object> paramMap) throws Exception;
 	
-	
 	public void scheduleDelete(Model model) throws Exception;
 	
 	public int totalUser(Model model) throws Exception;
@@ -28,7 +27,6 @@ public interface DashBoardService {
 	public int listDataCount(Model model) throws Exception;
 	
 	public int delGrid(Map<String, Object> map)throws Exception;
-	
 	
 	public int insertSchedule(Map<String, String> paramMap) throws Exception;
 	
