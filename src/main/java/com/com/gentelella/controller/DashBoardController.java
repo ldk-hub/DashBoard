@@ -93,6 +93,7 @@ public class DashBoardController {
 	
 	
 	//CPU차트 데이터 전송	
+	// 예정 - 일정피크 이상치 지속 시 DB에 기록해놓기 (데드라인설정)
 	@RequestMapping(value = "/myChart", method = RequestMethod.GET)
 	@ResponseBody
 	public String myChart(Model model) throws Exception { // cpu점유율

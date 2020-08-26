@@ -16,6 +16,10 @@ import com.com.gentelella.vo.User;
 
 @Controller
 public class LoginController {
+	  
+	 // 카카오톡 OAuth2 정보
+	  private final static String K_CLIENT_ID = "나의 앱 키 입력";
+      private final static String K_REDIRECT_URI = "리다이렉트 주소입력";
 	
 	  @Autowired
 	  UserService userService;
@@ -57,4 +61,33 @@ public class LoginController {
 	  public String access(){
 	    return "403error";
 	  }
-	}
+	  
+	  
+	  //카카오톡 OAuth2 로그인 영역
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  //Github OAuth2 로그인 영역
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  //네이버 OAuth2 로그인 영역
+	  
+	  
+	  
+}

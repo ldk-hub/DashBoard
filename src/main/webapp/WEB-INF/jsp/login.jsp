@@ -107,6 +107,18 @@
 						</c:if>  
 				<button type="button" class="btn btn-sm btn-dark"
 							data-toggle="modal" data-target="#PassModal">비밀번호 찾기</button>		 
+                
+                <!-- 카카오로그인 -->
+                <div id="kakao_id_login" style="text-align: center"> 
+               		<a href="${kakao_url}"> 
+               		<img width="223" src="/static/images/kakao_login_large_narrow.png" />
+               		</a> 
+           		</div>
+           		<!-- 네이버 로그인callback이슈로 다음 업데이트  계정정지 이슈-->
+           		
+           		<!-- 깃허브 로그인 -->
+           		
+                
                 <div>
                   <h1><i class="fa fa-desktop"></i> LDK Developer Site</h1>
                   <p>©2019 All Rights Reserved.</p>
@@ -174,6 +186,7 @@
                 <br />
 
                 <div>
+                
                   <h1><i class="fa fa-desktop"></i> LDK Developer Site</h1>
                   <p>© 2018 All Rights Reserved.</p>
                 </div>
