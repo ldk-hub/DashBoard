@@ -19,6 +19,8 @@ public class CustomAuthenticationSuccess implements AuthenticationSuccessHandler
 	      Authentication authentication) throws IOException, ServletException {
 	      redirectStrategy.sendRedirect(request, response, "/dashboard");
 	  }
+	  
+	  
 	}
 
 

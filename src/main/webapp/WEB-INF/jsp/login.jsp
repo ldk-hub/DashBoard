@@ -80,9 +80,19 @@
 					<!-- spring security는 form 전송시 csrf 공격 방어를 하기위해  토큰값을 보내야 하도록 규정되어있어 히든값으로 넣어준다-->
 					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 					<button type="submit" class="btn btn-sm btn-dark">로그인</button>		 
-					 <!-- 네이버아이디로로그인 버튼 노출 영역 -->
+					
+					 <!-- 카카오로그인 -->
+                <div id="social_id_login" style="text-align: center"> 
+               		<a href="${kakao_url}"> 
+               		<img width="80" src="/static/images/kakao_login_small.png" />
+               		</a> 
+               		<a href="${github_url}"> 
+               		<img width="50" src="/static/images/github-.png" />
+               		</a> 
+               		 <!-- 네이버아이디로로그인 버튼 노출 영역 -->
 					<!--   <div id="naver_id_login"></div> -->
-					  <!-- //네이버아이디로로그인 버튼 노출 영역 -->
+           		</div>
+					
 					 <!--  <script type="text/javascript">
 					  	var naver_id_login = new naver_id_login("YOUR_CLIENT_ID", "YOUR_CALLBACK_URL");
 					  	var state = naver_id_login.getUniqState();
@@ -107,17 +117,7 @@
 						</c:if>  
 				<button type="button" class="btn btn-sm btn-dark"
 							data-toggle="modal" data-target="#PassModal">비밀번호 찾기</button>		 
-                
-                <!-- 카카오로그인 -->
-                <div id="kakao_id_login" style="text-align: center"> 
-               		<a href="${kakao_url}"> 
-               		<img width="223" src="/static/images/kakao_login_large_narrow.png" />
-               		</a> 
-           		</div>
-           		<!-- 네이버 로그인callback이슈로 다음 업데이트  계정정지 이슈-->
-           		
-           		<!-- 깃허브 로그인 -->
-           		
+                        		
                 
                 <div>
                   <h1><i class="fa fa-desktop"></i> LDK Developer Site</h1>

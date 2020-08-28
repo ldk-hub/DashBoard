@@ -62,7 +62,10 @@ public class LoginController {
 	    return "403error";
 	  }
 	  
-	  
+	  @RequestMapping("/kakao")
+	    public String kakao() {
+	        return "kakao";
+	    }
 	  //카카오톡 OAuth2 로그인 영역
 	  
 	  

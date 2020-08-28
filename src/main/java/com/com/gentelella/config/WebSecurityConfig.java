@@ -62,6 +62,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	          .maximumSessions(1)//최대접속세션계정당 1개
 	          .maxSessionsPreventsLogin(true)//이전세션 강퇴시키고 새로접속시도한사람이 들어가게끔
 	          .expiredUrl("/500error");
+	    //.antMatchers("/kakao").hasAuthority(KAKAO.getRoleType())//카카오  해당 권한을 지닌 사용자만 경로를 사용할 수 있도록 통제
 	       /*   .and()
 	      .exceptionHandling().accessDeniedPage("/403");//권한이 없을경우 해당 url로 이동
 */	  }
