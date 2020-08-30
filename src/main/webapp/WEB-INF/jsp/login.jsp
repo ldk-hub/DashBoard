@@ -83,11 +83,11 @@
 					
 					 <!-- 카카오로그인 -->
                 <div id="social_id_login" style="text-align: center"> 
-               		<a href="${kakao_url}"> 
-               		<img width="80" src="/static/images/kakao_login_small.png" />
+               		<a href="https://kauth.kakao.com/oauth/authorize?client_id=e0fe198a94267329d51b8335fe81e6ea&redirect_uri=http://localhost:9110/auth/kakao/callback&response_type=code"> 
+               		<img height="38" src="/static/images/kakao_login_small.png" />
                		</a> 
                		<a href="${github_url}"> 
-               		<img width="50" src="/static/images/github-.png" />
+               		<img width="38" src="/static/images/github-.png" />
                		</a> 
                		 <!-- 네이버아이디로로그인 버튼 노출 영역 -->
 					<!--   <div id="naver_id_login"></div> -->

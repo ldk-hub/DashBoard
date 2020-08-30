@@ -3,12 +3,20 @@ package com.com.gentelella.controller;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.client.RestTemplate;
 
 import com.com.gentelella.service.SecurityService;
 import com.com.gentelella.service.UserService;
@@ -62,18 +70,48 @@ public class LoginController {
 	    return "403error";
 	  }
 	  
-	  @RequestMapping("/kakao")
-	    public String kakao() {
-	        return "kakao";
-	    }
+	  
 	  //카카오톡 OAuth2 로그인 영역
-	  
-	  
-	  
-	  
-	  
-	  
-	  
+	 
+	  @RequestMapping("/auth/kakao/callback")
+	    public  @ResponseBody String kakaoCallBack(String code) {
+		 // 1. 카카오로그인 후 인증코드 리스폰 받음 하지만 로그인이 완료되지 않음
+		 // 2. 사용자토큰을 받아야 카카오 로그인을 완료하게됨.
+		 //인증코드(GET방식) 토큰발급(POST)
+		 //토큰 발급 필수 전달 4가지 항목
+		 
+		//POST방식으로 key=value 데이터를 요청(카카오쪽으로)
+		  
+		  
+		  
+		  //하단의 함수분석은 추후 업데이트예정
+		  //RestTemplate spring 3.0 부터 지원
+		  RestTemplate rt = new RestTemplate();
+		  //HttpHeaders오브젝트생성
+		  HttpHeaders headers = new HttpHeaders();
+		  headers.add("Content-type","application/x-www-form-urlencoded;charset=utf-8");
+		  //HttpBody 오브젝트 생성
+		  MultiValueMap<String,String> params = new LinkedMultiValueMap<>();
+		  
+		  params.add("grant_type","authorization_code");
+		  params.add("client_id","e0fe198a94267329d51b8335fe81e6ea");// 변수 가공 
+		  params.add("redirect_uri","http://localhost:9110/auth/kakao/callback");
+		  params.add("code",code);
+		  
+		  //헤더값을 가진 엔티티가 됨.
+		  //HttpHeader와 HttpBody를 하나의 오브젝트로 담기
+		  HttpEntity<MultiValueMap<String,String>> kakaoTokenRequest = new HttpEntity<>(params,headers);  
+		  
+		  //Http요청하기 -> Post방식으로 -> response변수의 응답받음.
+		  ResponseEntity<String> response = rt.exchange(
+													  "https://kauth.kakao.com/oauth/token",
+													  HttpMethod.POST,
+													  kakaoTokenRequest,
+													  String.class);
+		  
+	        return "kakao Oauth2 access Token code:"+response;
+	    }
+	 
 	  
 	  
 	  
