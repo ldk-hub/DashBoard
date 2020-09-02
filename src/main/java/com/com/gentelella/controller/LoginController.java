@@ -1,5 +1,7 @@
 package com.com.gentelella.controller;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +20,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
 
+import com.com.gentelella.service.KakaoProfile;
 import com.com.gentelella.service.SecurityService;
 import com.com.gentelella.service.UserService;
+import com.com.gentelella.util.OAuthToken;
 import com.com.gentelella.vo.User;
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Controller
 public class LoginController {
@@ -34,6 +41,8 @@ public class LoginController {
 	  
 	  @Autowired
 	  private SecurityService securityService;
+	  
+	
 	  
 	  
 	  // 로그인 
@@ -70,9 +79,8 @@ public class LoginController {
 	    return "403error";
 	  }
 	  
-	  
 	  //카카오톡 OAuth2 로그인 영역
-	 
+		 
 	  @RequestMapping("/auth/kakao/callback")
 	    public  @ResponseBody String kakaoCallBack(String code) {
 		 // 1. 카카오로그인 후 인증코드 리스폰 받음 하지만 로그인이 완료되지 않음
@@ -84,8 +92,7 @@ public class LoginController {
 		  
 		  
 		  
-		  //하단의 함수분석은 추후 업데이트예정
-		  //RestTemplate spring 3.0 부터 지원
+		  //Spring 3부터 지원 되었고 REST API 호출이후 응답을 받을 때까지 기다리는 동기방식이다
 		  RestTemplate rt = new RestTemplate();
 		  //HttpHeaders오브젝트생성
 		  HttpHeaders headers = new HttpHeaders();
@@ -94,14 +101,16 @@ public class LoginController {
 		  MultiValueMap<String,String> params = new LinkedMultiValueMap<>();
 		  
 		  params.add("grant_type","authorization_code");
-		  params.add("client_id","e0fe198a94267329d51b8335fe81e6ea");// 변수 가공 
+		  params.add("client_id","");// 변수 가공 
 		  params.add("redirect_uri","http://localhost:9110/auth/kakao/callback");
 		  params.add("code",code);
 		  
 		  //헤더값을 가진 엔티티가 됨.
+		  //HttpEntity란 클래스를 제공하는데 이 클래스의 역할은 Http 프로토콜을 이용하는 통신의 header와 body 관련 정보를 저장할수 있게해줌
 		  //HttpHeader와 HttpBody를 하나의 오브젝트로 담기
 		  HttpEntity<MultiValueMap<String,String>> kakaoTokenRequest = new HttpEntity<>(params,headers);  
 		  
+		  //ResponseEntity는 HttpEntity를 상속받음으로써 HttpHeader와 body를 가질 수 있다. 
 		  //Http요청하기 -> Post방식으로 -> response변수의 응답받음.
 		  ResponseEntity<String> response = rt.exchange(
 													  "https://kauth.kakao.com/oauth/token",
@@ -109,25 +118,49 @@ public class LoginController {
 													  kakaoTokenRequest,
 													  String.class);
 		  
-	        return "kakao Oauth2 access Token code:"+response;
+		  //엑세스토큰값 
+		  //System.out.println(response.getBody());
+		  //gson, json simple, ObjectMapper
+		  ObjectMapper obm = new ObjectMapper();
+		  OAuthToken oauthToken = null;
+		  try {
+			oauthToken = obm.readValue(response.getBody(), OAuthToken.class);
+		} catch (JsonParseException e) {
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		  
+		  
+		  RestTemplate rt2 = new RestTemplate();
+		  //HttpHeaders오브젝트생성
+		  HttpHeaders headers2 = new HttpHeaders();
+		  headers2.add("Authorization","Bearer "+oauthToken.getAccess_token());
+		  headers2.add("Content-type","application/x-www-form-urlencoded;charset=utf-8");
+		 
+		   
+		  //헤더값을 가진 엔티티가 됨.
+		  //HttpHeader와 HttpBody를 하나의 오브젝트로 담기
+		  HttpEntity<MultiValueMap<String,String>> kakaoProfileRequest = new HttpEntity<>(headers2);  
+		  
+		  //Http요청하기 -> Post방식으로 -> response변수의 응답받음.
+		  ResponseEntity<String> response2 = rt2.exchange(
+													  "https://kapi.kakao.com/v2/user/me",
+													  HttpMethod.POST,
+													  kakaoProfileRequest,
+													  String.class);
+		  
+		  //카카오 인증토큰 발급받은 뒤 정보 리스폰 받은것
+		  // System.out.println("kakao ID" + kakaoProfile.getId());
+		  // System.out.println("kakao email"+kakaoProfile.getKakao_account().getEmail());
+		  
+		  //카카오에서 받아온 정보
+		  //System.out.println(response2.getBody());
+	        
+		  return response2.getBody();
 	    }
-	 
-	  
-	  
-	  
-	  //Github OAuth2 로그인 영역
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  //네이버 OAuth2 로그인 영역
 	  
 	  
 	  

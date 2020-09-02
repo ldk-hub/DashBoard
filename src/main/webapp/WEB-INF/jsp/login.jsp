@@ -83,7 +83,7 @@
 					
 					 <!-- 카카오로그인 -->
                 <div id="social_id_login" style="text-align: center"> 
-               		<a href="https://kauth.kakao.com/oauth/authorize?client_id=e0fe198a94267329d51b8335fe81e6ea&redirect_uri=http://localhost:9110/auth/kakao/callback&response_type=code"> 
+               		<a href="https://kauth.kakao.com/oauth/authorize?client_id=유저아디&redirect_uri=http://localhost:9110/auth/kakao/callback&response_type=code"> 
                		<img height="38" src="/static/images/kakao_login_small.png" />
                		</a> 
                		<a href="${github_url}"> 
