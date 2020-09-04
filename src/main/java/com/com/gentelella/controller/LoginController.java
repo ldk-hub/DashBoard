@@ -26,10 +26,12 @@ import com.com.gentelella.service.UserService;
 import com.com.gentelella.util.OAuthToken;
 import com.com.gentelella.vo.User;
 import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Controller
+
 public class LoginController {
 	  
 	 // 카카오톡 OAuth2 정보
@@ -44,6 +46,7 @@ public class LoginController {
 	  
 	
 	  
+	   KakaoProfile kakaoProfile;
 	  
 	  // 로그인 
 	  @RequestMapping("/login")
@@ -101,7 +104,7 @@ public class LoginController {
 		  MultiValueMap<String,String> params = new LinkedMultiValueMap<>();
 		  
 		  params.add("grant_type","authorization_code");
-		  params.add("client_id","");// 변수 가공 
+		  params.add("client_id","e0fe198a94267329d51b8335fe81e6ea");// 변수 가공 
 		  params.add("redirect_uri","http://localhost:9110/auth/kakao/callback");
 		  params.add("code",code);
 		  
@@ -151,13 +154,23 @@ public class LoginController {
 													  HttpMethod.POST,
 													  kakaoProfileRequest,
 													  String.class);
-		  
-		  //카카오 인증토큰 발급받은 뒤 정보 리스폰 받은것
-		  // System.out.println("kakao ID" + kakaoProfile.getId());
-		  // System.out.println("kakao email"+kakaoProfile.getKakao_account().getEmail());
-		  
 		  //카카오에서 받아온 정보
 		  //System.out.println(response2.getBody());
+
+			ObjectMapper objectMapper2 = new ObjectMapper();
+			KakaoProfile kakaoProfile = null;
+			try {
+				kakaoProfile = objectMapper2.readValue(response2.getBody(), KakaoProfile.class);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		  
+		  //카카오 인증토큰 발급받은 뒤 정보 리스폰 받은것
+		  System.out.println("kakao ID" + kakaoProfile.getId());
+		  //이메일정보 가져오려면 사업자등록증 필요해서 이부분은 패스
+		  //System.out.println("kakao email"+kakaoProfile.getKakao_account().get);
+		  
+	
 	        
 		  return response2.getBody();
 	    }

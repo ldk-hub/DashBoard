@@ -1,5 +1,7 @@
 package com.com.gentelella.service;
 
+import org.springframework.stereotype.Service;
+
 import lombok.Data;
 
 @Data
@@ -22,9 +24,7 @@ public class KakaoProfile {
   public Profile profile;
   public Boolean has_email;
   public Boolean email_needs_agreement;
-  public Boolean is_email_valid;
-  public Boolean is_email_verified;
-  public String email;
+  
 
   @Data
   public class Profile {

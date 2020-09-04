@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 	//@SpringBootApplication은 밑의 기능을 자동으로 설정해주는 편리한 기능이다.
@@ -14,6 +15,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 	3.@ComponentScan 은 Spring에게 다른 구성 요소, 구성 및 서비스를 찾도록 지시합니다. */
 @SpringBootApplication(scanBasePackages = {"com.com.gentelella.*"})
 @EnableJpaRepositories(basePackages ={ "com.com.gentelella.*"})    
+@ComponentScan(basePackages ={ "com.com.gentelella.*"}) 
 @EntityScan(basePackages ={ "com.com.gentelella.*"})
 public class GentelellaApplication extends SpringBootServletInitializer {
 
