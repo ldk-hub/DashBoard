@@ -1,5 +1,5 @@
 # Bootstrap Admin DashBoard
-[![HitCount](http://hits.dwyl.io/ldk-hub/DashBoard.svg)](http://hits.dwyl.io/ldk-hub/DashBoard)
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fldk-hub%2FDashBoard&count_bg=%235A8738&title_bg=%236D1313&icon=&icon_color=%23FF0000&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 [![HitCount](https://img.shields.io/badge/lisence-MIT-green.svg)](https://github.com/ldk-hub/DashBoard/blob/master/LICENSE)
 
 ### Introduce Menu List
@@ -62,7 +62,7 @@
 3. oAuth 연계(네이버,카카오,깃허브,구글) 회원가입, 로그인  
    - 깃허브 Oauth2 인증코드 발급완료
    - 카카오톡 로그인 인증코드 및 로그인 샘플 발급완료
-
+   - 엑세스 토큰 값으로 인증 후 로그인한 유저정보 가져오기
 
 ### 완료내역
 1. 시큐리티 로그인, 로그아웃 세션처리 완료(jpa사용)

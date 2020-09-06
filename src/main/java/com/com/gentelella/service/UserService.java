@@ -8,4 +8,12 @@ public interface UserService {
 	//유저정보 호출
 	User findByUsername(String username);
 
+	/*@Transactional
+	public void oauthUser(User user) {
+		String rawPassword = user.getPassword();
+		String encPassword = encoder.encode(rawPassword);
+		user.setPassword(encPassword);
+		user.setRole(RoleType.USER);
+		userRepository.save(user);
+	}*/
 }

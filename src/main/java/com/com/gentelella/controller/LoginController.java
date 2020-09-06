@@ -1,6 +1,7 @@
 package com.com.gentelella.controller;
 
 import java.io.IOException;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -26,7 +27,6 @@ import com.com.gentelella.service.UserService;
 import com.com.gentelella.util.OAuthToken;
 import com.com.gentelella.vo.User;
 import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -86,15 +86,14 @@ public class LoginController {
 		 
 	  @RequestMapping("/auth/kakao/callback")
 	    public  @ResponseBody String kakaoCallBack(String code) {
+		  
+		 //순서 ->인증코드 -> 엑세스 토큰 인증 -> 카카오 로그인 유저정보 리스폰 -> 정보기반 내부시스템 로그인처리 
 		 // 1. 카카오로그인 후 인증코드 리스폰 받음 하지만 로그인이 완료되지 않음
 		 // 2. 사용자토큰을 받아야 카카오 로그인을 완료하게됨.
 		 //인증코드(GET방식) 토큰발급(POST)
 		 //토큰 발급 필수 전달 4가지 항목
-		 
-		//POST방식으로 key=value 데이터를 요청(카카오쪽으로)
-		  
-		  
-		  
+		 //POST방식으로 key=value 데이터를 요청(카카오쪽으로)
+
 		  //Spring 3부터 지원 되었고 REST API 호출이후 응답을 받을 때까지 기다리는 동기방식이다
 		  RestTemplate rt = new RestTemplate();
 		  //HttpHeaders오브젝트생성
@@ -104,7 +103,7 @@ public class LoginController {
 		  MultiValueMap<String,String> params = new LinkedMultiValueMap<>();
 		  
 		  params.add("grant_type","authorization_code");
-		  params.add("client_id","e0fe198a94267329d51b8335fe81e6ea");// 변수 가공 
+		  params.add("client_id","e0fe198a94267329d51b8335fe81e6ea");//카카오로그인 API 클라이언트 코드
 		  params.add("redirect_uri","http://localhost:9110/auth/kakao/callback");
 		  params.add("code",code);
 		  
@@ -121,39 +120,40 @@ public class LoginController {
 													  kakaoTokenRequest,
 													  String.class);
 		  
-		  //엑세스토큰값 
+		  //2. 엑세스토큰값 
 		  //System.out.println(response.getBody());
+		  
+		  
 		  //gson, json simple, ObjectMapper
+		  //엑세스 토큰값처리
 		  ObjectMapper obm = new ObjectMapper();
 		  OAuthToken oauthToken = null;
 		  try {
-			oauthToken = obm.readValue(response.getBody(), OAuthToken.class);
-		} catch (JsonParseException e) {
-			e.printStackTrace();
-		} catch (JsonMappingException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		  
+			  oauthToken = obm.readValue(response.getBody(), OAuthToken.class);
+			} catch (JsonParseException e) {
+				e.printStackTrace();
+			} catch (JsonMappingException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		  
 		  RestTemplate rt2 = new RestTemplate();
 		  //HttpHeaders오브젝트생성
 		  HttpHeaders headers2 = new HttpHeaders();
 		  headers2.add("Authorization","Bearer "+oauthToken.getAccess_token());
 		  headers2.add("Content-type","application/x-www-form-urlencoded;charset=utf-8");
-		 
 		   
 		  //헤더값을 가진 엔티티가 됨.
 		  //HttpHeader와 HttpBody를 하나의 오브젝트로 담기
 		  HttpEntity<MultiValueMap<String,String>> kakaoProfileRequest = new HttpEntity<>(headers2);  
-		  
 		  //Http요청하기 -> Post방식으로 -> response변수의 응답받음.
 		  ResponseEntity<String> response2 = rt2.exchange(
 													  "https://kapi.kakao.com/v2/user/me",
 													  HttpMethod.POST,
 													  kakaoProfileRequest,
 													  String.class);
+		  
 		  //카카오에서 받아온 정보
 		  //System.out.println(response2.getBody());
 
@@ -161,20 +161,28 @@ public class LoginController {
 			KakaoProfile kakaoProfile = null;
 			try {
 				kakaoProfile = objectMapper2.readValue(response2.getBody(), KakaoProfile.class);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 		  
-		  //카카오 인증토큰 발급받은 뒤 정보 리스폰 받은것
-		  System.out.println("kakao ID" + kakaoProfile.getId());
-		  //이메일정보 가져오려면 사업자등록증 필요해서 이부분은 패스
-		  //System.out.println("kakao email"+kakaoProfile.getKakao_account().get);
+			  //유저정보
+			  System.out.println("kakao ID" + kakaoProfile.getId());
+			  System.out.println("kakao email"+kakaoProfile.getKakao_account().getProfile());
 		  
-	
+			  System.out.println("통합정보시스템 유저ID"+kakaoProfile.getKakao_account().getProfile().nickname+"_"+kakaoProfile.getId());
+			  //이미카카오에서 인증절차를밟았기떄문에 내부 패스워드는 필요없는값을사용
+			  UUID garbagePassWord = UUID.randomUUID();
+			  System.out.println("통합정보시스템 패스워드"+garbagePassWord);
+			  System.out.println("통합정보시스템 이메일(사업자등록증때문에 미비)"+kakaoProfile.getKakao_account().getProfile());
+			  
+			  /*User user = User.builder()
+					  .username(kakaoProfile.getKakao_account().getProfile().nickname+"_"+kakaoProfile.getId())
+					  .password(garbagePassWord.toString())
+					  .build();*/
+					  
+			 // userService.
+					  
 	        
 		  return response2.getBody();
-	    }
-	  
-	  
-	  
+    }
 }
