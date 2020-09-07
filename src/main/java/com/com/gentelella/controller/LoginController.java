@@ -168,19 +168,21 @@ public class LoginController {
 			  //유저정보
 			  System.out.println("kakao ID" + kakaoProfile.getId());
 			  System.out.println("kakao email"+kakaoProfile.getKakao_account().getProfile());
-		  
+			  //아이디중복방지 닉네임+ID번호 삽입
 			  System.out.println("통합정보시스템 유저ID"+kakaoProfile.getKakao_account().getProfile().nickname+"_"+kakaoProfile.getId());
 			  //이미카카오에서 인증절차를밟았기떄문에 내부 패스워드는 필요없는값을사용
 			  UUID garbagePassWord = UUID.randomUUID();
 			  System.out.println("통합정보시스템 패스워드"+garbagePassWord);
-			  System.out.println("통합정보시스템 이메일(사업자등록증때문에 미비)"+kakaoProfile.getKakao_account().getProfile());
+			  //실제 서비스를해야 이메일정보를 카카오톡으로부터받을 수 있음.(프로필값으로 대체하였음)
+			  System.out.println("통합정보시스템 이메일"+kakaoProfile.getKakao_account().getProfile());
 			  
-			  /*User user = User.builder()
+			  User user = User.builder()
 					  .username(kakaoProfile.getKakao_account().getProfile().nickname+"_"+kakaoProfile.getId())
 					  .password(garbagePassWord.toString())
-					  .build();*/
+					  .build();
 					  
-			 // userService.
+			  //user값 저장 후 로그인처리해야됨
+			  System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+user);
 					  
 	        
 		  return response2.getBody();
