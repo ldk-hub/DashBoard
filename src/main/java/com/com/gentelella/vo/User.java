@@ -6,6 +6,8 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -48,13 +50,18 @@ public class User {
   private String email;
   @Column
   private String nickname;
+  
   @CreationTimestamp
   private Date regdate;//생성상세날짜를 기록하고 아직 로그인정보 수정페이지 미구현으로 추후 업데이트날짜 추가
-  @ManyToMany(cascade=CascadeType.ALL) 
+ /* @ManyToMany(cascade=CascadeType.ALL) 
   @JoinTable(name = "ap_user_role",
              joinColumns = @JoinColumn(name = "user_id"),
-             inverseJoinColumns = @JoinColumn(name = "role_id"))
+             inverseJoinColumns = @JoinColumn(name = "role_id"))*/
+  
+  //DB는 RoleType없음.
+  @Enumerated(EnumType.STRING)
+	private RoleType role; // Enum을 쓰는게 좋다. // ADMIN, USER
  
-  private Set<Role> roles;
+  //private Set<Role> roles;
 
 }

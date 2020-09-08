@@ -24,6 +24,7 @@ import org.springframework.web.client.RestTemplate;
 import com.com.gentelella.service.KakaoProfile;
 import com.com.gentelella.service.SecurityService;
 import com.com.gentelella.service.UserService;
+import com.com.gentelella.service.UserServiceImpl;
 import com.com.gentelella.util.OAuthToken;
 import com.com.gentelella.vo.User;
 import com.fasterxml.jackson.core.JsonParseException;
@@ -40,6 +41,9 @@ public class LoginController {
 	
 	  @Autowired
 	  UserService userService;
+	  
+	  @Autowired
+	  UserServiceImpl userServiceImpl;
 	  
 	  @Autowired
 	  private SecurityService securityService;
@@ -166,25 +170,29 @@ public class LoginController {
 				}
 		  
 			  //유저정보
-			  System.out.println("kakao ID" + kakaoProfile.getId());
-			  System.out.println("kakao email"+kakaoProfile.getKakao_account().getProfile());
+			  //System.out.println("kakao ID" + kakaoProfile.getId());
+			  //System.out.println("kakao email"+kakaoProfile.getKakao_account().getProfile());
 			  //아이디중복방지 닉네임+ID번호 삽입
-			  System.out.println("통합정보시스템 유저ID"+kakaoProfile.getKakao_account().getProfile().nickname+"_"+kakaoProfile.getId());
+			  //System.out.println("통합정보시스템 유저ID"+kakaoProfile.getKakao_account().getProfile().nickname+"_"+kakaoProfile.getId());
 			  //이미카카오에서 인증절차를밟았기떄문에 내부 패스워드는 필요없는값을사용
-			  UUID garbagePassWord = UUID.randomUUID();
-			  System.out.println("통합정보시스템 패스워드"+garbagePassWord);
+				UUID garbagePassWord = UUID.randomUUID();
+			  //System.out.println("통합정보시스템 패스워드"+garbagePassWord);
 			  //실제 서비스를해야 이메일정보를 카카오톡으로부터받을 수 있음.(프로필값으로 대체하였음)
-			  System.out.println("통합정보시스템 이메일"+kakaoProfile.getKakao_account().getProfile());
+			  //System.out.println("통합정보시스템 이메일"+kakaoProfile.getKakao_account().getProfile());
 			  
 			  User user = User.builder()
 					  .username(kakaoProfile.getKakao_account().getProfile().nickname+"_"+kakaoProfile.getId())
 					  .password(garbagePassWord.toString())
 					  .build();
 					  
+			  //가입자 혹은 비가입자 검증후 처리해야됨.
+			  
+			  userServiceImpl.oauthUser(user);
+			  
 			  //user값 저장 후 로그인처리해야됨
 			  System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+user);
 					  
 	        
-		  return response2.getBody();
+		  return "회원가입 완료";
     }
 }
