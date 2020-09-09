@@ -1,6 +1,7 @@
 package com.com.gentelella.service;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
  
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepository.findByUsername(username);
+    	//기존
+    	//User user = userRepository.findByUsername(username);
+        Optional<User> user = userRepository.findByUsername(username);
         Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
         
         //초기 구현당시 ADMIN 과 USER 권한을 프론트에서 회원가입 당시 처리하려 했으나 관리자가 페이지 내부에서 제어해야 하는 구조가 좋기에 변경
@@ -28,8 +31,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             grantedAuthorities.add(new SimpleGrantedAuthority(role.getName()));
         }*/
         //회원가입과 동시에 로그인 처리
-        return new org.springframework.security.core.userdetails.User(user.getUsername(), 
-                                                                      user.getPassword(),
+        return new org.springframework.security.core.userdetails.User(user.get().getUsername(), //.getUsername()
+                                                                      user.get().getPassword(),  //.getPassword()
                                                                       grantedAuthorities);
     }
 }

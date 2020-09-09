@@ -164,12 +164,12 @@ public class LoginController {
 			ObjectMapper objectMapper2 = new ObjectMapper();
 			KakaoProfile kakaoProfile = null;
 			try {
-				kakaoProfile = objectMapper2.readValue(response2.getBody(), KakaoProfile.class);
+					kakaoProfile = objectMapper2.readValue(response2.getBody(), KakaoProfile.class);
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
 		  
-			  //유저정보
+			  //유저정보 가공
 			  //System.out.println("kakao ID" + kakaoProfile.getId());
 			  //System.out.println("kakao email"+kakaoProfile.getKakao_account().getProfile());
 			  //아이디중복방지 닉네임+ID번호 삽입
@@ -180,19 +180,24 @@ public class LoginController {
 			  //실제 서비스를해야 이메일정보를 카카오톡으로부터받을 수 있음.(프로필값으로 대체하였음)
 			  //System.out.println("통합정보시스템 이메일"+kakaoProfile.getKakao_account().getProfile());
 			  
-			  User user = User.builder()
+			  User kakaoUser = User.builder()
 					  .username(kakaoProfile.getKakao_account().getProfile().nickname+"_"+kakaoProfile.getId())
 					  .password(garbagePassWord.toString())
 					  .build();
 					  
 			  //가입자 혹은 비가입자 검증후 처리해야됨.
+			 User originUser =  userServiceImpl.oauthUserScan(kakaoUser.getUsername());
+			 
+			 //가입자정보체크
+			 if(originUser.getUsername() == null) {
+				//DB에 카카오인증정보 저장
+				  userServiceImpl.oauthUser(kakaoUser);
+				 
+			 }
+			 
+			 //로그인처리 구성해야됨(마지막단계)
 			  
-			  userServiceImpl.oauthUser(user);
 			  
-			  //user값 저장 후 로그인처리해야됨
-			  System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+user);
-					  
-	        
-		  return "회원가입 완료";
+		  return "redirect:/dashboard";
     }
 }

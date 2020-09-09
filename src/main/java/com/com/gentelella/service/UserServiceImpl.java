@@ -1,22 +1,16 @@
 package com.com.gentelella.service;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.com.gentelella.repository.UserRepository;
-import com.com.gentelella.vo.Role;
 import com.com.gentelella.vo.RoleType;
 import com.com.gentelella.vo.User;
 
-import lombok.extern.slf4j.Slf4j;
 
 @Service
-@Slf4j
 public class UserServiceImpl implements UserService {
   @Autowired
   private UserRepository userRepository;
@@ -36,9 +30,26 @@ public class UserServiceImpl implements UserService {
   //유저정보 호출
   @Override
   public User findByUsername(String username) {
-    return userRepository.findByUsername(username);
+	  //기존
+	  //  User user = userRepository.findByUsername(username);
+		
+	  
+		User user = userRepository.findByUsername(username).orElseGet(()->{
+  			return new User(); //기존에없었
+  		});
+  		return user;
   }
   
+  
+  
+    //기존회원 및 중복회원 서칭
+  	@Transactional(readOnly=true)
+  	public User oauthUserScan(String username) {
+  		User user = userRepository.findByUsername(username).orElseGet(()->{
+  			return new User();
+  		});
+  		return user;
+  	}
 
     //카카오 API 로그인시 회원정보추가
     @Transactional
