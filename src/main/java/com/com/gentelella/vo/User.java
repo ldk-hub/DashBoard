@@ -49,6 +49,8 @@ public class User {
   @CreationTimestamp
   private Date regdate;//생성상세날짜를 기록하고 아직 로그인정보 수정페이지 미구현으로 추후 업데이트날짜 추가
   
+  private String oauth; //카카오, 네이버, 깃허브 API 로그인 구분정보
+  
   //DB는 RoleType없음.
   @Enumerated(EnumType.STRING)
 	private RoleType role; // Enum을 쓰는게 좋다. // ADMIN, USER

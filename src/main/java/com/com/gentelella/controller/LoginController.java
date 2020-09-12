@@ -1,7 +1,6 @@
 package com.com.gentelella.controller;
 
 import java.io.IOException;
-import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -10,6 +9,10 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.LinkedMultiValueMap;
@@ -35,9 +38,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class LoginController {
 	  
-	 // 카카오톡 OAuth2 정보
-	  private final static String K_CLIENT_ID = "나의 앱 키 입력";
-      private final static String K_REDIRECT_URI = "리다이렉트 주소입력";
+	 // 카카오톡 OAuth2 처리후 시스템내부 패스워드 정보
+	  private final static String K_CLIENT_COSKEY = "cos1234";//이렇게하면안됨. 개념파악용이라서 임시방편으로 이렇게처리함. UUID를썼지만(자동로그인처리가안됨)->시스템구성당시 고유값을 은닉화시켜서 관리해야함.
 	
 	  @Autowired
 	  UserService userService;
@@ -48,7 +50,8 @@ public class LoginController {
 	  @Autowired
 	  private SecurityService securityService;
 	  
-	
+	  @Autowired
+	  private AuthenticationManager authenticationManager;
 	  
 	   KakaoProfile kakaoProfile;
 	  
@@ -89,7 +92,7 @@ public class LoginController {
 	  //카카오톡 OAuth2 로그인 영역
 		 
 	  @RequestMapping("/auth/kakao/callback")
-	    public  @ResponseBody String kakaoCallBack(String code) {
+	    public  String kakaoCallBack(String code) {
 		  
 		 //순서 ->인증코드 -> 엑세스 토큰 인증 -> 카카오 로그인 유저정보 리스폰 -> 정보기반 내부시스템 로그인처리 
 		 // 1. 카카오로그인 후 인증코드 리스폰 받음 하지만 로그인이 완료되지 않음
@@ -173,30 +176,33 @@ public class LoginController {
 			  //System.out.println("kakao ID" + kakaoProfile.getId());
 			  //System.out.println("kakao email"+kakaoProfile.getKakao_account().getProfile());
 			  //아이디중복방지 닉네임+ID번호 삽입
-			  //System.out.println("통합정보시스템 유저ID"+kakaoProfile.getKakao_account().getProfile().nickname+"_"+kakaoProfile.getId());
-			  //이미카카오에서 인증절차를밟았기떄문에 내부 패스워드는 필요없는값을사용
-				UUID garbagePassWord = UUID.randomUUID();
+			  System.out.println("통합정보시스템 유저ID"+kakaoProfile.getKakao_account().getProfile().nickname+"_"+kakaoProfile.getId());
 			  //System.out.println("통합정보시스템 패스워드"+garbagePassWord);
 			  //실제 서비스를해야 이메일정보를 카카오톡으로부터받을 수 있음.(프로필값으로 대체하였음)
 			  //System.out.println("통합정보시스템 이메일"+kakaoProfile.getKakao_account().getProfile());
 			  
 			  User kakaoUser = User.builder()
 					  .username(kakaoProfile.getKakao_account().getProfile().nickname+"_"+kakaoProfile.getId())
-					  .password(garbagePassWord.toString())
+					  .password(K_CLIENT_COSKEY)//정말중요함 이코드경우 현재는 대놓고 노출했지만 반드시 코드값을 격리시켜야함(개념파악용이라서노출시킴) 기존UUID쓸경우 자동로그인이안됨.
+					  .oauth("kakao") //카카오로그인 API로 회원가입했다는 구분정보
 					  .build();
 					  
 			  //가입자 혹은 비가입자 검증후 처리해야됨.
 			 User originUser =  userServiceImpl.oauthUserScan(kakaoUser.getUsername());
 			 
+			 
 			 //가입자정보체크
 			 if(originUser.getUsername() == null) {
+				 System.out.println("기존 회원이 아니기에 자동 회원가입을 진행");
 				//DB에 카카오인증정보 저장
 				  userServiceImpl.oauthUser(kakaoUser);
-				 
 			 }
 			 
+			 
 			 //로그인처리 구성해야됨(마지막단계)
-			  
+			  Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(kakaoUser.getUsername(),K_CLIENT_COSKEY));
+			  SecurityContextHolder.getContext().setAuthentication(authentication);
+					  
 			  
 		  return "redirect:/dashboard";
     }
