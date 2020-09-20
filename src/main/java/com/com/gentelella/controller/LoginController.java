@@ -24,11 +24,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
 
-import com.com.gentelella.service.KakaoProfile;
 import com.com.gentelella.service.SecurityService;
 import com.com.gentelella.service.UserService;
 import com.com.gentelella.service.UserServiceImpl;
 import com.com.gentelella.util.OAuthToken;
+import com.com.gentelella.vo.KakaoProfile;
 import com.com.gentelella.vo.User;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -128,7 +128,7 @@ public class LoginController {
 													  String.class);
 		  
 		  //2. 엑세스토큰값 
-		  //System.out.println(response.getBody());
+		  System.out.println("카카오 엑세스 토큰 값 : " + response.getBody());
 		  
 		  
 		  //gson, json simple, ObjectMapper
@@ -162,7 +162,7 @@ public class LoginController {
 													  String.class);
 		  
 		  //카카오에서 받아온 정보
-		  //System.out.println(response2.getBody());
+		  System.out.println("카카오에서 받아온 정보 : "+ response2.getBody());
 
 			ObjectMapper objectMapper2 = new ObjectMapper();
 			KakaoProfile kakaoProfile = null;
@@ -173,13 +173,10 @@ public class LoginController {
 				}
 		  
 			  //유저정보 가공
-			  //System.out.println("kakao ID" + kakaoProfile.getId());
-			  //System.out.println("kakao email"+kakaoProfile.getKakao_account().getProfile());
+			  System.out.println("kakao ID : " + kakaoProfile.getId());
+			  System.out.println("kakao email : " + kakaoProfile.getKakao_account().getProfile());
 			  //아이디중복방지 닉네임+ID번호 삽입
-			  System.out.println("통합정보시스템 유저ID"+kakaoProfile.getKakao_account().getProfile().nickname+"_"+kakaoProfile.getId());
-			  //System.out.println("통합정보시스템 패스워드"+garbagePassWord);
-			  //실제 서비스를해야 이메일정보를 카카오톡으로부터받을 수 있음.(프로필값으로 대체하였음)
-			  //System.out.println("통합정보시스템 이메일"+kakaoProfile.getKakao_account().getProfile());
+			  System.out.println("카카오->내부시스템 유저ID 생성 : "+kakaoProfile.getKakao_account().getProfile().nickname+"_"+kakaoProfile.getId());
 			  
 			  User kakaoUser = User.builder()
 					  .username(kakaoProfile.getKakao_account().getProfile().nickname+"_"+kakaoProfile.getId())
@@ -191,18 +188,16 @@ public class LoginController {
 			 User originUser =  userServiceImpl.oauthUserScan(kakaoUser.getUsername());
 			 
 			 
-			 //가입자정보체크
+			 //가입자정보체크(기존 겹치는 데이터 체크)
 			 if(originUser.getUsername() == null) {
 				 System.out.println("기존 회원이 아니기에 자동 회원가입을 진행");
 				//DB에 카카오인증정보 저장
 				  userServiceImpl.oauthUser(kakaoUser);
 			 }
 			 
-			 
-			 //로그인처리 구성해야됨(마지막단계)
+			 //로그인처리
 			  Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(kakaoUser.getUsername(),K_CLIENT_COSKEY));
 			  SecurityContextHolder.getContext().setAuthentication(authentication);
-					  
 			  
 		  return "redirect:/dashboard";
     }

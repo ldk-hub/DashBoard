@@ -4,22 +4,26 @@
 
 ### Introduce Menu List
 
- * [API리스트](#리스트)
- * [진행예정](#진행예정)
- * [진행예정](#개발이슈)
+ * [API리스트](#API리스트)
+ * [개발예정](#개발예정)
+ * [개발이슈](#개발이슈)
  * [완료내역](#완료내역)
  * [개발환경](#개발환경)
-
   
+## Main Page
+![녹화_2019_12_28_13_50_01_980](https://user-images.githubusercontent.com/12209348/71539042-5dd14980-2979-11ea-973a-dc58d91aa385.gif)
+
+## Hybrid Web 반응형웹  
+![녹화_2020_07_06_20_37_57_94](https://user-images.githubusercontent.com/12209348/86919343-0bac8480-c163-11ea-964d-27a09acf5618.gif)  
+
+### Social Login REST API (kakao)  
+![kakaologin1](https://user-images.githubusercontent.com/12209348/93009605-071aa700-f5be-11ea-919d-d857eb2b3f91.gif)  
+
+## kakao access infomation
+![kakao login](https://user-images.githubusercontent.com/12209348/93009603-05e97a00-f5be-11ea-80b7-857aaf9ce214.PNG)  
 
 ### -- login, security, SMTP E-mail Find Password, Membership page (Add regular expression) --
-![녹화_2019_12_27_16_59_23_687](https://user-images.githubusercontent.com/12209348/71508393-f957b100-28ca-11ea-96b7-cc9c693cf0a9.gif)
-
-## Encrypt the member account information password
-![1](https://user-images.githubusercontent.com/12209348/41805983-90200564-76ee-11e8-8c9d-ae10c214f873.PNG)
-
-## Hybrid Web 반응형웹 
-![녹화_2020_07_06_20_37_57_94](https://user-images.githubusercontent.com/12209348/86919343-0bac8480-c163-11ea-964d-27a09acf5618.gif)
+![녹화_2020_09_17_19_58_26_640](https://user-images.githubusercontent.com/12209348/93462004-93133280-f920-11ea-9e8b-f371971def37.gif)  
 
 ## local PC(server) infomation(CPU, Memory etc.)
 
@@ -27,8 +31,7 @@
 
 ![default](https://user-images.githubusercontent.com/12209348/43362948-91c6f26e-9332-11e8-9ef2-5738fb58c32e.PNG)
 
-## Main Page
-![녹화_2019_12_28_13_50_01_980](https://user-images.githubusercontent.com/12209348/71539042-5dd14980-2979-11ea-973a-dc58d91aa385.gif)
+
 
 ![screencapture-localhost-9110-dashboard-2019-12-28-13_21_32](https://user-images.githubusercontent.com/12209348/71538837-455f3000-2975-11ea-9f2c-240ce6180186.png)
 
@@ -47,22 +50,10 @@
 
 
 ### 개발예정
-1. Mybatis 사용 로직 -> JPA전환 작업
-  실적용 영역
-   - 멀티차트 데이터 Mybatis -> jpa전환 완료
+1. jpa - 양방향조회이용해서 역방향 조회해보기, fetch로 조인해서 한방에가져오기 lazy옵션준상태에서
+   - spring jpa, querydsl 활용 해보기
   
-  스터디영역
-  - 양방향조회이용해서 역방향 조회해보기
-  - jpql 구현해보기 fetch로 조인해서 한방에가져오기 lazy옵션준상태에서<<페치조인
-         단순쿼리, 조인, 페치조인,페이징 api
-  - spring jpa, querydsl 공부해야됨.
-  
-2. 각 로직 또는 데이터 관련 TDD 구성
-
-3. oAuth 연계(네이버,카카오,깃허브,구글) 회원가입, 로그인  
-   - 깃허브 Oauth2 인증코드 발급완료
-   - 카카오톡 로그인 인증코드 및 로그인 샘플 발급완료
-   - 엑세스 토큰 값으로 인증 후 로그인한 유저정보 가져오기
+2. 각 로직 별 TDD 구성  
 
 ### 완료내역
 1. 시큐리티 로그인, 로그아웃 세션처리 완료(jpa사용)
@@ -86,6 +77,16 @@
 19. amcharts4 API -> Sigar API의 수집정보 연동 로직 구현완료(실시간 PC정보 모니터링 기능)
 20. echart -> amchart4 반영완료(변경이유 : 차트의 웹 유연성 및 최적화 이슈로 변경함)
 21. amchart 게이지 차트 ->시스템 정보 표출 , 멀티라인차트 DB 연동(데이터 누적방식 차트)
+22. oAuth2 소셜 로그인 연계 구현(카카오)  
+   - Oauth2 인증코드 발급완료  
+   - 카카오톡 로그인 인증코드, 엑세스 토큰, 유저 로그인 응답정보 처리 완료  
+   - 카카오정보 내부시스템 정보 저장, 중복정보확인, 자동로그인처리 구현완료  
+23. Mybatis 사용 로직 -> JPA전환 작업  
+  적용 영역
+   - 멀티차트 데이터 Mybatis -> jpa전환 완료  
+   - 로그인 Mybatis -> jpa전환 완료  
+   - 게터 세터 -> 롬복 적용완료  
+  
 
 ### 개발이슈
 1. SMTP 비밀번호 찾기 properties 정보 계정 정보 삭제

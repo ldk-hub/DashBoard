@@ -1,6 +1,5 @@
-package com.com.gentelella.service;
+package com.com.gentelella.vo;
 
-import org.springframework.stereotype.Service;
 
 import lombok.Data;
 
