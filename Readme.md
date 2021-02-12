@@ -50,10 +50,9 @@
 
 
 ### 개발예정
-1. jpa - 양방향조회이용해서 역방향 조회해보기, fetch로 조인해서 한방에가져오기 lazy옵션준상태에서
-   - spring jpa, querydsl 활용 해보기
-  
-2. 각 로직 별 TDD 구성  
+1. jpa   
+   - 양방향조회, 역방향조회, fetch조인, lazy옵션  
+   - spring jpa, querydsl  
 
 ### 완료내역
 1. 시큐리티 로그인, 로그아웃 세션처리 완료(jpa사용)
@@ -106,9 +105,11 @@
 16. 다크테마 전환 과정 중 발생한 UI크래시  부분 개선
 17. 오라클 -> postgresql 전환중 마이바티스 전면 수정으로인한 이슈로 Mybatis -> JPA 전환 검토
 18. daum 지도에서 카카오 지도 API 제공 기한 지나서 크로스 오리진 이슈 발생 -> kakao로 소스 변경완료
+19. tui-grid ver up 마이그레이션작업(그리드 최적화 및 속도 개선) 타입스크립트 기반 최신버전
+20. 카카오맵 API 최적화 및 amcharts 
 
 ### API리스트
- - System table : Datatables, tui grid
+ - System table : Datatables, tui-grid4.0
  - 날씨, 지도 : kakao maps, Skycons
  - 차트 : amcharts4
  - 캘린더 : fullcalendar, bootstrap-daterangepicker, DateJS

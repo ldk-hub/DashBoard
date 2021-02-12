@@ -150,9 +150,6 @@
             <!-- 파일업로드API E -->
           </div>
           
-<script src="../static/vendors/toast/jquery/dist/jquery.js"></script>
-<script src="../static/vendors/toast/underscore/underscore.js"></script>
-<script src="../static/vendors/toast/backbone/backbone.js"></script>
 <script	src="../static/vendors/toast/tui-code-snippet/dist/tui-code-snippet.js"></script>
 <script	src="../static/vendors/toast/tui-date-picker/dist/tui-date-picker.js"></script>
 <script src="../static/vendors/toast/tui-grid/dist/tui-grid.js"></script>
@@ -401,7 +398,7 @@ chart.cursor.lineX.fillOpacity = 0.1;
 
 <script type="text/javascript">
 	$(document).ready(function(){
-		selectBoardList();
+		//selectBoardList();
 	});
 </script>
 
@@ -423,7 +420,12 @@ var Now = new Date();
 //$(':focus').blur(); // 모바일 키보드 해제
 
 var grid1 = new tui.Grid({
-    el: $('#grid'),
+    el: document.getElementById('grid'),
+    data: {
+        api: {
+          readData: { url: '/selectBoardList', method: 'POST' }
+        }
+      },    
     bodyHeight: 350,
     virtualScrolling :true,
     rowHeaders:['checkbox','rowNum'],
@@ -433,15 +435,15 @@ var grid1 = new tui.Grid({
     },
     columns: [
         {
-            title: '브랜드명',
+            header: '브랜드명',
             name: 'brand_name'
         },
         {
-            title: '자재번호 ',
+        	header: '자재번호 ',
             name: 'item_number'
         },
         {
-            title: '제품명',
+        	header: '제품명',
             name: 'season_reason',
             editOptions: {
                 type: 'text',
@@ -450,7 +452,7 @@ var grid1 = new tui.Grid({
             }
         },
         {
-            title: '제품상세',
+        	header: '제품상세',
             name: 'status',
             editOptions: {
                 type: 'text',
@@ -459,7 +461,7 @@ var grid1 = new tui.Grid({
             }
         },
         {
-            title: '구분',
+        	header: '구분',
             name: 'STATUS',
         }
     ]
@@ -468,8 +470,8 @@ var grid1 = new tui.Grid({
 		
 		
 		
-		
-function selectBoardList() {
+	//버전업되면서 AJAX통신 더간소화됨	
+/* function selectBoardList() {
 	$.ajax({
 			type:'POST',
 			url : '/selectBoardList',
@@ -481,7 +483,7 @@ function selectBoardList() {
 			      alert('error 관리자에게문의하시오.');
 		    }
 		});
-	} 
+	}  */
 		
 		
 		//그리드에서 지원하는 NET통신
@@ -616,12 +618,12 @@ function selectBoardList() {
 				border : '#000000',
 				text : '#fff'
 			},
-			head : {
+			header : {
 				background : '#262930',
 				border : '#000000',
 				text : '#c3f400'
 			},
-			rowHead : {
+			rowHeader : {
 				background : '#262930',
 				border : '#000000',
 				text : '#fff'
@@ -636,10 +638,10 @@ function selectBoardList() {
 				border : '#fff',
 				text : '#fff'
 			},
-			selectedHead : {
+			selectedHeader : {
 				background : '#616161'
 			},
-			selectedRowHead : {
+			selectedRowHeader : {
 				background : '#616161'
 			},
 			focused : {
