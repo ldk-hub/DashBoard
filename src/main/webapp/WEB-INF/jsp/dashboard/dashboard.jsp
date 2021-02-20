@@ -460,9 +460,10 @@ am4core.ready(function() {
 
 	// Increase contrast by taking evey second color
 	chart.colors.step = 2;
-
+	// ajax 멀티차트 json값 //이건 amcharts4 버전업해야됨
+	chart.dataSource.url = "/multiChart2";
 	// Add data
-	chart.data = generateChartData();
+	//chart.data = generateChartData();
 
 	// Create axes
 	var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
@@ -480,7 +481,7 @@ am4core.ready(function() {
 	  series.name = name;
 	  series.tooltipText = "{name}: [bold]{valueY}[/]";
 	  //라인의 곡선표현
-	  series.tensionX = 0.8;
+	  series.tensionX = 1;
 	  
 	  var interfaceColors = new am4core.InterfaceColorSet();
 	  
@@ -538,7 +539,7 @@ am4core.ready(function() {
 	chart.cursor = new am4charts.XYCursor();
 
 	// generate some random data, quite different range
-	function generateChartData() {
+	/* function generateChartData() {
 	  var chartData = [];
 	  var firstDate = new Date();
 	  firstDate.setDate(firstDate.getDate() - 100);
@@ -572,7 +573,7 @@ am4core.ready(function() {
 		});
 	  //ajax 끝
 	  return chartData;
-	}
+	} */
 }); // end am4core.ready()
 </script>
 
