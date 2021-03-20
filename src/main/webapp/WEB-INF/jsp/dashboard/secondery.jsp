@@ -2,11 +2,11 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
-<style type="text/css">	
+<!-- <style type="text/css">	
 ::-webkit-scrollbar{Display:none;}	
-</style>	
-<link rel="stylesheet" type="text/css" href="../static/vendors/toast/tui-grid/dist/tui-grid.css" />
-<link rel="stylesheet" type="text/css" href="../static/vendors/toast/tui-pagination/dist/tui-pagination.css" />
+</style>	 -->
+<link rel="stylesheet" type="text/css" href="../static/vendors/tui-gird4/tui-grid/dist/tui-grid.css" />
+<link rel="stylesheet" type="text/css" href="../static/vendors/tui-gird4/tui-pagination/dist/tui-pagination.css" />
  
 <div class="right_col" role="main" style="background-color:#5c5c5c38;">
 
@@ -15,7 +15,7 @@
 </div>	
 
 	<div class="row">
-		<div class="col-md-12 col-sm-12 col-xs-12">
+		<div class="col-md-12 col-sm-12 col-xs-12" style="z-index: 0;">
 			<div class="x_panel"  style="background-color:#2f2e2e; border-color:#000000;">
 				<div class="x_title" style="border-bottom-color:#c5c0c06e;">
 					<h2 style="font-size: 2.0em; color:#efae17;">
@@ -132,14 +132,11 @@
 
 
 <!-- Toast Grid -->
-<script src="../static/vendors/toast/jquery/dist/jquery.js"></script>
-<script src="../static/vendors/toast/underscore/underscore.js"></script>
-<script src="../static/vendors/toast/backbone/backbone.js"></script>
-<script	src="../static/vendors/toast/tui-code-snippet/dist/tui-code-snippet.js"></script>
-<script	src="../static/vendors/toast/tui-date-picker/dist/tui-date-picker.js"></script>
-<script src="../static/vendors/toast/tui-grid/dist/tui-grid.js"></script>
-<script	src="../static/vendors/toast/tui-pagination/dist/tui-pagination.js"></script>
-<script	src="../static/vendors/toast/tui-time-picker/dist/tui-time-picker.js"></script>
+<script	src="../static/vendors/tui-gird4/tui-code-snippet/dist/tui-code-snippet.js"></script>
+<script	src="../static/vendors/tui-gird4/tui-date-picker/dist/tui-date-picker.js"></script>
+<script src="../static/vendors/tui-gird4/tui-grid/dist/tui-grid.js"></script>
+<script	src="../static/vendors/tui-gird4/tui-pagination/dist/tui-pagination.js"></script>
+<script	src="../static/vendors/tui-gird4/tui-time-picker/dist/tui-time-picker.js"></script>
 
 <!-- date-timepicker -->
 <!-- <script type="text/javascript"
@@ -147,7 +144,12 @@
 
 <script type="text/javascript">
 var grid1 = new tui.Grid({
-    el: $('#monitering'), 
+    el: document.getElementById('monitering'),
+    data: {
+        api: {
+          readData: { url: '/DashboardList', method: 'POST' }
+        }
+      },    
     scrollX: true,
     bodyHeight: 500,
     rowHeaders: ['checkbox','rowNum'],
@@ -158,31 +160,31 @@ var grid1 = new tui.Grid({
     }, 
     columns: [
     	{
-    		title : '상태',
+    		header : '상태',
     		name : 'status_info',
    			align: 'center',
    			whiteSpace: 'pre-line'
     	},
     	{
-    		title : '고객명',
+    		header : '고객명',
     		name : 'person_info' ,
    			align: 'center',
    			whiteSpace: 'pre-line'   		
     	},
     	{
-    		title : '피해액',
+    		header : '피해액',
     		name : 'damage',
    			align: 'center',
    			whiteSpace: 'pre-line'
     	},
     	{
-    		title : '발생위치',
+    		header : '발생위치',
     		name : 'addr_info',
    			align: 'center',
    			whiteSpace: 'pre-line'
     	},
     	{
-    		title : '상세내용',
+    		header : '상세내용',
     		name : 'file_name',
    			align: 'center',
    			whiteSpace: 'pre-line',
@@ -191,19 +193,19 @@ var grid1 = new tui.Grid({
          }
     	},
     	{
-    		title : '상황발생일',
+    		header : '상황발생일',
     		name : 'occur_dt',
    			align: 'center',
    			whiteSpace: 'pre-line'
     	},
     	{
-    		title : '작업일',
+    		header : '작업일',
     		name : 'chk_dt',
    			align: 'center',
    			whiteSpace: 'pre-line'
     	},
     	{
-    		title : '상황종료일',
+    		header : '상황종료일',
     		name : 'restore_dt',
    			align: 'center',
    			whiteSpace: 'pre-line'
@@ -325,69 +327,69 @@ grid1.on('focusChange', (ev) => {
 
 <script type="text/javascript">
 tui.Grid.applyTheme("default", {
-	 grid: {
-	  	   background: '#3a3a3a',
-	  	   border: '#000000',
-	  	   text: '#444'
-	  		  },
-	  		  selection: {
-	  		      background: '#585858',
-	  		      border: '#004082'
-	  		  },
-	  		  toolbar: {
-	  		      border: '#000000',
-	  		      background: '#262930'
-	  		  },
-	  		  scrollbar: {
-	  		      background: '#262930',
-	  		      thumb: '#000000',
-	  		      emptySpace: '#262930',
-	  		      active: '#c1c1c1'
-	  		  },
-	  		  cell: {
-	  	   normal: {
-	  	       background: '#3a3a3a',
-	  	       border: '#000000',
-	  	       text: '#fff'
-	  	   },
-	  	   head: {
-	  	       background: '#262930',
-	  	       border: '#000000',
-	  	       text:'#bfbfbf'
-	  	   },
-	  	   rowHead: {
-	  	       background: '#262930',
-	  	       border: '#000000',
-	  	       text: '#fff'
-	  	   },
-	  	   summary: {
-	  	       background: '#262930',
-	  	       border: '#000000',
-	  	       text: '#fff'
-	  	   },
-	  	   editable: {
-	  	       background: '#3a3a3a',
-	  	       border: '#fff',
-	  	       text: '#fff'
-	  	   },
-	  	   selectedHead: {
-	  	       background: '#616161'
-	  	   },
-	  	   selectedRowHead: {
-	  	       background: '#616161'
-	  	   },
-	  	   focused: {
-	  	       border: '#FFBF00'
-	  	   },
-	  	   disabled: {
-	  	      background: '#3a3a3a',
-	  	      border: '#000000',
-	  	      text: '#fff'
-	  	   },
-	  	   currentRow: {
-	  	       background: '#2F0B3A'
-	  	   }
-	  	  }
+	grid : {
+		background : '#3a3a3a',
+		border : '#000000',
+		text : '#444'
+	},
+	selection : {
+		background : '#A4A4A4',
+		border : '#004082'
+	},
+	toolbar : {
+		border : '#000000',
+		background : '#262930'
+	},
+	scrollbar : {
+		background : '#262930',
+		thumb : '#fff',
+		emptySpace : '#262930',
+		active : '#c1c1c1'
+	},
+	cell : {
+		normal : {
+			background : '#3a3a3a',
+			border : '#000000',
+			text : '#fff'
+		},
+		header : {
+			background : '#262930',
+			border : '#000000',
+			text : '#c3f400'
+		},
+		rowHeader : {
+			background : '#262930',
+			border : '#000000',
+			text : '#fff'
+		},
+		summary : {
+			background : '#262930',
+			border : '#000000',
+			text : '#fff'
+		},
+		editable : {
+			background : '#3a3a3a',
+			border : '#fff',
+			text : '#fff'
+		},
+		selectedHeader : {
+			background : '#616161'
+		},
+		selectedRowHeader : {
+			background : '#616161'
+		},
+		focused : {
+			border : '#FFBF00'
+		},
+		disabled : {
+			background : '#3a3a3a',
+			border : '#000000',
+			text : '#fff'
+		},
+		currentRow : {
+			background : '#0B243B'
+		}
+	}
 });
 </script>
 

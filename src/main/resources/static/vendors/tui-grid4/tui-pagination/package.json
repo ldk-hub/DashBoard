@@ -1,0 +1,97 @@
+{
+  "_from": "tui-pagination@^3.4.0",
+  "_id": "tui-pagination@3.4.0",
+  "_inBundle": false,
+  "_integrity": "sha512-jqIeVsESOFsQfywaM58ex/P3X28lvoUVPeH/5XamfWdDMssIUdHjKy9bsJJEBgeYJPLoNenn0toXJFha2mcsTQ==",
+  "_location": "/tui-pagination",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "tui-pagination@^3.4.0",
+    "name": "tui-pagination",
+    "escapedName": "tui-pagination",
+    "rawSpec": "^3.4.0",
+    "saveSpec": null,
+    "fetchSpec": "^3.4.0"
+  },
+  "_requiredBy": [
+    "/tui-grid"
+  ],
+  "_resolved": "https://registry.npmjs.org/tui-pagination/-/tui-pagination-3.4.0.tgz",
+  "_shasum": "183f4a9563599d96d5f812c294b9e9bb6261d798",
+  "_spec": "tui-pagination@^3.4.0",
+  "_where": "C:\\node_modules\\tui-grid",
+  "author": {
+    "name": "NHN FE Development Team",
+    "email": "dl_javascript@nhn.com"
+  },
+  "bugs": {
+    "url": "https://github.com/nhn/tui.pagination/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "tui-code-snippet": "^2.2.0"
+  },
+  "deprecated": false,
+  "description": "TOAST UI Components: Pagination",
+  "devDependencies": {
+    "@toast-ui/release-notes": "^2.0.1",
+    "css-loader": "^0.26.1",
+    "es5-shim": "^4.5.9",
+    "eslint": "^5.12.0",
+    "eslint-config-prettier": "^6.2.0",
+    "eslint-config-tui": "^2.2.0",
+    "eslint-loader": "^3.0.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "istanbul-instrumenter-loader": "^1.0.0",
+    "jasmine-core": "^2.4.1",
+    "karma": "^4.3.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-coverage": "^1.1.1",
+    "karma-es5-shim": "^0.0.4",
+    "karma-jasmine": "^1.0.2",
+    "karma-junit-reporter": "^1.2.0",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-webdriver-launcher": "git+https://github.com/nhn/karma-webdriver-launcher.git#v1.2.0",
+    "karma-webpack": "^4.0.2",
+    "mini-css-extract-plugin": "^0.8.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "prettier": "^1.18.2",
+    "style-loader": "^0.13.1",
+    "terser-webpack-plugin": "^2.3.0",
+    "url-loader": "^0.5.7",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.7",
+    "webpack-dev-server": "^3.8.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "homepage": "https://github.com/nhn/tui.pagination#readme",
+  "keywords": [
+    "nhn",
+    "tui",
+    "component",
+    "pagination",
+    "tui-pagination"
+  ],
+  "license": "MIT",
+  "main": "dist/tui-pagination",
+  "name": "tui-pagination",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nhn/tui.pagination.git"
+  },
+  "scripts": {
+    "bundle": "webpack --mode=production & webpack --mode=production --minify",
+    "doc": "tuidoc",
+    "doc:serve": "tuidoc --serv",
+    "note": "tui-note",
+    "serve": "webpack-dev-server --inline --hot -d",
+    "serve:ie8": "webpack-dev-server -d",
+    "test": "karma start --no-single-run",
+    "test:ne": "KARMA_SERVER=ne karma start"
+  },
+  "version": "3.4.0"
+}

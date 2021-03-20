@@ -1,0 +1,116 @@
+{
+  "_from": "tui-grid",
+  "_id": "tui-grid@4.16.1",
+  "_inBundle": false,
+  "_integrity": "sha512-XCM9kWYdrN9/eK23506p+zRXaPerWIf89gu7pwug65zKF0hkR/8eCN7T9Cz1k29szPWBN2hSRL6FZntv8Ymc7g==",
+  "_location": "/tui-grid",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "tui-grid",
+    "name": "tui-grid",
+    "escapedName": "tui-grid",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/tui-grid/-/tui-grid-4.16.1.tgz",
+  "_shasum": "32a04cab45cb0f57d490157fadc5668c808c1989",
+  "_spec": "tui-grid",
+  "_where": "C:\\",
+  "author": {
+    "name": "NHN. FE Development Lab"
+  },
+  "bugs": {
+    "url": "https://github.com/nhn/tui.grid/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "tui-date-picker": "^4.1.0",
+    "tui-pagination": "^3.4.0"
+  },
+  "deprecated": false,
+  "description": "TOAST UI Grid : Powerful data grid control supported by TOAST UI",
+  "devDependencies": {
+    "@applitools/eyes-storybook": "^3.5.3",
+    "@cypress/webpack-preprocessor": "^4.0.3",
+    "@storybook/addon-knobs": "^5.3.19",
+    "@storybook/addon-notes": "^5.3.19",
+    "@storybook/html": "^5.3.19",
+    "@toast-ui/select-box": "^1.0.0",
+    "@types/node": "^12.0.0",
+    "@types/webpack-env": "^1.13.8",
+    "@typescript-eslint/eslint-plugin": "^2.9.0",
+    "@typescript-eslint/parser": "^2.9.0",
+    "css-loader": "^2.1.1",
+    "cypress": "^4.9.0",
+    "cypress-plugin-tab": "^1.0.5",
+    "cypress-promise": "^1.0.2",
+    "dotenv": "^8.2.0",
+    "eslint": "^6.7.1",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-config-tui": "^3.0.0",
+    "eslint-loader": "^3.0.2",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.12.4",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.7.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "preact": "^8.4.2",
+    "start-server-and-test": "^1.10.0",
+    "style-loader": "^0.23.1",
+    "terser-webpack-plugin": "^1.2.3",
+    "ts-loader": "^6.2.1",
+    "tslib": "^1.11.1",
+    "typescript": "^3.9.5",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^4.2.1"
+  },
+  "files": [
+    "dist",
+    "types"
+  ],
+  "homepage": "https://github.com/nhn/tui.grid#readme",
+  "keywords": [
+    "nhn",
+    "tui",
+    "application",
+    "grid",
+    "tui-grid"
+  ],
+  "license": "MIT",
+  "main": "dist/tui-grid.js",
+  "name": "tui-grid",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nhn/tui.grid.git"
+  },
+  "scripts": {
+    "build": "npm run check-types:all && npm run lint:all && (webpack --mode=production & webpack --mode=production --minify) && node ./scripts/tsBannerGenerator.js",
+    "check-types": "tsc",
+    "check-types:all": "tsc --project ./tsconfig-build.json",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "dev": "npm run check-types && npm run lint && webpack-dev-server --mode=development",
+    "doc": "npm run ts2js && tuidoc",
+    "doc:dev": "npm run ts2js && tuidoc --serv",
+    "e2e-test": "start-server-and-test test-server http://localhost:8000 cy:open",
+    "e2e-test:ci": "start-server-and-test test-server http://localhost:8000 cy:run",
+    "lint": "eslint src --ext .ts,.tsx",
+    "lint:all": "eslint src cypress stories --ext .ts,.tsx",
+    "storybook": "start-storybook -p 6006",
+    "storybook:build": "build-storybook",
+    "test-server": "webpack-dev-server",
+    "ts2js": "tsc --outDir tmpdoc --sourceMap false --target ES2015 --noEmit false",
+    "visual-test": "eyes-storybook"
+  },
+  "types": "types/index.d.ts",
+  "version": "4.16.1"
+}
