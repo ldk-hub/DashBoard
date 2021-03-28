@@ -222,7 +222,7 @@ public final class DateUtil {
 	            
 	        }
 	        
-	        return simpledateformat.format(date);
+	        return simpledateformat.format(date); //널포인터 익셉션 문제생김 spotbugs
 	    }
 	    
 	    /**

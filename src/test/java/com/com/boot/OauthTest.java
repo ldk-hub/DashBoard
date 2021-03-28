@@ -27,7 +27,7 @@ public class OauthTest {
 	@Test
 	public void testKakaoInfo() {
 		//기존 데이터 테스트 코드에 앞서  JUnit 동작관련 테스트  파일 전부 재구성예정
-		ObjectTest objTest = new ObjectTest();
+		ObjectTest objTest = new ObjectTest();//현재 사용하지 않은 선언문이라서 spotbugs취약점에걸림 주석처리해야하지만 쓸예정이기에..
 		//assertThat(objTest.memData(), is("test")); //assertThat 테스트한 값과, 결과값을 비교하여 성공적인 값인지 비교 기능
 		
 	}

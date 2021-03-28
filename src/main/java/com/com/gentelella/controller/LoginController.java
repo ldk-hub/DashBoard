@@ -148,7 +148,7 @@ public class LoginController {
 		  RestTemplate rt2 = new RestTemplate();
 		  //HttpHeaders오브젝트생성
 		  HttpHeaders headers2 = new HttpHeaders();
-		  headers2.add("Authorization","Bearer "+oauthToken.getAccess_token());
+		  headers2.add("Authorization","Bearer "+oauthToken.getAccess_token()); //널포인트 익셉션 발생위치임 개선예정 spotbugs
 		  headers2.add("Content-type","application/x-www-form-urlencoded;charset=utf-8");
 		   
 		  //헤더값을 가진 엔티티가 됨.
@@ -173,10 +173,10 @@ public class LoginController {
 				}
 		  
 			  //유저정보 가공
-			  System.out.println("kakao ID : " + kakaoProfile.getId());
-			  System.out.println("kakao email : " + kakaoProfile.getKakao_account().getProfile());
+			  //System.out.println("kakao ID : " + kakaoProfile.getId());
+			  //System.out.println("kakao email : " + kakaoProfile.getKakao_account().getProfile());
 			  //아이디중복방지 닉네임+ID번호 삽입
-			  System.out.println("카카오->내부시스템 유저ID 생성 : "+kakaoProfile.getKakao_account().getProfile().nickname+"_"+kakaoProfile.getId());
+			  //System.out.println("카카오->내부시스템 유저ID 생성 : "+kakaoProfile.getKakao_account().getProfile().nickname+"_"+kakaoProfile.getId());
 			  
 			  User kakaoUser = User.builder()
 					  .username(kakaoProfile.getKakao_account().getProfile().nickname+"_"+kakaoProfile.getId())
