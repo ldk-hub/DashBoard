@@ -11,13 +11,13 @@ import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
-
-
+import com.com.gentelella.interceptor.IpCheckInterceptor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -79,4 +79,17 @@ public class WebMvcConfiguration extends WebMvcConfigurerAdapter {
     {
         registry.addResourceHandler( "/static/**" ).addResourceLocations( "classpath:/static/" );
     }
+    
+
+    //로그인 인터셉트 구현 로직
+      @Override
+      public void addInterceptors(InterceptorRegistry registry) {
+      	IpCheckInterceptor ipCheckInterceptor = new IpCheckInterceptor();
+
+      	registry.addInterceptor(ipCheckInterceptor)
+      			.addPathPatterns()
+      			.excludePathPatterns();
+
+
+      }
 }
