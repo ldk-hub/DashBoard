@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dashBoardMapper">
+	<!-- 통계자료 호출 -->
+	<select id="selectBoardList" resultType="hashmap" parameterType="hashmap">
+		<![CDATA[
+		    SELECT seq CERTNO,
+                   ITEM_NUMBER ITEMNO,
+                   BRAND_NAME BRDNAME,
+                   SEASON_REASON REASON,
+                   STATUS STATUS
+              FROM AP_STATISTIC
+                ORDER BY certNo
+		]]>
+	</select>
+	
+	<!-- 비밀번호 분실 -->
+	<select id="getPw" parameterType="DashBoardVO" resultType="String">
+		SELECT password
+		  FROM AP_USER
+		 WHERE id = #{userId}
+		  AND email = #{email}
+	</select>
+
+	<!-- 스케쥴 목록 호출 -->
+	<select id="scheduleList" resultType="map">
+		SELECT 
+			title TITLE,
+			content CONTENT,
+			to_char(start_date, 'yyyy/mm/dd hh24:mi:ss') START_DATE,
+			to_char(end_date, 'yyyy/mm/dd hh24:mi:ss') END_DATE
+			FROM
+		ap_schedule
+	</select>
+	
+	<!-- 스케줄 삭제 -->
+	<delete id="scheduleDelete" parameterType="String">
+		DELETE FROM AP_SCHEDULE
+		      WHERE INT_NAME = #{INT_NAME}
+		      AND TITLE = #{TITLE}
+	</delete>
+	
+	<!--남자회원 카운트 -->
+	<select id="countMale"  resultType="Integer">
+		select count(SEX) from AP_USERS where sex = 'M'
+	</select>
+	<select id="listDataCount"  resultType="Integer">
+	SELECT count(*)
+			  FROM AP_STATISTIC
+	</select>
+	
+	<!--여성회원 카운트 -->
+	<select id="countFemale"  resultType="Integer">
+		select count(SEX) from AP_USERS where sex = 'F'
+	</select>
+	
+	<!-- 총 회원 카운트 -->
+	<select id="totalUser"  resultType="Integer">
+		select count(*) from AP_USER
+	</select>
+	
+	<select id="schedule"  resultType="hashmap" parameterType="hashmap">
+		select 
+			seq, 
+			title, 
+			content content1, 
+			to_char(start_date, 'MM') mon, 
+			 to_char(start_date, 'DD') day2, 
+			int_name 
+		from AP_SCHEDULE
+	</select>
+	
+	<select id="DashboardList"  resultType="hashmap" parameterType="hashmap">
+		SELECT seq, 
+			status_info, 
+			person_info, 
+			damage, 
+			addr_info, 
+			file_name, 
+			to_char(occur_dt,'YYYY.MM.DD HH24:MI:SS') occur_dt,
+			to_char(chk_dt,'YYYY.MM.DD HH24:MI:SS') chk_dt,
+			to_char(restore_dt,'YYYY.MM.DD HH24:MI:SS') restore_dt
+		FROM ap_sample
+	</select>
+	
+	
+	<delete id="deleteGrid"  parameterType="hashmap">
+	delete from AP_STATISTIC 
+		where product_number = #{CERTNO} 
+			and item_number = #{ITEMNO}
+	</delete>
+	
+	<!-- 스케쥴 등록 -->
+	<insert id="insertSchedule" parameterType="hashmap">
+		INSERT INTO 
+        AP_SCHEDULE(SEQ, 
+                TITLE,
+                CONTENT,
+                START_DATE, 
+                END_DATE,
+                INT_DATE,
+                INT_NAME) 
+        VALUES(ldk_seq.nextval, 
+                #{title},
+                #{content},
+                #{start_date}, 
+                #{end_date},
+                 sysdate,
+                #{int_name})
+	</insert>
+	
+	
+	<!-- <select id="multiChartData" resultType="hashmap" parameterType="hashmap">
+		SELECT seq, 
+			name,
+			temp1 free, 
+			temp2 total, 
+			temp3 used, 
+			date
+		FROM multi_data 
+			limit 15
+	</select> -->
+	 
+	
+	<update id="updateInfo" parameterType="hashmap">
+		UPDATE ap_user_role
+			SET password=#{password}
+		WHERE user_id=#{user_id}
+	</update>
+	
+	
+	<insert id="insertInfo" parameterType="hashmap">
+		INSERT INTO 
+        AP_SCHEDULE(SEQ, 
+                TITLE,
+                CONTENT,
+                START_DATE, 
+                END_DATE,
+                INT_DATE,
+                INT_NAME) 
+        VALUES(ldk_seq.nextval, 
+                #{title},
+                #{content},
+                #{start_date}, 
+                #{end_date},
+                 sysdate,
+                #{int_name})
+	</insert>
+	
+	<insert id="insertFileInfo" parameterType="hashmap">
+		INSERT INTO 
+			AP_FILE_INFO(seq, 
+				gs_guid,
+				og_file_name,
+				file_size, 
+				insert_date, 
+				file_name)
+		VALUES (ldk_seq.nextval,
+				#{gs_guid}, 
+				#{originFileName}, 
+				#{fileSize}, 
+				sysdate, 
+				#{safeFile})
+	</insert>
+	
+</mapper>
+  
