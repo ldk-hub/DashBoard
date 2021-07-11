@@ -39,14 +39,14 @@ public class IpCheckInterceptor implements HandlerInterceptor {
 		logger.info("이건 접근한 대상자의 리얼 아이피 정보를 가져오는정보임>>"+realIp);
 
 		//아이피 정보없는 케이스와 지정한 IP를 대조하여 시스템에 접근할 수 있도록 제어
-		if(ipAddress.equals("127.0.0.1") && ipAddress != null) {
-			logger.info("컨트롤러 거치기 최초단계");
+//		if(ipAddress.equals("127.0.0.1") && ipAddress != null) {
+//			logger.info("컨트롤러 거치기 최초단계");
 			return true; //false인경우 컨트롤러에 값을 넘기지 않는다. true일때만 값을 넘기는 구조임.
-		//나머지 기타 정보 블락처리
-		}else {
-			logger.info("여긴 접근 차단 즉 컨트롤러 진입전 실패뜸.");
-			return false;
-		}
+//		//나머지 기타 정보 블락처리
+//		}else {
+//			logger.info("여긴 접근 차단 즉 컨트롤러 진입전 실패뜸.");
+//			return false;
+//		}
 	}
 
 	//클라이언트 요청을 마친 뒤 처리되는 영역, 컨트롤러에서 예외발생 시 실행되지 않음.

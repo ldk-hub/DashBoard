@@ -2,7 +2,6 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
- <link href="../static/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.css" rel="stylesheet">
   <div class="right_col" role="main" style="background-color:#5c5c5c38;">
 	<div class="row">
 		<div class="col-md-12 col-sm-12 col-xs-12">
@@ -372,6 +371,5 @@
 					</div>
 				</div>
         <!-- 회원정보 수정 모달 E-->
-        <script src="../static/vendors/bootstrap-progressbar/bootstrap-progressbar.js"></script>
         
         

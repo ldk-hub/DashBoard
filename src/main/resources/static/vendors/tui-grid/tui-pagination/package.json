@@ -1,0 +1,84 @@
+{
+  "_from": "tui-pagination@^3.3.2",
+  "_id": "tui-pagination@3.4.1",
+  "_inBundle": false,
+  "_integrity": "sha512-W09L0wPMSFstthBhQjcLNDnN1yuCEDn/tIXmaKdTpNFYa11eNrNo/rOwXzrugXvP2arZ60KmVhkFzoAOEuV0Sg==",
+  "_location": "/tui-pagination",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "tui-pagination@^3.3.2",
+    "name": "tui-pagination",
+    "escapedName": "tui-pagination",
+    "rawSpec": "^3.3.2",
+    "saveSpec": null,
+    "fetchSpec": "^3.3.2"
+  },
+  "_requiredBy": [
+    "/tui-grid"
+  ],
+  "_resolved": "https://registry.npmjs.org/tui-pagination/-/tui-pagination-3.4.1.tgz",
+  "_shasum": "981db1c85543a9a0660b590af059f47feb755322",
+  "_spec": "tui-pagination@^3.3.2",
+  "_where": "C:\\grid\\node_modules\\tui-grid",
+  "author": {
+    "name": "NHN FE Development Team",
+    "email": "dl_javascript@nhn.com"
+  },
+  "bugs": {
+    "url": "https://github.com/nhn/tui.pagination/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "TOAST UI Components: Pagination",
+  "devDependencies": {
+    "@toast-ui/release-notes": "^2.0.1",
+    "css-loader": "^0.26.1",
+    "eslint": "^5.12.0",
+    "eslint-config-prettier": "^6.2.0",
+    "eslint-config-tui": "^2.2.0",
+    "eslint-loader": "^3.0.0",
+    "eslint-plugin-jest": "^24.3.6",
+    "eslint-plugin-prettier": "^3.1.2",
+    "jest": "^27.0.4",
+    "mini-css-extract-plugin": "^0.8.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "prettier": "^1.18.2",
+    "style-loader": "^0.13.1",
+    "terser-webpack-plugin": "^2.3.0",
+    "tui-code-snippet": "^2.2.0",
+    "url-loader": "^0.5.7",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.7",
+    "webpack-dev-server": "^3.8.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "homepage": "https://github.com/nhn/tui.pagination#readme",
+  "keywords": [
+    "nhn",
+    "tui",
+    "component",
+    "pagination",
+    "tui-pagination"
+  ],
+  "license": "MIT",
+  "main": "dist/tui-pagination",
+  "name": "tui-pagination",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nhn/tui.pagination.git"
+  },
+  "scripts": {
+    "bundle": "webpack --mode=production & webpack --mode=production --minify",
+    "doc": "tuidoc",
+    "doc:serve": "tuidoc --serv",
+    "note": "tui-note",
+    "serve": "webpack-dev-server --inline --hot -d",
+    "serve:ie8": "webpack-dev-server -d",
+    "test": "jest"
+  },
+  "version": "3.4.1"
+}

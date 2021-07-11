@@ -333,6 +333,11 @@ public class DashBoardController {
 	public String thirdy(@RequestParam Map<String, String> paramMap, Model model, @AuthenticationPrincipal UserCustom userCustom)throws Exception{
 		return VIEW_PATH + "thirdy";
 	}
+	//거래 페이지
+	@RequestMapping(value = "/bitcoin", method = RequestMethod.GET)
+	public String bitcoin(@RequestParam Map<String, String> paramMap, Model model, @AuthenticationPrincipal UserCustom userCustom)throws Exception{
+		return VIEW_PATH + "bitcoin";
+	}
 	
 	//에러페이지 호출
 	@RequestMapping(value = "/500error")

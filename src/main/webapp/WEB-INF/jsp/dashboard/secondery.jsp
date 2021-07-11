@@ -5,8 +5,8 @@
 <!-- <style type="text/css">	
 ::-webkit-scrollbar{Display:none;}	
 </style>	 -->
-<link rel="stylesheet" type="text/css" href="../static/vendors/tui-gird4/tui-grid/dist/tui-grid.css" />
-<link rel="stylesheet" type="text/css" href="../static/vendors/tui-gird4/tui-pagination/dist/tui-pagination.css" />
+<link rel="stylesheet" type="text/css" href="../static/vendors/tui-gird/tui-grid/dist/tui-grid.css" />
+<link rel="stylesheet" type="text/css" href="../static/vendors/tui-gird/tui-pagination/dist/tui-pagination.css" />
  
 <div class="right_col" role="main" style="background-color:#5c5c5c38;">
 
@@ -132,11 +132,11 @@
 
 
 <!-- Toast Grid -->
-<script	src="../static/vendors/tui-gird4/tui-code-snippet/dist/tui-code-snippet.js"></script>
-<script	src="../static/vendors/tui-gird4/tui-date-picker/dist/tui-date-picker.js"></script>
-<script src="../static/vendors/tui-gird4/tui-grid/dist/tui-grid.js"></script>
-<script	src="../static/vendors/tui-gird4/tui-pagination/dist/tui-pagination.js"></script>
-<script	src="../static/vendors/tui-gird4/tui-time-picker/dist/tui-time-picker.js"></script>
+<script	src="../static/vendors/tui-gird/tui-code-snippet/dist/tui-code-snippet.js"></script>
+<script	src="../static/vendors/tui-gird/tui-date-picker/dist/tui-date-picker.js"></script>
+<script src="../static/vendors/tui-gird/tui-grid/dist/tui-grid.js"></script>
+<script	src="../static/vendors/tui-gird/tui-pagination/dist/tui-pagination.js"></script>
+<script	src="../static/vendors/tui-gird/tui-time-picker/dist/tui-time-picker.js"></script>
 
 <!-- date-timepicker -->
 <!-- <script type="text/javascript"

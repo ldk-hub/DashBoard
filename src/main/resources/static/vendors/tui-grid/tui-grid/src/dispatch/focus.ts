@@ -1,0 +1,72 @@
+import { Store, RowKey, Focus, Data } from '../store/types';
+import GridEvent from '../event/gridEvent';
+import { getEventBus } from '../event/eventBus';
+import { isCellDisabled } from '../query/data';
+import { isFocusedCell } from '../query/focus';
+import { getRowSpanByRowKey, enableRowSpan } from '../helper/rowSpan';
+
+export function startEditing(store: Store, rowKey: RowKey, columnName: string) {
+  const { data, focus, column } = store;
+
+  if (isCellDisabled(data, rowKey, columnName) || !isFocusedCell(focus, rowKey, columnName)) {
+    return;
+  }
+
+  const columnInfo = column.allColumnMap[columnName];
+  if (columnInfo && columnInfo.editor) {
+    focus.navigating = false;
+    focus.editingAddress = { rowKey, columnName };
+  }
+}
+
+export function finishEditing({ focus }: Store, rowKey: RowKey, columnName: string) {
+  const { editingAddress } = focus;
+
+  if (
+    editingAddress &&
+    editingAddress.rowKey === rowKey &&
+    editingAddress.columnName === columnName
+  ) {
+    focus.editingAddress = null;
+    focus.navigating = true;
+  }
+}
+
+export function changeFocus(
+  focus: Focus,
+  data: Data,
+  rowKey: RowKey | null,
+  columnName: string | null,
+  id: number
+) {
+  if (isFocusedCell(focus, rowKey, columnName)) {
+    return;
+  }
+
+  const { rawData, sortOptions } = data;
+  const eventBus = getEventBus(id);
+  const gridEvent = new GridEvent({
+    rowKey,
+    columnName,
+    prevColumnName: focus.columnName,
+    prevRowKey: focus.rowKey
+  });
+
+  eventBus.trigger('focusChange', gridEvent);
+
+  if (!gridEvent.isStopped()) {
+    let focusRowKey = rowKey;
+
+    if (rowKey && columnName && enableRowSpan(sortOptions.columnName)) {
+      const rowSpan = getRowSpanByRowKey(rowKey, columnName, rawData);
+      if (rowSpan) {
+        focusRowKey = rowSpan.mainRowKey;
+      }
+    }
+
+    focus.prevColumnName = focus.columnName;
+    focus.prevRowKey = focus.rowKey;
+    focus.columnName = columnName;
+    focus.rowKey = focusRowKey;
+  }
+}

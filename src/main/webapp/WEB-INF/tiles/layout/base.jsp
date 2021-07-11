@@ -62,11 +62,6 @@
 	<!-- <script src="/static/vendors/DateJS/build/date.js"></script> -->
 	<!-- Dropzone.js -->
 	<script src="/static/vendors/dropzone/dist/min/dropzone.min.js"></script>
-	<!-- amcharts4  -->
-	<script src="/static/vendors/amcharts4/core.js"></script>
-	<script src="/static/vendors/amcharts4/charts.js"></script>
-	<script src="/static/vendors/amcharts4/themes/dark.js"></script>
-	<script src="/static/vendors/amcharts4/themes/animated.js"></script>
 
 	<script src="/static/js/custom.min.js"></script>
 	
