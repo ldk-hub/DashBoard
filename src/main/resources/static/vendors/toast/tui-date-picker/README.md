@@ -1,38 +1,61 @@
 # TOAST UI Component : Date Picker
 > Component that selects specific date.
 
-[![GitHub release](https://img.shields.io/github/release/nhnent/tui.date-picker.svg)](https://github.com/nhnent/tui.date-picker/releases/latest)
+[![GitHub release](https://img.shields.io/github/release/nhn/tui.date-picker.svg)](https://github.com/nhn/tui.date-picker/releases/latest)
 [![npm](https://img.shields.io/npm/v/tui-date-picker.svg)](https://www.npmjs.com/package/tui-date-picker)
-[![GitHub license](https://img.shields.io/github/license/nhnent/tui.date-picker.svg)](https://github.com/nhnent/tui.date-picker/blob/production/LICENSE)
-[![PRs welcome](https://img.shields.io/badge/PRs-welcome-ff69b4.svg)](https://github.com/nhnent/tui.project-name/labels/help%20wanted)
-[![code with hearth by NHN Entertainment](https://img.shields.io/badge/%3C%2F%3E%20with%20%E2%99%A5%20by-NHN%20Entertainment-ff1414.svg)](https://github.com/nhnent)
+[![GitHub license](https://img.shields.io/github/license/nhn/tui.date-picker.svg)](https://github.com/nhn/tui.date-picker/blob/production/LICENSE)
+[![PRs welcome](https://img.shields.io/badge/PRs-welcome-ff69b4.svg)](https://github.com/nhn/tui.date-picker/issues)
+[![code with hearth by NHN](https://img.shields.io/badge/%3C%2F%3E%20with%20%E2%99%A5%20by-NHN-ff1414.svg)](https://github.com/nhn)
+
+
+<p><a href="https://nhn.github.io/tui.date-picker/latest/"><img src="https://user-images.githubusercontent.com/8615506/64501774-cc709580-d2fd-11e9-98f0-f7b89376c986.gif" /></a></p>
 
 
 ## 🚩 Table of Contents
-* [Browser Support](#-browser-support)
+* [Collect statistics on the use of open source](#Collect-statistics-on-the-use-of-open-source)
+* [Documents](#-documents)
 * [Features](#-features)
 * [Examples](#-examples)
 * [Install](#-install)
-    * [Via Package Manager](#via-package-manager)
-    * [Via Contents Delivery Network (CDN)](#via-contents-delivery-network-cdn)
-    * [Download Source Files](#download-source-files)
 * [Usage](#-usage)
-    * [HTML](#html)
-    * [JavaScript](#javascript)
-* [Pull Request Steps](#-pull-request-steps)
-    * [Setup](#setup)
-    * [Develop](#develop)
-    * [Pull Request Steps](#pull-request)
-* [Documents](#-documents)
-* [Contributing](#-contributing)
 * [Dependency](#-dependency)
+* [Browser Support](#-browser-support)
+* [Pull Request Steps](#-pull-request-steps)
+* [Contributing](#-contributing)
+* [TOAST UI Family](#-toast-ui-family)
 * [License](#-license)
 
 
-## 🌏 Browser Support
-| <img src="https://user-images.githubusercontent.com/1215767/34348387-a2e64588-ea4d-11e7-8267-a43365103afe.png" alt="Chrome" width="16px" height="16px" /> Chrome | <img src="https://user-images.githubusercontent.com/1215767/34348590-250b3ca2-ea4f-11e7-9efb-da953359321f.png" alt="IE" width="16px" height="16px" /> Internet Explorer | <img src="https://user-images.githubusercontent.com/1215767/34348380-93e77ae8-ea4d-11e7-8696-9a989ddbbbf5.png" alt="Edge" width="16px" height="16px" /> Edge | <img src="https://user-images.githubusercontent.com/1215767/34348394-a981f892-ea4d-11e7-9156-d128d58386b9.png" alt="Safari" width="16px" height="16px" /> Safari | <img src="https://user-images.githubusercontent.com/1215767/34348383-9e7ed492-ea4d-11e7-910c-03b39d52f496.png" alt="Firefox" width="16px" height="16px" /> Firefox |
-| :---------: | :---------: | :---------: | :---------: | :---------: |
-| Yes | 8+ | Yes | Yes | Yes |
+## Collect statistics on the use of open source
+
+TOAST UI DatePicker applies Google Analytics (GA) to collect statistics on the use of open source, in order to identify how widely TOAST UI DatePicker is used throughout the world.
+It also serves as important index to determine the future course of projects.
+`location.hostname` (e.g. > “ui.toast.com") is to be collected and the sole purpose is nothing but to measure statistics on the usage.
+
+To disable GA, use the following `usageStatistics` option when creating the instance.
+
+```js
+var options = {
+    ...
+    usageStatistics: false
+}
+var instance = new DatePicker(container, options);
+```
+
+Or, include [`tui-code-snippet`](https://github.com/nhn/tui.code-snippet)(**v2.2.0** or **later**) and then immediately write the options as follows:
+
+```js
+tui.usageStatistics = false;
+```
+
+
+## 📙 Documents
+* [Getting Started](https://github.com/nhn/tui.date-picker/blob/production/docs/getting-started.md)
+* [Tutorials](https://github.com/nhn/tui.date-picker/tree/production/docs)
+* [APIs](https://nhn.github.io/tui.date-picker/latest)
+* [v4.0.0 Migration Guide](https://github.com/nhn/tui.date-picker/blob/master/docs/getting-started.md#v400-migration-guide)
+
+You can also see the older versions of API page on the [releases page](https://github.com/nhn/tui.date-picker/releases).
 
 
 ## 🎨 Features
@@ -45,10 +68,10 @@
 
 
 ## 🐾 Examples
-* [Basic](https://nhnent.github.io/tui.date-picker/latest/tutorial-example01-basic.html) : Example of using default options.
-* [Having Timepicker](https://nhnent.github.io/tui.date-picker/latest/tutorial-example04-having-timepicker.html) :  Example of using a time picker to select a time.
-* [Calendar](https://nhnent.github.io/tui.date-picker/latest/tutorial-example07-calendar.html) : Examples of creating and using calendars.
-* [RangePicker](https://nhnent.github.io/tui.date-picker/latest/tutorial-example08-daterangepicker.html) : Example of creating and using a range picker.
+* [Basic](https://nhn.github.io/tui.date-picker/latest/tutorial-example01-basic) : Example of using default options.
+* [Having Timepicker](https://nhn.github.io/tui.date-picker/latest/tutorial-example04-having-timepicker) :  Example of using a time picker to select a time.
+* [Calendar](https://nhn.github.io/tui.date-picker/latest/tutorial-example07-calendar) : Examples of creating and using calendars.
+* [RangePicker](https://nhn.github.io/tui.date-picker/latest/tutorial-example08-daterangepicker) : Example of creating and using a range picker.
 
 More examples can be found on the left sidebar of each example page, and have fun with it.
 
@@ -98,16 +121,15 @@ tui.date-picker/
 ├─ latest
 │  ├─ tui-date-picker.css
 │  ├─ tui-date-picker.js
-│  ├─ tui-date-picker.min.js
-├─ v3.0.0/
+│  ├─ tui-date-picker.min.css
+│  └─ tui-date-picker.min.js
+├─ v4.0.0/
 │  ├─ ...
 ```
 
 ### Download Source Files
-* [Download bundle files](https://github.com/nhnent/tui.date-picker/tree/production/dist)
-* [Download all sources for each version](https://github.com/nhnent/tui.date-picker/releases)
-
-
+* [Download bundle files](https://github.com/nhn/tui.date-picker/tree/production/dist)
+* [Download all sources for each version](https://github.com/nhn/tui.date-picker/releases)
 
 
 ## 🔨 Usage
@@ -142,10 +164,10 @@ var DatePicker = require('tui-date-picker'); /* CommonJS */
 ```
 
 ``` javascript
-import {DatePicker} from 'tui-date-picker'; /* ES6 */
+import DatePicker from 'tui-date-picker'; /* ES6 */
 ```
 
-You can create an instance with [options](http://nhnent.github.io/tui.date-picker/latest/DatePicker.html) and call various APIs after creating an instance.
+You can create an instance with [options](http://nhn.github.io/tui.date-picker/latest/DatePicker) and call various APIs after creating an instance.
 
 ``` javascript
 var container = document.getElementById('tui-date-picker-container');
@@ -161,7 +183,18 @@ var instance = new DatePicker(container, {
 instance.getDate();
 ```
 
-For more information about the API, please see [here](http://nhnent.github.io/tui.date-picker/latest/DatePicker.html).
+For more information about the API, please see [here](http://nhn.github.io/tui.date-picker/latest/DatePicker).
+
+
+## 🔩 Dependency
+* [tui-code-snippet](https://github.com/nhn/tui.code-snippet) >= 2.2.0
+* [tui-time-picker](https://github.com/nhn/tui.time-picker) >= 2.0.3
+
+
+## 🌏 Browser Support
+| <img src="https://user-images.githubusercontent.com/1215767/34348387-a2e64588-ea4d-11e7-8267-a43365103afe.png" alt="Chrome" width="16px" height="16px" /> Chrome | <img src="https://user-images.githubusercontent.com/1215767/34348590-250b3ca2-ea4f-11e7-9efb-da953359321f.png" alt="IE" width="16px" height="16px" /> Internet Explorer | <img src="https://user-images.githubusercontent.com/1215767/34348380-93e77ae8-ea4d-11e7-8696-9a989ddbbbf5.png" alt="Edge" width="16px" height="16px" /> Edge | <img src="https://user-images.githubusercontent.com/1215767/34348394-a981f892-ea4d-11e7-9156-d128d58386b9.png" alt="Safari" width="16px" height="16px" /> Safari | <img src="https://user-images.githubusercontent.com/1215767/34348383-9e7ed492-ea4d-11e7-910c-03b39d52f496.png" alt="Firefox" width="16px" height="16px" /> Firefox |
+| :---------: | :---------: | :---------: | :---------: | :---------: |
+| Yes | 8+ | Yes | Yes | Yes |
 
 
 ## 🔧 Pull Request Steps
@@ -209,27 +242,23 @@ If it has no error, commit and then push it!
 For more information on PR's step, please see links of Contributing section.
 
 
-## 📙 Documents
-* [Getting Started](https://github.com/nhnent/tui.date-picker/blob/production/docs/getting-started.md)
-* [Tutorials](https://github.com/nhnent/tui.date-picker/tree/production/docs)
-* [APIs](https://nhnent.github.io/tui.date-picker/latest)
-
-You can also see the older versions of API page on the [releases page](https://github.com/nhnent/tui.date-picker/releases).
-
-
 ## 💬 Contributing
-* [Code of Conduct](https://github.com/nhnent/tui.date-picker/blob/production/CODE_OF_CONDUCT.md)
-* [Contributing guideline](https://github.com/nhnent/tui.date-picker/blob/production/CONTRIBUTING.md)
-* [Issue guideline](https://github.com/nhnent/tui.date-picker/blob/production/docs/ISSUE_TEMPLATE.md)
-* [Commit convention](https://github.com/nhnent/tui.date-picker/blob/production/docs/COMMIT_MESSAGE_CONVENTION.md)
+* [Code of Conduct](https://github.com/nhn/tui.date-picker/blob/production/CODE_OF_CONDUCT.md)
+* [Contributing guideline](https://github.com/nhn/tui.date-picker/blob/production/CONTRIBUTING.md)
+* [Issue guideline](https://github.com/nhn/tui.date-picker/blob/production/docs/ISSUE_TEMPLATE.md)
+* [Commit convention](https://github.com/nhn/tui.date-picker/blob/production/docs/COMMIT_MESSAGE_CONVENTION.md)
 
 
-## 🔩 Dependency
-* [tui-code-snippet](https://github.com/nhnent/tui.code-snippet) >=1.2.5
-* [tui-time-picker](https://github.com/nhnent/tui.time-picker) >=1.0.0
-* [jquery](https://jquery.com/) >=1.11.0
+## 🍞 TOAST UI Family
+
+* [TOAST UI Editor](https://github.com/nhn/tui.editor)
+* [TOAST UI Calendar](https://github.com/nhn/tui.calendar)
+* [TOAST UI Chart](https://github.com/nhn/tui.chart)
+* [TOAST UI Image-Editor](https://github.com/nhn/tui.image-editor)
+* [TOAST UI Grid](https://github.com/nhn/tui.grid)
+* [TOAST UI Components](https://github.com/nhn)
 
 
 ## 📜 License
 
-This software is licensed under the [MIT](https://github.com/nhnent/tui.date-picker/blob/production/LICENSE) © [NHN Entertainment](https://github.com/nhnent).
+This software is licensed under the [MIT](https://github.com/nhn/tui.date-picker/blob/production/LICENSE) © [NHN](https://github.com/nhn).

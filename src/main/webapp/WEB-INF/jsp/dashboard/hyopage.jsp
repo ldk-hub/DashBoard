@@ -30,8 +30,8 @@ body { background-color: #30303d; color: #fff; }
 
 
 <!-- Toast Grid -->
-<link rel="stylesheet" type="text/css" href="../static/vendors/tui-gird/tui-grid/dist/tui-grid.css" />
-<link rel="stylesheet" type="text/css" href="../static/vendors/tui-gird/tui-pagination/dist/tui-pagination.css" />
+<link rel="stylesheet" type="text/css" href="../static/vendors/toast/tui-grid/dist/tui-grid.css" />
+<link rel="stylesheet" type="text/css" href="../static/vendors/toast/tui-pagination/dist/tui-pagination.css" />
  <!-- Datatables -->
  <link href="../static/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
  <link href="../static/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
@@ -245,11 +245,13 @@ body { background-color: #30303d; color: #fff; }
             
           </div>
           
-<script	src="../static/vendors/tui-gird/tui-code-snippet/dist/tui-code-snippet.js"></script>
-<script	src="../static/vendors/tui-gird/tui-date-picker/dist/tui-date-picker.js"></script>
-<script src="../static/vendors/tui-gird/tui-grid/dist/tui-grid.js"></script>
-<script	src="../static/vendors/tui-gird/tui-pagination/dist/tui-pagination.js"></script>
-<script	src="../static/vendors/tui-gird/tui-time-picker/dist/tui-time-picker.js"></script>
+<script	src="../static/vendors/toast/tui-code-snippet/dist/tui-code-snippet.js"></script>
+<script	src="../static/vendors/toast/tui-date-picker/dist/tui-date-picker.js"></script>
+<script src="../static/vendors/toast/tui-grid/dist/tui-grid.js"></script>
+<script	src="../static/vendors/toast/tui-pagination/dist/tui-pagination.js"></script>
+<script	src="../static/vendors/toast/tui-time-picker/dist/tui-time-picker.js"></script>
+
+
 <script src="../static/vendors/amcharts4/core.js"></script>
 <script src="../static/vendors/amcharts4/charts.js"></script>
 <script src="../static/vendors/amcharts4/maps.js"></script>

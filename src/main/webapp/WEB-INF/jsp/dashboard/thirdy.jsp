@@ -3,11 +3,8 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
 <!-- Toast Grid -->
-<link rel="stylesheet" type="text/css"	href="../static/vendors/tui-gird/tui-grid/dist/tui-grid.css" />
-<link rel="stylesheet" type="text/css"	href="../static/vendors/tui-gird/tui-time-picker/dist/tui-time-picker.css" />
-<link rel="stylesheet" type="text/css"	href="../static/vendors/tui-gird/tui-pagination/dist/tui-pagination.css" />
-<link rel="stylesheet" type="text/css"	href="../static/vendors/tui-gird/tui-date-picker/dist/tui-date-picker.css" />
-
+<link rel="stylesheet" type="text/css" href="../static/vendors/toast/tui-grid/dist/tui-grid.css" />
+<link rel="stylesheet" type="text/css" href="../static/vendors/toast/tui-pagination/dist/tui-pagination.css" />
 
 <div class="right_col" role="main" style="background-color: #5c5c5c38;">
 	<div class="row">
@@ -117,11 +114,11 @@
 </div>
 
 <!-- tui-grid -->
-<script src="../static/vendors/tui-gird/tui-code-snippet/dist/tui-code-snippet.js"></script>
-<script src="../static/vendors/tui-gird/tui-grid/dist/tui-grid.js"></script>
-<script	src="../static/vendors/tui-gird/tui-date-picker/dist/tui-date-picker.js"></script>
-<script	src="../static/vendors/tui-gird/tui-pagination/dist/tui-pagination.js"></script>
-<script	src="../static/vendors/tui-gird/tui-time-picker/dist/tui-time-picker.js"></script>
+<script	src="../static/vendors/toast/tui-code-snippet/dist/tui-code-snippet.js"></script>
+<script	src="../static/vendors/toast/tui-date-picker/dist/tui-date-picker.js"></script>
+<script src="../static/vendors/toast/tui-grid/dist/tui-grid.js"></script>
+<script	src="../static/vendors/toast/tui-pagination/dist/tui-pagination.js"></script>
+<script	src="../static/vendors/toast/tui-time-picker/dist/tui-time-picker.js"></script>
 
 <script type="text/javascript">
 	var Now = new Date();

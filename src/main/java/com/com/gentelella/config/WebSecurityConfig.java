@@ -46,7 +46,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	        .and()
 	      .logout()
 		      .logoutRequestMatcher(new AntPathRequestMatcher("/logout")) //logout 을 호출할 경우 로그아웃
-	          .invalidateHttpSession(true) //세션날리기
+	          .invalidateHttpSession(false) //세션날리기
 	          .logoutSuccessUrl("/login") //로그아웃 성공시 이동할 경로
 	          .and()
 	          // Remember Me 추가
@@ -59,7 +59,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	          .tokenValiditySeconds(2419200)       // 쿠키유지 시간(설정되어있지 않으면 기본 2주)
 	          .and()
 	          .sessionManagement()
-	          .maximumSessions(1)//최대접속세션계정당 1개
+	          .maximumSessions(4)//최대접속세션계정당 1개
 	          .maxSessionsPreventsLogin(true)//이전세션 강퇴시키고 새로접속시도한사람이 들어가게끔
 	          .expiredUrl("/500error");
 	    //.antMatchers("/kakao").hasAuthority(KAKAO.getRoleType())//카카오  해당 권한을 지닌 사용자만 경로를 사용할 수 있도록 통제
