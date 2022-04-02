@@ -187,10 +187,10 @@ var grid1 = new tui.Grid({
     		header : '상세내용',
     		name : 'file_name',
    			align: 'center',
-   			whiteSpace: 'pre-line',
-   		 	formatter : function(value, rowData) {
-             return "<img src='" + value +"'width='370px;'height='120px;'/>";
-         }
+   		//	whiteSpace: 'pre-line',
+   		 //	formatter : function(value, rowData) {
+         //    return "<img src='" + value +"'width='370px;'height='120px;'/>";
+         //}
     	},
     	{
     		header : '상황발생일',
