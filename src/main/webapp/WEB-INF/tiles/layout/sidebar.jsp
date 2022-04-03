@@ -22,12 +22,12 @@
 	<!-- sidebar 메뉴 창 -->
 	<div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
 	    <div class="menu_section">
-	        <h3>업무관리 목록</h3>
+	        <h3>업무목록</h3>
 	        <ul class="nav side-menu">
-	        	<li><a href="dashboard" ><i class="fa fa-desktop"></i> 통합정보 <span class="label label-success pull-right">청산파트</span></a></li>
-	            <li><a href="hyopage"><i class="fa  fa-bar-chart-o"></i> 차트정보 <span class="label label-success pull-right">결제파트</span></a></li>
-	            <li><a href="thirdy"><i class="fa fa-cogs"></i> 이벤트관리 <span class="label label-success pull-right">등록파트</span></a></li>
-	            <li><a href="calendar"><i class="fa fa-calendar"></i>일정정보</a></li>
+	        	<li><a href="dashboard" ><i class="fa fa-desktop"></i> 통합정보 <span class="label label-success pull-right">공사중</span></a></li>
+	            <li><a href="hyopage"><i class="fa  fa-bar-chart-o"></i> 차트정보 <span class="label label-success pull-right">공사중</span></a></li>
+	            <li><a href="thirdy"><i class="fa fa-cogs"></i> 이벤트관리 <span class="label label-success pull-right">공사중</span></a></li>
+	            <li><a href="calendar"><i class="fa fa-calendar"></i>일정관리</a></li>
 	            <li><a href="secondery"><i class="fa fa-tachometer"></i>모니터링</a></li>
 	            <li><a href="bitcoin"><i class="fa fa-btc"></i>거래소</a></li>
 	        </ul>

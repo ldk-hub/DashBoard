@@ -8,7 +8,7 @@
 
 <div class="right_col" role="main" style="background-color: #5c5c5c38;">
 	<div class="row">
-		<div class="col-md-12 col-sm-12 col-xs-12" style="position: relative; z-index: 0;">
+		<div class="col-md-7 col-sm-7 col-xs-12" style="position: relative; z-index: 0;">
 			<div class="x_panel" style="background-color: #2f2e2e; border-color: #000000;">
 				<div class="x_title">
 					<h2 style="color: #c3f400">
@@ -46,11 +46,17 @@
 					</div>
 					<div class="clearfix"></div>
 				</div>
+				
+		<div class="col-md-5 col-sm-5 col-xs-12" style="position: relative; z-index: 0;">
+			<div class="x_panel" style="background-color: #2f2e2e; border-color: #000000;">
+				<div class="x_title">
+					<h2 style="color: #c3f400">
+						<strong>이벤트 관리</strong>
+					</h2>
+					<div class="clearfix"></div>
+				</div>
 				<div class="x_content">
-					<div class="row marginB5">
-							<h2 class=" col-md-4 spanBTitle"><strong>이벤트 처리등록</strong></h2>
-					</div>
-						<div class="col-md-12 col-sm-12 col-xs-12">
+					
 							<div class="x_panel" style="background-color: #2f2e2e;">
 							<!-- 나중에 실제 서비스때 id바꿔센 명칭 -->
 							<form class="" action="" method="post" novalidate>
@@ -109,6 +115,7 @@
 								<button type="button" id="issueChkBtn" class="btn btn-primary">등록</button>
 							</div>
 			</div>
+		</div>
 		</div>
 	</div>
 </div>
