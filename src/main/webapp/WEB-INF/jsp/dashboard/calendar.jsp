@@ -6,7 +6,11 @@
 	 <!-- bootstrap-datetimepicker -->
     <link href="../static/vendors/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
   <!-- 캘린더 API S -->
+  
+	
         <div class="right_col" role="main" style="background-color:#5c5c5c38;">
+        <div class="row">
+		<div class="col-md-7 col-sm-7 col-xs-12" style="position: relative; z-index: 0;">
             <div class="clearfix"></div>
             <div class="row">
               <div class="col-md-12">
@@ -28,6 +32,8 @@
 
                     <div id='calendar'></div>
 
+                  </div>
+                  </div>
                   </div>
                 </div>
               </div>

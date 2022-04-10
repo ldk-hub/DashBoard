@@ -186,7 +186,7 @@
 			}
 		},
 		scrollX : true,
-		bodyHeight : 350,
+		bodyHeight : 500,
 		rowHeaders : [ 'rowNum' ],
 		rowHeight : 30,
 		columnOptions : {

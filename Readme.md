@@ -51,6 +51,9 @@
 ### :alarm_clock: RealTime Monitoring Page
 ![screencapture-localhost-9110-secondery-2019-08-14-13_06_51](https://user-images.githubusercontent.com/12209348/62994062-f7013700-be94-11e9-9c0b-ac9eab6c3510.png)
 
+### Trade Page
+![5page](https://user-images.githubusercontent.com/12209348/162602694-10ef290d-82fa-4b89-8cea-536b934f73ac.png)
+
 
 ### :octocat: 개발예정
 1. jpa   
