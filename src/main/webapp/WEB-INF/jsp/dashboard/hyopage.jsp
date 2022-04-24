@@ -180,48 +180,6 @@ body { background-color: #30303d; color: #fff; }
 					<div class="col-md-12 col-sm-12 col-xs-12">
 						<div class="x_panel" style="background-color:#2f2e2e;">
 							<div class="x_title">
-								<h2>라이브 차트 샘플 1</h2>
-									<ul class="nav navbar-right panel_toolbox">
-									<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-									</li>
-									<li class="dropdown"><a href="#" class="dropdown-toggle"
-										data-toggle="dropdown" role="button" aria-expanded="false"><i
-											class="fa fa-wrench"></i></a></li>
-									<li><a class="close-link"><i class="fa fa-close"></i></a></li>
-								</ul>
-								<div class="clearfix"></div>
-							</div>
-			                  <div class="x_content">
-								<div id="live_chart"></div>
-			                  </div>
-			                </div>
-			              </div>
-					</div>
-					<div class="row">
-					<div class="col-md-12 col-sm-12 col-xs-12">
-						<div class="x_panel" style="background-color:#2f2e2e;">
-							<div class="x_title">
-								<h2>라이브 차트 샘플 2</h2>
-									<ul class="nav navbar-right panel_toolbox">
-									<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-									</li>
-									<li class="dropdown"><a href="#" class="dropdown-toggle"
-										data-toggle="dropdown" role="button" aria-expanded="false"><i
-											class="fa fa-wrench"></i></a></li>
-									<li><a class="close-link"><i class="fa fa-close"></i></a></li>
-								</ul>
-								<div class="clearfix"></div>
-							</div>
-			                  <div class="x_content">
-								<div id="stock_chart"></div>
-			                  </div>
-			                </div>
-			              </div>
-					</div>
-					<div class="row">
-					<div class="col-md-12 col-sm-12 col-xs-12">
-						<div class="x_panel" style="background-color:#2f2e2e;">
-							<div class="x_title">
 								<h2>라이브 차트 샘플 3</h2>
 									<ul class="nav navbar-right panel_toolbox">
 									<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>

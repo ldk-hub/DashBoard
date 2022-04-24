@@ -39,7 +39,7 @@
 ![screencapture-localhost-9110-dashboard-2019-12-28-13_21_32](https://user-images.githubusercontent.com/12209348/71538837-455f3000-2975-11ea-9f2c-240ce6180186.png)
 
 ## :chart_with_upwards_trend: Data Edit Page
-![screencapture-localhost-9090-hyopage-2019-08-10-11_53_15](https://user-images.githubusercontent.com/12209348/62841157-bca26900-bcdf-11e9-894a-2d77cfc81e2f.png)
+![data_processing_page](https://user-images.githubusercontent.com/12209348/163711294-c56d355f-6130-4390-a071-7ed85f9962fb.png)
 
 ## :calendar: Schedule Page
 ![screencapture-localhost-9110-calendar-2019-08-13-11_04_55](https://user-images.githubusercontent.com/12209348/62910147-6524fb80-bdba-11e9-96c3-aeff500369ea.png)
@@ -61,6 +61,17 @@
 2. 람다, 스트림 LocalTimeDate, Optional 사용 및 리팩토링 작업 
 3. 주요로직 테스트 코드 작성
 4. 네이버 뉴스 api 정보
+5. 깃허브 커밋 컨벤션 적용
+   ```
+   적용샘플예시
+   Feat: "회원 가입 기능 구현"
+
+   SMS, 이메일 중복확인 API 개발
+
+   Resolves: #123
+   Ref: #456
+   Related to: #48, #45
+   ```
 
 
 ### :thumbsup: 완료내역
