@@ -28,8 +28,9 @@
 
 
 <div class="right_col" role="main">
-<input id="hiddenName" type="hidden" value="">
-<input id="hiddenCode" type="hidden" value="MTC">	
+<input id="hiddenName" type="hidden" value="비트코인">
+<input id="hiddenCode" type="hidden" value="BTC">	
+<input id="hiddenPrice" type="hidden" value="0">
 	
 	<div class="col-md-5 col-sm-5 col-xs-12"
 			style="position: relative; z-index: 0;">
@@ -401,7 +402,7 @@ function stockTransaction(){
 			data : {
 				api : {
 					readData : {
-						url : '/totalStockList',
+						url : '/coinList',
 						method : 'POST'
 					}
 				}
@@ -414,28 +415,28 @@ function stockTransaction(){
 	      columns: [
 	        {
 	          header: '종목명',
-	          name: 'krname',
+	          name: 'coin_name',
 	          align: 'center'
 	        },
 	        {
 	          header: '-숨김처리-',
-	          name: 'name'
+	          name: 'coin_code'
 	        },
 	        {
 	          header: '현재가',
-	          name: 'price',
+	          name: 'stock_count',
 	          align: 'right',
 	          sortable : true
 	        },
 	        {
 	          header: '전일대비',
-	          name: 'daebi',
+	          name: 'stock_price',
 	          align: 'center',
 	          sortable : true,
 	        },
 	        {
 	          header: '거래대금',
-	          name: 'amount',
+	          name: 'stock_price',
 	          align: 'right',
 	          sortable : true
 	        }
@@ -447,14 +448,15 @@ function stockTransaction(){
 	grid2.on('mousedown', function(ev) {
 		 grid1.clear();
 	    //매수쪽데이터
-	    $('#buycoinCode').val(grid2.getValue(ev.rowKey,'name'));
-	    $('#buycoinName').val(grid2.getValue(ev.rowKey,'krname'));
+	    $('#buycoinCode').val(grid2.getValue(ev.rowKey,'coin_code'));
+	    $('#buycoinName').val(grid2.getValue(ev.rowKey,'coin_name'));
 	    //히든 데이터
-	    $('#hiddenName').val(grid2.getValue(ev.rowKey,'krname'));
-	    $('#hiddenCode').val(grid2.getValue(ev.rowKey,'name'));
+	    $('#hiddenName').val(grid2.getValue(ev.rowKey,'coin_name'));
+	    $('#hiddenCode').val(grid2.getValue(ev.rowKey,'coin_code'));
+	    $('#hiddenPrice').val(grid2.getValue(ev.rowKey,'stock_count'));
 	    //매도쪽데이터
-	    $('#sellcoinCode').val(grid2.getValue(ev.rowKey,'name'));
-	    $('#sellcoinName').val(grid2.getValue(ev.rowKey,'krname'));
+	    $('#sellcoinCode').val(grid2.getValue(ev.rowKey,'coin_code'));
+	    $('#sellcoinName').val(grid2.getValue(ev.rowKey,'coin_name'));
 	    
 	    hogaStockInfofunc();
 	    stockTransaction();
@@ -690,6 +692,7 @@ $("#sellPrice, #sellstockCnt").on('keyup',function(){
 			data : {
 						"HiddenCoinName" : document.getElementById('hiddenName').value,
 						"HiddenStockCode" : document.getElementById('hiddenCode').value,
+						"HiddenstockCoinPrice": document.getElementById('hiddenPrice').value,
 					},
 			success : function(result) {
 				$('#buyhoga').empty();

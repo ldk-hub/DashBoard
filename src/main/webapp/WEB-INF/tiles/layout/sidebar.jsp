@@ -29,7 +29,7 @@
 	            <li><a href="thirdy"><i class="fa fa-cogs"></i> 이벤트관리 <span class="label label-success pull-right">공사중</span></a></li>
 	            <li><a href="calendar"><i class="fa fa-calendar"></i>일정관리</a></li>
 	            <li><a href="secondery"><i class="fa fa-tachometer"></i>모니터링</a></li>
-	            <li><a href="bitcoin"><i class="fa fa-btc"></i>거래소</a></li>
+	            <li><a href="tradeService"><i class="fa fa-btc"></i>거래소</a></li>
 	        </ul>
 	    </div>
 	</div>
