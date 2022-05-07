@@ -419,7 +419,7 @@ function stockTransaction(){
 	          align: 'center'
 	        },
 	        {
-	          header: '-숨김처리-',
+	          header: '종목코드',
 	          name: 'coin_code'
 	        },
 	        {
