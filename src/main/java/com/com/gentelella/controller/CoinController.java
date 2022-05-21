@@ -1,7 +1,6 @@
 package com.com.gentelella.controller;
 
 import java.sql.SQLException;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.com.gentelella.repository.CoinRepository;
 import com.com.gentelella.vo.CoinData;
+import com.com.gentelella.vo.CoinHogaData;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -89,6 +89,20 @@ public class CoinController {
 			String stockBuyName = paramMap.get("buyStockName");//종목명
 			long stockBuyPrice = Integer.parseInt(paramMap.get("buyStock"));//매수가격
 			long stockBuyVolume = Integer.parseInt(paramMap.get("buyStockCnt"));//수량
+			
+			//JPA를 빌더를 사용하여 insert 하는 로직
+			CoinHogaData entity = CoinHogaData.builder()
+											  .coin_code(userInfo)
+											  .coin_name(stockBuyName)
+											  .hoga_data(stockBuyPrice)
+											  .total_price(stockBuyPrice)
+											  .stock_count(stockBuyVolume)
+											  .stock_price(stockBuyPrice)
+											  .build();
+			//jpa .save()<<--- insert 
+			coinRepository.save(entity);
+			//jpa .delete() <<-- delete
+			//coinRepository.delete(stockBuyVolume);
 			//매수액션
 			//SME.getMatcher(stockBuyName).buy(stockBuyPrice, stockBuyVolume, userInfo);
 			//SME.getMatcher(stockBuyName).getOrderList(userInfo).forEach(System.out::println);
@@ -107,6 +121,21 @@ public class CoinController {
 		String stockSellName = paramMap.get("sellStockName");//종목명
 		long stockSellPrice = Integer.parseInt(paramMap.get("sellStock"));//매수가격
 		long stockSellVolume = Integer.parseInt(paramMap.get("sellStockCnt"));//수량
+		
+		
+		//매도 테이블 로직도짜야함
+//		CoinHogaData entity = CoinHogaData.builder()
+//										  .coin_code(userInfo)
+//										  .coin_name(stockBuyName)
+//										  .hoga_data(stockBuyPrice)
+//										  .total_price(stockBuyPrice)
+//										  .stock_count(stockBuyVolume)
+//										  .stock_price(stockBuyPrice)
+//										  .build();
+//
+//		coinRepository.save(entity);
+//			
+			
 		// 주문 제출
 	    //SME.getMatcher(stockSellName).sell(stockSellPrice, stockSellVolume, userInfo);
 	    //찍어보기
