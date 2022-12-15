@@ -72,8 +72,8 @@ public class CoinController {
 				//data.put("stockBuyHoga", BuyList);
 				
 				//매도호가
-			   // List<HogaInfo> SellList =   SME.getMatcher(HiddenStockCode).getSellList();
-			  //  Collections.reverse(SellList);//리스트 역순으로 리버스 시킴 호가창 순서 출력때문에
+			    //List<HogaInfo> SellList =   SME.getMatcher(HiddenStockCode).getSellList();
+			   // Collections.reverse(SellList);//리스트 역순으로 리버스 시킴 호가창 순서 출력때문에
 			  //  data.put("stockSellHoga", SellList);
 		    return data;
 		}
@@ -155,19 +155,7 @@ public class CoinController {
 		//List<MatchInfo> MatchList = SME.getMatcher(stockBuyName).getMatchList(null);
 		HashMap <String,Object> res = new HashMap <String,Object>();
 		HashMap <String,Object> data = new HashMap <String,Object>();
-		long test3 = 0;
-		
-		//널 체크
-//		if(MatchList.equals(null)== false) {
-//			for (int i =0; i<MatchList.size(); i++) {
-//				long test = MatchList.get(i).price;
-//				long test2 = MatchList.get(i).amount;
-//			test3 =(test * test2);
-//				MatchList.get(i).strTotal = String.valueOf(test3);
-//			}
-//		}
-//		
-//		
+	
 //		data.put("contents", MatchList);
 //		res.put("result",true);
 //		res.put("data",data);
@@ -181,7 +169,28 @@ public class CoinController {
 		return null;
 	}
 	
-	
+	//jpa 호출 로직 시작
+		/*EntityManagerFactory emf = Persistence.createEntityManagerFactory("hello");//퍼시스턴스유닛 네임 설정한 DB랑 맵핑해서 정보 호출
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		
+		tx.begin();//트랜잭션시작
+			try {
+				//내부 로직 돌리기
+				MainData md = new MainData();
+				//테이블 여러번 호출테스트
+				
+				System.out.println("@$!#!@#!@#!@#"+md.toString());
+				tx.commit();//작업내용 삽입
+			}catch(Exception e) {
+				tx.rollback();//트랜잭션 오류발생시 롤백
+			}finally {
+				em.close();//엔티티매니저 종료
+			}
+		emf.close();//모든 플로우 진행 후종료
+	*/		//jpa 호출 로직 종료
+		
+		
 	
 	
 }

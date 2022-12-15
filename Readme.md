@@ -2,39 +2,38 @@
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fldk-hub%2FDashBoard&count_bg=%235A8738&title_bg=%236D1313&icon=&icon_color=%23FF0000&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 [![HitCount](https://img.shields.io/badge/lisence-MIT-green.svg)](https://github.com/ldk-hub/DashBoard/blob/master/LICENSE)
 
-### :confetti_ball: Introduce Menu List
-
- * [API리스트](#API리스트)
- * [개발예정](#개발예정)
- * [개발이슈](#개발이슈)
- * [완료내역](#개발완료내역)
- * [개발환경](#개발환경)
-
 ### :raising_hand: Develop Motive  
-하나의 화면에서 필요한 정보를 쉽고 빠르게 모듈화하여 사용자의 편의성을 제공하기 위한 통합정보시스템을 목적으로 개발하였으며 다양한 산업군에서 오픈소스를 활용한 플랫폼으로 여러 가지의 샘플 기능을 활용한 다양한 확장성을 가진 웹시스템 개발을 목적으로 개발 중에 있습니다.  
+ - 데이터 도식화를 통해 보기 쉽게 모듈화
+ - 한 화면에서 다양한 데이터를 볼 수 있도록 통합정보시스템 구축
+ - 다양한 데이터 표현방식을 위한 오픈소스 및 오픈 API를 활용한 플랫폼 구성
+ - 실험적 샘플 기능을 활용한 다양한 확장성 실무에 접목 
 
 ## :sparkles: Main Page
 ![녹화_2019_12_28_13_50_01_980](https://user-images.githubusercontent.com/12209348/71539042-5dd14980-2979-11ea-973a-dc58d91aa385.gif)
 
-## :milky_way: Hybrid Web 반응형웹  
+## :milky_way: Web Hybrid Mobile Page 
+![web_mobile](https://user-images.githubusercontent.com/12209348/172041678-1394608a-8cfa-4bda-a27a-ae5657e126ad.gif)
 ![녹화_2020_07_06_20_37_57_94](https://user-images.githubusercontent.com/12209348/86919343-0bac8480-c163-11ea-964d-27a09acf5618.gif)  
 
-### :lock: Social Login REST API (kakao)  
+### :lock: Spring Security OAuth2.0 Login Action (kakao)  
 ![kakaologin1](https://user-images.githubusercontent.com/12209348/93009605-071aa700-f5be-11ea-919d-d857eb2b3f91.gif)  
 
-## kakao access infomation
-![kakao login](https://user-images.githubusercontent.com/12209348/93009603-05e97a00-f5be-11ea-80b7-857aaf9ce214.PNG)  
+## :bookmark:Chatting 
+![녹화_2022_05_29_13_07_39_191](https://user-images.githubusercontent.com/12209348/170851816-fd207a88-1003-4120-bb40-73d88d1864f4.gif)
 
 ### -- login, security, SMTP E-mail Find Password, Membership page (Add regular expression) --
 ![녹화_2020_09_17_19_58_26_640](https://user-images.githubusercontent.com/12209348/93462004-93133280-f920-11ea-9e8b-f371971def37.gif)  
 
 ## :traffic_light: local PC(server) infomation(CPU, Memory etc.)
-
 ![CPU측정](https://user-images.githubusercontent.com/12209348/71538778-79862100-2974-11ea-891f-e0706ec22af9.gif)
 
 ![default](https://user-images.githubusercontent.com/12209348/43362948-91c6f26e-9332-11e8-9ef2-5738fb58c32e.PNG)
 
+## :tada: Trade Page
+![녹화_2022_05_29_13_18_18_950](https://user-images.githubusercontent.com/12209348/170852063-99c0104d-7fdc-4853-bc5f-96c162f6ca4b.gif)
 
+## OAuth2.0 kakao login access infomation
+![kakao login](https://user-images.githubusercontent.com/12209348/93009603-05e97a00-f5be-11ea-80b7-857aaf9ce214.PNG)  
 
 ![screencapture-localhost-9110-dashboard-2019-12-28-13_21_32](https://user-images.githubusercontent.com/12209348/71538837-455f3000-2975-11ea-9f2c-240ce6180186.png)
 
@@ -56,23 +55,10 @@
 
 
 ### :octocat: 개발예정
-1. jpa   
-   - 양방향조회, 역방향조회, fetch조인, lazy옵션, spring jpa, querydsl   
-2. 람다, 스트림 LocalTimeDate, Optional 사용 및 리팩토링 작업 
-3. 주요로직 테스트 코드 작성
-4. 네이버 뉴스 api 정보
-5. 깃허브 커밋 컨벤션 적용
-   ```
-   적용샘플예시
-   Feat: "회원 가입 기능 구현"
-
-   SMS, 이메일 중복확인 API 개발
-
-   Resolves: #123
-   Ref: #456
-   Related to: #48, #45
-   ```
-
+1. jpa - 양방향조회, 역방향조회, fetch조인, lazy옵션, spring jpa, querydsl   
+2. 주요 기능 테스트 코드 작성
+3. 람다, 스트림 LocalTimeDate, Optional 사용 및 리팩토링 작업 
+  
 
 ### :thumbsup: 완료내역
 1. 시큐리티 로그인, 로그아웃 세션처리 완료(jpa사용)
@@ -111,6 +97,17 @@
 27. 스프링시큐리티 로그인 유저정보 호출로직 변경(ver. up)
 28. postgresql jdbc 최신버전 변경 완료(버전별 호환성버그발생)
 29. tui-grid4 ver 소스 맵핑 최신화 완료
+30. 깃허브 커밋 컨벤션 적용
+```
+   적용샘플예시
+   Feat: "회원 가입 기능 구현"
+
+   SMS, 이메일 중복확인 API 개발
+
+   Resolves: #123
+   Ref: #456
+   Related to: #48, #45
+```
 
 
 ### :point_right: 적용 API리스트  
@@ -152,8 +149,5 @@
 1. 라이브러리 통합 저장소 추가 /dist 디렉토리 사라지는 버그발생
 2. 일부 라이브러리 CORS 이슈 발생
 3. dashboard 속도저하 이슈 발생
-
-## 개발참조
- - 네이버 검색API 뉴스 크롤링 기능 도큐먼트 https://developers.naver.com/docs/search/news/
 
 ## 해당 소스 관련 문의는 issue 탭에 문의 주시면 답변드리겠습니다.

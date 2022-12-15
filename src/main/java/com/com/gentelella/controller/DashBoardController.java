@@ -354,27 +354,6 @@ public class DashBoardController {
 	}
 
 	
-	//jpa 호출 로직 시작
-	/*EntityManagerFactory emf = Persistence.createEntityManagerFactory("hello");//퍼시스턴스유닛 네임 설정한 DB랑 맵핑해서 정보 호출
-	EntityManager em = emf.createEntityManager();
-	EntityTransaction tx = em.getTransaction();
-	
-	tx.begin();//트랜잭션시작
-		try {
-			//내부 로직 돌리기
-			MainData md = new MainData();
-			//테이블 여러번 호출테스트
-			
-			System.out.println("@$!#!@#!@#!@#"+md.toString());
-			tx.commit();//작업내용 삽입
-		}catch(Exception e) {
-			tx.rollback();//트랜잭션 오류발생시 롤백
-		}finally {
-			em.close();//엔티티매니저 종료
-		}
-	emf.close();//모든 플로우 진행 후종료
-*/		//jpa 호출 로직 종료
-	
 	
 	//웹소켓 파트
 	//STOMP 란 ?

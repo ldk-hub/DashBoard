@@ -32,11 +32,11 @@ public class IpCheckInterceptor implements HandlerInterceptor {
 		//null값일 경우에만 해당 게이트웨이 정보를 담는 다.
 		if(ipAddress == null) {
 			ipAddress = request.getRemoteAddr();
-			logger.info("이건 기본게이트웨이 주소 정보 : >>"+ipAddress);
+			//logger.info("이건 기본게이트웨이 주소 정보 : >>"+ipAddress);
 		}
 
 		InetAddress realIp = InetAddress.getLocalHost();
-		logger.info("이건 접근한 대상자의 리얼 아이피 정보를 가져오는정보임>>"+realIp);
+		//logger.info("이건 접근한 대상자의 리얼 아이피 정보를 가져오는정보임>>"+realIp);
 
 		//아이피 정보없는 케이스와 지정한 IP를 대조하여 시스템에 접근할 수 있도록 제어
 //		if(ipAddress.equals("127.0.0.1") && ipAddress != null) {
